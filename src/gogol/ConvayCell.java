@@ -13,5 +13,10 @@ public class ConvayCell implements Cell {
 	{
 		alive = !alive;
 	}
-
+	@Override
+	public boolean getStatus() 
+	{
+		return alive;
+	}
+	
 }
