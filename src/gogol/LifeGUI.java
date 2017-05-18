@@ -28,6 +28,7 @@ public class LifeGUI
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         layoutManager.setVgap(500);
         layoutManager.setHgap(500);
+        gamegrid.setupGrid();
     }
 
     private void createButtons()
