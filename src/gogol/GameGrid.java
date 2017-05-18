@@ -15,7 +15,7 @@ public class GameGrid extends JPanel
 
     public GameGrid()
     {
-        super();
+
         sizeX = 600;
         sizeY = 600;
         tileSize = 20;
@@ -32,8 +32,8 @@ public class GameGrid extends JPanel
 
     public void setupGrid()
     {
-
-        gridPainter.setColor(Color.CYAN);
+        gridPainter = this.getGraphics();
+        gridPainter.setColor(Color.black);
 
         //draw horizontal lines
         for(int x = 0; x < sizeX; x = x + tileSize)
@@ -49,5 +49,13 @@ public class GameGrid extends JPanel
             gridPainter.drawLine(y, 0, y, sizeX);
         }
         gridPainter.drawRect(0,0,50,50);
+        gridPainter.drawOval(0,0,40,40);
+    }
+
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        setupGrid();
     }
 }

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dffb058a-f011-440d-b40b-2f1f18c92d8a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gogol/GameGridTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameOfLife.iml" afterPath="$PROJECT_DIR$/GameOfLife.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gogol/ConvayCell.java" afterPath="$PROJECT_DIR$/src/gogol/ConvayCell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gogol/GameGrid.java" afterPath="$PROJECT_DIR$/src/gogol/GameGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gogol/LifeGUI.java" afterPath="$PROJECT_DIR$/src/gogol/LifeGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LifeGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LifeGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gogol/LifeGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
+            <state relative-caret-position="273">
               <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -44,15 +40,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameGrid.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gogol/GameGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="86">
+              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,9 +93,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/gogol/GameGridTest.java" />
-        <option value="$PROJECT_DIR$/src/gogol/LifeGUI.java" />
         <option value="$PROJECT_DIR$/src/gogol/ConvayCell.java" />
         <option value="$PROJECT_DIR$/src/gogol/GameGrid.java" />
+        <option value="$PROJECT_DIR$/src/gogol/LifeGUI.java" />
       </list>
     </option>
   </component>
@@ -569,7 +565,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1495112024732</updated>
-      <workItem from="1495112026927" duration="5292000" />
+      <workItem from="1495112026927" duration="5948000" />
     </task>
     <task id="LOCAL-00001" summary="raw gui impl">
       <created>1495113611560</created>
@@ -578,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495113611560</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="//TODO paint grid">
+      <created>1495117336727</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495117336727</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -590,7 +593,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5292000" />
+    <option name="totallyTimeSpent" value="5948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -628,7 +631,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="raw gui impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="raw gui impl" />
+    <MESSAGE value="//TODO paint grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="//TODO paint grid" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -667,18 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gogol/LifeGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#984#985#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gogol/ConvayCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -696,12 +688,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gogol/GameGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="86">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gogol/LifeGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
           </folding>
         </state>
       </provider>
