@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="GGOL" company="Umbrella Corporation" webLink="https://www.github.com/Hoppix" view-date="2017-05-08" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.4" locale="en_GB">
+    <description><![CDATA[Game of Game of Life]]></description>
+    <view zooming-state="default:4" id="gantt-chart">
+        <field id="tpd3" name="Name" width="167" order="0"/>
+        <field id="tpd4" name="Begin date" width="65" order="1"/>
+        <field id="tpd5" name="End date" width="64" order="2"/>
+        <timeline><![CDATA[0,2]]></timeline>
+        <option id="color.recent"><![CDATA[#ff99cc #666666 #00cccc #009900 #cc00cc #ffff33 #ff0033]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Abgabe" color="#ff0033" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2017-07-14" duration="1" complete="0" priority="4" expand="true"/>
+        <task id="2" name="Grundimplementation" color="#ffff33" meeting="false" start="2017-05-18" duration="14" complete="0" thirdDate="2017-05-18" thirdDate-constraint="0" priority="2" expand="true"/>
+        <task id="13" name="Automatisierung" color="#8cb6ce" meeting="false" start="2017-06-02" duration="7" complete="0" expand="true"/>
+        <task id="15" name="Rainbow" color="#cc00cc" meeting="false" start="2017-06-10" duration="7" complete="0" expand="true"/>
+        <task id="16" name="Bio" color="#009900" meeting="false" start="2017-06-18" duration="7" complete="0" expand="true"/>
+        <task id="20" name="PvP" color="#00cccc" meeting="false" start="2017-06-18" duration="14" complete="0" expand="true"/>
+        <task id="22" name="Doku/Präsi vorbereiten" color="#666666" meeting="false" start="2017-07-03" duration="5" complete="0" expand="true"/>
+        <task id="25" name="Website deployment" color="#ff99cc" meeting="false" start="2017-07-03" duration="5" complete="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
