@@ -8,11 +8,13 @@ public class ConvayCell implements Cell {
 	{
 		alive = false;
 	}
+
 	@Override
 	public void setNextStatus() 
 	{
 		alive = !alive;
 	}
+
 	@Override
 	public boolean getStatus() 
 	{
