@@ -10,5 +10,6 @@ public class Life
         System.out.println("testing");
         GameGrid grid = new GameGrid();
         new LifeGUI(grid);
+        new Controller(grid);
     }
 }

@@ -1,10 +1,10 @@
 package gogol;
 
-public class ConvayCell implements Cell {
+public class ConwayCell implements Cell {
 
 	boolean alive;
 	
-	protected ConvayCell()
+	protected ConwayCell()
 	{
 		alive = false;
 	}

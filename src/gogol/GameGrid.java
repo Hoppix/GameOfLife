@@ -17,7 +17,7 @@ public class GameGrid extends JPanel
         sizeX = 600;
         sizeY = 600;
         this.setSize(sizeX,sizeY);
-        this.setBackground(Color.black);
+        this.setBackground(Color.black);       
     }
 
     @Override

@@ -2,6 +2,9 @@ package gogol;
 
 import javax.swing.JPanel;
 
+/*
+ * is a control freak
+ */
 class Controller 
 {
 	JPanel gamegrid;
@@ -30,16 +33,16 @@ class Controller
 	}
 	
 	/*
-	 * returns the number of alive Neighbours of a cell
+	 * returns the number of alive Neighbors of a cell
 	 */
 	protected int aliveNeighbours(int x, int y)
 	{
-		String mode = "Convay";
+		String mode = "Conway";
 		int count = 0;
 		
 		switch (mode) {
-		case "Convay":
-			count = convayRulez(x, y);
+		case "Conway":
+			count = conwayRulez(x, y);
 			break;
 
 		default:
@@ -49,7 +52,10 @@ class Controller
 		return count;
 	}
 	
-	private int convayRulez(int x, int y)
+	/*
+	 * count alive Neighbors of a cell with the Conway rules
+	 */
+	private int conwayRulez(int x, int y)
 	{
 		int count = 0;
 		
