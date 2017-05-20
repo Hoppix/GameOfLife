@@ -59,15 +59,15 @@ public class GameGrid extends JPanel
 		for (int x = 0; x < sizeX; x = x + tileSize)
 		{
 			System.out.println("line at X " + x);
-			g.drawLine(x, 0, x, sizeY);
+			g.drawLine(x,0,x , sizeY);
 		}
 
 		//draw vertical lines
 		for (int y = 0; y < sizeY; y = y + tileSize)
 		{
 			System.out.println("lineY at Y " + y);
-			this.getGraphics().setColor(Color.blue);
-			g.drawLine(y, 0, y, sizeX);
+			g.drawLine(0,y,sizeX,y);
+
 		}
 	}
 

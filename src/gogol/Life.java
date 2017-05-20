@@ -7,7 +7,6 @@ public class Life
 {
     public static void main(String[] args)
     {
-        System.out.println("testing");
         GameGrid grid = new GameGrid();
         new LifeGUI(grid);
         new Controller(grid);
