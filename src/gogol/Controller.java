@@ -20,15 +20,20 @@ class Controller
 	 * Advance the game by one cycle
 	 */
 	protected void stepForward() 
-	{
-		int x = survivalMatrix[0].length; //all rows have the same length
-		int y = survivalMatrix.length;
+	{		
+		for (int i = 0; i < survivalMatrix.length; i++) 
+		{
+			for (int j = 0; j < survivalMatrix[0].length; j++) 
+			{
+				survivalMatrix[i][j].setNextStatus(aliveNeighbours(i, j));
+			}		
+		}
 		
 		for (int i = 0; i < survivalMatrix.length; i++) 
 		{
 			for (int j = 0; j < survivalMatrix[0].length; j++) 
 			{
-				survivalMatrix[i][j].setNextStatus();
+				survivalMatrix[i][j].updateStatus();
 			}		
 		}
 	}
