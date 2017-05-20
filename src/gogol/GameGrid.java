@@ -26,7 +26,7 @@ public class GameGrid extends JPanel
 		//default color
 		colorBG = Color.black;
 		colorCell = Color.green;
-		colorGrid = Color.green;
+		colorGrid = Color.white;
 
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
@@ -71,14 +71,12 @@ public class GameGrid extends JPanel
 		//draw horizontal lines
 		for (int x = 0; x < sizeX; x = x + tileSize)
 		{
-			System.out.println("line at X " + x);
 			g.drawLine(x, 0, x, sizeY);
 		}
 
 		//draw vertical lines
 		for (int y = 0; y < sizeY; y = y + tileSize)
 		{
-			System.out.println("lineY at Y " + y);
 			g.drawLine(0, y, sizeX, y);
 
 		}
