@@ -12,7 +12,6 @@ public class GameGrid extends JPanel
 	private int sizeY;
 	private int tileSize;
 
-	private Graphics gridPainter;
 
 	private Color colorBG;
 	private Color colorCell;
@@ -33,7 +32,6 @@ public class GameGrid extends JPanel
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
 		this.setLayout(new GridBagLayout());
-		//gridPainter = this.getGraphics();
 	}
 
 	public GameGrid(int x, int y, int tile)
@@ -50,11 +48,10 @@ public class GameGrid extends JPanel
 
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
-		gridPainter = this.getGraphics();
 	}
 
 
-	public void setupGrid(Graphics g)
+	private void setupGrid(Graphics g)
 	{
 		g.setColor(colorGrid);
 
@@ -69,6 +66,7 @@ public class GameGrid extends JPanel
 		for (int y = 0; y < sizeY; y = y + tileSize)
 		{
 			System.out.println("lineY at Y " + y);
+			this.getGraphics().setColor(Color.blue);
 			g.drawLine(y, 0, y, sizeX);
 		}
 	}
@@ -88,8 +86,8 @@ public class GameGrid extends JPanel
 		{
 			if (cell.getStatus())
 			{
-				gridPainter.setColor(colorCell);
-				gridPainter.drawRect(tileX, tileY, tileSize, tileSize);
+				this.getGraphics().setColor(colorCell);
+				this.getGraphics().drawRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
 	}

@@ -8,42 +8,20 @@ import java.awt.*;
  */
 public class LifeGUI
 {
-    protected JFrame mainframe;
-    protected JButton stepfoward;
-    protected GameGrid gamegrid;
 
-    private FlowLayout layoutManager;
+	public LifeGUI(GameGrid parentGrid)
+	{
+		JFrame frame = new JFrame("GGOL");
+		JButton stepfoward = new JButton("stepfoward");
 
-    public LifeGUI(GameGrid parentGrid)
-    {
-        layoutManager = new FlowLayout();
-        gamegrid = parentGrid;
-        mainframe = new JFrame("GOGOL");
-        mainframe.setVisible(true);
-        mainframe.setLayout(layoutManager);
-        createButtons();
-        addButtons();
-        mainframe.getContentPane().setBackground(Color.lightGray);
-        mainframe.getContentPane().add(gamegrid);
-        mainframe.pack();
-        mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        layoutManager.setVgap(10);
-        layoutManager.setHgap(10);
-        gamegrid.setSize(600, 600);
-        mainframe.getContentPane().setSize(700,700);
-        mainframe.pack();
-        //gamegrid.setupGrid();
-    }
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new GridBagLayout());
+		frame.add(stepfoward);
+		frame.getContentPane().add(parentGrid);
+		frame.pack();
+		frame.setResizable(false);
+		frame.setVisible(true);
+	}
 
-    private void createButtons()
-    {
-        stepfoward = new JButton("step foward");
-        stepfoward.setSize(60,20);
-        stepfoward.setVisible(true);
-    }
 
-    private void addButtons()
-    {
-        mainframe.add(stepfoward);
-    }
 }
