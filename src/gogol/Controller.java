@@ -3,7 +3,7 @@ package gogol;
 import javax.swing.JPanel;
 
 /*
- * is a control freak
+ * Holds the Cell array and gives Cells data about their Neighbors
  */
 class Controller 
 {
@@ -21,7 +21,16 @@ class Controller
 	 */
 	protected void stepForward() 
 	{
+		int x = survivalMatrix[0].length; //all rows have the same length
+		int y = survivalMatrix.length;
 		
+		for (int i = 0; i < survivalMatrix.length; i++) 
+		{
+			for (int j = 0; j < survivalMatrix[0].length; j++) 
+			{
+				survivalMatrix[i][j].setNextStatus();
+			}		
+		}
 	}
 	
 	/*
