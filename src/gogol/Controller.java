@@ -8,9 +8,9 @@ import javax.swing.JPanel;
 public class Controller
 {
 	JPanel gamegrid;
-	public Cell[][] survivalMatrix;
-	
+	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
 	public Controller(JPanel grid)
+	
 	{
 		gamegrid = grid;
 		setGridsize(42, 23);
@@ -74,6 +74,14 @@ public class Controller
 		}
 		
 		return count;
+	}
+	
+	/*
+	 * Retruns the Cell at the specified position
+	 */
+	protected Cell giveCellAtPosition(int x, int y)
+	{
+		return survivalMatrix[y][x];
 	}
 	
 	/*
