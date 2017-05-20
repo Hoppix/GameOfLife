@@ -8,54 +8,103 @@ import java.awt.*;
  */
 public class GameGrid extends JPanel
 {
-    protected int sizeX;
-    protected int sizeY;
-    protected int tileSize;
-    protected Graphics gridPainter;
+	private int sizeX;
+	private int sizeY;
+	private int tileSize;
 
-    public GameGrid()
-    {
+	private Graphics gridPainter;
 
-        sizeX = 600;
-        sizeY = 600;
-        tileSize = 20;
-        this.setSize(sizeX,sizeY);
-        this.setBackground(Color.black);       
+	private Color colorBG;
+	private Color colorCell;
+	private Color colorGrid;
 
-    }
+	public GameGrid()
+	{
+		super();
+		//default size
+		sizeX = 600;
+		sizeY = 600;
+		tileSize = 20;
+		//default color
+		colorBG = Color.black;
+		colorCell = Color.green;
+		colorGrid = Color.green;
 
-    @Override
-    public Dimension getPreferredSize()
-    {
-        return new Dimension(sizeX,sizeY);
-    }
+		this.setSize(sizeX, sizeY);
+		this.setBackground(colorBG);
+		this.setLayout(new GridBagLayout());
+		//gridPainter = this.getGraphics();
+	}
 
-    public void setupGrid()
-    {
-        gridPainter = this.getGraphics();
-        gridPainter.setColor(Color.black);
+	public GameGrid(int x, int y, int tile)
+	{
+		super();
 
-        //draw horizontal lines
-        for(int x = 0; x < sizeX; x = x + tileSize)
-        {
-            System.out.println("line at X " + x);
-            gridPainter.drawLine(x, 0, x, sizeY);
-        }
+		sizeX = x;
+		sizeY = y;
+		tileSize = tile;
+		//default color
+		colorBG = Color.black;
+		colorCell = Color.green;
+		colorGrid = Color.green;
 
-        //draw vertical lines
-        for(int y = 0; y < sizeY; y = y + tileSize)
-        {
-            System.out.println("lineY at Y " + y);
-            gridPainter.drawLine(y, 0, y, sizeX);
-        }
-        gridPainter.drawRect(0,0,50,50);
-        gridPainter.drawOval(0,0,40,40);
-    }
+		this.setSize(sizeX, sizeY);
+		this.setBackground(colorBG);
+		gridPainter = this.getGraphics();
+	}
 
-    @Override
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        setupGrid();
-    }
+
+	public void setupGrid(Graphics g)
+	{
+		g.setColor(colorGrid);
+
+		//draw horizontal lines
+		for (int x = 0; x < sizeX; x = x + tileSize)
+		{
+			System.out.println("line at X " + x);
+			g.drawLine(x, 0, x, sizeY);
+		}
+
+		//draw vertical lines
+		for (int y = 0; y < sizeY; y = y + tileSize)
+		{
+			System.out.println("lineY at Y " + y);
+			g.drawLine(y, 0, y, sizeX);
+		}
+	}
+
+	public void setSize(int x, int y)
+	{
+		sizeY = y;
+		sizeX = x;
+	}
+
+	public void setField(Cell cell, int x, int y)
+	{
+		int tileX = x * tileSize;
+		int tileY = y * tileSize;
+
+		if (cell instanceof ConwayCell)
+		{
+			if (cell.getStatus())
+			{
+				gridPainter.setColor(colorCell);
+				gridPainter.drawRect(tileX, tileY, tileSize, tileSize);
+			}
+		}
+	}
+
+
+	@Override
+	public Dimension getPreferredSize()
+	{
+		return new Dimension(sizeX, sizeY);
+	}
+
+	@Override
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		setupGrid(g);
+	}
 }

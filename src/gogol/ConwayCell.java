@@ -8,7 +8,7 @@ public class ConwayCell implements Cell {
 	boolean alive;
 	boolean newStatus;
 	
-	protected ConwayCell()
+	public ConwayCell()
 	{
 		alive = false;
 		newStatus = false;

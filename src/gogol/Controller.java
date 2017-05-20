@@ -5,12 +5,12 @@ import javax.swing.JPanel;
 /*
  * Holds the Cell array and gives Cells data about their Neighbors
  */
-class Controller 
+public class Controller
 {
 	JPanel gamegrid;
-	Cell[][] survivalMatrix; //Coords are Cell[y][x]
+	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
+	public Controller(JPanel grid)
 	
-	protected Controller(JPanel grid)
 	{
 		gamegrid = grid;
 		setGridsize(42, 23);
@@ -19,7 +19,7 @@ class Controller
 	/*
 	 * Advance the game by one cycle
 	 */
-	protected void stepForward() 
+	public void stepForward()
 	{		
 		for (int i = 0; i < survivalMatrix.length; i++) 
 		{
@@ -41,7 +41,7 @@ class Controller
 	/*
 	 * set the size of the survivalMatrix according to the grid size
 	 */
-	protected void setGridsize(int x, int y)
+	public void setGridsize(int x, int y)
 	{
 		if(x >= 3 || y >= 3)
 		{
@@ -59,7 +59,7 @@ class Controller
 	/*
 	 * returns the number of alive Neighbors of a cell
 	 */
-	protected int aliveNeighbours(int x, int y)
+	public int aliveNeighbours(int x, int y)
 	{
 		String mode = "Conway";
 		int count = 0;

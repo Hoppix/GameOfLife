@@ -23,12 +23,16 @@ public class LifeGUI
         mainframe.setLayout(layoutManager);
         createButtons();
         addButtons();
-        mainframe.add(gamegrid);
+        mainframe.getContentPane().setBackground(Color.lightGray);
+        mainframe.getContentPane().add(gamegrid);
         mainframe.pack();
         mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        layoutManager.setVgap(500);
-        layoutManager.setHgap(500);
-        gamegrid.setupGrid();
+        layoutManager.setVgap(10);
+        layoutManager.setHgap(10);
+        gamegrid.setSize(600, 600);
+        mainframe.getContentPane().setSize(700,700);
+        mainframe.pack();
+        //gamegrid.setupGrid();
     }
 
     private void createButtons()
