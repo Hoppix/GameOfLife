@@ -10,5 +10,6 @@ public class Life
         GameGrid grid = new GameGrid();
         new LifeGUI(grid);
         new Controller(grid);
+
     }
 }

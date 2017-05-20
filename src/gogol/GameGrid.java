@@ -12,7 +12,6 @@ public class GameGrid extends JPanel
 	private int sizeY;
 	private int tileSize;
 
-
 	private Color colorBG;
 	private Color colorCell;
 	private Color colorGrid;
@@ -31,13 +30,11 @@ public class GameGrid extends JPanel
 
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
-		this.setLayout(new GridBagLayout());
 	}
 
 	public GameGrid(int x, int y, int tile)
 	{
 		super();
-
 		sizeX = x;
 		sizeY = y;
 		tileSize = tile;
@@ -45,6 +42,22 @@ public class GameGrid extends JPanel
 		colorBG = Color.black;
 		colorCell = Color.green;
 		colorGrid = Color.green;
+
+		this.setSize(sizeX, sizeY);
+		this.setBackground(colorBG);
+	}
+
+	public GameGrid(Color bg, Color cell, Color grid)
+	{
+		super();
+		//default size
+		sizeX = 600;
+		sizeY = 600;
+		tileSize = 20;
+
+		colorBG = bg;
+		colorCell = cell;
+		colorGrid = grid;
 
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
@@ -75,6 +88,26 @@ public class GameGrid extends JPanel
 	{
 		sizeY = y;
 		sizeX = x;
+	}
+
+	public void setTileSize(int tile)
+	{
+		tileSize = tile;
+	}
+
+	public void setColorBG(Color bg)
+	{
+		colorBG = bg;
+	}
+
+	public void setColorCell(Color cell)
+	{
+		colorCell = cell;
+	}
+
+	public void setColorGrid(Color grid)
+	{
+		colorGrid = grid;
 	}
 
 	public void setField(Cell cell, int x, int y)
