@@ -59,6 +59,38 @@ public class ControllerTest
 		assertTrue(bigBrother.aliveNeighbours(4, 4) == 3);
 	}
 	
+	@Test
+	public void testStepForward()
+	{
+		setTestingGrid();
+		bigBrother.stepForward();
+		assertTrue(bigBrother.survivalMatrix[0][0].getStatus());
+		assertFalse(bigBrother.survivalMatrix[0][1].getStatus());
+		assertTrue(bigBrother.survivalMatrix[0][2].getStatus());
+		assertTrue(bigBrother.survivalMatrix[0][3].getStatus());
+		assertTrue(bigBrother.survivalMatrix[0][4].getStatus());
+		assertTrue(bigBrother.survivalMatrix[1][0].getStatus());
+		assertFalse(bigBrother.survivalMatrix[1][1].getStatus());
+		assertFalse(bigBrother.survivalMatrix[1][2].getStatus());
+		assertFalse(bigBrother.survivalMatrix[1][3].getStatus());
+		assertTrue(bigBrother.survivalMatrix[1][4].getStatus());
+		assertFalse(bigBrother.survivalMatrix[2][0].getStatus());
+		assertFalse(bigBrother.survivalMatrix[2][1].getStatus());
+		assertFalse(bigBrother.survivalMatrix[2][2].getStatus());
+		assertFalse(bigBrother.survivalMatrix[2][3].getStatus());
+		assertFalse(bigBrother.survivalMatrix[2][4].getStatus());
+		assertFalse(bigBrother.survivalMatrix[3][0].getStatus());
+		assertFalse(bigBrother.survivalMatrix[3][1].getStatus());
+		assertFalse(bigBrother.survivalMatrix[3][2].getStatus());
+		assertFalse(bigBrother.survivalMatrix[3][3].getStatus());
+		assertTrue(bigBrother.survivalMatrix[3][4].getStatus());
+		assertTrue(bigBrother.survivalMatrix[4][0].getStatus());
+		assertFalse(bigBrother.survivalMatrix[4][1].getStatus());
+		assertTrue(bigBrother.survivalMatrix[4][2].getStatus());
+		assertTrue(bigBrother.survivalMatrix[4][3].getStatus());
+		assertTrue(bigBrother.survivalMatrix[4][4].getStatus());
+	}
+	
 	private void setTestingGrid()
 	{
 		bigBrother.setGridsize(5, 5);
