@@ -13,7 +13,7 @@ class Controller
 	protected Controller(JPanel grid)
 	{
 		gamegrid = grid;
-		survivalMatrix = setGridsize(42, 23);
+		setGridsize(42, 23);
 	}
 	
 	/*
@@ -41,9 +41,19 @@ class Controller
 	/*
 	 * set the size of the survivalMatrix according to the grid size
 	 */
-	protected Cell[][] setGridsize(int x, int y)
+	protected void setGridsize(int x, int y)
 	{
-		return new Cell[x][y];
+		if(x >= 3 || y >= 3)
+		{
+			survivalMatrix = new Cell[x][y];
+			for (int i = 0; i < survivalMatrix.length; i++) 
+			{
+				for (int j = 0; j < survivalMatrix[0].length; j++) 
+				{
+					survivalMatrix[i][j] = new ConwayCell();
+				}		
+			}
+		}
 	}
 	
 	/*
@@ -72,12 +82,14 @@ class Controller
 	private int conwayRulez(int x, int y)
 	{
 		int count = 0;
+		int matrixX = survivalMatrix[0].length;
+		int matrixY = survivalMatrix.length;
 		
 		for (int i = x-1; i <= x+1; i++) 
 		{
 			for (int j = y-1; j <= y+1; j++) 
 			{
-				if(survivalMatrix[i][j].getStatus())
+				if(survivalMatrix[(i + matrixY) % matrixY][(j + matrixX) % matrixX].getStatus())
 				{
 					count++;
 				}
