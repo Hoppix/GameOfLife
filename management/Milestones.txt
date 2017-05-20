@@ -1,0 +1,31 @@
+Meilensteine:
+
+-grundimplementation
+	gamegrid
+	frame
+	zellen
+	zellarray
+	stepfoward
+	mausclick-toggle
+	(random-dummy)
+	
+-automatisierung
+	speed
+	loop
+	play/pause
+	save/load
+	preload
+	gridsize
+	
+-rainbow
+	custom rules
+	colorMerge
+	colorWar
+		
+-bio
+	probability of life
+	
+-pvp
+	colorWar
+		-populate
+		-exterminate
