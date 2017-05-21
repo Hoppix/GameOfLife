@@ -20,9 +20,9 @@ public class GameGrid extends JPanel
 	{
 		super();
 		//default size
-		sizeX = 600;
+		sizeX = 1100;
 		sizeY = 600;
-		tileSize = 20;
+		tileSize = 10;
 		//default color
 		colorBG = Color.black;
 		colorCell = Color.green;
