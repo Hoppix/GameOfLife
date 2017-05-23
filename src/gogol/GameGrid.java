@@ -108,6 +108,12 @@ public class GameGrid extends JPanel
 		colorGrid = grid;
 	}
 
+	@Override
+	public Dimension getSize()
+	{
+		return new Dimension(sizeX, sizeY);
+	}
+
 	public void setField(Cell cell, int x, int y)
 	{
 		int tileX = x * tileSize;
@@ -121,6 +127,7 @@ public class GameGrid extends JPanel
 				this.getGraphics().drawRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
+		//TODO erweitern für andere celltypes
 	}
 
 

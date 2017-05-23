@@ -1,5 +1,9 @@
 package testing;
 
+import gogol.GameGrid;
+
+import java.awt.*;
+
 import static org.junit.Assert.*;
 
 /**
@@ -7,14 +11,31 @@ import static org.junit.Assert.*;
  */
 public class GameGridTest
 {
+	GameGrid testGrid;
+
 	@org.junit.Before
 	public void setUp() throws Exception
 	{
+		testGrid = new GameGrid();
 	}
 
 	@org.junit.Test
 	public void getPreferredSize() throws Exception
 	{
+		Dimension testMe = new Dimension(testGrid.getX(), testGrid.getY());
+		assertEquals(testMe, testGrid.getSize());
+	}
+
+	@org.junit.Test
+	public void testSetupGrid()
+	{
+		//TODO test
+	}
+
+	@org.junit.Test
+	public void testSetField()
+	{
+		//TODO test
 	}
 
 }
