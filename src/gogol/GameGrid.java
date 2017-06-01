@@ -32,15 +32,20 @@ public class GameGrid extends JPanel
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
 
-		PaintImage.drawnImage = new BufferedImage(sizeX, sizeY,
-			BufferedImage.TYPE_INT_ARGB);
-
-		PaintImage.drawnImage.getGraphics().setColor(colorBG);
-		PaintImage.drawnImage.getGraphics().fillRect(0,0,sizeX,sizeY);
-
-		repaint();
+		setupPaintImage();
 	}
 
+	private void setupPaintImage()
+	{
+		PaintImage.drawnImage = new BufferedImage(sizeX, sizeY,
+				BufferedImage.TYPE_INT_ARGB);
+
+		Graphics initG = PaintImage.drawnImage.getGraphics();
+		initG.create();
+		initG.setColor(colorBG);
+		initG.fillRect(0,0,sizeX,sizeY);
+		repaint();
+	}
 
 	private void setupGrid(Graphics g)
 	{
@@ -86,17 +91,14 @@ public class GameGrid extends JPanel
 			if (cell.getStatus())
 			{				
 				g.setColor(colorCell);
-				System.out.println("expected: " + colorCell + "; actual: " + this.getGraphics().getColor());
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 			else
 			{
 				g.setColor(colorBG);
-				System.out.println("dead: " + colorBG);
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
-
 		repaint();
 		//TODO erweitern für andere celltypes
 	}
