@@ -121,17 +121,18 @@ public class GameGrid extends JPanel
 
 		if (cell instanceof ConwayCell)
 		{
+			Graphics g = this.getGraphics();
 			if (cell.getStatus())
 			{				
-				this.getGraphics().setColor(colorCell);
+				g.setColor(colorCell);
 				System.out.println("expected: " + colorCell + "; actual: " + this.getGraphics().getColor());
-				this.getGraphics().fillOval(tileX, tileY, tileSize, tileSize);
+				g.fillOval(tileX, tileY, tileSize, tileSize);
 			}
 			else
 			{
-				this.getGraphics().setColor(colorBG);
+				g.setColor(colorBG);
 				System.out.println("dead: " + colorBG);
-				this.getGraphics().fillRect(tileX, tileY, tileSize, tileSize);
+				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
 		//TODO erweitern für andere celltypes
