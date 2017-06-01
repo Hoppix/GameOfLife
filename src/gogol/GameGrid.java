@@ -42,7 +42,7 @@ public class GameGrid extends JPanel
 		colorBG = Color.black;
 		colorCell = Color.green;
 		colorGrid = Color.green;
-
+		System.out.println("called it");
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
 	}
@@ -122,13 +122,15 @@ public class GameGrid extends JPanel
 		if (cell instanceof ConwayCell)
 		{
 			if (cell.getStatus())
-			{
+			{				
 				this.getGraphics().setColor(colorCell);
-				this.getGraphics().fillRect(tileX, tileY, tileSize, tileSize);
+				System.out.println("expected: " + colorCell + "; actual: " + this.getGraphics().getColor());
+				this.getGraphics().fillOval(tileX, tileY, tileSize, tileSize);
 			}
 			else
 			{
 				this.getGraphics().setColor(colorBG);
+				System.out.println("dead: " + colorBG);
 				this.getGraphics().fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
