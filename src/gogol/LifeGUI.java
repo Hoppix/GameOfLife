@@ -12,6 +12,44 @@ public class LifeGUI
 	private GameGrid gameGrid;
 	
 	protected JButton step;
+	protected JButton play;
+	protected JButton pause;
+	protected JButton save;
+	protected JButton load;
+
+	protected JButton image1;
+	protected JButton image2;
+	protected JButton image3;
+	protected JButton image4;
+	protected JButton image5;
+	protected JButton image6;
+	protected JButton image7;
+	protected JButton image8;
+	protected JButton image9;
+	protected JButton image10;
+	protected JButton image11;
+	protected JButton image12;
+
+	protected JButton speedSlider;
+	protected JButton logo;
+	private JPanel preloadPanel;
+	private JLabel gametype;
+	private JLabel preload;
+	private JLabel speed;
+	private JLabel speedValue;
+
+	private JLabel form1;
+	private JLabel form2;
+	private JLabel form3;
+	private JLabel form4;
+	private JLabel form5;
+	private JLabel form6;
+	private JLabel form7;
+	private JLabel form8;
+	private JLabel form9;
+	private JLabel form10;
+	private JLabel form11;
+	private JLabel form12;
 
 	public LifeGUI(GameGrid parentGrid)
 	{
@@ -21,7 +59,6 @@ public class LifeGUI
 
 	private void initialize()
 	{
-		System.out.println("start init");
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,8 +73,6 @@ public class LifeGUI
 		btnPause.setBounds(627, 636, 89, 23);
 		frame.getContentPane().add(btnPause);
 
-		//JButton btnStep = new JButton("step");
-		//btnStep.setBounds(726, 636, 89, 23);
 		
 		step = new JButton("step");
 		step.setBounds(726, 636, 89, 23);
@@ -185,8 +220,6 @@ public class LifeGUI
 		btnNewButton.setBounds(10, 487, 189, 193);
 		frame.getContentPane().add(btnNewButton);
 		frame.setVisible(true);
-
-		System.out.println("end init");
 	}
 
 
