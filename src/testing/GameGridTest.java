@@ -22,7 +22,7 @@ public class GameGridTest
 	@org.junit.Test
 	public void getPreferredSize() throws Exception
 	{
-		Dimension testMe = new Dimension(testGrid.getX(), testGrid.getY());
+		Dimension testMe = new Dimension(1100, 600);
 		assertEquals(testMe, testGrid.getSize());
 	}
 
