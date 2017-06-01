@@ -8,9 +8,9 @@ import java.awt.*;
  */
 public class GameGrid extends JPanel
 {
-	private int sizeX;
-	private int sizeY;
-	private int tileSize;
+	protected int sizeX;
+	protected int sizeY;
+	protected int tileSize;
 
 	private Color colorBG;
 	private Color colorCell;

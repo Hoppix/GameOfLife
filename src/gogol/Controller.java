@@ -7,13 +7,18 @@ import javax.swing.JPanel;
  */
 public class Controller
 {
-	JPanel gamegrid;
+	GameGrid gamegrid;
+	LifeGUI lifegui;
 	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
 	public Controller(GameGrid grid, LifeGUI gui)
 	
 	{
 		gamegrid = grid;
-		setGridsize(42, 23);
+		lifegui = gui;
+		
+		int gridX = gamegrid.sizeX / gamegrid.tileSize;
+		int gridY = gamegrid.sizeY / gamegrid.tileSize;
+		setGridsize(gridY, gridX);
 		addListeners();
 		initializeRandom();
 	}
@@ -29,6 +34,7 @@ public class Controller
 				if(rnd == 1)
 				{
 					survivalMatrix[i][j].toggleStatus();
+					gamegrid.setField(survivalMatrix[i][j], j, i);
 				}
 
 			}		
@@ -54,8 +60,10 @@ public class Controller
 			for (int j = 0; j < survivalMatrix[0].length; j++) 
 			{
 				survivalMatrix[i][j].updateStatus();
+				gamegrid.setField(survivalMatrix[i][j], j, i);
 			}		
-		}
+		}	
+		
 	}
 	
 	/*
@@ -131,7 +139,7 @@ public class Controller
 	
 	private void addListeners() 
 	{
-		
+		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
 	}
 
 	public void doCommand(Command cmd) 

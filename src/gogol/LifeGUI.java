@@ -10,6 +10,8 @@ public class LifeGUI
 {
 	private JFrame frame;
 	private GameGrid gameGrid;
+	
+	protected JButton step;
 
 	public LifeGUI(GameGrid parentGrid)
 	{
@@ -34,9 +36,12 @@ public class LifeGUI
 		btnPause.setBounds(627, 636, 89, 23);
 		frame.getContentPane().add(btnPause);
 
-		JButton btnStep = new JButton("step");
-		btnStep.setBounds(726, 636, 89, 23);
-		frame.getContentPane().add(btnStep);
+		//JButton btnStep = new JButton("step");
+		//btnStep.setBounds(726, 636, 89, 23);
+		
+		step = new JButton("step");
+		step.setBounds(726, 636, 89, 23);
+		frame.getContentPane().add(step);
 
 		JSlider slider = new JSlider();
 		slider.setBounds(898, 633, 200, 26);
