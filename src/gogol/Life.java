@@ -8,8 +8,8 @@ public class Life
     public static void main(String[] args)
     {
         GameGrid grid = new GameGrid();
-        new LifeGUI(grid);
-        new Controller(grid);
+        LifeGUI gui = new LifeGUI(grid);
+        new Controller(grid, gui);
 
     }
 }

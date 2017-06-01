@@ -124,7 +124,12 @@ public class GameGrid extends JPanel
 			if (cell.getStatus())
 			{
 				this.getGraphics().setColor(colorCell);
-				this.getGraphics().drawRect(tileX, tileY, tileSize, tileSize);
+				this.getGraphics().fillRect(tileX, tileY, tileSize, tileSize);
+			}
+			else
+			{
+				this.getGraphics().setColor(colorBG);
+				this.getGraphics().fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
 		//TODO erweitern für andere celltypes

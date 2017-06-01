@@ -6,6 +6,9 @@ import static org.junit.Assert.*;
 import javax.swing.JPanel;
 
 import gogol.Controller;
+import gogol.GameGrid;
+import gogol.LifeGUI;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +19,9 @@ public class ControllerTest
 	@Before
 	public void reset()
 	{
-		bigBrother = new Controller(new JPanel());
+		GameGrid grid = new GameGrid();
+        LifeGUI gui = new LifeGUI(grid);
+		bigBrother = new Controller(grid, gui);
 	}
 	
 	@Test

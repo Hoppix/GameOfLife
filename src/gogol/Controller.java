@@ -9,13 +9,33 @@ public class Controller
 {
 	JPanel gamegrid;
 	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
-	public Controller(JPanel grid)
+	public Controller(GameGrid grid, LifeGUI gui)
 	
 	{
 		gamegrid = grid;
 		setGridsize(42, 23);
+		addListeners();
+		initializeRandom();
 	}
 	
+
+	private void initializeRandom() 
+	{
+		for (int i = 0; i < survivalMatrix.length; i++) 
+		{
+			for (int j = 0; j < survivalMatrix[0].length; j++) 
+			{
+				int rnd = (int) (0 + (Math.random() * (2 - 0)));
+				if(rnd == 1)
+				{
+					survivalMatrix[i][j].toggleStatus();
+				}
+
+			}		
+		}
+	}
+
+
 	/*
 	 * Advance the game by one cycle
 	 */
@@ -107,5 +127,21 @@ public class Controller
 		count = count - (survivalMatrix[x][y].getStatus() ? 1 : 0);
 		
 		return count;
+	}
+	
+	private void addListeners() 
+	{
+		
+	}
+
+	public void doCommand(Command cmd) 
+	{
+		switch (cmd)
+		{
+			case STEPFOWARD: this.stepForward();
+			break;
+			default:
+		}
+		
 	}
 }
