@@ -2,6 +2,7 @@ package gogol;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by hoppix on 18.05.17.
@@ -30,37 +31,14 @@ public class GameGrid extends JPanel
 
 		this.setSize(sizeX, sizeY);
 		this.setBackground(colorBG);
-	}
 
-	public GameGrid(int x, int y, int tile)
-	{
-		super();
-		sizeX = x;
-		sizeY = y;
-		tileSize = tile;
-		//default color
-		colorBG = Color.black;
-		colorCell = Color.green;
-		colorGrid = Color.green;
-		System.out.println("called it");
-		this.setSize(sizeX, sizeY);
-		this.setBackground(colorBG);
-	}
+		PaintImage.drawnImage = new BufferedImage(sizeX, sizeY,
+			BufferedImage.TYPE_INT_ARGB);
 
-	public GameGrid(Color bg, Color cell, Color grid)
-	{
-		super();
-		//default size
-		sizeX = 600;
-		sizeY = 600;
-		tileSize = 20;
+		PaintImage.drawnImage.getGraphics().setColor(colorBG);
+		PaintImage.drawnImage.getGraphics().fillRect(0,0,sizeX,sizeY);
 
-		colorBG = bg;
-		colorCell = cell;
-		colorGrid = grid;
-
-		this.setSize(sizeX, sizeY);
-		this.setBackground(colorBG);
+		repaint();
 	}
 
 
@@ -88,25 +66,6 @@ public class GameGrid extends JPanel
 		sizeX = x;
 	}
 
-	public void setTileSize(int tile)
-	{
-		tileSize = tile;
-	}
-
-	public void setColorBG(Color bg)
-	{
-		colorBG = bg;
-	}
-
-	public void setColorCell(Color cell)
-	{
-		colorCell = cell;
-	}
-
-	public void setColorGrid(Color grid)
-	{
-		colorGrid = grid;
-	}
 
 	@Override
 	public Dimension getSize()
@@ -119,14 +78,16 @@ public class GameGrid extends JPanel
 		int tileX = x * tileSize;
 		int tileY = y * tileSize;
 
+		Graphics g = PaintImage.drawnImage.getGraphics();
+
 		if (cell instanceof ConwayCell)
 		{
-			Graphics g = this.getGraphics();
+			//Graphics g = this.getGraphics();
 			if (cell.getStatus())
 			{				
 				g.setColor(colorCell);
 				System.out.println("expected: " + colorCell + "; actual: " + this.getGraphics().getColor());
-				g.fillOval(tileX, tileY, tileSize, tileSize);
+				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 			else
 			{
@@ -135,6 +96,8 @@ public class GameGrid extends JPanel
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
+
+		repaint();
 		//TODO erweitern für andere celltypes
 	}
 
@@ -149,6 +112,7 @@ public class GameGrid extends JPanel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		g.drawImage(PaintImage.drawnImage,0,0, null);
 		setupGrid(g);
 	}
 }

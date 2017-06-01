@@ -19,3 +19,6 @@ log/
 target/
 /.idea/
 /.idea/workspace.xml
+
+#Manifest
+/src/META-INF
