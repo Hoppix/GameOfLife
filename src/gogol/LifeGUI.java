@@ -10,7 +10,14 @@ public class LifeGUI
 {
 	private JFrame frame;
 	private GameGrid gameGrid;
-	
+
+	private static final Color primaryColor = Color.gray;
+	private static final Color secondaryColor = Color.lightGray;
+	private static final Color tertiaryColor = Color.darkGray;
+
+	private ImageIcon logoPNG = new ImageIcon(getClass().getResource("../design/logo.png"));
+
+
 	protected JButton step;
 	protected JButton play;
 	protected JButton pause;
@@ -63,6 +70,7 @@ public class LifeGUI
 	private void initializeFrame()
 	{
 		frame = new JFrame("GOGOL");
+		frame.getContentPane().setBackground(primaryColor);
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -72,23 +80,33 @@ public class LifeGUI
 		frame.getContentPane().add(gameGrid);
 
 		pause = new JButton("pause");
+		pause.setBackground(tertiaryColor);
+		pause.setForeground(secondaryColor);
 		pause.setBounds(627, 636, 89, 23);
 		frame.getContentPane().add(pause);
 
 		
 		step = new JButton("step");
+		step.setBackground(tertiaryColor);
+		step.setForeground(secondaryColor);
 		step.setBounds(726, 636, 89, 23);
 		frame.getContentPane().add(step);
 
 		speedSlider = new JSlider();
+		speedSlider.setBackground(primaryColor);
+		speedSlider.setForeground(secondaryColor);
 		speedSlider.setBounds(898, 633, 200, 26);
 		frame.getContentPane().add(speedSlider);
 
+
 		speedValue = new JLabel("speed:");
+		speedValue.setForeground(tertiaryColor);
 		speedValue.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(speedValue);
 
 		play = new JButton("play");
+		play.setBackground(tertiaryColor);
+		play.setForeground(secondaryColor);
 		play.setBounds(528, 636, 89, 23);
 		frame.getContentPane().add(play);
 
@@ -98,23 +116,27 @@ public class LifeGUI
 
 		gametypeChooser = new Choice();
 		gametypeChooser.add("Conway");
+		gametypeChooser.setBackground(tertiaryColor);
+		gametypeChooser.setForeground(secondaryColor);
 		gametypeChooser.setBounds(83, 12, 116, 20);
 		frame.getContentPane().add(gametypeChooser);
 
 		save = new JButton("save");
+		save.setBackground(tertiaryColor);
+		save.setForeground(secondaryColor);
 		save.setBounds(10, 45, 89, 23);
 		frame.getContentPane().add(save);
 
 		load = new JButton("load");
+		load.setBackground(tertiaryColor);
+		load.setForeground(secondaryColor);
 		load.setBounds(109, 45, 89, 23);
 		frame.getContentPane().add(load);
 
 
-		logo = new JButton("LOGO");
+		logo = new JButton(logoPNG);
 		logo.setEnabled(false);
-		logo.setForeground(new Color(0, 0, 0));
-		logo.setBackground(Color.ORANGE);
-		logo.setBounds(10, 487, 189, 193);
+		logo.setBounds(10, 487, 190, 190);
 		frame.getContentPane().add(logo);
 		frame.setVisible(true);
 	}
@@ -123,60 +145,72 @@ public class LifeGUI
 	private void initializePreloadPanel()
 	{
 		preload = new JLabel("Preload:");
-		preload.setBounds(10, 93, 46, 14);
+		preload.setBounds(10, 93, 50, 14);
 		frame.getContentPane().add(preload);
 
 		preloadPanel = new JPanel();
-		preloadPanel.setBackground(Color.LIGHT_GRAY);
+		preloadPanel.setBackground(secondaryColor);
 		preloadPanel.setBounds(10, 118, 192, 358);
 		frame.getContentPane().add(preloadPanel);
 		preloadPanel.setLayout(null);
 
 		form1 = new JLabel("form1");
+		form1.setForeground(tertiaryColor);
 		form1.setBounds(10, 11, 46, 14);
 		preloadPanel.add(form1);
 
 		form2 = new JLabel("form2");
+		form2.setForeground(tertiaryColor);
 		form2.setBounds(70, 11, 46, 14);
 		preloadPanel.add(form2);
 
 		form3 = new JLabel("form3");
+		form3.setForeground(tertiaryColor);
 		form3.setBounds(130, 11, 46, 14);
 		preloadPanel.add(form3);
 
 		form4 = new JLabel("form4");
+		form4.setForeground(tertiaryColor);
 		form4.setBounds(10, 97, 46, 14);
 		preloadPanel.add(form4);
 
 		form5 = new JLabel("form5");
+		form5.setForeground(tertiaryColor);
 		form5.setBounds(70, 97, 46, 14);
 		preloadPanel.add(form5);
 
 		form6 = new JLabel("form6");
+		form6.setForeground(tertiaryColor);
 		form6.setBounds(130, 97, 46, 14);
 		preloadPanel.add(form6);
 
 		form7 = new JLabel("form7");
+		form7.setForeground(tertiaryColor);
 		form7.setBounds(10, 183, 46, 14);
 		preloadPanel.add(form7);
 
 		form8 = new JLabel("form8");
+		form8.setForeground(tertiaryColor);
 		form8.setBounds(70, 183, 46, 14);
 		preloadPanel.add(form8);
 
 		form9 = new JLabel("form9");
+		form9.setForeground(tertiaryColor);
 		form9.setBounds(130, 183, 46, 14);
 		preloadPanel.add(form9);
 
 		form10 = new JLabel("form10");
+		form10.setForeground(tertiaryColor);
 		form10.setBounds(10, 269, 46, 14);
 		preloadPanel.add(form10);
 
 		form11 = new JLabel("form11");
+		form11.setForeground(tertiaryColor);
 		form11.setBounds(70, 269, 46, 14);
 		preloadPanel.add(form11);
 
 		form12 = new JLabel("form12");
+		form12.setForeground(tertiaryColor);
 		form12.setBounds(130, 269, 46, 14);
 		preloadPanel.add(form12);
 

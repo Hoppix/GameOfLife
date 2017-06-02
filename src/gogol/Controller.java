@@ -37,7 +37,7 @@ public class Controller
 		{
 			for (int j = 0; j < survivalMatrix[0].length; j++)
 			{
-				int rnd = (int) (0 + (Math.random() * (2)));
+				int rnd = (int) (0 + (Math.random() * (3)));
 				if (rnd == 1)
 				{
 					survivalMatrix[i][j].toggleStatus();
