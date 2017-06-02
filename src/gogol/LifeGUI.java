@@ -16,6 +16,7 @@ public class LifeGUI
 	private static final Color tertiaryColor = Color.darkGray;
 
 	private ImageIcon logoPNG = new ImageIcon(getClass().getResource("../design/logo.png"));
+	private ImageIcon nyiPNG = new ImageIcon(getClass().getResource("../design/nyi.png"));
 
 
 	protected JButton step;
@@ -214,51 +215,51 @@ public class LifeGUI
 		form12.setBounds(130, 269, 46, 14);
 		preloadPanel.add(form12);
 
-		image1 = new JButton("IMAGE");
+		image1 = new JButton(nyiPNG);
 		image1.setBounds(10, 36, 50, 50);
 		preloadPanel.add(image1);
 
-		image2 = new JButton("IMAGE");
+		image2 = new JButton(nyiPNG);
 		image2.setBounds(70, 36, 50, 50);
 		preloadPanel.add(image2);
 
-		image3 = new JButton("IMAGE");
+		image3 = new JButton(nyiPNG);
 		image3.setBounds(130, 36, 50, 50);
 		preloadPanel.add(image3);
 
-		image4 = new JButton("IMAGE");
+		image4 = new JButton(nyiPNG);
 		image4.setBounds(10, 122, 50, 50);
 		preloadPanel.add(image4);
 
-		image5 = new JButton("IMAGE");
+		image5 = new JButton(nyiPNG);
 		image5.setBounds(70, 122, 50, 50);
 		preloadPanel.add(image5);
 
-		image6 = new JButton("IMAGE");
+		image6 = new JButton(nyiPNG);
 		image6.setBounds(130, 122, 50, 50);
 		preloadPanel.add(image6);
 
-		image7 = new JButton("IMAGE");
+		image7 = new JButton(nyiPNG);
 		image7.setBounds(10, 208, 50, 50);
 		preloadPanel.add(image7);
 
-		image8 = new JButton("IMAGE");
+		image8 = new JButton(nyiPNG);
 		image8.setBounds(70, 208, 50, 50);
 		preloadPanel.add(image8);
 
-		image9 = new JButton("IMAGE");
+		image9 = new JButton(nyiPNG);
 		image9.setBounds(130, 208, 50, 50);
 		preloadPanel.add(image9);
 
-		image10 = new JButton("IMAGE");
+		image10 = new JButton(nyiPNG);
 		image10.setBounds(130, 294, 50, 50);
 		preloadPanel.add(image10);
 
-		image11 = new JButton("IMAGE");
+		image11 = new JButton(nyiPNG);
 		image11.setBounds(70, 294, 50, 50);
 		preloadPanel.add(image11);
 
-		image12 = new JButton("IMAGE");
+		image12 = new JButton(nyiPNG);
 		image12.setBounds(10, 294, 50, 50);
 		preloadPanel.add(image12);
 	}

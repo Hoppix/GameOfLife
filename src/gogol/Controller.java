@@ -20,7 +20,7 @@ public class Controller
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
 		setGridsize(gridY, gridX);
 		addListeners();
-		//initializeRandom();
+		initializeRandom();
 	}
 
 

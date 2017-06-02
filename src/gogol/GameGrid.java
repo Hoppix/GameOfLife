@@ -26,7 +26,7 @@ public class GameGrid extends JPanel
 		tileSize = 10;
 		//default color
 		colorBG = Color.darkGray;
-		colorCell = Color.green;
+		colorCell = Color.white;
 		colorGrid = Color.gray;
 
 		this.setSize(sizeX, sizeY);
