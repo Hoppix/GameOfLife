@@ -20,13 +20,15 @@ public class Controller
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
 		setGridsize(gridY, gridX);
 		addListeners();
-		initializeRandom();
+		//initializeRandom();
 	}
 
 
 	public void setCell(int x, int y)
 	{
+		System.out.println("x: " + x + "; y: " + y);
 		survivalMatrix[y][x].toggleStatus();
+		System.out.println(survivalMatrix[y][x].getStatus());
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
 

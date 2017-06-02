@@ -32,7 +32,11 @@ public class ConwayCell implements Cell {
 		else if(neighbors == 3)
 		{
 			newStatus = true;
-		}		
+		}
+		else if(neighbors == 2)
+		{
+			newStatus = alive;
+		}
 	}
 	
 	/*
