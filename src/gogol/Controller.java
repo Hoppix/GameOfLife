@@ -20,12 +20,19 @@ public class Controller
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
 		setGridsize(gridY, gridX);
 		addListeners();
-		initializeRandom();
+		//initializeRandom();
 	}
 
 
+	public void setCell(int x, int y)
+	{
+		survivalMatrix[y][x].toggleStatus();
+		gamegrid.setField(survivalMatrix[y][x], x,y);
+	}
+
 	private void initializeRandom()
 	{
+		//debugging method
 		for (int i = 0; i < survivalMatrix.length; i++)
 		{
 			for (int j = 0; j < survivalMatrix[0].length; j++)
@@ -141,6 +148,7 @@ public class Controller
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
+		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 
 	public void doCommand(Command cmd)
