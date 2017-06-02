@@ -37,7 +37,6 @@ public class LifeGUI
 	private JPanel preloadPanel;
 	private JLabel gametype;
 	private JLabel preload;
-	private JLabel speed;
 	private JLabel speedValue;
 
 	private JLabel form1;
@@ -57,15 +56,11 @@ public class LifeGUI
 	{
 		gameGrid = parentGrid;
 
-		initialize();
-		createButtons();
-		createLabels();
-		setBounds();
-		addButtons();
-		addLabels();
+		initializeFrame();
+		initializePreloadPanel();
 	}
 
-	private void initialize()
+	private void initializeFrame()
 	{
 		frame = new JFrame("GOGOL");
 		frame.setBounds(100, 100, 1280, 720);
@@ -102,6 +97,7 @@ public class LifeGUI
 		frame.getContentPane().add(gametype);
 
 		gametypeChooser = new Choice();
+		gametypeChooser.add("Conway");
 		gametypeChooser.setBounds(83, 12, 116, 20);
 		frame.getContentPane().add(gametypeChooser);
 
@@ -113,6 +109,19 @@ public class LifeGUI
 		load.setBounds(109, 45, 89, 23);
 		frame.getContentPane().add(load);
 
+
+		logo = new JButton("LOGO");
+		logo.setEnabled(false);
+		logo.setForeground(new Color(0, 0, 0));
+		logo.setBackground(Color.ORANGE);
+		logo.setBounds(10, 487, 189, 193);
+		frame.getContentPane().add(logo);
+		frame.setVisible(true);
+	}
+
+
+	private void initializePreloadPanel()
+	{
 		preload = new JLabel("Preload:");
 		preload.setBounds(10, 93, 46, 14);
 		frame.getContentPane().add(preload);
@@ -172,7 +181,6 @@ public class LifeGUI
 		preloadPanel.add(form12);
 
 		image1 = new JButton("IMAGE");
-		image1.setToolTipText("sample");
 		image1.setBounds(10, 36, 50, 50);
 		preloadPanel.add(image1);
 
@@ -219,39 +227,6 @@ public class LifeGUI
 		image12 = new JButton("IMAGE");
 		image12.setBounds(10, 294, 50, 50);
 		preloadPanel.add(image12);
-
-		logo = new JButton("LOGO");
-		logo.setEnabled(false);
-		logo.setForeground(new Color(0, 0, 0));
-		logo.setBackground(Color.ORANGE);
-		logo.setBounds(10, 487, 189, 193);
-		frame.getContentPane().add(logo);
-		frame.setVisible(true);
-	}
-
-	private void setBounds()
-	{
-
-	}
-
-	private void addButtons()
-	{
-
-	}
-
-	private void createButtons()
-	{
-
-	}
-
-	private void createLabels()
-	{
-
-	}
-
-	private void addLabels()
-	{
-
 	}
 
 
