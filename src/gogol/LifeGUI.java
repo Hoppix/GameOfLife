@@ -32,6 +32,7 @@ public class LifeGUI
 
 	protected JSlider speedSlider;
 	protected JButton logo;
+	protected Choice gametypeChooser;
 
 	private JPanel preloadPanel;
 	private JLabel gametype;
@@ -55,7 +56,13 @@ public class LifeGUI
 	public LifeGUI(GameGrid parentGrid)
 	{
 		gameGrid = parentGrid;
+
 		initialize();
+		createButtons();
+		createLabels();
+		setBounds();
+		addButtons();
+		addLabels();
 	}
 
 	private void initialize()
@@ -65,7 +72,6 @@ public class LifeGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
-
 
 		gameGrid.setBounds(220, 0, 1100, 600);
 		frame.getContentPane().add(gameGrid);
@@ -83,21 +89,21 @@ public class LifeGUI
 		speedSlider.setBounds(898, 633, 200, 26);
 		frame.getContentPane().add(speedSlider);
 
-		JLabel lblSpeed = new JLabel("speed:");
-		lblSpeed.setBounds(842, 640, 46, 14);
-		frame.getContentPane().add(lblSpeed);
+		speedValue = new JLabel("speed:");
+		speedValue.setBounds(842, 640, 46, 14);
+		frame.getContentPane().add(speedValue);
 
 		play = new JButton("play");
 		play.setBounds(528, 636, 89, 23);
 		frame.getContentPane().add(play);
 
-		JLabel lblGametype = new JLabel("GameType:");
-		lblGametype.setBounds(10, 11, 63, 23);
-		frame.getContentPane().add(lblGametype);
+		gametype = new JLabel("GameType:");
+		gametype.setBounds(10, 11, 63, 23);
+		frame.getContentPane().add(gametype);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(83, 12, 116, 20);
-		frame.getContentPane().add(comboBox);
+		gametypeChooser = new Choice();
+		gametypeChooser.setBounds(83, 12, 116, 20);
+		frame.getContentPane().add(gametypeChooser);
 
 		save = new JButton("save");
 		save.setBounds(10, 45, 89, 23);
@@ -107,112 +113,112 @@ public class LifeGUI
 		load.setBounds(109, 45, 89, 23);
 		frame.getContentPane().add(load);
 
-		JLabel lblPreload = new JLabel("Preload:");
-		lblPreload.setBounds(10, 93, 46, 14);
-		frame.getContentPane().add(lblPreload);
+		preload = new JLabel("Preload:");
+		preload.setBounds(10, 93, 46, 14);
+		frame.getContentPane().add(preload);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBounds(10, 118, 192, 358);
-		frame.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
+		preloadPanel = new JPanel();
+		preloadPanel.setBackground(Color.LIGHT_GRAY);
+		preloadPanel.setBounds(10, 118, 192, 358);
+		frame.getContentPane().add(preloadPanel);
+		preloadPanel.setLayout(null);
 
-		JLabel lblForm = new JLabel("form1");
-		lblForm.setBounds(10, 11, 46, 14);
-		panel_1.add(lblForm);
+		form1 = new JLabel("form1");
+		form1.setBounds(10, 11, 46, 14);
+		preloadPanel.add(form1);
 
-		JLabel lblForm_1 = new JLabel("form2");
-		lblForm_1.setBounds(70, 11, 46, 14);
-		panel_1.add(lblForm_1);
+		form2 = new JLabel("form2");
+		form2.setBounds(70, 11, 46, 14);
+		preloadPanel.add(form2);
 
-		JLabel lblForm_2 = new JLabel("form3");
-		lblForm_2.setBounds(130, 11, 46, 14);
-		panel_1.add(lblForm_2);
+		form3 = new JLabel("form3");
+		form3.setBounds(130, 11, 46, 14);
+		preloadPanel.add(form3);
 
-		JLabel label = new JLabel("form1");
-		label.setBounds(10, 97, 46, 14);
-		panel_1.add(label);
+		form4 = new JLabel("form4");
+		form4.setBounds(10, 97, 46, 14);
+		preloadPanel.add(form4);
 
-		JLabel label_1 = new JLabel("form1");
-		label_1.setBounds(70, 97, 46, 14);
-		panel_1.add(label_1);
+		form5 = new JLabel("form5");
+		form5.setBounds(70, 97, 46, 14);
+		preloadPanel.add(form5);
 
-		JLabel label_2 = new JLabel("form1");
-		label_2.setBounds(130, 97, 46, 14);
-		panel_1.add(label_2);
+		form6 = new JLabel("form6");
+		form6.setBounds(130, 97, 46, 14);
+		preloadPanel.add(form6);
 
-		JLabel label_3 = new JLabel("form1");
-		label_3.setBounds(10, 183, 46, 14);
-		panel_1.add(label_3);
+		form7 = new JLabel("form7");
+		form7.setBounds(10, 183, 46, 14);
+		preloadPanel.add(form7);
 
-		JLabel label_4 = new JLabel("form1");
-		label_4.setBounds(70, 183, 46, 14);
-		panel_1.add(label_4);
+		form8 = new JLabel("form8");
+		form8.setBounds(70, 183, 46, 14);
+		preloadPanel.add(form8);
 
-		JLabel label_5 = new JLabel("form1");
-		label_5.setBounds(130, 183, 46, 14);
-		panel_1.add(label_5);
+		form9 = new JLabel("form9");
+		form9.setBounds(130, 183, 46, 14);
+		preloadPanel.add(form9);
 
-		JLabel label_6 = new JLabel("form1");
-		label_6.setBounds(10, 269, 46, 14);
-		panel_1.add(label_6);
+		form10 = new JLabel("form10");
+		form10.setBounds(10, 269, 46, 14);
+		preloadPanel.add(form10);
 
-		JLabel label_7 = new JLabel("form1");
-		label_7.setBounds(70, 269, 46, 14);
-		panel_1.add(label_7);
+		form11 = new JLabel("form11");
+		form11.setBounds(70, 269, 46, 14);
+		preloadPanel.add(form11);
 
-		JLabel label_8 = new JLabel("form1");
-		label_8.setBounds(130, 269, 46, 14);
-		panel_1.add(label_8);
+		form12 = new JLabel("form12");
+		form12.setBounds(130, 269, 46, 14);
+		preloadPanel.add(form12);
 
 		image1 = new JButton("IMAGE");
 		image1.setToolTipText("sample");
 		image1.setBounds(10, 36, 50, 50);
-		panel_1.add(image1);
+		preloadPanel.add(image1);
 
-		JButton button = new JButton("IMAGE");
-		button.setBounds(70, 36, 50, 50);
-		panel_1.add(button);
+		image2 = new JButton("IMAGE");
+		image2.setBounds(70, 36, 50, 50);
+		preloadPanel.add(image2);
 
-		JButton button_1 = new JButton("IMAGE");
-		button_1.setBounds(130, 36, 50, 50);
-		panel_1.add(button_1);
+		image3 = new JButton("IMAGE");
+		image3.setBounds(130, 36, 50, 50);
+		preloadPanel.add(image3);
 
-		JButton button_2 = new JButton("IMAGE");
-		button_2.setBounds(10, 122, 50, 50);
-		panel_1.add(button_2);
+		image4 = new JButton("IMAGE");
+		image4.setBounds(10, 122, 50, 50);
+		preloadPanel.add(image4);
 
-		JButton button_3 = new JButton("IMAGE");
-		button_3.setBounds(70, 122, 50, 50);
-		panel_1.add(button_3);
+		image5 = new JButton("IMAGE");
+		image5.setBounds(70, 122, 50, 50);
+		preloadPanel.add(image5);
 
-		JButton button_4 = new JButton("IMAGE");
-		button_4.setBounds(130, 122, 50, 50);
-		panel_1.add(button_4);
+		image6 = new JButton("IMAGE");
+		image6.setBounds(130, 122, 50, 50);
+		preloadPanel.add(image6);
 
-		JButton button_5 = new JButton("IMAGE");
-		button_5.setBounds(10, 208, 50, 50);
-		panel_1.add(button_5);
+		image7 = new JButton("IMAGE");
+		image7.setBounds(10, 208, 50, 50);
+		preloadPanel.add(image7);
 
-		JButton button_6 = new JButton("IMAGE");
-		button_6.setBounds(70, 208, 50, 50);
-		panel_1.add(button_6);
+		image8 = new JButton("IMAGE");
+		image8.setBounds(70, 208, 50, 50);
+		preloadPanel.add(image8);
 
-		JButton button_7 = new JButton("IMAGE");
-		button_7.setBounds(130, 208, 50, 50);
-		panel_1.add(button_7);
+		image9 = new JButton("IMAGE");
+		image9.setBounds(130, 208, 50, 50);
+		preloadPanel.add(image9);
 
-		JButton button_8 = new JButton("IMAGE");
-		button_8.setBounds(130, 294, 50, 50);
-		panel_1.add(button_8);
+		image10 = new JButton("IMAGE");
+		image10.setBounds(130, 294, 50, 50);
+		preloadPanel.add(image10);
 
-		JButton button_9 = new JButton("IMAGE");
-		button_9.setBounds(70, 294, 50, 50);
-		panel_1.add(button_9);
+		image11 = new JButton("IMAGE");
+		image11.setBounds(70, 294, 50, 50);
+		preloadPanel.add(image11);
 
-		JButton button_10 = new JButton("IMAGE");
-		button_10.setBounds(10, 294, 50, 50);
-		panel_1.add(button_10);
+		image12 = new JButton("IMAGE");
+		image12.setBounds(10, 294, 50, 50);
+		preloadPanel.add(image12);
 
 		logo = new JButton("LOGO");
 		logo.setEnabled(false);
@@ -221,6 +227,31 @@ public class LifeGUI
 		logo.setBounds(10, 487, 189, 193);
 		frame.getContentPane().add(logo);
 		frame.setVisible(true);
+	}
+
+	private void setBounds()
+	{
+
+	}
+
+	private void addButtons()
+	{
+
+	}
+
+	private void createButtons()
+	{
+
+	}
+
+	private void createLabels()
+	{
+
+	}
+
+	private void addLabels()
+	{
+
 	}
 
 

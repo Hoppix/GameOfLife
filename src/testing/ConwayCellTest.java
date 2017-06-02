@@ -21,6 +21,7 @@ public class ConwayCellTest
 	{	
 		assertFalse(testCell.getStatus());
 		testCell.setNextStatus(3);
+		//TODO @Jonas fix
 		assertTrue(testCell.getStatus());
 		testCell.setNextStatus(1);
 		assertFalse(testCell.getStatus());
