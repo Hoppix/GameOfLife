@@ -30,8 +30,9 @@ public class LifeGUI
 	protected JButton image11;
 	protected JButton image12;
 
-	protected JButton speedSlider;
+	protected JSlider speedSlider;
 	protected JButton logo;
+
 	private JPanel preloadPanel;
 	private JLabel gametype;
 	private JLabel preload;
@@ -59,7 +60,7 @@ public class LifeGUI
 
 	private void initialize()
 	{
-		frame = new JFrame();
+		frame = new JFrame("GOGOL");
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -69,26 +70,26 @@ public class LifeGUI
 		gameGrid.setBounds(220, 0, 1100, 600);
 		frame.getContentPane().add(gameGrid);
 
-		JButton btnPause = new JButton("pause");
-		btnPause.setBounds(627, 636, 89, 23);
-		frame.getContentPane().add(btnPause);
+		pause = new JButton("pause");
+		pause.setBounds(627, 636, 89, 23);
+		frame.getContentPane().add(pause);
 
 		
 		step = new JButton("step");
 		step.setBounds(726, 636, 89, 23);
 		frame.getContentPane().add(step);
 
-		JSlider slider = new JSlider();
-		slider.setBounds(898, 633, 200, 26);
-		frame.getContentPane().add(slider);
+		speedSlider = new JSlider();
+		speedSlider.setBounds(898, 633, 200, 26);
+		frame.getContentPane().add(speedSlider);
 
 		JLabel lblSpeed = new JLabel("speed:");
 		lblSpeed.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(lblSpeed);
 
-		JButton btnPlay = new JButton("play");
-		btnPlay.setBounds(528, 636, 89, 23);
-		frame.getContentPane().add(btnPlay);
+		play = new JButton("play");
+		play.setBounds(528, 636, 89, 23);
+		frame.getContentPane().add(play);
 
 		JLabel lblGametype = new JLabel("GameType:");
 		lblGametype.setBounds(10, 11, 63, 23);
@@ -98,13 +99,13 @@ public class LifeGUI
 		comboBox.setBounds(83, 12, 116, 20);
 		frame.getContentPane().add(comboBox);
 
-		JButton btnSave = new JButton("save");
-		btnSave.setBounds(10, 45, 89, 23);
-		frame.getContentPane().add(btnSave);
+		save = new JButton("save");
+		save.setBounds(10, 45, 89, 23);
+		frame.getContentPane().add(save);
 
-		JButton btnLoad = new JButton("load");
-		btnLoad.setBounds(109, 45, 89, 23);
-		frame.getContentPane().add(btnLoad);
+		load = new JButton("load");
+		load.setBounds(109, 45, 89, 23);
+		frame.getContentPane().add(load);
 
 		JLabel lblPreload = new JLabel("Preload:");
 		lblPreload.setBounds(10, 93, 46, 14);
@@ -164,10 +165,10 @@ public class LifeGUI
 		label_8.setBounds(130, 269, 46, 14);
 		panel_1.add(label_8);
 
-		JButton btnNewButton_1 = new JButton("IMAGE");
-		btnNewButton_1.setToolTipText("sample");
-		btnNewButton_1.setBounds(10, 36, 50, 50);
-		panel_1.add(btnNewButton_1);
+		image1 = new JButton("IMAGE");
+		image1.setToolTipText("sample");
+		image1.setBounds(10, 36, 50, 50);
+		panel_1.add(image1);
 
 		JButton button = new JButton("IMAGE");
 		button.setBounds(70, 36, 50, 50);
@@ -213,12 +214,12 @@ public class LifeGUI
 		button_10.setBounds(10, 294, 50, 50);
 		panel_1.add(button_10);
 
-		JButton btnNewButton = new JButton("LOGO");
-		btnNewButton.setEnabled(false);
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.setBounds(10, 487, 189, 193);
-		frame.getContentPane().add(btnNewButton);
+		logo = new JButton("LOGO");
+		logo.setEnabled(false);
+		logo.setForeground(new Color(0, 0, 0));
+		logo.setBackground(Color.ORANGE);
+		logo.setBounds(10, 487, 189, 193);
+		frame.getContentPane().add(logo);
 		frame.setVisible(true);
 	}
 
