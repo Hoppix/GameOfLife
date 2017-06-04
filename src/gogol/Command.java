@@ -2,5 +2,5 @@ package gogol;
 
 public enum Command 
 {
-	STEPFOWARD,
+	STEPFOWARD, CLEAR, RANDOMIZE,
 }

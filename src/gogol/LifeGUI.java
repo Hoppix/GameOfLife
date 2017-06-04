@@ -22,6 +22,8 @@ public class LifeGUI
 	protected JButton step;
 	protected JButton play;
 	protected JButton pause;
+	protected JButton clear;
+	protected JButton random;
 	protected JButton save;
 	protected JButton load;
 
@@ -72,7 +74,7 @@ public class LifeGUI
 	{
 		frame = new JFrame("GOGOL");
 		frame.getContentPane().setBackground(primaryColor);
-		frame.setBounds(100, 100, 1280, 720);
+		frame.setBounds(100, 100, 1327, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
@@ -92,6 +94,18 @@ public class LifeGUI
 		step.setForeground(secondaryColor);
 		step.setBounds(726, 636, 89, 23);
 		frame.getContentPane().add(step);
+
+		clear = new JButton("clear");
+		clear.setBackground(tertiaryColor);
+		clear.setForeground(secondaryColor);
+		clear.setBounds(429,636,89,23);
+		frame.getContentPane().add(clear);
+
+		random = new JButton("random");
+		random.setBackground(tertiaryColor);
+		random.setForeground(secondaryColor);
+		random.setBounds(330,636,89,23);
+		frame.getContentPane().add(random);
 
 		speedSlider = new JSlider();
 		speedSlider.setBackground(primaryColor);

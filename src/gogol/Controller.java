@@ -20,7 +20,6 @@ public class Controller
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
 		setGridsize(gridY, gridX);
 		addListeners();
-		//initializeRandom();
 	}
 
 
@@ -93,6 +92,18 @@ public class Controller
 		}
 	}
 
+	public void clear()
+	{
+		for (int i = 0; i < survivalMatrix.length; i++)
+		{
+			for (int j = 0; j < survivalMatrix[0].length; j++)
+			{
+				survivalMatrix[i][j] = new ConwayCell();
+				gamegrid.setField(survivalMatrix[i][j], j,i);
+			}
+		}
+	}
+
 	/*
 	 * returns the number of alive Neighbors of a cell
 	 */
@@ -150,6 +161,8 @@ public class Controller
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
+		lifegui.clear.addActionListener(new ButtonListener(Command.CLEAR, this));
+		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 
@@ -159,6 +172,12 @@ public class Controller
 		{
 			case STEPFOWARD:
 				this.stepForward();
+				break;
+			case CLEAR:
+				this.clear();
+				break;
+			case RANDOMIZE:
+				this.initializeRandom();
 				break;
 			default:
 		}
