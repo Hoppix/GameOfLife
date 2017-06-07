@@ -13,7 +13,7 @@ Meilensteine:
 	speed X
 	loop X
 	play/pause X
-	save/load
+	save/load x
 	preload
 	gridsize
 	

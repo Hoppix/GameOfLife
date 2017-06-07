@@ -114,6 +114,7 @@ public class LifeGUI
 		speedSlider = new JSlider();
 		speedSlider.setBackground(primaryColor);
 		speedSlider.setForeground(secondaryColor);
+		speedSlider.setUI(new ColoredThumbSliderUI(speedSlider, Color.gray));
 		speedSlider.setBounds(898, 633, 200, 26);
 		frame.getContentPane().add(speedSlider);
 
