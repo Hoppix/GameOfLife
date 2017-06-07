@@ -2,8 +2,6 @@ package gogol;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.InputStream;
-import java.net.URL;
 
 /**
  * Created by hoppix on 18.05.17.
