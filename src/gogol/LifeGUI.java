@@ -48,6 +48,7 @@ public class LifeGUI
 	private JLabel gametype;
 	private JLabel preload;
 	private JLabel speedValue;
+	protected JLabel speedNumber;
 
 	private JLabel form1;
 	private JLabel form2;
@@ -118,6 +119,11 @@ public class LifeGUI
 		speedValue.setForeground(tertiaryColor);
 		speedValue.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(speedValue);
+
+		speedNumber = new JLabel(50 + "");
+		speedNumber.setForeground(tertiaryColor);
+		speedNumber.setBounds(994, 615, 46, 14);
+		frame.getContentPane().add(speedNumber);
 
 		play = new JButton("play");
 		play.setBackground(tertiaryColor);
