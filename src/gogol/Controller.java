@@ -14,6 +14,8 @@ public class Controller
 	LifeGUI lifegui;
 	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
 
+	private Player player;
+
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
 		gamegrid = grid;
@@ -22,6 +24,8 @@ public class Controller
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
 		setGridsize(gridY, gridX);
+
+		player = new Player(this);
 		addListeners();
 	}
 
@@ -192,6 +196,8 @@ public class Controller
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
 		lifegui.clear.addActionListener(new ButtonListener(Command.CLEAR, this));
 		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
+		lifegui.play.addActionListener(new ButtonListener(Command.PLAY,this));
+		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 	
@@ -208,6 +214,15 @@ public class Controller
 			case RANDOMIZE:
 				this.initializeRandom();
 				break;
+			case PLAY:
+				player.startLoop();
+				lifegui.step.setEnabled(false);
+				lifegui.play.setEnabled(false);
+				break;
+			case PAUSE:
+				player.stopLoop();
+				lifegui.step.setEnabled(true);
+				lifegui.play.setEnabled(true);
 			default:
 		}
 
