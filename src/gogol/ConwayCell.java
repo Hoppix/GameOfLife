@@ -64,5 +64,15 @@ public class ConwayCell implements Cell {
 	{
 		alive = !alive;
 	}
+
+	@Override
+	public String cellToString() 
+	{
+		String cellString = "";
+		
+		cellString = cellString + alive;
+		
+		return cellString;
+	}
 	
 }

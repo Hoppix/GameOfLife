@@ -12,7 +12,7 @@ public class GameGrid extends JPanel
 	protected int sizeX;
 	protected int sizeY;
 	protected int tileSize;
-
+	
 	private Color colorBG;
 	private Color colorCell;
 	private Color colorGrid;

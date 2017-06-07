@@ -21,4 +21,9 @@ public interface Cell
 	 * Sets the cell status e.G. when klicked
 	 */
 	public void toggleStatus();
+	
+	/*
+	 * gives the cell data as a String
+	 */
+	public String cellToString();
 }

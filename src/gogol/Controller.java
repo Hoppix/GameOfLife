@@ -13,6 +13,7 @@ public class Controller
 	GameGrid gamegrid;
 	LifeGUI lifegui;
 	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
+	public String gameMode;
 
 	private Player player;
 
@@ -20,6 +21,8 @@ public class Controller
 	{
 		gamegrid = grid;
 		lifegui = gui;
+		
+		gameMode = "Conway";
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
@@ -174,15 +177,16 @@ public class Controller
 		try 
 		{
 			writer = new BufferedWriter( new FileWriter("lastSave.txt"));
-		    writer.write("this are the settings");
+		    writer.write(gameMode + gamegrid.tileSize);
 		    writer.newLine();
 		    
 		    for (int i = 0; i < survivalMatrix.length; i++) 
 		    {
 				for (int j = 0; j < survivalMatrix[i].length; j++) 
 				{
-					//writer.write
+					writer.write(survivalMatrix[i][j].cellToString() + ";");
 				}
+				writer.newLine();
 			}
 			writer.close();
 		} 
@@ -191,6 +195,7 @@ public class Controller
 			e.printStackTrace();
 		}
 	}
+	
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
