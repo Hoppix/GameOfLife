@@ -8,10 +8,10 @@ public class ButtonListener implements ActionListener
 	Command cmd;
 	Controller lol;
 	
-	public ButtonListener(Command cmd, Controller idkwhattonametheseanymore)
+	public ButtonListener(Command cmd, Controller cont)
 	{
 		this.cmd = cmd;
-		this.lol = idkwhattonametheseanymore;
+		this.lol = cont;
 	}
 	
 	@Override

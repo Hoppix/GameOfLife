@@ -15,8 +15,8 @@ public class LifeGUI
 	private static final Color secondaryColor = Color.lightGray;
 	private static final Color tertiaryColor = Color.darkGray;
 
-	private ImageIcon logoPNG = new ImageIcon(getClass().getResource("../design/logo.png"));
-	private ImageIcon nyiPNG = new ImageIcon(getClass().getResource("../design/nyi.png"));
+	private ImageIcon logoPNG;
+	private ImageIcon nyiPNG;
 
 
 	protected JButton step;
@@ -65,6 +65,9 @@ public class LifeGUI
 
 	public LifeGUI(GameGrid parentGrid)
 	{
+		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
+		nyiPNG = new ImageIcon(LifeGUI.class.getResource("/design/nyi.png"));
+
 		gameGrid = parentGrid;
 
 		initializeFrame();
@@ -155,7 +158,7 @@ public class LifeGUI
 		frame.getContentPane().add(load);
 
 
-		logo = new JButton(logoPNG);
+		logo = new JButton(new ImageIcon(LifeGUI.class.getResource("/design/logo.png")));
 		logo.setEnabled(false);
 		logo.setBounds(10, 487, 190, 190);
 		frame.getContentPane().add(logo);
