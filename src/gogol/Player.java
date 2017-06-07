@@ -16,7 +16,7 @@ public class Player
 	public Player(Controller cont)
 	{
 		controller = cont;
-		speed = 900;
+		speed = 500;
 		intervall = 1000;
 		running = true;
 	}
@@ -51,6 +51,11 @@ public class Player
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void setSpeed(int speedV)
+	{
+		speed = speedV * 10;
 	}
 
 

@@ -1,18 +1,18 @@
 Meilensteine:
 
 -grundimplementation
-	gamegrid
-	frame
-	zellen
-	zellarray
-	stepfoward
-	mausclick-toggle
-	(random-dummy)
+	gamegrid X
+	frame X
+	zellen X
+	zellarray X
+	stepfoward X
+	mausclick-toggle X
+	(random-dummy) X
 	
 -automatisierung
 	speed
-	loop
-	play/pause
+	loop X
+	play/pause X
 	save/load
 	preload
 	gridsize

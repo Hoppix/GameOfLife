@@ -203,6 +203,7 @@ public class Controller
 		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
 		lifegui.play.addActionListener(new ButtonListener(Command.PLAY,this));
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
+		lifegui.speedSlider.addChangeListener(new SpeedChanger(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 	
@@ -230,6 +231,5 @@ public class Controller
 				lifegui.play.setEnabled(true);
 			default:
 		}
-
 	}
 }
