@@ -2,6 +2,7 @@ package gogol;
 
 import java.io.*;
 
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 /*
@@ -167,10 +168,22 @@ public class Controller
 	public void saveGamestate()
 	{
 		BufferedWriter writer = null;
+		String saveFile = null;
+		
+		final JFileChooser fc = new JFileChooser();
+		//In response to a button click:
+		int returnVal = fc.showSaveDialog(null);
+		
+		if(returnVal != fc.APPROVE_OPTION)
+		{
+			return;
+		}
+		
+		saveFile = fc.getSelectedFile().getAbsolutePath();
 		
 		try 
 		{
-			writer = new BufferedWriter( new FileWriter("saves/lastSave.txt"));
+			writer = new BufferedWriter( new FileWriter(saveFile));
 		    writer.write(gameMode + ";");
 			writer.write(gamegrid.tileSize + ";");
 		    writer.write(survivalMatrix[0].length + ";");
@@ -204,11 +217,24 @@ public class Controller
 		String line = null;
 		String[] args = null;
 		
+		String saveFile = null;
+		
+		final JFileChooser fc = new JFileChooser();
+		//In response to a button click:
+		int returnVal = fc.showOpenDialog(null);
+		
+		if(returnVal != fc.APPROVE_OPTION)
+		{
+			return;
+		}
+		
+		saveFile = fc.getSelectedFile().getAbsolutePath();
+		
 		try
 		{
 			int y = 0;
 			
-			reader = new BufferedReader(new FileReader("saves/lastSave.txt"));
+			reader = new BufferedReader(new FileReader(saveFile));
 			line = reader.readLine();
 			args = line.split(";");
 			
