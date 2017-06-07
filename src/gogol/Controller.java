@@ -1,9 +1,11 @@
 package gogol;
 
+
+import java.awt.Color;
 import java.io.*;
 
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
+import javax.accessibility.AccessibleContext;
+import javax.swing.*;
 
 /*
  * Holds the Cell array and gives Cells data about their Neighbors
@@ -171,9 +173,11 @@ public class Controller
 		String saveFile = null;
 		
 		final JFileChooser fc = new JFileChooser();
-		//In response to a button click:
+
+		setFileChooserTheme(fc.getAccessibleContext());
+
 		int returnVal = fc.showSaveDialog(null);
-		
+
 		if(returnVal != fc.APPROVE_OPTION)
 		{
 			return;
@@ -220,7 +224,9 @@ public class Controller
 		String saveFile = null;
 		
 		final JFileChooser fc = new JFileChooser();
-		//In response to a button click:
+		
+		setFileChooserTheme(fc.getAccessibleContext());
+
 		int returnVal = fc.showOpenDialog(null);
 		
 		if(returnVal != fc.APPROVE_OPTION)
@@ -308,5 +314,33 @@ public class Controller
 				break;
 			default:
 		}
+	}
+	
+	private static void setFileChooserTheme(AccessibleContext ac) 
+	{
+		Color prim = Color.GRAY;
+		Color sec = Color.LIGHT_GRAY;
+		Color tert = Color.DARK_GRAY;
+		
+		if(ac.getAccessibleComponent().getClass().getName().equals("javax.swing.JPanel$AccessibleJPanel"))
+		{
+			ac.getAccessibleComponent().setForeground(sec);
+		    ac.getAccessibleComponent().setBackground(prim);
+		}
+		else if(ac.getAccessibleComponent().getClass().getName().equals("javax.swing.JButton$AccessibleJButton"))
+		{
+			ac.getAccessibleComponent().setForeground(sec);
+		    ac.getAccessibleComponent().setBackground(tert);
+		}
+		else
+		{
+			//System.out.println(ac.getAccessibleComponent().getClass().getName()); //debugging
+			ac.getAccessibleComponent().setForeground(tert);
+		    ac.getAccessibleComponent().setBackground(prim);
+		}
+	    int n = ac.getAccessibleChildrenCount();
+	    for (int i=0; i<n; i++) {
+	        setFileChooserTheme(ac.getAccessibleChild(i).getAccessibleContext());
+	    }
 	}
 }
