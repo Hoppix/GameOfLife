@@ -1,5 +1,8 @@
 package gogol;
 
+import java.io.FileNotFoundException;
+import java.io.*;
+
 import javax.swing.JPanel;
 
 /*
@@ -155,7 +158,35 @@ public class Controller
 
 		return count;
 	}
-
+	
+	/*
+	 * Writes the current Gamestate to a text file
+	 * first line are Settings, lines 2-n are the cells linewise.
+	 */
+	public void saveGamestate()
+	{
+		BufferedWriter writer = null;
+		
+		try 
+		{
+			writer = new BufferedWriter( new FileWriter("lastSave.txt"));
+		    writer.write("this are the settings");
+		    writer.newLine();
+		    
+		    for (int i = 0; i < survivalMatrix.length; i++) 
+		    {
+				for (int j = 0; j < survivalMatrix[i].length; j++) 
+				{
+					//writer.write
+				}
+			}
+			writer.close();
+		} 
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
@@ -163,7 +194,7 @@ public class Controller
 		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
-
+	
 	public void doCommand(Command cmd)
 	{
 		switch (cmd)
