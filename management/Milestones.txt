@@ -10,7 +10,7 @@ Meilensteine:
 	(random-dummy) X
 	
 -automatisierung
-	speed
+	speed X
 	loop X
 	play/pause X
 	save/load

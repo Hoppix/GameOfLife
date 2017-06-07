@@ -120,9 +120,9 @@ public class LifeGUI
 		speedValue.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(speedValue);
 
-		speedNumber = new JLabel(50 + "");
+		speedNumber = new JLabel("Value: " + 50 + "");
 		speedNumber.setForeground(tertiaryColor);
-		speedNumber.setBounds(994, 615, 46, 14);
+		speedNumber.setBounds(974, 615, 86, 14);
 		frame.getContentPane().add(speedNumber);
 
 		play = new JButton("play");
