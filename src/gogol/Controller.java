@@ -1,6 +1,5 @@
 package gogol;
 
-import java.io.FileNotFoundException;
 import java.io.*;
 
 import javax.swing.JPanel;
@@ -26,7 +25,7 @@ public class Controller
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
-		setGridsize(gridY, gridX);
+		setGridsize(gridX, gridY);
 
 		player = new Player(this);
 		addListeners();
@@ -89,14 +88,8 @@ public class Controller
 	{
 		if (x >= 3 || y >= 3)
 		{
-			survivalMatrix = new Cell[x][y];
-			for (int i = 0; i < survivalMatrix.length; i++)
-			{
-				for (int j = 0; j < survivalMatrix[0].length; j++)
-				{
-					survivalMatrix[i][j] = new ConwayCell();
-				}
-			}
+			survivalMatrix = new Cell[y][x];
+			clear();
 		}
 	}
 
@@ -169,6 +162,7 @@ public class Controller
 	/*
 	 * Writes the current Gamestate to a text file
 	 * first line are Settings, lines 2-n are the cells linewise.
+	 * settings: Gamemode;tilesize;survivalMatrixX;surivalMatrixY;
 	 */
 	public void saveGamestate()
 	{
@@ -176,15 +170,18 @@ public class Controller
 		
 		try 
 		{
-			writer = new BufferedWriter( new FileWriter("lastSave.txt"));
-		    writer.write(gameMode + gamegrid.tileSize);
+			writer = new BufferedWriter( new FileWriter("saves/lastSave.txt"));
+		    writer.write(gameMode + ";");
+			writer.write(gamegrid.tileSize + ";");
+		    writer.write(survivalMatrix[0].length + ";");
+		    writer.write(survivalMatrix.length + ";");
 		    writer.newLine();
 		    
-		    for (int i = 0; i < survivalMatrix.length; i++) 
+		    for (int y = 0; y < survivalMatrix.length; y++) 
 		    {
-				for (int j = 0; j < survivalMatrix[i].length; j++) 
+				for (int x = 0; x < survivalMatrix[y].length; x++) 
 				{
-					writer.write(survivalMatrix[i][j].cellToString() + ";");
+					writer.write(survivalMatrix[y][x].cellToString() + ";");
 				}
 				writer.newLine();
 			}
@@ -196,6 +193,51 @@ public class Controller
 		}
 	}
 	
+	/*
+	 * loads a previously saved game
+	 */
+	public void loadGameState()
+	{
+		clear();
+		
+		BufferedReader reader = null;
+		String line = null;
+		String[] args = null;
+		
+		try
+		{
+			int y = 0;
+			
+			reader = new BufferedReader(new FileReader("saves/lastSave.txt"));
+			line = reader.readLine();
+			args = line.split(";");
+			
+			gameMode = args[0];
+			gamegrid.tileSize = Integer.parseInt(args[1]);
+			setGridsize(Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+			
+			while ((line = reader.readLine()) != null) 
+			{
+				args = line.split(";");
+				for (int x = 0; x < args.length; x++) 
+				{
+					if(args[x].equals("true"))
+					{
+						survivalMatrix[y][x].toggleStatus();
+						gamegrid.setField(survivalMatrix[y][x], x, y);
+					}					
+				}
+				y++;
+			}
+			reader.close();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
@@ -203,6 +245,8 @@ public class Controller
 		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
 		lifegui.play.addActionListener(new ButtonListener(Command.PLAY,this));
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
+		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
+		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
 		lifegui.speedSlider.addChangeListener(new SpeedChanger(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
@@ -229,6 +273,13 @@ public class Controller
 				player.stopLoop();
 				lifegui.step.setEnabled(true);
 				lifegui.play.setEnabled(true);
+				break;
+			case SAVE:
+				this.saveGamestate();
+				break;
+			case LOAD:
+				this.loadGameState();
+				break;
 			default:
 		}
 	}
