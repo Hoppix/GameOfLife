@@ -1,5 +1,7 @@
 package gogol;
 
+import java.math.BigDecimal;
+
 import static java.lang.Thread.sleep;
 
 /**
@@ -56,6 +58,21 @@ public class Player
 	public void setSpeed(int speedV)
 	{
 		speed = speedV * 10;
+	}
+
+	public String getStepsPerSecond()
+	{
+		if (intervall - speed == 0)
+		{
+			return "MAX";
+		}
+		float r = (float) intervall / ((float) intervall - (float) speed);
+		return String.valueOf(round3(r,2));
+	}
+
+	private static float round3(float d, int decimalPlace)
+	{
+		return BigDecimal.valueOf(d).setScale(decimalPlace, BigDecimal.ROUND_HALF_UP).floatValue();
 	}
 
 

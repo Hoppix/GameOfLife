@@ -129,9 +129,10 @@ public class LifeGUI
 		speedValue.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(speedValue);
 
-		speedNumber = new JLabel("Value: " + 50 + "");
+		speedNumber = new JLabel("SPS: " + 2.0 + "");
 		speedNumber.setForeground(tertiaryColor);
 		speedNumber.setBounds(974, 615, 86, 14);
+		speedNumber.setToolTipText("Steps per Second");
 		frame.getContentPane().add(speedNumber);
 
 		play = new JButton("PLAY");

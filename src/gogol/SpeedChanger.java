@@ -30,7 +30,7 @@ public class SpeedChanger implements ChangeListener
 		JSlider source = (JSlider) e.getSource();
 
 		int fps = source.getValue();
-		controller.lifegui.speedNumber.setText("Value: " + fps + "");
+		controller.lifegui.speedNumber.setText("SPS: " + player.getStepsPerSecond());
 		player.setSpeed(fps);
 
 	}
