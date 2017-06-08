@@ -2,6 +2,7 @@ package gogol;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by hoppix on 18.05.17.
@@ -72,6 +73,10 @@ public class LifeGUI
 
 		initializeFrame();
 		initializePreloadPanel();
+
+		//Remove Java icon
+		Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+		frame.setIconImage(icon);
 	}
 
 	private void initializeFrame()
@@ -86,26 +91,26 @@ public class LifeGUI
 		gameGrid.setBounds(220, 0, 1100, 600);
 		frame.getContentPane().add(gameGrid);
 
-		pause = new JButton("pause");
+		pause = new JButton("STOP");
 		pause.setBackground(tertiaryColor);
 		pause.setForeground(secondaryColor);
 		pause.setBounds(627, 636, 89, 23);
 		frame.getContentPane().add(pause);
 
 		
-		step = new JButton("step");
+		step = new JButton("STEP");
 		step.setBackground(tertiaryColor);
 		step.setForeground(secondaryColor);
 		step.setBounds(726, 636, 89, 23);
 		frame.getContentPane().add(step);
 
-		clear = new JButton("clear");
+		clear = new JButton("CLEAR");
 		clear.setBackground(tertiaryColor);
 		clear.setForeground(secondaryColor);
 		clear.setBounds(429,636,89,23);
 		frame.getContentPane().add(clear);
 
-		random = new JButton("random");
+		random = new JButton("RANDOM");
 		random.setBackground(tertiaryColor);
 		random.setForeground(secondaryColor);
 		random.setBounds(330,636,89,23);
@@ -119,7 +124,7 @@ public class LifeGUI
 		frame.getContentPane().add(speedSlider);
 
 
-		speedValue = new JLabel("speed:");
+		speedValue = new JLabel("SPEED:");
 		speedValue.setForeground(tertiaryColor);
 		speedValue.setBounds(842, 640, 46, 14);
 		frame.getContentPane().add(speedValue);
@@ -129,13 +134,13 @@ public class LifeGUI
 		speedNumber.setBounds(974, 615, 86, 14);
 		frame.getContentPane().add(speedNumber);
 
-		play = new JButton("play");
+		play = new JButton("PLAY");
 		play.setBackground(tertiaryColor);
 		play.setForeground(secondaryColor);
 		play.setBounds(528, 636, 89, 23);
 		frame.getContentPane().add(play);
 
-		gametype = new JLabel("GameType:");
+		gametype = new JLabel("TYPE:");
 		gametype.setBounds(10, 11, 63, 23);
 		frame.getContentPane().add(gametype);
 
@@ -146,13 +151,13 @@ public class LifeGUI
 		gametypeChooser.setBounds(83, 12, 116, 20);
 		frame.getContentPane().add(gametypeChooser);
 
-		save = new JButton("save");
+		save = new JButton("SAVE");
 		save.setBackground(tertiaryColor);
 		save.setForeground(secondaryColor);
 		save.setBounds(10, 45, 89, 23);
 		frame.getContentPane().add(save);
 
-		load = new JButton("load");
+		load = new JButton("LOAD");
 		load.setBackground(tertiaryColor);
 		load.setForeground(secondaryColor);
 		load.setBounds(109, 45, 89, 23);
@@ -169,7 +174,7 @@ public class LifeGUI
 
 	private void initializePreloadPanel()
 	{
-		preload = new JLabel("Preload:");
+		preload = new JLabel("PRELOAD:");
 		preload.setBounds(10, 93, 50, 14);
 		frame.getContentPane().add(preload);
 
