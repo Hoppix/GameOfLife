@@ -1,8 +1,11 @@
 package gogol;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by hoppix on 18.05.17.
@@ -18,6 +21,7 @@ public class LifeGUI
 
 	private ImageIcon logoPNG;
 	private ImageIcon nyiPNG;
+	private ImageIcon iconICO;
 
 
 	protected JButton step;
@@ -68,6 +72,7 @@ public class LifeGUI
 	{
 		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
 		nyiPNG = new ImageIcon(LifeGUI.class.getResource("/design/nyi.png"));
+		iconICO = new ImageIcon(LifeGUI.class.getResource("/design/icon.ico"));
 
 		gameGrid = parentGrid;
 

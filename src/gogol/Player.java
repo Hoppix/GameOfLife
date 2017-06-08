@@ -67,7 +67,7 @@ public class Player
 			return "MAX";
 		}
 		float r = (float) intervall / ((float) intervall - (float) speed);
-		return String.valueOf(round3(r,2));
+		return String.valueOf(round3(r, 2));
 	}
 
 	private static float round3(float d, int decimalPlace)
