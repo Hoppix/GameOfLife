@@ -292,6 +292,8 @@ public class LifeGUI
 		image12 = new JButton(nyiPNG);
 		image12.setBounds(10, 294, 50, 50);
 		preloadPanel.add(image12);
+
+		preloadPanel.repaint();
 	}
 
 
