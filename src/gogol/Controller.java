@@ -279,7 +279,7 @@ public class Controller
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
-		lifegui.speedSlider.addChangeListener(new SpeedChanger(this, player));
+		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 	

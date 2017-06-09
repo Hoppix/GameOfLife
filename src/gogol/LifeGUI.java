@@ -181,7 +181,7 @@ public class LifeGUI
 	private void initializePreloadPanel()
 	{
 		preload = new JLabel("PRELOAD:");
-		preload.setBounds(10, 93, 50, 14);
+		preload.setBounds(10, 93, 60, 14);
 		frame.getContentPane().add(preload);
 
 		preloadPanel = new JPanel();

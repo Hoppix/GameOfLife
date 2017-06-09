@@ -7,13 +7,13 @@ import javax.swing.event.ChangeListener;
 /**
  * Created by khopf on 07/06/2017.
  */
-public class SpeedChanger implements ChangeListener
+public class SpeedChangerListener implements ChangeListener
 {
 
 	private final Controller controller;
 	private final Player player;
 
-	public SpeedChanger(Controller cont, Player play)
+	public SpeedChangerListener(Controller cont, Player play)
 	{
 		controller = cont;
 		player = play;
