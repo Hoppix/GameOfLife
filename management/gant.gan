@@ -4,7 +4,7 @@
         <field id="tpd3" name="Name" width="167" order="0"/>
         <field id="tpd4" name="Begin date" width="65" order="1"/>
         <field id="tpd5" name="End date" width="64" order="2"/>
-        <timeline><![CDATA[0,2]]></timeline>
+        <timeline><![CDATA[2,0]]></timeline>
         <option id="color.recent"><![CDATA[#ff99cc #666666 #00cccc #009900 #cc00cc #ffff33 #ff0033]]></option>
     </view>
     <view id="resource-table">
@@ -39,7 +39,6 @@
         <task id="2" name="Grundimplementation" color="#ffff33" meeting="false" start="2017-05-18" duration="14" complete="0" thirdDate="2017-05-18" thirdDate-constraint="0" priority="2" expand="true"/>
         <task id="13" name="Automatisierung" color="#8cb6ce" meeting="false" start="2017-06-02" duration="7" complete="0" expand="true"/>
         <task id="15" name="Rainbow" color="#cc00cc" meeting="false" start="2017-06-10" duration="7" complete="0" expand="true"/>
-        <task id="16" name="Bio" color="#009900" meeting="false" start="2017-06-18" duration="7" complete="0" expand="true"/>
         <task id="20" name="PvP" color="#00cccc" meeting="false" start="2017-06-18" duration="14" complete="0" expand="true"/>
         <task id="22" name="Doku/Präsi vorbereiten" color="#666666" meeting="false" start="2017-07-03" duration="5" complete="0" expand="true"/>
         <task id="25" name="Website deployment" color="#ff99cc" meeting="false" start="2017-07-03" duration="5" complete="0" expand="true"/>
