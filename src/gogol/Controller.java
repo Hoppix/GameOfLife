@@ -1,12 +1,6 @@
 package gogol;
 
 
-import java.awt.Color;
-import java.io.*;
-
-import javax.accessibility.AccessibleContext;
-import javax.swing.*;
-
 /*
  * Holds the Cell array and gives Cells data about their Neighbors
  */
@@ -18,6 +12,7 @@ public class Controller
 	public String gameMode;
 
 	private Player player;
+	private Saver saver;
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
@@ -31,6 +26,7 @@ public class Controller
 		setGridsize(gridX, gridY);
 
 		player = new Player(this);
+		saver = new Saver(this);
 		addListeners();
 	}
 
@@ -161,114 +157,7 @@ public class Controller
 
 		return count;
 	}
-	
-	/*
-	 * Writes the current Gamestate to a text file
-	 * first line are Settings, lines 2-n are the cells linewise.
-	 * settings: Gamemode;tilesize;survivalMatrixX;surivalMatrixY;
-	 */
-	public void saveGamestate()
-	{
-		BufferedWriter writer = null;
-		String saveFile = null;
-		
-		final JFileChooser fc = new JFileChooser();
 
-		setFileChooserTheme(fc.getAccessibleContext());
-
-		int returnVal = fc.showSaveDialog(null);
-
-		if(returnVal != fc.APPROVE_OPTION)
-		{
-			return;
-		}
-		
-		saveFile = fc.getSelectedFile().getAbsolutePath();
-		
-		try 
-		{
-			writer = new BufferedWriter( new FileWriter(saveFile));
-		    writer.write(gameMode + ";");
-			writer.write(gamegrid.tileSize + ";");
-		    writer.write(survivalMatrix[0].length + ";");
-		    writer.write(survivalMatrix.length + ";");
-		    writer.newLine();
-		    
-		    for (int y = 0; y < survivalMatrix.length; y++) 
-		    {
-				for (int x = 0; x < survivalMatrix[y].length; x++) 
-				{
-					writer.write(survivalMatrix[y][x].cellToString() + ";");
-				}
-				writer.newLine();
-			}
-			writer.close();
-		} 
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	/*
-	 * loads a previously saved game
-	 */
-	public void loadGameState()
-	{
-		clear();
-		
-		BufferedReader reader = null;
-		String line = null;
-		String[] args = null;
-		
-		String saveFile = null;
-		
-		final JFileChooser fc = new JFileChooser();
-		
-		setFileChooserTheme(fc.getAccessibleContext());
-
-		int returnVal = fc.showOpenDialog(null);
-		
-		if(returnVal != fc.APPROVE_OPTION)
-		{
-			return;
-		}
-		
-		saveFile = fc.getSelectedFile().getAbsolutePath();
-		
-		try
-		{
-			int y = 0;
-			
-			reader = new BufferedReader(new FileReader(saveFile));
-			line = reader.readLine();
-			args = line.split(";");
-			
-			gameMode = args[0];
-			gamegrid.tileSize = Integer.parseInt(args[1]);
-			setGridsize(Integer.parseInt(args[2]),Integer.parseInt(args[3]));
-			
-			while ((line = reader.readLine()) != null) 
-			{
-				args = line.split(";");
-				for (int x = 0; x < args.length; x++) 
-				{
-					if(args[x].equals("true"))
-					{
-						survivalMatrix[y][x].toggleStatus();
-						gamegrid.setField(survivalMatrix[y][x], x, y);
-					}					
-				}
-				y++;
-			}
-			reader.close();
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-		
-	}
 	
 	private void addListeners()
 	{
@@ -307,40 +196,14 @@ public class Controller
 				lifegui.play.setEnabled(true);
 				break;
 			case SAVE:
-				this.saveGamestate();
+				saver.saveGamestate();
 				break;
 			case LOAD:
-				this.loadGameState();
+				saver.loadGamestate();
 				break;
 			default:
 		}
 	}
 	
-	private static void setFileChooserTheme(AccessibleContext ac) 
-	{
-		Color prim = Color.GRAY;
-		Color sec = Color.LIGHT_GRAY;
-		Color tert = Color.DARK_GRAY;
-		
-		if(ac.getAccessibleComponent().getClass().getName().equals("javax.swing.JPanel$AccessibleJPanel"))
-		{
-			ac.getAccessibleComponent().setForeground(sec);
-		    ac.getAccessibleComponent().setBackground(prim);
-		}
-		else if(ac.getAccessibleComponent().getClass().getName().equals("javax.swing.JButton$AccessibleJButton"))
-		{
-			ac.getAccessibleComponent().setForeground(sec);
-		    ac.getAccessibleComponent().setBackground(tert);
-		}
-		else
-		{
-			//System.out.println(ac.getAccessibleComponent().getClass().getName()); //debugging
-			ac.getAccessibleComponent().setForeground(tert);
-		    ac.getAccessibleComponent().setBackground(prim);
-		}
-	    int n = ac.getAccessibleChildrenCount();
-	    for (int i=0; i<n; i++) {
-	        setFileChooserTheme(ac.getAccessibleChild(i).getAccessibleContext());
-	    }
-	}
+
 }
