@@ -103,6 +103,18 @@ public class Controller
 			}
 		}
 	}
+	
+	public void clearArea(int startX, int startY, int lengthX, int lengthY)
+	{
+		for (int i = 0; i < lengthY; i++)
+		{
+			for (int j = 0; j < lengthX; j++)
+			{
+				survivalMatrix[i + startY][j + startX] = new ConwayCell();
+				gamegrid.setField(survivalMatrix[i + startY][j + startX], j + startX,i + startY);
+			}
+		}
+	}
 
 	/*
 	 * returns the number of alive Neighbors of a cell
