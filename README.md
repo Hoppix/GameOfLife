@@ -1,7 +1,8 @@
 
 # Game of Game of Life | GOGOL
 
-A Java implementation of the Game of Life a cellular automaton developed by the British mathematician John Horton Conway in 1970.
+A Java implementation of the Game of Life a cellular automaton developed by the British mathematician John Horton Conway in 1970. <br />
+[more info](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 ## Features:
 - Full rich desktop GUI-Application
@@ -28,10 +29,14 @@ Note: Only tested under Windows 10 and Linux(KDE)
 ### Download:
 
 Windows: <br />
-[executable](https://github.com/blog/1395-relative-links-in-markup-files)
+[jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
 
 Linux: <br />
-[jar file](https://github.com/blog/1395-relative-links-in-markup-files)
+[jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
+
+### Authors:
+https://github.com/Hoppix <br />
+https://github.com/Rathalos93 <br />
 
 ### Contact:
 Discord: Hoppix#6723
