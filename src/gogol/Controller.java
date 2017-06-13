@@ -13,6 +13,7 @@ public class Controller
 
 	private Player player;
 	private Saver saver;
+	protected PreLoader preloader;
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
@@ -27,6 +28,8 @@ public class Controller
 
 		player = new Player(this);
 		saver = new Saver(this);
+		preloader = new PreLoader(this);
+		
 		addListeners();
 	}
 
@@ -110,8 +113,10 @@ public class Controller
 		{
 			for (int j = 0; j < lengthX; j++)
 			{
-				survivalMatrix[i + startY][j + startX] = new ConwayCell();
-				gamegrid.setField(survivalMatrix[i + startY][j + startX], j + startX,i + startY);
+				int matX = j + startX;
+				int matY = i + startY;
+				survivalMatrix[matY][matX] = new ConwayCell();
+				gamegrid.setField(survivalMatrix[matY][matX], matX,matY);
 			}
 		}
 	}

@@ -24,8 +24,7 @@ public class PreLoader
 			{
 				if(pattern[y][x])
 				{
-					cont.survivalMatrix[y + posY][x + posX].toggleStatus();
-					cont.gamegrid.setField(cont.survivalMatrix[y + posY][x + posX], x + posX, y + posY);
+					cont.setCell(x + posX, y + posY);
 				}
 			}
 		}

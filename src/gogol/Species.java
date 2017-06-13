@@ -11,7 +11,8 @@ public class Species
 		name = n;
 		description = d;
 		
-		String lines[] = p.split("$");
+		String lines[] = p.split("\\$");
+
 		pattern = new boolean[lines.length][getLineLength(lines[0])];
 		
 		for (int i = 0; i < pattern.length; i++) 
@@ -61,7 +62,6 @@ public class Species
 				counter++;
 			}
 		}
-		
 		return counter;
 	}
 	

@@ -30,7 +30,7 @@ public class CellToggleListener implements MouseListener
 		int cellY = posY / tile;
 
 		loller.setCell(cellX, cellY);
-
+		//loller.preloader.loadPreset(cellX, cellY, "Glider"); //debugging
 	}
 
 

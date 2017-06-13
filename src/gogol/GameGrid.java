@@ -100,7 +100,7 @@ public class GameGrid extends JPanel
 			}
 		}
 		repaint();
-		//TODO erweitern für andere celltypes
+		//TODO erweitern fuer andere celltypes
 	}
 
 
