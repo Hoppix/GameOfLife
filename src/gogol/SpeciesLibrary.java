@@ -33,9 +33,9 @@ public class SpeciesLibrary
 	private void dummySetup()
 	{
 		//dummies
-		library.put("Test_Block", new Species("Test_Block", "very edgy", "2o$2o"));
-		library.put("Test_Glider", new Species("Test_Glider", "moving", "bob$2bo$3o"));
-		library.put("Test_Blinker", new Species("Test_Blinker", "epilepsy inc", "o$o$o"));
+		library.put("Block", new Species("Block", "very edgy", "2o$2o"));
+		library.put("Glider", new Species("Glider", "moving", "bob$2bo$3o"));
+		library.put("Blinker", new Species("Blinker", "epilepsy inc", "o$o$o"));
 	}
 	
 	private void setupLib()
