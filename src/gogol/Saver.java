@@ -16,6 +16,7 @@ public class Saver
 	{
 		controller = cont;
 	}
+	public final static String FILETYPE = ".life";
 
 	/*
 	 * Writes the current Gamestate to a text file
@@ -24,7 +25,6 @@ public class Saver
 	 */
 	public void saveGamestate()
 	{
-		//TODO ERROR HANDLING
 		BufferedWriter writer = null;
 		String saveFile = null;
 
@@ -39,7 +39,7 @@ public class Saver
 			return;
 		}
 
-		saveFile = fc.getSelectedFile().getAbsolutePath();
+		saveFile = fc.getSelectedFile().getAbsolutePath() + FILETYPE;
 
 		try
 		{
@@ -71,7 +71,6 @@ public class Saver
 	 */
 	public void loadGamestate()
 	{
-		//TODO ERROR HANDLING
 		controller.clear();
 
 		BufferedReader reader = null;
@@ -92,6 +91,11 @@ public class Saver
 		}
 
 		saveFile = fc.getSelectedFile().getAbsolutePath();
+
+		if(!saveFile.endsWith(FILETYPE))
+		{
+			return;
+		}
 
 		try
 		{
@@ -144,7 +148,6 @@ public class Saver
 		}
 		else
 		{
-			//System.out.println(ac.getAccessibleComponent().getClass().getName()); //debugging
 			ac.getAccessibleComponent().setForeground(tert);
 			ac.getAccessibleComponent().setBackground(prim);
 		}

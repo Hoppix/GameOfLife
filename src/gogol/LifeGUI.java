@@ -1,11 +1,8 @@
 package gogol;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by hoppix on 18.05.17.
@@ -32,9 +29,9 @@ public class LifeGUI
 	protected JButton save;
 	protected JButton load;
 
-	protected JButton image1;
-	protected JButton image2;
-	protected JButton image3;
+	protected JButton toggleButton;
+	protected JButton blockButton;
+	protected JButton gliderButton;
 	protected JButton image4;
 	protected JButton image5;
 	protected JButton image6;
@@ -55,9 +52,9 @@ public class LifeGUI
 	private JLabel speedValue;
 	protected JLabel speedNumber;
 
-	private JLabel form1;
-	private JLabel form2;
-	private JLabel form3;
+	private JLabel toggleLabel;
+	private JLabel blockLabel;
+	private JLabel gliderLabel;
 	private JLabel form4;
 	private JLabel form5;
 	private JLabel form6;
@@ -190,20 +187,20 @@ public class LifeGUI
 		frame.getContentPane().add(preloadPanel);
 		preloadPanel.setLayout(null);
 
-		form1 = new JLabel("form1");
-		form1.setForeground(tertiaryColor);
-		form1.setBounds(10, 11, 46, 14);
-		preloadPanel.add(form1);
+		toggleLabel = new JLabel("Cell");
+		toggleLabel.setForeground(tertiaryColor);
+		toggleLabel.setBounds(10, 11, 56, 14);
+		preloadPanel.add(toggleLabel);
 
-		form2 = new JLabel("form2");
-		form2.setForeground(tertiaryColor);
-		form2.setBounds(70, 11, 46, 14);
-		preloadPanel.add(form2);
+		blockLabel = new JLabel("Block");
+		blockLabel.setForeground(tertiaryColor);
+		blockLabel.setBounds(70, 11, 56, 14);
+		preloadPanel.add(blockLabel);
 
-		form3 = new JLabel("form3");
-		form3.setForeground(tertiaryColor);
-		form3.setBounds(130, 11, 46, 14);
-		preloadPanel.add(form3);
+		gliderLabel = new JLabel("Glider");
+		gliderLabel.setForeground(tertiaryColor);
+		gliderLabel.setBounds(130, 11, 56, 14);
+		preloadPanel.add(gliderLabel);
 
 		form4 = new JLabel("form4");
 		form4.setForeground(tertiaryColor);
@@ -250,17 +247,17 @@ public class LifeGUI
 		form12.setBounds(130, 269, 46, 14);
 		preloadPanel.add(form12);
 
-		image1 = new JButton(nyiPNG);
-		image1.setBounds(10, 36, 50, 50);
-		preloadPanel.add(image1);
+		toggleButton = new JButton(nyiPNG);
+		toggleButton.setBounds(10, 36, 50, 50);
+		preloadPanel.add(toggleButton);
 
-		image2 = new JButton(nyiPNG);
-		image2.setBounds(70, 36, 50, 50);
-		preloadPanel.add(image2);
+		blockButton = new JButton(nyiPNG);
+		blockButton.setBounds(70, 36, 50, 50);
+		preloadPanel.add(blockButton);
 
-		image3 = new JButton(nyiPNG);
-		image3.setBounds(130, 36, 50, 50);
-		preloadPanel.add(image3);
+		gliderButton = new JButton(nyiPNG);
+		gliderButton.setBounds(130, 36, 50, 50);
+		preloadPanel.add(gliderButton);
 
 		image4 = new JButton(nyiPNG);
 		image4.setBounds(10, 122, 50, 50);
