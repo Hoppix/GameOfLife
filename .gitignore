@@ -3,6 +3,7 @@
 .classpath
 .project
 .settings/
+/bin
 
 #intelliJ
 .idea/
@@ -22,3 +23,6 @@ target/
 
 #Manifest
 /src/META-INF
+bin/artifacts/
+bin/production/
+src/design/Thumbs.db
