@@ -13,10 +13,10 @@ public class SpeedChangerListener implements ChangeListener
 	private final Controller controller;
 	private final Player player;
 
-	public SpeedChangerListener(Controller cont, Player play)
+	public SpeedChangerListener(Controller parent, Player setSpeed)
 	{
-		controller = cont;
-		player = play;
+		controller = parent;
+		player = setSpeed;
 	}
 
 	/**

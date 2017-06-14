@@ -8,32 +8,43 @@ import java.awt.event.MouseListener;
  */
 public class CellToggleListener implements MouseListener
 {
-	Controller loller;
+	Controller controller;
 
-	public CellToggleListener(Controller that)
+	/**
+	 * Listener for setting structured or single cells
+	 * on the GameGrid.
+	 * @param parent
+	 */
+	public CellToggleListener(Controller parent)
 	{
-		loller = that;
+		controller = parent;
 	}
 
 
+	/**
+	 * Invoked when the mouse button has been clicked (pressed
+	 * and released) on a component.
+	 * If preloadMode is on toggle: only single cells are enabled
+	 * otherwise the corresponding structure is loaded.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
 		int posX = e.getX();
 		int posY = e.getY();
 
-		int tile = loller.gamegrid.tileSize;
+		int tile = controller.gamegrid.tileSize;
 
 		int cellX = posX / tile;
 		int cellY = posY / tile;
 
-		if(loller.preloadMode.equals("toggle"))
+		if(controller.preloadMode.equals("toggle"))
 		{
-			loller.setCell(cellX, cellY);
+			controller.setCell(cellX, cellY);
 		}
 		else
 		{
-			loller.preloader.loadPreset(cellX, cellY, loller.preloadMode); //debugging
+			controller.preloader.loadPreset(cellX, cellY, controller.preloadMode);
 		}
 	}
 

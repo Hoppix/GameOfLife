@@ -12,13 +12,17 @@ public class Saver
 {
 	private final Controller controller;
 
-	public Saver(Controller cont)
+	/**
+	 * handles the saving and loading called by the GUI
+	 * @param parent Controller
+	 */
+	public Saver(Controller parent)
 	{
-		controller = cont;
+		controller = parent;
 	}
 	public final static String FILETYPE = ".life";
 
-	/*
+	/**
 	 * Writes the current Gamestate to a text file
 	 * first line are Settings, lines 2-n are the cells linewise.
 	 * settings: Gamemode;tilesize;survivalMatrixX;surivalMatrixY;
@@ -66,7 +70,7 @@ public class Saver
 		}
 	}
 
-	/*
+	/**
 	 * loads a previously saved game
 	 */
 	public void loadGamestate()

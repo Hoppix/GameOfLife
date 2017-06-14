@@ -5,7 +5,13 @@ public class Species
 	private String name;
 	private String description;
 	private boolean pattern[][];
-	
+
+	/**
+	 * A Species is a special Pattern on the Grid which has unique behaviours
+	 * @param n Name
+	 * @param d Description
+	 * @param p PatternString
+	 */
 	public Species(String n, String d, String p)
 	{
 		name = n;
@@ -20,27 +26,47 @@ public class Species
 			pattern[i] = convertLine(lines[i]);
 		}
 	}
-	
+
+	/**
+	 * returns the horizontal size of the Species
+	 * @return sizeX
+	 */
 	public int getSizeX()
 	{
 		return pattern[0].length;
 	}
-	
+
+	/**
+	 * returns the vertical size of the Species
+	 * @return sizeY
+	 */
 	public int getSizeY()
 	{
 		return pattern.length;
 	}
-	
+
+	/**
+	 * returns the name of the Species
+	 * @return Name
+	 */
 	public String getName()
 	{
 		return name;
 	}
-	
+
+	/**
+	 * returns the description
+	 * @return
+	 */
 	public String getDescription()
 	{
 		return description;
 	}
-	
+
+	/**
+	 * pattern as boolean array
+	 * @return pattern-array
+	 */
 	public boolean[][] getPattern()
 	{
 		return pattern;

@@ -15,15 +15,22 @@ public class Player
 	protected boolean running;
 
 
-	public Player(Controller cont)
+	/**
+	 * The Player is used for threading the lifecycle of the cell-array
+	 * @param parent Controller
+	 */
+	public Player(Controller parent)
 	{
-		controller = cont;
+		controller = parent;
 		speed = 500;
 		intervall = 1000;
-		running = true;
+		running = false;
 	}
 
 
+	/**
+	 * Starts a new thread which begins the loop for playing.
+	 */
 	public void startLoop()
 	{
 		Thread thread = new Thread(() ->
@@ -34,10 +41,14 @@ public class Player
 		thread.start();
 	}
 
+	/**
+	 * stops the playing loop.
+	 */
 	public void stopLoop()
 	{
 		running = false;
 	}
+
 
 	private void stepLoop()
 	{
@@ -55,11 +66,19 @@ public class Player
 		}
 	}
 
+	/**
+	 * sets the speed for the loop
+	 * @param speedV given speed value
+	 */
 	public void setSpeed(int speedV)
 	{
 		speed = speedV * 10;
 	}
 
+	/**
+	 * returns the SPS for displaying on the GUI
+	 * @return LabelString
+	 */
 	public String getStepsPerSecond()
 	{
 		if (intervall - speed == 0)

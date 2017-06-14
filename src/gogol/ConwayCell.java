@@ -1,6 +1,6 @@
 package gogol;
 
-/*
+/**
  * Represents a cell for Conways original Game of Life
  */
 public class ConwayCell implements Cell {
@@ -14,7 +14,7 @@ public class ConwayCell implements Cell {
 		newStatus = false;
 	}
 	
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see gogol.Cell#setNextStatus(int)
 	 */
@@ -39,7 +39,7 @@ public class ConwayCell implements Cell {
 		}
 	}
 	
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see gogol.Cell#getStatus()
 	 */
@@ -49,7 +49,7 @@ public class ConwayCell implements Cell {
 		return alive;
 	}
 	
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see gogol.Cell#updateStatus()
 	 */

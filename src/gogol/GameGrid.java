@@ -17,6 +17,9 @@ public class GameGrid extends JPanel
 	private Color colorCell;
 	private Color colorGrid;
 
+	/**
+	 * Grid for displaying the Cell-Array on the GUI-surface.
+	 */
 	public GameGrid()
 	{
 		super();
@@ -87,7 +90,6 @@ public class GameGrid extends JPanel
 
 		if (cell instanceof ConwayCell)
 		{
-			//Graphics g = this.getGraphics();
 			if (cell.getStatus())
 			{				
 				g.setColor(colorCell);
