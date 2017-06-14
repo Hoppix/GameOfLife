@@ -1,8 +1,9 @@
 package gogol;
 
 
-/*
+/**
  * Holds the Cell array and gives Cells data about their Neighbors
+ * Holds other logic as Classes
  */
 public class Controller
 {
@@ -36,15 +37,22 @@ public class Controller
 	}
 
 
+	/**
+	 * Sets a cell on the matrix and on the Gamegrid
+	 * @param x X-location
+	 * @param y Y-location
+	 */
 	public void setCell(int x, int y)
 	{
 		survivalMatrix[y][x].toggleStatus();
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
 
+	/**
+	 * initializes the GameGrid by random values
+	 */
 	private void initializeRandom()
 	{
-		//debugging method
 		for (int i = 0; i < survivalMatrix.length; i++)
 		{
 			for (int j = 0; j < survivalMatrix[0].length; j++)
@@ -61,7 +69,7 @@ public class Controller
 	}
 
 
-	/*
+	/**
 	 * Advance the game by one cycle
 	 */
 	public void stepForward()
@@ -85,7 +93,7 @@ public class Controller
 
 	}
 
-	/*
+	/**
 	 * set the size of the survivalMatrix according to the grid size
 	 */
 	public void setGridsize(int x, int y)
@@ -97,6 +105,9 @@ public class Controller
 		}
 	}
 
+	/**
+	 * sets all the cells to dead
+	 */
 	public void clear()
 	{
 		for (int i = 0; i < survivalMatrix.length; i++)
@@ -108,7 +119,14 @@ public class Controller
 			}
 		}
 	}
-	
+
+	/**
+	 * sets all the cells to dead on a specified area
+	 * @param startX beginning X value
+	 * @param startY beginning Y value
+	 * @param lengthX horizontal length
+	 * @param lengthY vertical length
+	 */
 	public void clearArea(int startX, int startY, int lengthX, int lengthY)
 	{
 		for (int i = 0; i < lengthY; i++)
@@ -123,7 +141,7 @@ public class Controller
 		}
 	}
 
-	/*
+	/**
 	 * returns the number of alive Neighbors of a cell
 	 */
 	public int aliveNeighbours(int x, int y)
@@ -144,7 +162,7 @@ public class Controller
 		return count;
 	}
 
-	/*
+	/**
 	 * Retruns the Cell at the specified position
 	 */
 	protected Cell giveCellAtPosition(int x, int y)
@@ -152,7 +170,7 @@ public class Controller
 		return survivalMatrix[y][x];
 	}
 
-	/*
+	/**
 	 * count alive Neighbors of a cell with the Conway rules
 	 */
 	private int conwayRulez(int x, int y)
@@ -177,7 +195,10 @@ public class Controller
 		return count;
 	}
 
-	
+
+	/**
+	 * adds all the required listeners for the LifeGUI
+	 */
 	private void addListeners()
 	{
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
@@ -193,7 +214,11 @@ public class Controller
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
-	
+
+	/**
+	 * command handling
+	 * @param cmd command
+	 */
 	public void doCommand(Command cmd)
 	{
 		switch (cmd)
