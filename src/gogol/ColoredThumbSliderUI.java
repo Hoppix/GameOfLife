@@ -12,12 +12,21 @@ class ColoredThumbSliderUI extends BasicSliderUI
 
 	Color thumbColor;
 
+	/**
+	 * Custom design for the JSlider component
+	 * @param s the slider for the design
+	 * @param tColor custom color
+	 */
 	ColoredThumbSliderUI(JSlider s, Color tColor)
 	{
 		super(s);
 		thumbColor = tColor;
 	}
 
+	/**
+	 *
+	 * paint-method for the component.
+	 */
 	public void paint(Graphics g, JComponent c)
 	{
 		recalculateIfInsetsChanged();

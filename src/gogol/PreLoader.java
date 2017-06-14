@@ -4,13 +4,23 @@ public class PreLoader
 {
 	Controller cont;
 	SpeciesLibrary lib;
-	
+
+	/**
+	 * The PreLoader loads all predefined structures via the SpeciesLibrary
+	 * @param parent Controller
+	 */
 	public PreLoader(Controller parent)
 	{
 		cont = parent;
 		lib = new SpeciesLibrary();
 	}
-	
+
+	/**
+	 * loads a structure on the GameGrid
+	 * @param posX X-location
+	 * @param posY Y-location
+	 * @param name Name of the structure
+	 */
 	public void loadPreset(int posX, int posY, String name)
 	{
 		Species preset = lib.getSpecies(name);

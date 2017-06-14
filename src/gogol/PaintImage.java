@@ -7,8 +7,13 @@ import java.awt.*;
  */
 public class PaintImage
 {
+
 	protected static Image drawnImage;
 
+	/**
+	 * This class holds the image where all painting actions are done
+	 * @param img Image for drawing
+	 */
 	public PaintImage(Image img)
 	{
 		drawnImage = img;

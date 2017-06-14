@@ -5,7 +5,10 @@ import java.util.HashMap;
 public class SpeciesLibrary 
 {
 	protected HashMap<String, Species> library;
-	
+
+	/**
+	 * Library which holds all the available Species.
+	 */
 	public SpeciesLibrary()
 	{
 		library = new HashMap<String, Species>();

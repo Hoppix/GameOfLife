@@ -65,6 +65,10 @@ public class LifeGUI
 	private JLabel form11;
 	private JLabel form12;
 
+	/**
+	 * This is the GUI which hold all the frontend-parts
+	 * @param parentGrid The GameGrid which does the cell display
+	 */
 	public LifeGUI(GameGrid parentGrid)
 	{
 		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
