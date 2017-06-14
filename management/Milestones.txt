@@ -14,16 +14,14 @@ Meilensteine:
 	loop X
 	play/pause X
 	save/load x
-	preload
-	gridsize
+	preload x
+	gridsize ?
 	
 -rainbow
 	custom rules
 	colorMerge
 	colorWar
-		
--bio
-	probability of life
+
 	
 -pvp
 	colorWar
