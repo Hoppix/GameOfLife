@@ -1,7 +1,5 @@
 package gogol;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -29,8 +27,14 @@ public class CellToggleListener implements MouseListener
 		int cellX = posX / tile;
 		int cellY = posY / tile;
 
-		loller.setCell(cellX, cellY);
-		//loller.preloader.loadPreset(cellX, cellY, "Glider"); //debugging
+		if(loller.preloadMode.equals("toggle"))
+		{
+			loller.setCell(cellX, cellY);
+		}
+		else
+		{
+			loller.preloader.loadPreset(cellX, cellY, loller.preloadMode); //debugging
+		}
 	}
 
 

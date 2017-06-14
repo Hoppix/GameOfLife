@@ -10,6 +10,7 @@ public class Controller
 	LifeGUI lifegui;
 	public Cell[][] survivalMatrix; //Coords are Cell[y][x]
 	public String gameMode;
+	public String preloadMode;
 
 	private Player player;
 	private Saver saver;
@@ -21,6 +22,7 @@ public class Controller
 		lifegui = gui;
 		
 		gameMode = "Conway";
+		preloadMode = "toggle";
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
@@ -185,6 +187,9 @@ public class Controller
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
+		lifegui.toggleButton.addActionListener(new ButtonListener(Command.TOGGLEMODE, this));
+		lifegui.blockButton.addActionListener(new ButtonListener(Command.BLOCKMODE, this));
+		lifegui.gliderButton.addActionListener(new ButtonListener(Command.GLIDERMODE, this));
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
@@ -217,6 +222,15 @@ public class Controller
 				break;
 			case LOAD:
 				saver.loadGamestate();
+				break;
+			case TOGGLEMODE:
+				this.preloadMode = "toggle";
+				break;
+			case BLOCKMODE:
+				this.preloadMode = "Block";
+				break;
+			case GLIDERMODE:
+				this.preloadMode = "Glider";
 				break;
 			default:
 		}
