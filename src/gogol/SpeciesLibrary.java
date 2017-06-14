@@ -3,7 +3,6 @@ package gogol;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,7 @@ public class SpeciesLibrary
 	public SpeciesLibrary()
 	{
 		library = new HashMap<String, Species>();
-		//setupLib();
+		setupLib();
 		dummySetup();
 		System.out.println("Lib size: " + library.size());
 	}
@@ -58,6 +57,8 @@ public class SpeciesLibrary
 		categories[11] = "789";
 		
 		List<String> patternNames = new ArrayList<>();
+
+		String previous = "initial";
 		
 		for(int i = 0; i < 12; i++)
 		{
@@ -68,6 +69,16 @@ public class SpeciesLibrary
 				String string = (String) iterator.next();
 				Species species = scrapePattern(baseUrl + "pattern/" + string);
 				library.put(species.getName(), species);
+				if(string.contains(previous))
+				{
+					break;
+				}
+				if(library.size() > 100)
+				{
+					//temporary breakout
+					break;
+				}
+				previous = (String) iterator.next();
 			}
 		}	
 	}
