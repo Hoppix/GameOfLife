@@ -211,7 +211,7 @@ public class LifeGUI
 		blinkerLabel.setBounds(10, 97, 56, 14);
 		preloadPanel.add(blinkerLabel);
 
-		carLabel = new JLabel("Seal");
+		carLabel = new JLabel("Car");
 		carLabel.setForeground(tertiaryColor);
 		carLabel.setBounds(70, 97, 56, 14);
 		preloadPanel.add(carLabel);
@@ -221,7 +221,7 @@ public class LifeGUI
 		sealLabel.setBounds(130, 97, 56, 14);
 		preloadPanel.add(sealLabel);
 
-		methLabel = new JLabel("Math");
+		methLabel = new JLabel("Meth");
 		methLabel.setForeground(tertiaryColor);
 		methLabel.setBounds(10, 183, 56, 14);
 		preloadPanel.add(methLabel);
