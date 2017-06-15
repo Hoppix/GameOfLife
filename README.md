@@ -11,9 +11,9 @@ A Java implementation of the Game of Life a cellular automaton developed by the 
 - Regulate speed
 - Random states
 - Save and load your game states
+- preload structures
 
 ### Soon:
-- preload structures (eg. glider)
 - cells with color properties
 - merging color cells
 - fighting color cells
