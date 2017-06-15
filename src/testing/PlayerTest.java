@@ -63,16 +63,16 @@ public class PlayerTest
 		assertEquals("MAX", testMe.getStepsPerSecond());
 
 		testMe.setSpeed(0);
-		assertEquals(1.0 + "", testMe.getStepsPerSecond());
+		assertEquals(1.0 +"", testMe.getStepsPerSecond());
 
 		testMe.setSpeed(50);
-		assertEquals(2.0 + "", testMe.getStepsPerSecond());
+		assertEquals(2.0 +"", testMe.getStepsPerSecond());
 
 		for(int i = 1; i < 99; i++)
 		{
 			testMe.setSpeed(i);
 			float  number = (float)1000 / (1000 - i) ;
-			assertEquals(Math.round(number*100.0)/100.0 +  "" , testMe.getStepsPerSecond());
+			assertEquals(Math.round(number*100.0)/100.0 +"" , testMe.getStepsPerSecond());
 		}
 	}
 
