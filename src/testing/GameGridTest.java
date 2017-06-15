@@ -26,16 +26,6 @@ public class GameGridTest
 		assertEquals(testMe, testGrid.getSize());
 	}
 
-	@org.junit.Test
-	public void testSetupGrid()
-	{
-		//TODO test
-	}
 
-	@org.junit.Test
-	public void testSetField()
-	{
-		//TODO test
-	}
 
 }

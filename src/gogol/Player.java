@@ -11,7 +11,7 @@ public class Player
 {
 	private final Controller controller;
 	private final int intervall;
-	protected int speed;
+	public int speed;
 	protected boolean running;
 
 
@@ -69,11 +69,15 @@ public class Player
 	}
 
 	/**
-	 * sets the speed for the loop
+	 * sets the speed for the loop between 0-100
 	 * @param speedV given speed value
 	 */
 	public void setSpeed(int speedV)
 	{
+		if(speedV < 0 || speedV > 100)
+		{
+			return;
+		}
 		speed = speedV * 10;
 	}
 
