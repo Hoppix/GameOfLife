@@ -36,7 +36,7 @@ public class SpeciesLibrary
 		library.put("Block", new Species("Block", "very edgy", "2o$2o"));
 		library.put("Glider", new Species("Glider", "moving", "bob$2bo$3o"));
 		library.put("Blinker", new Species("Blinker", "epilepsy inc", "o$o$o"));
-		library.put("Car", new Species("Car", "Vroom!", "bo6b$o5bob$o5bob$5obob2$4b2o2b$2bo4bo$bo6b$bo5bo$b6o"));
+		library.put("Car", new Species("Car", "Vroom!", "bo6b$o5bob$o5bob$5obob2$8b$4b2o2b$2bo4bo$bo6b$bo5bo$b6o")); //8b is not from original code
 		library.put("Seal", new Species("Seal", "A cute giant seal", "2b2o30b$b3ob3o26b$3bo3b2o25b$2ob2o2bo2bobo21b$o6bob4o21b$6b2obo2bo21b$o4b2o3bob2o20b$2o8bobo2bo18b$o2b5ob3o4bo17b$bo9bo4bo17b$b2obo2bo3bo3bo18b$2bo9b2o20b$9b2o2b2o4bo14b$2bo3b2obo4b3o2bo14b$3b2obob5o5bob2o12b$7b2ob2ob2ob2o2b3o11b$17bobo4bo9b$8b2o4bobo3b6o8b$13bo7b2o11b$13bo3bo16b$13bo4bo3b3o6bo2b$14b5o3b2ob2o2b2ob2o$17b2obo2bob2o2bo4b$16b2o5bo4bo2b3o$15b3obobobobo8b$22bo2bo8b$18bobo13b$19bo14b2$21b3o10b$21b3o10b2$20b2o12b$20b2o12b$21bo"));
 		library.put("Meth", new Species("Meth", "a methuselah", "o10bo$b4o6bo$2b2o7bo$10bob$8bobo"));
 		library.put("Mirrorshield", new Species("Mirrorshield", "Activate when an opponentMonster is Attacking. Destoy all opponent Monsters in Attack position", "33bob$32bo2b$32b3o6$26bo8b$24b2o9b$25b2o8b9$7b2obo2bob2o18b$2o4bo2bo4bo2bo4b2o11b$2o5bobo4bobo5b2o11b$8bo6bo19b6$8bo6bo19b$2o5bobo4bobo5b2o11b$2o4bo2bo4bo2bo4b2o11b$7b2obo2bob2o"));
