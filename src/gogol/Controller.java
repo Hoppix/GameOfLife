@@ -24,7 +24,7 @@ public class Controller
 		lifegui = gui;
 		
 		gameMode = "Conway";
-		preloadMode = "toggle";
+		preloadMode = "Toggle";
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
@@ -212,7 +212,7 @@ public class Controller
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
 
-		lifegui.toggleButton.addActionListener(new PreloadListener("toggle", this));
+		lifegui.toggleButton.addActionListener(new PreloadListener("Toggle", this));
 		lifegui.blockButton.addActionListener(new PreloadListener("Block", this));
 		lifegui.gliderButton.addActionListener(new PreloadListener("Glider", this));
 		lifegui.blinkerButton.addActionListener(new PreloadListener("Blinker", this));
@@ -222,8 +222,8 @@ public class Controller
 		lifegui.mirrorButton.addActionListener(new PreloadListener("Mirrorshield", this));
 		lifegui.butterButton.addActionListener(new PreloadListener("Butterfly", this));
 		lifegui.spaceButton.addActionListener(new PreloadListener("Spacefiller", this));
-		lifegui.image11.addActionListener(new PreloadListener("Shipmaker", this));
-		lifegui.image12.addActionListener(new PreloadListener("Glidergun", this));
+		lifegui.shipmakerButton.addActionListener(new PreloadListener("Shipmaker", this));
+		lifegui.glidergunButton.addActionListener(new PreloadListener("Glidergun", this));
 
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));

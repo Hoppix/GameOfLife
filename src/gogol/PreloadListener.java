@@ -25,5 +25,6 @@ public class PreloadListener implements ActionListener
 	public void actionPerformed(ActionEvent actionEvent)
 	{
 		controller.preloadMode = newPreload;
+		controller.lifegui.preloadmode.setText(controller.preloadMode);
 	}
 }

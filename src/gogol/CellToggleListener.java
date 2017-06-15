@@ -38,7 +38,7 @@ public class CellToggleListener implements MouseListener
 		int cellX = posX / tile;
 		int cellY = posY / tile;
 
-		if(controller.preloadMode.equals("toggle"))
+		if(controller.preloadMode.equals("Toggle"))
 		{
 			controller.setCell(cellX, cellY);
 		}
