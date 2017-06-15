@@ -16,6 +16,7 @@ public class Controller
 	private Player player;
 	private Saver saver;
 	protected PreLoader preloader;
+	//test
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
@@ -23,7 +24,7 @@ public class Controller
 		lifegui = gui;
 		
 		gameMode = "Conway";
-		preloadMode = "toggle";
+		preloadMode = "Toggle";
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
@@ -210,10 +211,20 @@ public class Controller
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
-		lifegui.toggleButton.addActionListener(new ButtonListener(Command.TOGGLEMODE, this));
-		lifegui.blockButton.addActionListener(new ButtonListener(Command.BLOCKMODE, this));
-		lifegui.gliderButton.addActionListener(new ButtonListener(Command.GLIDERMODE, this));
-		lifegui.carButton.addActionListener(new ButtonListener(Command.CARMODE, this));
+
+		lifegui.toggleButton.addActionListener(new PreloadListener("Toggle", this));
+		lifegui.blockButton.addActionListener(new PreloadListener("Block", this));
+		lifegui.gliderButton.addActionListener(new PreloadListener("Glider", this));
+		lifegui.blinkerButton.addActionListener(new PreloadListener("Blinker", this));
+		lifegui.carButton.addActionListener(new PreloadListener("Car", this));
+		lifegui.sealButton.addActionListener(new PreloadListener("Seal", this));
+		lifegui.methButton.addActionListener(new PreloadListener("Meth", this));
+		lifegui.mirrorButton.addActionListener(new PreloadListener("Mirrorshield", this));
+		lifegui.butterButton.addActionListener(new PreloadListener("Butterfly", this));
+		lifegui.spaceButton.addActionListener(new PreloadListener("Spacefiller", this));
+		lifegui.shipmakerButton.addActionListener(new PreloadListener("Shipmaker", this));
+		lifegui.glidergunButton.addActionListener(new PreloadListener("Glidergun", this));
+
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
@@ -251,17 +262,6 @@ public class Controller
 			case LOAD:
 				saver.loadGamestate();
 				break;
-			case TOGGLEMODE:
-				this.preloadMode = "toggle";
-				break;
-			case BLOCKMODE:
-				this.preloadMode = "Block";
-				break;
-			case GLIDERMODE:
-				this.preloadMode = "Glider";
-				break;
-			case CARMODE:
-				this.preloadMode = "Car";
 			default:
 		}
 	}

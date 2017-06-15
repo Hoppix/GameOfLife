@@ -39,8 +39,8 @@ public class LifeGUI
 	protected JButton mirrorButton;
 	protected JButton butterButton;
 	protected JButton spaceButton;
-	protected JButton image11;
-	protected JButton image12;
+	protected JButton shipmakerButton;
+	protected JButton glidergunButton;
 
 	protected JSlider speedSlider;
 	protected JButton logo;
@@ -50,7 +50,11 @@ public class LifeGUI
 	private JLabel gametype;
 	private JLabel preload;
 	private JLabel speedValue;
+
 	protected JLabel speedNumber;
+	protected JLabel preloadmode;
+	protected JLabel generation;
+	protected JLabel generationValue;
 
 	private JLabel toggleLabel;
 	private JLabel blockLabel;
@@ -61,9 +65,9 @@ public class LifeGUI
 	private JLabel methLabel;
 	private JLabel mirrorLabel;
 	private JLabel butterLabel;
-	private JLabel spaceLabel;
-	private JLabel form11;
-	private JLabel form12;
+	private JLabel glidergunLabel;
+	private JLabel makerLabel;
+	private JLabel spacefillerLabel;
 
 	/**
 	 * This is the GUI which hold all the frontend-parts
@@ -141,6 +145,16 @@ public class LifeGUI
 		speedNumber.setToolTipText("Steps per Second");
 		frame.getContentPane().add(speedNumber);
 
+		generation = new JLabel("GENERATION: ");
+		generation.setForeground(tertiaryColor);
+		generation.setBounds(1174, 615, 96, 14);
+		frame.getContentPane().add(generation);
+
+		generationValue = new JLabel("0");
+		generationValue.setForeground(tertiaryColor);
+		generationValue.setBounds(1174, 635, 96, 14);
+		frame.getContentPane().add(generationValue);
+
 		play = new JButton("PLAY");
 		play.setBackground(tertiaryColor);
 		play.setForeground(secondaryColor);
@@ -184,6 +198,10 @@ public class LifeGUI
 		preload = new JLabel("PRELOAD:");
 		preload.setBounds(10, 93, 80, 14);
 		frame.getContentPane().add(preload);
+
+		preloadmode = new JLabel("Toggle");
+		preloadmode.setBounds(90,93,90,16);
+		frame.getContentPane().add(preloadmode);
 
 		preloadPanel = new JPanel();
 		preloadPanel.setBackground(secondaryColor);
@@ -236,20 +254,20 @@ public class LifeGUI
 		butterLabel.setBounds(130, 183, 56, 14);
 		preloadPanel.add(butterLabel);
 
-		spaceLabel = new JLabel("Filler");
-		spaceLabel.setForeground(tertiaryColor);
-		spaceLabel.setBounds(10, 269, 56, 14);
-		preloadPanel.add(spaceLabel);
+		glidergunLabel = new JLabel("Gun");
+		glidergunLabel.setForeground(tertiaryColor);
+		glidergunLabel.setBounds(10, 269, 56, 14);
+		preloadPanel.add(glidergunLabel);
 
-		form11 = new JLabel("Gun");
-		form11.setForeground(tertiaryColor);
-		form11.setBounds(70, 269, 56, 14);
-		preloadPanel.add(form11);
+		makerLabel = new JLabel("Maker");
+		makerLabel.setForeground(tertiaryColor);
+		makerLabel.setBounds(70, 269, 56, 14);
+		preloadPanel.add(makerLabel);
 
-		form12 = new JLabel("Maker");
-		form12.setForeground(tertiaryColor);
-		form12.setBounds(130, 269, 56, 14);
-		preloadPanel.add(form12);
+		spacefillerLabel = new JLabel("Space");
+		spacefillerLabel.setForeground(tertiaryColor);
+		spacefillerLabel.setBounds(130, 269, 56, 14);
+		preloadPanel.add(spacefillerLabel);
 
 		toggleButton = new JButton(nyiPNG);
 		toggleButton.setBounds(10, 36, 50, 50);
@@ -291,13 +309,13 @@ public class LifeGUI
 		spaceButton.setBounds(130, 294, 50, 50);
 		preloadPanel.add(spaceButton);
 
-		image11 = new JButton(nyiPNG);
-		image11.setBounds(70, 294, 50, 50);
-		preloadPanel.add(image11);
+		shipmakerButton = new JButton(nyiPNG);
+		shipmakerButton.setBounds(70, 294, 50, 50);
+		preloadPanel.add(shipmakerButton);
 
-		image12 = new JButton(nyiPNG);
-		image12.setBounds(10, 294, 50, 50);
-		preloadPanel.add(image12);
+		glidergunButton = new JButton(nyiPNG);
+		glidergunButton.setBounds(10, 294, 50, 50);
+		preloadPanel.add(glidergunButton);
 
 		preloadPanel.repaint();
 	}
