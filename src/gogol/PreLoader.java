@@ -42,7 +42,6 @@ public class PreLoader
 					{
 						//Ignore
 					}
-					//cont.setCell(x + posX % cont.survivalMatrix[0].length, y + posY % cont.survivalMatrix.length);
 				}
 			}
 		}

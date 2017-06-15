@@ -36,9 +36,9 @@ public class LifeGUI
 	protected JButton carButton;
 	protected JButton sealButton;
 	protected JButton methButton;
-	protected JButton mirrorButton;
+	protected JButton fabButton;
 	protected JButton butterButton;
-	protected JButton spaceButton;
+	protected JButton ynotButton;
 	protected JButton shipmakerButton;
 	protected JButton glidergunButton;
 
@@ -63,11 +63,11 @@ public class LifeGUI
 	private JLabel carLabel;
 	private JLabel sealLabel;
 	private JLabel methLabel;
-	private JLabel mirrorLabel;
+	private JLabel fabLabel;
 	private JLabel butterLabel;
 	private JLabel glidergunLabel;
 	private JLabel makerLabel;
-	private JLabel spacefillerLabel;
+	private JLabel ynotLabel;
 
 	/**
 	 * This is the GUI which hold all the frontend-parts
@@ -244,10 +244,10 @@ public class LifeGUI
 		methLabel.setBounds(10, 183, 56, 14);
 		preloadPanel.add(methLabel);
 
-		mirrorLabel = new JLabel("Mirror");
-		mirrorLabel.setForeground(tertiaryColor);
-		mirrorLabel.setBounds(70, 183, 56, 14);
-		preloadPanel.add(mirrorLabel);
+		fabLabel = new JLabel("fab");
+		fabLabel.setForeground(tertiaryColor);
+		fabLabel.setBounds(70, 183, 56, 14);
+		preloadPanel.add(fabLabel);
 
 		butterLabel = new JLabel("Fly");
 		butterLabel.setForeground(tertiaryColor);
@@ -264,10 +264,10 @@ public class LifeGUI
 		makerLabel.setBounds(70, 269, 56, 14);
 		preloadPanel.add(makerLabel);
 
-		spacefillerLabel = new JLabel("Space");
-		spacefillerLabel.setForeground(tertiaryColor);
-		spacefillerLabel.setBounds(130, 269, 56, 14);
-		preloadPanel.add(spacefillerLabel);
+		ynotLabel = new JLabel("yNot");
+		ynotLabel.setForeground(tertiaryColor);
+		ynotLabel.setBounds(130, 269, 56, 14);
+		preloadPanel.add(ynotLabel);
 
 		toggleButton = new JButton(nyiPNG);
 		toggleButton.setBounds(10, 36, 50, 50);
@@ -297,17 +297,17 @@ public class LifeGUI
 		methButton.setBounds(10, 208, 50, 50);
 		preloadPanel.add(methButton);
 
-		mirrorButton = new JButton(nyiPNG);
-		mirrorButton.setBounds(70, 208, 50, 50);
-		preloadPanel.add(mirrorButton);
+		fabButton = new JButton(nyiPNG);
+		fabButton.setBounds(70, 208, 50, 50);
+		preloadPanel.add(fabButton);
 
 		butterButton = new JButton(nyiPNG);
 		butterButton.setBounds(130, 208, 50, 50);
 		preloadPanel.add(butterButton);
 
-		spaceButton = new JButton(nyiPNG);
-		spaceButton.setBounds(130, 294, 50, 50);
-		preloadPanel.add(spaceButton);
+		ynotButton = new JButton(nyiPNG);
+		ynotButton.setBounds(130, 294, 50, 50);
+		preloadPanel.add(ynotButton);
 
 		shipmakerButton = new JButton(nyiPNG);
 		shipmakerButton.setBounds(70, 294, 50, 50);

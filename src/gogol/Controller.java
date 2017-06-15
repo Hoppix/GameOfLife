@@ -227,9 +227,9 @@ public class Controller
 		lifegui.carButton.addActionListener(new PreloadListener("Car", this));
 		lifegui.sealButton.addActionListener(new PreloadListener("Seal", this));
 		lifegui.methButton.addActionListener(new PreloadListener("Meth", this));
-		lifegui.mirrorButton.addActionListener(new PreloadListener("Mirrorshield", this));
+		lifegui.fabButton.addActionListener(new PreloadListener("Foreandback", this));
 		lifegui.butterButton.addActionListener(new PreloadListener("Butterfly", this));
-		lifegui.spaceButton.addActionListener(new PreloadListener("Spacefiller", this));
+		lifegui.ynotButton.addActionListener(new PreloadListener("Whynot", this));
 		lifegui.shipmakerButton.addActionListener(new PreloadListener("Shipmaker", this));
 		lifegui.glidergunButton.addActionListener(new PreloadListener("Glidergun", this));
 
