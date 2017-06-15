@@ -210,10 +210,20 @@ public class Controller
 		lifegui.pause.addActionListener(new ButtonListener(Command.PAUSE,this));
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
-		lifegui.toggleButton.addActionListener(new ButtonListener(Command.TOGGLEMODE, this));
-		lifegui.blockButton.addActionListener(new ButtonListener(Command.BLOCKMODE, this));
-		lifegui.gliderButton.addActionListener(new ButtonListener(Command.GLIDERMODE, this));
-		lifegui.carButton.addActionListener(new ButtonListener(Command.CARMODE, this));
+
+		lifegui.toggleButton.addActionListener(new PreloadListener("toggle", this));
+		lifegui.blockButton.addActionListener(new PreloadListener("Block", this));
+		lifegui.gliderButton.addActionListener(new PreloadListener("Glider", this));
+		lifegui.blinkerButton.addActionListener(new PreloadListener("Blinker", this));
+		lifegui.carButton.addActionListener(new PreloadListener("Car", this));
+		lifegui.sealButton.addActionListener(new PreloadListener("Seal", this));
+		lifegui.methButton.addActionListener(new PreloadListener("Meth", this));
+		lifegui.mirrorButton.addActionListener(new PreloadListener("Mirrorshield", this));
+		lifegui.butterButton.addActionListener(new PreloadListener("Butterfly", this));
+		lifegui.spaceButton.addActionListener(new PreloadListener("Spacefiller", this));
+		lifegui.image11.addActionListener(new PreloadListener("Shipmaker", this));
+		lifegui.image12.addActionListener(new PreloadListener("Glidergun", this));
+
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
@@ -251,17 +261,6 @@ public class Controller
 			case LOAD:
 				saver.loadGamestate();
 				break;
-			case TOGGLEMODE:
-				this.preloadMode = "toggle";
-				break;
-			case BLOCKMODE:
-				this.preloadMode = "Block";
-				break;
-			case GLIDERMODE:
-				this.preloadMode = "Glider";
-				break;
-			case CARMODE:
-				this.preloadMode = "Car";
 			default:
 		}
 	}
