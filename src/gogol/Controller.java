@@ -56,15 +56,15 @@ public class Controller
 	 */
 	private void initializeRandom()
 	{
-		for (int i = 0; i < survivalMatrix.length; i++)
+		for (int y = 0; y < survivalMatrix.length; y++)
 		{
-			for (int j = 0; j < survivalMatrix[0].length; j++)
+			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
 				int rnd = (int) (0 + (Math.random() * (3)));
 				if (rnd == 1)
 				{
-					survivalMatrix[i][j].toggleStatus();
-					gamegrid.setField(survivalMatrix[i][j], j, i);
+					survivalMatrix[y][x].toggleStatus();
+					gamegrid.setField(survivalMatrix[y][x], x, y);
 				}
 
 			}
@@ -77,20 +77,20 @@ public class Controller
 	 */
 	public void stepForward()
 	{
-		for (int i = 0; i < survivalMatrix.length; i++)
+		for (int y = 0; y < survivalMatrix.length; y++)
 		{
-			for (int j = 0; j < survivalMatrix[0].length; j++)
+			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
-				survivalMatrix[i][j].setNextStatus(aliveNeighbours(i, j));
+				survivalMatrix[y][x].setNextStatus(aliveNeighbours(x, y));
 			}
 		}
 
-		for (int i = 0; i < survivalMatrix.length; i++)
+		for (int y = 0; y < survivalMatrix.length; y++)
 		{
-			for (int j = 0; j < survivalMatrix[0].length; j++)
+			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
-				survivalMatrix[i][j].updateStatus();
-				gamegrid.setField(survivalMatrix[i][j], j, i);
+				survivalMatrix[y][x].updateStatus();
+				gamegrid.setField(survivalMatrix[y][x], x, y);
 			}
 		}
 		//temporary
@@ -118,12 +118,12 @@ public class Controller
 	 */
 	public void clear()
 	{
-		for (int i = 0; i < survivalMatrix.length; i++)
+		for (int y = 0; y < survivalMatrix.length; y++)
 		{
-			for (int j = 0; j < survivalMatrix[0].length; j++)
+			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
-				survivalMatrix[i][j] = new ConwayCell();
-				gamegrid.setField(survivalMatrix[i][j], j,i);
+				survivalMatrix[y][x] = new ConwayCell();
+				gamegrid.setField(survivalMatrix[y][x], x,y);
 			}
 		}
 	}
@@ -137,12 +137,12 @@ public class Controller
 	 */
 	public void clearArea(int startX, int startY, int lengthX, int lengthY)
 	{
-		for (int i = 0; i < lengthY; i++)
+		for (int y = 0; y < lengthY; y++)
 		{
-			for (int j = 0; j < lengthX; j++)
+			for (int x = 0; x < lengthX; x++)
 			{
-				int matX = j + startX;
-				int matY = i + startY;
+				int matX = x + startX;
+				int matY = y + startY;
 				try 
 				{
 					survivalMatrix[matY][matX] = new ConwayCell();
@@ -189,24 +189,24 @@ public class Controller
 	/**
 	 * count alive Neighbors of a cell with the Conway rules
 	 */
-	private int conwayRulez(int x, int y)
+	private int conwayRulez(int posX, int posY)
 	{
 		int count = 0;
 		int matrixX = survivalMatrix[0].length;
 		int matrixY = survivalMatrix.length;
 
-		for (int i = x - 1; i <= x + 1; i++)
+		for (int y = posY - 1; y <= posY + 1; y++)
 		{
-			for (int j = y - 1; j <= y + 1; j++)
+			for (int x = posX - 1; x <= posX + 1; x++)
 			{
-				if (survivalMatrix[(i + matrixY) % matrixY][(j + matrixX) % matrixX].getStatus())
+				if (survivalMatrix[(y + matrixY) % matrixY][(x + matrixX) % matrixX].getStatus())
 				{
 					count++;
 				}
 			}
 		}
 
-		count = count - (survivalMatrix[x][y].getStatus() ? 1 : 0);
+		count = count - (survivalMatrix[posY][posX].getStatus() ? 1 : 0);
 
 		return count;
 	}
