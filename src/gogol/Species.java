@@ -27,9 +27,6 @@ public class Species
 		
 		for (int i = 0; i < y; i++) 
 		{
-			System.out.println(i + " " + x + " " + y);
-			System.out.println(pattern.length);
-
 			pattern[i] = convertLine(lines[i]);
 		}
 	}
