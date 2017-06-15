@@ -13,7 +13,7 @@ public class Player
 	private final int intervall;
 	protected int speed;
 	protected boolean running;
-	protected int generation;
+
 
 
 	/**
@@ -25,7 +25,6 @@ public class Player
 		controller = parent;
 		speed = 500;
 		intervall = 1000;
-		generation = 0;
 		running = false;
 	}
 
@@ -38,7 +37,6 @@ public class Player
 		Thread thread = new Thread(() ->
 		{
 			running = true;
-			generation = 0;
 			stepLoop();
 		});
 		thread.start();
@@ -51,8 +49,6 @@ public class Player
 	{
 
 		running = false;
-		generation = 0;
-		controller.lifegui.generationValue.setText(generation +"");
 	}
 
 
@@ -61,8 +57,6 @@ public class Player
 		while (running)
 		{
 			controller.stepForward();
-			generation++;
-			controller.lifegui.generationValue.setText(generation +"");
 			try
 			{
 				sleep(intervall - speed);

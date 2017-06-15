@@ -16,7 +16,8 @@ public class Controller
 	private Player player;
 	private Saver saver;
 	protected PreLoader preloader;
-	//test
+
+	private int generation;
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
@@ -25,6 +26,7 @@ public class Controller
 		
 		gameMode = "Conway";
 		preloadMode = "Toggle";
+		generation = 0;
 
 		int gridX = gamegrid.sizeX / gamegrid.tileSize;
 		int gridY = gamegrid.sizeY / gamegrid.tileSize;
@@ -91,6 +93,9 @@ public class Controller
 				gamegrid.setField(survivalMatrix[i][j], j, i);
 			}
 		}
+		//temporary
+		generation++;
+		lifegui.generationValue.setText(generation + "");
 
 	}
 
@@ -250,6 +255,8 @@ public class Controller
 				break;
 			case CLEAR:
 				this.clear();
+				generation = 0;
+				lifegui.generationValue.setText(generation + "");
 				break;
 			case RANDOMIZE:
 				this.initializeRandom();

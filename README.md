@@ -23,7 +23,7 @@ A Java implementation of the Game of Life a cellular automaton developed by the 
 
 ### Prerequisites:
 
-Requires atleast Java version 1.8.0 <br />
+Requires at least Java version 1.8.0 <br />
 Note: Only tested under Windows 10 and Linux(KDE)
 
 ### Download:

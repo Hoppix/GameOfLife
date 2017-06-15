@@ -14,16 +14,19 @@ Meilensteine:
 	loop X
 	play/pause X
 	save/load x
-	preload x
-	gridsize ?
+	preload
+	gridsize x
+	tests
 	
 -rainbow
 	custom rules
 	colorMerge
 	colorWar
+	tests
 
 	
 -pvp
 	colorWar
 		-populate
 		-exterminate
+	tests
