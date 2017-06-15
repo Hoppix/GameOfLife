@@ -21,7 +21,6 @@ public class SpeciesLibrary
 	{
 		library = new HashMap<String, Species>();
 		localSetup();
-		System.out.println("Lib size: " + library.size());
 	}
 	
 	public Species getSpecies(String name)
@@ -69,7 +68,6 @@ public class SpeciesLibrary
 		
 		for(int i = 0; i < 12; i++)
 		{
-			System.out.println("iteration: " + i);
 			patternNames = scrapeNames(baseUrl + "library/" + categories[i]);
 			for (Iterator iterator = patternNames.iterator(); iterator.hasNext();) 
 			{
@@ -92,7 +90,6 @@ public class SpeciesLibrary
 	
 	private Species scrapePattern(String patternName)
 	{
-		System.out.println("Scraping " + patternName);
 		Species species;
 		String name = "";
 		String description = "";

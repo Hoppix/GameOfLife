@@ -16,7 +16,6 @@ public class Species
 	 */
 	public Species(String n, String d, String p, int sizeX, int sizeY)
 	{
-		System.out.println(n);
 		name = n;
 		description = d;
 		x = sizeX;
@@ -30,10 +29,7 @@ public class Species
 		{
 			System.out.println(i + " " + x + " " + y);
 			System.out.println(pattern.length);
-			if(i == 34)
-			{
-				System.out.println("duuhh");
-			}
+
 			pattern[i] = convertLine(lines[i]);
 		}
 	}
@@ -116,7 +112,7 @@ public class Species
 		{
 			if (line.charAt(i) == 'o')
 			{
-				for(int j = 0; j <Math.max(prefix, 1); j++)
+				for(int x = 0; x <Math.max(prefix, 1); x++)
 				{
 					convertedLine[arrayIndex] = true;
 					arrayIndex++;
