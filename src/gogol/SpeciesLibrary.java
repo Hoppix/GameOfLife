@@ -20,7 +20,7 @@ public class SpeciesLibrary
 	public SpeciesLibrary()
 	{
 		library = new HashMap<String, Species>();
-		setupLib();
+		//setupLib();
 		dummySetup();
 		System.out.println("Lib size: " + library.size());
 	}

@@ -95,6 +95,7 @@ public class Controller
 
 	/**
 	 * set the size of the survivalMatrix according to the grid size
+	 * Relative to 11:6
 	 */
 	public void setGridsize(int x, int y)
 	{
@@ -102,6 +103,7 @@ public class Controller
 		{
 			survivalMatrix = new Cell[y][x];
 			clear();
+			gamegrid.tileSize = gamegrid.sizeX / x;
 		}
 	}
 
