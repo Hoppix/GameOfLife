@@ -5,6 +5,8 @@ public class Species
 	private String name;
 	private String description;
 	private boolean pattern[][];
+	private int x;
+	private int y;
 
 	/**
 	 * A Species is a special Pattern on the Grid which has unique behaviours
@@ -12,18 +14,26 @@ public class Species
 	 * @param d Description
 	 * @param p PatternString
 	 */
-	public Species(String n, String d, String p)
+	public Species(String n, String d, String p, int sizeX, int sizeY)
 	{
 		System.out.println(n);
 		name = n;
 		description = d;
+		x = sizeX;
+		y = sizeY;
 		
 		String lines[] = p.split("\\$");
 		
-		pattern = new boolean[lines.length][getLineLength(lines[0])];
+		pattern = new boolean[y][x];
 		
-		for (int i = 0; i < pattern.length; i++) 
+		for (int i = 0; i < y; i++) 
 		{
+			System.out.println(i + " " + x + " " + y);
+			System.out.println(pattern.length);
+			if(i == 34)
+			{
+				System.out.println("duuhh");
+			}
 			pattern[i] = convertLine(lines[i]);
 		}
 	}
@@ -34,7 +44,7 @@ public class Species
 	 */
 	public int getSizeX()
 	{
-		return pattern[0].length;
+		return x;
 	}
 
 	/**
@@ -43,7 +53,7 @@ public class Species
 	 */
 	public int getSizeY()
 	{
-		return pattern.length;
+		return y;
 	}
 
 	/**
@@ -97,7 +107,7 @@ public class Species
 	private boolean[] convertLine(String line)
 	{
 		boolean convertedLine[];
-		convertedLine = new boolean[getLineLength(line)];
+		convertedLine = new boolean[x];
 		
 		int prefix = 0;
 		int arrayIndex = 0;

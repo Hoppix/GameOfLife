@@ -32,6 +32,8 @@ public class PreLoader
 		{
 			for(int x = 0; x < preset.getSizeX(); x++)
 			{
+				System.out.println("x: " + x + "; y: " + y);
+				System.out.println("Y size: " + pattern[y].length);
 				if(pattern[y][x])
 				{
 					cont.setCell(x + posX, y + posY);
