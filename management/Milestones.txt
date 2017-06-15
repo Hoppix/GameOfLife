@@ -14,7 +14,7 @@ Meilensteine:
 	loop X
 	play/pause X
 	save/load x
-	preload
+	preload x
 	gridsize x
 	tests
 	
