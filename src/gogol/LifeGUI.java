@@ -32,13 +32,13 @@ public class LifeGUI
 	protected JButton toggleButton;
 	protected JButton blockButton;
 	protected JButton gliderButton;
-	protected JButton image4;
-	protected JButton image5;
-	protected JButton image6;
-	protected JButton image7;
-	protected JButton image8;
-	protected JButton image9;
-	protected JButton image10;
+	protected JButton blinkerButton;
+	protected JButton carButton;
+	protected JButton sealButton;
+	protected JButton methButton;
+	protected JButton mirrorButton;
+	protected JButton butterButton;
+	protected JButton spaceButton;
 	protected JButton image11;
 	protected JButton image12;
 
@@ -55,13 +55,13 @@ public class LifeGUI
 	private JLabel toggleLabel;
 	private JLabel blockLabel;
 	private JLabel gliderLabel;
-	private JLabel form4;
-	private JLabel form5;
-	private JLabel form6;
-	private JLabel form7;
-	private JLabel form8;
-	private JLabel form9;
-	private JLabel form10;
+	private JLabel blinkerLabel;
+	private JLabel carLabel;
+	private JLabel sealLabel;
+	private JLabel methLabel;
+	private JLabel mirrorLabel;
+	private JLabel butterLabel;
+	private JLabel spaceLabel;
 	private JLabel form11;
 	private JLabel form12;
 
@@ -132,7 +132,7 @@ public class LifeGUI
 
 		speedValue = new JLabel("SPEED:");
 		speedValue.setForeground(tertiaryColor);
-		speedValue.setBounds(842, 640, 46, 14);
+		speedValue.setBounds(842, 640, 66, 14);
 		frame.getContentPane().add(speedValue);
 
 		speedNumber = new JLabel("SPS: " + 2.0 + "");
@@ -182,7 +182,7 @@ public class LifeGUI
 	private void initializePreloadPanel()
 	{
 		preload = new JLabel("PRELOAD:");
-		preload.setBounds(10, 93, 60, 14);
+		preload.setBounds(10, 93, 80, 14);
 		frame.getContentPane().add(preload);
 
 		preloadPanel = new JPanel();
@@ -206,49 +206,49 @@ public class LifeGUI
 		gliderLabel.setBounds(130, 11, 56, 14);
 		preloadPanel.add(gliderLabel);
 
-		form4 = new JLabel("form4");
-		form4.setForeground(tertiaryColor);
-		form4.setBounds(10, 97, 46, 14);
-		preloadPanel.add(form4);
+		blinkerLabel = new JLabel("Blinker");
+		blinkerLabel.setForeground(tertiaryColor);
+		blinkerLabel.setBounds(10, 97, 56, 14);
+		preloadPanel.add(blinkerLabel);
 
-		form5 = new JLabel("form5");
-		form5.setForeground(tertiaryColor);
-		form5.setBounds(70, 97, 46, 14);
-		preloadPanel.add(form5);
+		carLabel = new JLabel("Seal");
+		carLabel.setForeground(tertiaryColor);
+		carLabel.setBounds(70, 97, 56, 14);
+		preloadPanel.add(carLabel);
 
-		form6 = new JLabel("form6");
-		form6.setForeground(tertiaryColor);
-		form6.setBounds(130, 97, 46, 14);
-		preloadPanel.add(form6);
+		sealLabel = new JLabel("Seal");
+		sealLabel.setForeground(tertiaryColor);
+		sealLabel.setBounds(130, 97, 56, 14);
+		preloadPanel.add(sealLabel);
 
-		form7 = new JLabel("form7");
-		form7.setForeground(tertiaryColor);
-		form7.setBounds(10, 183, 46, 14);
-		preloadPanel.add(form7);
+		methLabel = new JLabel("Math");
+		methLabel.setForeground(tertiaryColor);
+		methLabel.setBounds(10, 183, 56, 14);
+		preloadPanel.add(methLabel);
 
-		form8 = new JLabel("form8");
-		form8.setForeground(tertiaryColor);
-		form8.setBounds(70, 183, 46, 14);
-		preloadPanel.add(form8);
+		mirrorLabel = new JLabel("Mirror");
+		mirrorLabel.setForeground(tertiaryColor);
+		mirrorLabel.setBounds(70, 183, 56, 14);
+		preloadPanel.add(mirrorLabel);
 
-		form9 = new JLabel("form9");
-		form9.setForeground(tertiaryColor);
-		form9.setBounds(130, 183, 46, 14);
-		preloadPanel.add(form9);
+		butterLabel = new JLabel("Fly");
+		butterLabel.setForeground(tertiaryColor);
+		butterLabel.setBounds(130, 183, 56, 14);
+		preloadPanel.add(butterLabel);
 
-		form10 = new JLabel("form10");
-		form10.setForeground(tertiaryColor);
-		form10.setBounds(10, 269, 46, 14);
-		preloadPanel.add(form10);
+		spaceLabel = new JLabel("Filler");
+		spaceLabel.setForeground(tertiaryColor);
+		spaceLabel.setBounds(10, 269, 56, 14);
+		preloadPanel.add(spaceLabel);
 
-		form11 = new JLabel("form11");
+		form11 = new JLabel("Gun");
 		form11.setForeground(tertiaryColor);
-		form11.setBounds(70, 269, 46, 14);
+		form11.setBounds(70, 269, 56, 14);
 		preloadPanel.add(form11);
 
-		form12 = new JLabel("form12");
+		form12 = new JLabel("Maker");
 		form12.setForeground(tertiaryColor);
-		form12.setBounds(130, 269, 46, 14);
+		form12.setBounds(130, 269, 56, 14);
 		preloadPanel.add(form12);
 
 		toggleButton = new JButton(nyiPNG);
@@ -263,33 +263,33 @@ public class LifeGUI
 		gliderButton.setBounds(130, 36, 50, 50);
 		preloadPanel.add(gliderButton);
 
-		image4 = new JButton(nyiPNG);
-		image4.setBounds(10, 122, 50, 50);
-		preloadPanel.add(image4);
+		blinkerButton = new JButton(nyiPNG);
+		blinkerButton.setBounds(10, 122, 50, 50);
+		preloadPanel.add(blinkerButton);
 
-		image5 = new JButton(nyiPNG);
-		image5.setBounds(70, 122, 50, 50);
-		preloadPanel.add(image5);
+		carButton = new JButton(nyiPNG);
+		carButton.setBounds(70, 122, 50, 50);
+		preloadPanel.add(carButton);
 
-		image6 = new JButton(nyiPNG);
-		image6.setBounds(130, 122, 50, 50);
-		preloadPanel.add(image6);
+		sealButton = new JButton(nyiPNG);
+		sealButton.setBounds(130, 122, 50, 50);
+		preloadPanel.add(sealButton);
 
-		image7 = new JButton(nyiPNG);
-		image7.setBounds(10, 208, 50, 50);
-		preloadPanel.add(image7);
+		methButton = new JButton(nyiPNG);
+		methButton.setBounds(10, 208, 50, 50);
+		preloadPanel.add(methButton);
 
-		image8 = new JButton(nyiPNG);
-		image8.setBounds(70, 208, 50, 50);
-		preloadPanel.add(image8);
+		mirrorButton = new JButton(nyiPNG);
+		mirrorButton.setBounds(70, 208, 50, 50);
+		preloadPanel.add(mirrorButton);
 
-		image9 = new JButton(nyiPNG);
-		image9.setBounds(130, 208, 50, 50);
-		preloadPanel.add(image9);
+		butterButton = new JButton(nyiPNG);
+		butterButton.setBounds(130, 208, 50, 50);
+		preloadPanel.add(butterButton);
 
-		image10 = new JButton(nyiPNG);
-		image10.setBounds(130, 294, 50, 50);
-		preloadPanel.add(image10);
+		spaceButton = new JButton(nyiPNG);
+		spaceButton.setBounds(130, 294, 50, 50);
+		preloadPanel.add(spaceButton);
 
 		image11 = new JButton(nyiPNG);
 		image11.setBounds(70, 294, 50, 50);
