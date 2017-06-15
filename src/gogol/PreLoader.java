@@ -28,9 +28,9 @@ public class PreLoader
 		
 		cont.clearArea(posX, posY, preset.getSizeX(), preset.getSizeY());
 		
-		for(int y = 0; y < preset.getSizeX(); y++)
+		for(int y = 0; y < preset.getSizeY(); y++)
 		{
-			for(int x = 0; x < preset.getSizeY(); x++)
+			for(int x = 0; x < preset.getSizeX(); x++)
 			{
 				if(pattern[y][x])
 				{
