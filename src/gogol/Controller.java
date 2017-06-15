@@ -138,8 +138,16 @@ public class Controller
 			{
 				int matX = j + startX;
 				int matY = i + startY;
-				survivalMatrix[matY][matX] = new ConwayCell();
-				gamegrid.setField(survivalMatrix[matY][matX], matX,matY);
+				try 
+				{
+					survivalMatrix[matY][matX] = new ConwayCell();
+					gamegrid.setField(survivalMatrix[matY][matX], matX,matY);				
+				} 
+				catch (Exception e) 
+				{
+					//Ignore
+				}
+				
 			}
 		}
 	}

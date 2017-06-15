@@ -20,8 +20,7 @@ public class SpeciesLibrary
 	public SpeciesLibrary()
 	{
 		library = new HashMap<String, Species>();
-		//setupLib();
-		dummySetup();
+		localSetup();
 		System.out.println("Lib size: " + library.size());
 	}
 	
@@ -30,7 +29,7 @@ public class SpeciesLibrary
 		return library.get(name);
 	}
 	
-	private void dummySetup()
+	private void localSetup()
 	{
 		//dummies
 		library.put("Block", new Species("Block", "very edgy", "2o$2o", 2, 2));
@@ -46,7 +45,7 @@ public class SpeciesLibrary
 		//library.put("Glidergun", new Species("Glidergun", "GG", "24bo11b$22bobo11b$12b2o6b2o12b2o$11bo3bo4b2o12b2o$2o8bo5bo3b2o14b$2o8bo3bob2o4bobo11b$10bo5bo7bo11b$11bo3bo20b$12b2o", 36, 9));
 	}
 	
-	private void setupLib()
+	private void scrapeSetup()
 	{		
 		//webscraping
 		String baseUrl = "http://conwaylife.appspot.com/";

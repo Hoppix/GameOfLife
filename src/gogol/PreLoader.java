@@ -32,11 +32,17 @@ public class PreLoader
 		{
 			for(int x = 0; x < preset.getSizeX(); x++)
 			{
-				System.out.println("x: " + x + "; y: " + y);
-				System.out.println("Y size: " + pattern[y].length);
 				if(pattern[y][x])
 				{
-					cont.setCell(x + posX, y + posY);
+					try 
+					{
+						cont.setCell(x + posX % cont.survivalMatrix[0].length, y + posY % cont.survivalMatrix.length);
+					} 
+					catch (Exception e) 
+					{
+						//Ignore
+					}
+					//cont.setCell(x + posX % cont.survivalMatrix[0].length, y + posY % cont.survivalMatrix.length);
 				}
 			}
 		}
