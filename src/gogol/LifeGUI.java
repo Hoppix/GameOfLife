@@ -19,6 +19,18 @@ public class LifeGUI
 	private ImageIcon logoPNG;
 	private ImageIcon nyiPNG;
 	private ImageIcon iconICO;
+	private ImageIcon toggleImage;
+	private ImageIcon blockImage;
+	private ImageIcon gliderImage;
+	private ImageIcon blinkerImage;
+	private ImageIcon carImage;
+	private ImageIcon sealImage;
+	private ImageIcon methImage;
+	private ImageIcon fabImage;
+	private ImageIcon butterImage;
+	private ImageIcon ynotImage;
+	private ImageIcon shipmakerImage;
+	private ImageIcon glidergunImage;
 
 
 	protected JButton step;
@@ -75,12 +87,9 @@ public class LifeGUI
 	 */
 	public LifeGUI(GameGrid parentGrid)
 	{
-		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
-		nyiPNG = new ImageIcon(LifeGUI.class.getResource("/design/nyi.png"));
-		iconICO = new ImageIcon(LifeGUI.class.getResource("/design/icon.ico"));
-
 		gameGrid = parentGrid;
 
+		loadImages();
 		initializeFrame();
 		initializePreloadPanel();
 
@@ -269,55 +278,78 @@ public class LifeGUI
 		ynotLabel.setBounds(130, 269, 56, 14);
 		preloadPanel.add(ynotLabel);
 
-		toggleButton = new JButton(nyiPNG);
+		toggleButton = new JButton(toggleImage);
 		toggleButton.setBounds(10, 36, 50, 50);
 		preloadPanel.add(toggleButton);
 
-		blockButton = new JButton(nyiPNG);
+		blockButton = new JButton(blockImage);
 		blockButton.setBounds(70, 36, 50, 50);
 		preloadPanel.add(blockButton);
 
-		gliderButton = new JButton(nyiPNG);
+		gliderButton = new JButton(gliderImage);
 		gliderButton.setBounds(130, 36, 50, 50);
 		preloadPanel.add(gliderButton);
 
-		blinkerButton = new JButton(nyiPNG);
+		blinkerButton = new JButton(blinkerImage);
 		blinkerButton.setBounds(10, 122, 50, 50);
 		preloadPanel.add(blinkerButton);
 
-		carButton = new JButton(nyiPNG);
+		carButton = new JButton(carImage);
 		carButton.setBounds(70, 122, 50, 50);
 		preloadPanel.add(carButton);
 
-		sealButton = new JButton(nyiPNG);
+		sealButton = new JButton(sealImage);
 		sealButton.setBounds(130, 122, 50, 50);
 		preloadPanel.add(sealButton);
 
-		methButton = new JButton(nyiPNG);
+		methButton = new JButton(methImage);
 		methButton.setBounds(10, 208, 50, 50);
 		preloadPanel.add(methButton);
 
-		fabButton = new JButton(nyiPNG);
+		fabButton = new JButton(fabImage);
 		fabButton.setBounds(70, 208, 50, 50);
 		preloadPanel.add(fabButton);
 
-		butterButton = new JButton(nyiPNG);
+		butterButton = new JButton(butterImage);
 		butterButton.setBounds(130, 208, 50, 50);
 		preloadPanel.add(butterButton);
 
-		ynotButton = new JButton(nyiPNG);
+		ynotButton = new JButton(ynotImage);
 		ynotButton.setBounds(130, 294, 50, 50);
 		preloadPanel.add(ynotButton);
 
-		shipmakerButton = new JButton(nyiPNG);
+		shipmakerButton = new JButton(shipmakerImage);
 		shipmakerButton.setBounds(70, 294, 50, 50);
 		preloadPanel.add(shipmakerButton);
 
-		glidergunButton = new JButton(nyiPNG);
+		glidergunButton = new JButton(glidergunImage);
 		glidergunButton.setBounds(10, 294, 50, 50);
 		preloadPanel.add(glidergunButton);
 
 		preloadPanel.repaint();
+	}
+
+	private void loadImages()
+	{
+		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
+		nyiPNG = new ImageIcon(LifeGUI.class.getResource("/design/nyi.png"));
+		iconICO = new ImageIcon(LifeGUI.class.getResource("/design/icon.ico"));
+		toggleImage = new ImageIcon(LifeGUI.class.getResource("/design/toggle.png"));
+		blockImage = new ImageIcon(LifeGUI.class.getResource("/design/block.png"));
+		gliderImage = new ImageIcon(LifeGUI.class.getResource("/design/glider.png"));
+		blinkerImage = new ImageIcon(LifeGUI.class.getResource("/design/blinker.png"));
+		carImage = new ImageIcon(LifeGUI.class.getResource("/design/car.png"));
+		sealImage = new ImageIcon(LifeGUI.class.getResource("/design/seal.png"));
+		methImage = new ImageIcon(LifeGUI.class.getResource("/design/meth.png"));
+		fabImage = new ImageIcon(LifeGUI.class.getResource("/design/fab.png"));
+		butterImage = new ImageIcon(LifeGUI.class.getResource("/design/butterfly.png"));
+		glidergunImage = new ImageIcon(LifeGUI.class.getResource("/design/glidergun.png"));
+		shipmakerImage = new ImageIcon(LifeGUI.class.getResource("/design/fuse.png"));
+		ynotImage = new ImageIcon(LifeGUI.class.getResource("/design/ynot.png"));
+
+
+
+
 	}
 
 
