@@ -14,11 +14,12 @@ public class Species
 	 */
 	public Species(String n, String d, String p)
 	{
+		System.out.println(n);
 		name = n;
 		description = d;
 		
 		String lines[] = p.split("\\$");
-
+		
 		pattern = new boolean[lines.length][getLineLength(lines[0])];
 		
 		for (int i = 0; i < pattern.length; i++) 
@@ -76,16 +77,18 @@ public class Species
 	{
 		int counter = 0;
 		
+		int prefix = 0;
+		
 		for(int i = 0; i < line.length(); i++)
 		{
 			if (line.charAt(i) < 65)
 			{
-				counter = counter + (int)(line.charAt(i) - '0');
-				i++;
+				prefix = prefix * 10 + (int)(line.charAt(i) - '0');
 			}
 			else
 			{
-				counter++;
+				counter = counter + Math.max(prefix, 1);
+				prefix = 0;
 			}
 		}
 		return counter;
@@ -96,28 +99,28 @@ public class Species
 		boolean convertedLine[];
 		convertedLine = new boolean[getLineLength(line)];
 		
-		int prefix = 1;
+		int prefix = 0;
 		int arrayIndex = 0;
 		
 		for(int i = 0; i < line.length(); i++)
 		{
 			if (line.charAt(i) == 'o')
 			{
-				for(int j = 0; j <prefix; j++)
+				for(int j = 0; j <Math.max(prefix, 1); j++)
 				{
 					convertedLine[arrayIndex] = true;
 					arrayIndex++;
 				}
-				prefix = 1;
+				prefix = 0;
 			}
 			else if(line.charAt(i) == 'b')
 			{
-				arrayIndex = arrayIndex + prefix;
-				prefix = 1;
+				arrayIndex = arrayIndex + Math.max(prefix, 1);
+				prefix = 0;
 			}
 			else
 			{
-				prefix = line.charAt(i) - '0';
+				prefix = prefix * 10 + (int)(line.charAt(i) - '0');
 			}
 		}
 		
