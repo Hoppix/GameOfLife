@@ -16,6 +16,7 @@ public class Controller
 	private Player player;
 	private Saver saver;
 	protected PreLoader preloader;
+	//test
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
