@@ -196,6 +196,12 @@ public class Controller
 	{
 		return survivalMatrix[y][x];
 	}
+	
+	public void changeGameMode(String mode)
+	{
+		gameMode = mode;
+		survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
+	}
 
 	/**
 	 * adds all the required listeners for the LifeGUI

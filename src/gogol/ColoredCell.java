@@ -18,8 +18,8 @@ public class ColoredCell implements Cell
 	{
 		alive = false;
 		r = 255;
-		g = 255;
-		b = 255;
+		g = 0;
+		b = 0;
 		mergeStatus = new Color(r, g, b);
 	}
 
