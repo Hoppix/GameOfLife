@@ -87,6 +87,10 @@ public class Controller
 			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
 				survivalMatrix[y][x].setNextStatus(aliveNeighbours(x, y));
+				if (survivalMatrix[y][x] instanceof ColoredCell)
+				{
+					((ColoredCell)survivalMatrix[y][x]).setColorStatus(ruler.colorMerging(x, y));
+				}
 			}
 		}
 
@@ -175,7 +179,9 @@ public class Controller
 			case "Conway":
 				count = ruler.conwayRulez(x, y);
 				break;
-
+			case "ColorMerge":
+				count = ruler.conwayRulez(x, y);
+				break;
 			default:
 				break;
 		}

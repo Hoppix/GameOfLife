@@ -35,14 +35,14 @@ public class Ruler
 		return count;
 	}
 	
-	protected int[] colorMergeRules(int posX, int posY)
-	{
-		int response[] = new int[4];
-		
+	protected Color colorMerging(int posX, int posY)
+	{	
 		int count = 0;
+		
 		int colorR = 0;
 		int colorG = 0;
 		int colorB = 0;
+		
 		int matrixX = cont.survivalMatrix[0].length;
 		int matrixY = cont.survivalMatrix.length;
 
@@ -60,13 +60,12 @@ public class Ruler
 				}
 			}
 		}
-
-		response[0] = count - (cont.survivalMatrix[posY][posX].getStatus() ? 1 : 0);	
-		response[1] = colorR / count;
-		response[2] = colorG / count;
-		response[3] = colorB / count;
+	
+		colorR = colorR / count;
+		colorG = colorG / count;
+		colorB = colorB / count;
 		
-		return response;
+		return new Color(colorR, colorG, colorB);
 	}
 	
 	protected int[] colorWarRules(int posX, int posY)

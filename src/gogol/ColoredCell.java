@@ -52,11 +52,11 @@ public class ColoredCell implements Cell
 		return mergeStatus;
 	}
 	
-	public void setColorStatus(int red, int green, int blue)
+	public void setColorStatus(Color color)
 	{
-		r = red;
-		g = green;
-		b = blue;
+		r = color.getRed();
+		g = color.getGreen();
+		b = color.getBlue();
 		mergeStatus = new Color(r, g, b);
 	}
 
