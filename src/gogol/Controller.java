@@ -1,6 +1,9 @@
 package gogol;
 
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
@@ -237,6 +240,7 @@ public class Controller
 		lifegui.ynotButton.addActionListener(new PreloadListener("Whynot", this));
 		lifegui.shipmakerButton.addActionListener(new PreloadListener("Shipmaker", this));
 		lifegui.glidergunButton.addActionListener(new PreloadListener("Glidergun", this));
+
 
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		gamegrid.addMouseListener(new CellToggleListener(this));
