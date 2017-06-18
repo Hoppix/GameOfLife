@@ -101,8 +101,24 @@ public class GameGrid extends JPanel
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
+		if(cell instanceof  ColorMergeCell)
+		{
+			if(cell.getStatus())
+			{
+				g.setColor(((ColorMergeCell) cell).getColorStatus());
+				g.fillRect(tileX, tileY, tileSize, tileSize);
+			}
+			else
+			{
+				g.setColor(colorBG);
+				g.fillRect(tileX, tileY, tileSize, tileSize);
+			}
+		}
+		if(cell instanceof ColorWarCell)
+		{
+			//TODO
+		}
 		repaint();
-		//TODO erweitern fuer andere celltypes
 	}
 
 
