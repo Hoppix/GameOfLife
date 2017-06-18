@@ -19,6 +19,7 @@ public class Controller
 	private Player player;
 	private Saver saver;
 	protected PreLoader preloader;
+	private Ruler ruler;
 
 	private int generation;
 
@@ -38,6 +39,7 @@ public class Controller
 		player = new Player(this);
 		saver = new Saver(this);
 		preloader = new PreLoader(this);
+		ruler = new Ruler(this);
 		
 		addListeners();
 	}
@@ -171,7 +173,7 @@ public class Controller
 		switch (mode)
 		{
 			case "Conway":
-				count = conwayRulez(x, y);
+				count = ruler.conwayRulez(x, y);
 				break;
 
 			default:
@@ -188,32 +190,6 @@ public class Controller
 	{
 		return survivalMatrix[y][x];
 	}
-
-	/**
-	 * count alive Neighbors of a cell with the Conway rules
-	 */
-	private int conwayRulez(int posX, int posY)
-	{
-		int count = 0;
-		int matrixX = survivalMatrix[0].length;
-		int matrixY = survivalMatrix.length;
-
-		for (int y = posY - 1; y <= posY + 1; y++)
-		{
-			for (int x = posX - 1; x <= posX + 1; x++)
-			{
-				if (survivalMatrix[(y + matrixY) % matrixY][(x + matrixX) % matrixX].getStatus())
-				{
-					count++;
-				}
-			}
-		}
-
-		count = count - (survivalMatrix[posY][posX].getStatus() ? 1 : 0);
-
-		return count;
-	}
-
 
 	/**
 	 * adds all the required listeners for the LifeGUI

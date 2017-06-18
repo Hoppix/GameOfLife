@@ -101,11 +101,11 @@ public class GameGrid extends JPanel
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
-		if(cell instanceof  ColorMergeCell)
+		if(cell instanceof  ColoredCell)
 		{
 			if(cell.getStatus())
 			{
-				g.setColor(((ColorMergeCell) cell).getColorStatus());
+				g.setColor(((ColoredCell) cell).getColorStatus());
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 			else
@@ -113,10 +113,6 @@ public class GameGrid extends JPanel
 				g.setColor(colorBG);
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
-		}
-		if(cell instanceof ColorWarCell)
-		{
-			//TODO
 		}
 		repaint();
 	}

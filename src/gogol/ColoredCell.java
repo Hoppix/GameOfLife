@@ -1,10 +1,27 @@
 package gogol;
 
+import java.awt.*;
+
 /**
  * Created by khopf on 18/06/2017.
  */
-public class ColorWarCell implements Cell
+
+public class ColoredCell implements Cell
 {
+	boolean alive;
+	Color mergeStatus;
+	int r;
+	int g;
+	int b;
+
+	public ColoredCell()
+	{
+		alive = false;
+		r = 255;
+		g = 255;
+		b = 255;
+		mergeStatus = new Color(r, g, b);
+	}
 
 	/**
 	 * sets the status the cell will have in the next cycle
@@ -23,7 +40,24 @@ public class ColorWarCell implements Cell
 	@Override
 	public boolean getStatus()
 	{
-		return false;
+		return alive;
+	}
+
+	/**
+	 * returns the merging color
+	 * @return merge status
+	 */
+	public Color getColorStatus()
+	{
+		return mergeStatus;
+	}
+	
+	public void setColorStatus(int red, int green, int blue)
+	{
+		r = red;
+		g = green;
+		b = blue;
+		mergeStatus = new Color(r, g, b);
 	}
 
 	/**
