@@ -68,12 +68,12 @@ public class Ruler
 		return new Color(colorR, colorG, colorB);
 	}
 	
-	protected int[] colorWarRules(int posX, int posY)
+	protected Color colorWarRules(int posX, int posY)
 	{
-		int response[] = new int[4];
+		Color color = null;
 		
 		//TODO: impl
 		
-		return response;
+		return color;
 	}
 }
