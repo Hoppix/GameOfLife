@@ -87,9 +87,13 @@ public class Controller
 			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
 				survivalMatrix[y][x].setNextStatus(aliveNeighbours(x, y));
-				if (survivalMatrix[y][x] instanceof ColoredCell)
+				if (gameMode.equals("ColorMerge"))
 				{
 					((ColoredCell)survivalMatrix[y][x]).setColorStatus(ruler.colorMerging(x, y));
+				}
+				else if(gameMode.equals("ColorWar"))
+				{
+					//TODO: impl
 				}
 			}
 		}
@@ -171,10 +175,9 @@ public class Controller
 	 */
 	public int aliveNeighbours(int x, int y)
 	{
-		String mode = "Conway";
 		int count = 0;
 
-		switch (mode)
+		switch (gameMode)
 		{
 			case "Conway":
 				count = ruler.conwayRulez(x, y);

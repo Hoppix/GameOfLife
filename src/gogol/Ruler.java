@@ -13,7 +13,7 @@ public class Ruler
 	/**
 	 * count alive Neighbors of a cell with the Conway rules
 	 */
-	protected int conwayRulez(int posX, int posY)
+	public int conwayRulez(int posX, int posY)
 	{
 		int count = 0;
 		int matrixX = cont.survivalMatrix[0].length;
@@ -35,7 +35,7 @@ public class Ruler
 		return count;
 	}
 	
-	protected Color colorMerging(int posX, int posY)
+	public Color colorMerging(int posX, int posY)
 	{	
 		int count = 0;
 		
@@ -68,7 +68,15 @@ public class Ruler
 		return new Color(colorR, colorG, colorB);
 	}
 	
-	protected Color colorWarRules(int posX, int posY)
+	/**
+	 * returns major Color of the Cells neighbors
+	 * if to top Colors are equally numbers returns previous Color of the specified Cell
+	 * new Cells are only born if there is a majority
+	 * @param posX
+	 * @param posY
+	 * @return New Color of the Cell at input Position
+	 */
+	public Color colorWarRules(int posX, int posY)
 	{
 		Color color = null;
 		

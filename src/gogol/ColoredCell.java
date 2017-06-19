@@ -13,14 +13,20 @@ public class ColoredCell implements Cell
 	int r;
 	int g;
 	int b;
+	
+	boolean newStatus;
+	Color newColor;
 
 	public ColoredCell()
 	{
 		alive = false;
-		r = 255;
+		mergeStatus = null;
+		r = 0;
 		g = 0;
 		b = 0;
-		mergeStatus = new Color(r, g, b);
+		
+		newStatus = false;
+		newColor = null;
 	}
 
 	/**
@@ -31,7 +37,22 @@ public class ColoredCell implements Cell
 	@Override
 	public void setNextStatus(int neighbors)
 	{
-
+		if(neighbors < 2)
+		{
+			newStatus = false;
+		}		
+		else if(neighbors > 3)
+		{
+			newStatus = false;
+		}
+		else if(neighbors == 3)
+		{
+			newStatus = true;
+		}
+		else if(neighbors == 2)
+		{
+			newStatus = alive;
+		}
 	}
 
 	/**
@@ -57,7 +78,7 @@ public class ColoredCell implements Cell
 		r = color.getRed();
 		g = color.getGreen();
 		b = color.getBlue();
-		mergeStatus = new Color(r, g, b);
+		newColor = new Color(r, g, b);
 	}
 
 	/**
@@ -66,7 +87,8 @@ public class ColoredCell implements Cell
 	@Override
 	public void updateStatus()
 	{
-
+		alive = newStatus;
+		mergeStatus = newColor;
 	}
 
 	/**
@@ -75,7 +97,18 @@ public class ColoredCell implements Cell
 	@Override
 	public void toggleStatus()
 	{
-
+		if(alive)
+		{
+			alive = !alive;
+			mergeStatus = null;
+			r = 0;
+			g = 0;
+			b = 0;
+		}
+		else
+		{
+			alive = !alive;
+		}
 	}
 
 	/**
@@ -84,6 +117,7 @@ public class ColoredCell implements Cell
 	@Override
 	public String cellToString()
 	{
+		//TODO: impl
 		return null;
 	}
 }
