@@ -9,7 +9,7 @@ import java.awt.*;
 public class ColoredCell implements Cell
 {
 	boolean alive;
-	Color mergeStatus;
+	Color colorStatus;
 	int r;
 	int g;
 	int b;
@@ -20,7 +20,7 @@ public class ColoredCell implements Cell
 	public ColoredCell()
 	{
 		alive = false;
-		mergeStatus = null;
+		colorStatus = null;
 		r = 0;
 		g = 0;
 		b = 0;
@@ -70,7 +70,7 @@ public class ColoredCell implements Cell
 	 */
 	public Color getColorStatus()
 	{
-		return mergeStatus;
+		return colorStatus;
 	}
 	
 	public void setColorStatus(Color color)
@@ -88,7 +88,7 @@ public class ColoredCell implements Cell
 	public void updateStatus()
 	{
 		alive = newStatus;
-		mergeStatus = newColor;
+		colorStatus = newColor;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class ColoredCell implements Cell
 		if(alive)
 		{
 			alive = !alive;
-			mergeStatus = null;
+			colorStatus = null;
 			r = 0;
 			g = 0;
 			b = 0;
