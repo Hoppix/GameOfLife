@@ -201,7 +201,19 @@ public class Controller
 	public void changeGameMode(String mode)
 	{
 		gameMode = mode;
-		survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
+
+		switch (mode)
+		{
+			case "Conway":
+				survivalMatrix = new ConwayCell[survivalMatrix.length][survivalMatrix[0].length];
+				break;
+			case "ColorWar":
+			case "ColorMerge":
+				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
+				break;
+			default:
+				break;
+		}
 	}
 
 	/**

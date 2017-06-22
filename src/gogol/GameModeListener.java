@@ -18,6 +18,6 @@ public class GameModeListener implements ItemListener
 	public void itemStateChanged(ItemEvent itemEvent)
 	{
 		String modeChange = itemEvent.getItem().toString();
-		controller.gameMode = modeChange;
+		controller.changeGameMode(modeChange);
 	}
 }
