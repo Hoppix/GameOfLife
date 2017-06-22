@@ -1,8 +1,6 @@
 package gogol;
 
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
@@ -234,6 +232,7 @@ public class Controller
 
 
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
+		lifegui.gametypeChooser.addItemListener(new GameModeListener(this));
 		gamegrid.addMouseListener(new CellToggleListener(this));
 	}
 
