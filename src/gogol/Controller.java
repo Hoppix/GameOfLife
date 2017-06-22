@@ -67,6 +67,13 @@ public class Controller
 				if (rnd == 1)
 				{
 					survivalMatrix[y][x].toggleStatus();
+					if(!(gameMode.equals("Conway")) && survivalMatrix[y][x].getStatus())
+					{
+						for(int i = 0; i < (int) (0 + (Math.random() * (3))); i++)
+						{
+								survivalMatrix[y][x].toggleStatus();
+						}
+					}
 					gamegrid.setField(survivalMatrix[y][x], x, y);
 				}
 
