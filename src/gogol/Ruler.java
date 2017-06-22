@@ -1,6 +1,7 @@
 package gogol;
 
 import java.awt.Color;
+import java.util.HashMap;
 
 public class Ruler
 {
@@ -81,9 +82,9 @@ public class Ruler
 	public Color colorWarRules(int posX, int posY)
 	{
 
-		Color colorOwn = ((ColoredCell) controller.survivalMatrix[(posY)][posX])
-				.getColorStatus();
+		HashMap<Integer, Color> colorHash = new HashMap<>();
 		Color colorEn = null;
+		Color colorSelect = new Color(0,0,0);
 
 
 		int countOwn = 0;
@@ -99,29 +100,15 @@ public class Ruler
 			{
 				if (controller.survivalMatrix[(y + matrixY) % matrixY][(x + matrixX) % matrixX].getStatus())
 				{
-					Color colorSelect = ((ColoredCell) controller.survivalMatrix[(y + matrixY) % matrixY][(x +
+					colorSelect = ((ColoredCell) controller.survivalMatrix[(y + matrixY) % matrixY][(x +
 							matrixX) % matrixX]).getColorStatus();
-					if (colorSelect.equals(colorOwn))
-					{
-						countOwn++;
-					}
-					else
-					{
-						colorEn = colorSelect;
-						countEn++;
-					}
+
+					System.out.println(colorSelect.hashCode() + "  " + colorSelect.toString());
+					colorHash.put(colorSelect.hashCode(), colorSelect);
 
 				}
 			}
 		}
-
-		if (countOwn >= countEn)
-		{
-			return colorOwn;
-		}
-		else
-		{
-			return colorEn;
-		}
+		return colorHash.get(0);
 	}
 }

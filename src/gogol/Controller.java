@@ -91,7 +91,7 @@ public class Controller
 				}
 				else if(gameMode.equals("ColorWar"))
 				{
-					//TODO: impl
+					((ColoredCell)survivalMatrix[y][x]).setColorStatus(ruler.colorWarRules(x,y));
 				}
 			}
 		}
@@ -133,7 +133,7 @@ public class Controller
 		{
 			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
-				survivalMatrix[y][x] = new ConwayCell();
+				survivalMatrix[y][x] = createCell();
 				gamegrid.setField(survivalMatrix[y][x], x,y);
 			}
 		}
@@ -216,6 +216,7 @@ public class Controller
 			default:
 				break;
 		}
+		clear();
 	}
 
 	/**
@@ -286,6 +287,17 @@ public class Controller
 				saver.loadGamestate();
 				break;
 			default:
+		}
+	}
+
+	private Cell createCell()
+	{
+		switch(gameMode)
+		{
+			case "Conway": return new ConwayCell();
+			case "ColorWar":
+			case "ColorMerge":	return new ColoredCell();
+			default: return null;
 		}
 	}
 	
