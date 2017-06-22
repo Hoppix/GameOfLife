@@ -10,9 +10,6 @@ public class ColoredCell implements Cell
 {
 	boolean alive;
 	Color colorStatus;
-	int r;
-	int g;
-	int b;
 	
 	boolean newStatus;
 	Color newColor;
@@ -21,9 +18,6 @@ public class ColoredCell implements Cell
 	{
 		alive = false;
 		colorStatus = null;
-		r = 0;
-		g = 0;
-		b = 0;
 		
 		newStatus = false;
 		newColor = null;
@@ -75,10 +69,7 @@ public class ColoredCell implements Cell
 	
 	public void setColorStatus(Color color)
 	{
-		r = color.getRed();
-		g = color.getGreen();
-		b = color.getBlue();
-		newColor = new Color(r, g, b);
+		newColor =color;
 	}
 
 	/**
@@ -100,9 +91,6 @@ public class ColoredCell implements Cell
 		if(alive)
 		{
 			alive = !alive;
-			r = 0;
-			g = 0;
-			b = 0;
 			colorStatus = null;
 		}
 		else
@@ -113,6 +101,7 @@ public class ColoredCell implements Cell
 
 	/**
 	 * gives the cell data as a String
+	 * String Matches: alive + "," + r + "," + g + "," + b + ";"
 	 */
 	@Override
 	public String cellToString()

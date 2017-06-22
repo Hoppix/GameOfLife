@@ -59,6 +59,15 @@ public class ColoredCellTest
 	@Test
 	public void testCellToString()
 	{
-		//TODO: impl
+		System.out.println(Color.red);
+		cCell.setNextStatus(0);
+		cCell.setColorStatus(null);
+		assertEquals("false,null;", cCell.toString());
+		cCell.setNextStatus(3);
+		cCell.setColorStatus(Color.red);
+		assertEquals("true,255,0,0;", cCell.toString());
+		cCell.setNextStatus(2);
+		cCell.setColorStatus(Color.blue);
+		assertEquals("true,0,0,255;", cCell.toString());
 	}
 }
