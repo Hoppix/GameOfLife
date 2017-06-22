@@ -58,7 +58,7 @@ public class Saver
 			{
 				for (int x = 0; x < controller.survivalMatrix[y].length; x++)
 				{
-					writer.write(controller.survivalMatrix[y][x].cellToString() + ";");
+					writer.write(controller.survivalMatrix[y][x].toString() + ";");
 				}
 				writer.newLine();
 			}

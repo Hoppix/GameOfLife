@@ -25,5 +25,5 @@ public interface Cell
 	/**
 	 * gives the cell data as a String
 	 */
-	public String cellToString();
+	public String toString();
 }

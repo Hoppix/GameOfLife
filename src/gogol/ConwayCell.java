@@ -66,7 +66,7 @@ public class ConwayCell implements Cell {
 	}
 
 	@Override
-	public String cellToString() 
+	public String toString()
 	{
 		String cellString = "";
 		

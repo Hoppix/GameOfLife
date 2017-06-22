@@ -168,7 +168,7 @@ public class Controller
 				} 
 				catch (Exception e) 
 				{
-					//Ignore
+					e.printStackTrace();
 				}
 				
 			}

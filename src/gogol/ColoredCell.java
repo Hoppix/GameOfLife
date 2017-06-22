@@ -127,11 +127,11 @@ public class ColoredCell implements Cell
 	;
 
 	@Override
-	public String cellToString()
+	public String toString()
 	{
 		if (colorStatus == null)
 		{
-			return alive + ",null";
+			return alive + ",null;";
 		}
 		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue()
 				+ ";";

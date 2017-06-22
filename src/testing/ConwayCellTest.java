@@ -51,9 +51,9 @@ public class ConwayCellTest
 	
 	public void testCellToString()
 	{
-		assertEquals("false", testCell.cellToString());
+		assertEquals("false", testCell.toString());
 		testCell.toggleStatus();
-		assertEquals("true", testCell.cellToString());
+		assertEquals("true", testCell.toString());
 	}
 
 }
