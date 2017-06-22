@@ -43,7 +43,9 @@ public class RulerTest
 	
 	private void setGridColored()
 	{
-		cont.changeGameMode("ColorWar");				
+		cont.changeGameMode("ColorWar");	
+		System.out.println("set mode done");
+		System.out.println(cont.survivalMatrix[0][0]);
 		cont.setCell(11, 10);
 		((ColoredCell)cont.survivalMatrix[10][11]).setColorStatus(Color.red);
 		cont.setCell(12, 10);

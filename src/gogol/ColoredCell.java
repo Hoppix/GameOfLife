@@ -100,10 +100,10 @@ public class ColoredCell implements Cell
 		if(alive)
 		{
 			alive = !alive;
-			r = 255;
+			r = 0;
 			g = 0;
 			b = 0;
-			colorStatus = new Color(r,g,b);
+			colorStatus = null;
 		}
 		else
 		{

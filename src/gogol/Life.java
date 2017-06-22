@@ -5,7 +5,6 @@ package gogol;
  */
 public class Life
 {
-
 	/**
 	 *
 	 * Main method:
