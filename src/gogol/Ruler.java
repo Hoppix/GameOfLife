@@ -102,7 +102,8 @@ public class Ruler
 				{
 					colorSelect = ((ColoredCell) controller.survivalMatrix[(y + matrixY) % matrixY][(x +
 							matrixX) % matrixX]).getColorStatus();
-
+					
+					System.out.println(colorSelect);
 					System.out.println(colorSelect.hashCode() + "  " + colorSelect.toString());
 					colorHash.put(colorSelect.hashCode(), colorSelect);
 
