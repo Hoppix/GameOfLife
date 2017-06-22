@@ -63,6 +63,10 @@ public class Ruler
 			}
 		}
 
+		if(count == 0)
+		{
+			return null;
+		}
 		colorR = colorR / count;
 		colorG = colorG / count;
 		colorB = colorB / count;
@@ -102,11 +106,14 @@ public class Ruler
 				{
 					colorSelect = ((ColoredCell) controller.survivalMatrix[(y + matrixY) % matrixY][(x +
 							matrixX) % matrixX]).getColorStatus();
-					
-					System.out.println(colorSelect);
-					System.out.println(colorSelect.hashCode() + "  " + colorSelect.toString());
-					colorHash.put(colorSelect.hashCode(), colorSelect);
 
+					System.out.println(colorSelect.hashCode());
+					if(colorSelect != null)
+					{
+						System.out.println(colorSelect.hashCode());
+						System.out.println(colorSelect.hashCode() + "  " + colorSelect.toString());
+						colorHash.put(colorSelect.hashCode(), colorSelect);
+					}
 				}
 			}
 		}

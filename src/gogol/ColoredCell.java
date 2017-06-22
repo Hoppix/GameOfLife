@@ -10,7 +10,7 @@ public class ColoredCell implements Cell
 {
 	boolean alive;
 	Color colorStatus;
-	
+
 	boolean newStatus;
 	Color newColor;
 
@@ -18,7 +18,7 @@ public class ColoredCell implements Cell
 	{
 		alive = false;
 		colorStatus = null;
-		
+
 		newStatus = false;
 		newColor = null;
 	}
@@ -31,19 +31,19 @@ public class ColoredCell implements Cell
 	@Override
 	public void setNextStatus(int neighbors)
 	{
-		if(neighbors < 2)
-		{
-			newStatus = false;
-		}		
-		else if(neighbors > 3)
+		if (neighbors < 2)
 		{
 			newStatus = false;
 		}
-		else if(neighbors == 3)
+		else if (neighbors > 3)
+		{
+			newStatus = false;
+		}
+		else if (neighbors == 3)
 		{
 			newStatus = true;
 		}
-		else if(neighbors == 2)
+		else if (neighbors == 2)
 		{
 			newStatus = alive;
 		}
@@ -60,16 +60,17 @@ public class ColoredCell implements Cell
 
 	/**
 	 * returns the merging color
+	 *
 	 * @return merge status
 	 */
 	public Color getColorStatus()
 	{
 		return colorStatus;
 	}
-	
+
 	public void setColorStatus(Color color)
 	{
-		newColor =color;
+		newColor = color;
 	}
 
 	/**
@@ -88,14 +89,34 @@ public class ColoredCell implements Cell
 	@Override
 	public void toggleStatus()
 	{
-		if(alive)
+		if (alive)
 		{
-			alive = !alive;
-			colorStatus = null;
+			if (colorStatus == null)
+			{
+				colorStatus = Color.red;
+			}
+			else if (colorStatus.equals(Color.red))
+			{
+				colorStatus = Color.green;
+			}
+			else if (colorStatus.equals(Color.green))
+			{
+				colorStatus = Color.blue;
+			}
+			else if (colorStatus.equals(Color.blue))
+			{
+				colorStatus = null;
+				alive = !alive;
+			}
+			else
+			{
+				colorStatus = Color.red;
+			}
 		}
 		else
 		{
 			alive = !alive;
+			colorStatus = Color.red;
 		}
 	}
 
@@ -103,10 +124,16 @@ public class ColoredCell implements Cell
 	 * gives the cell data as a String
 	 * String Matches: alive + "," + r + "," + g + "," + b + ";"
 	 */
+	;
+
 	@Override
 	public String cellToString()
 	{
-		//TODO: impl
-		return null;
+		if (colorStatus == null)
+		{
+			return alive + ",null";
+		}
+		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue()
+				+ ";";
 	}
 }
