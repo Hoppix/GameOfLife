@@ -22,16 +22,22 @@ public class ColoredCellTest
 	public void testSetNextStatus()
 	{
 		cCell.setNextStatus(0);
+		cCell.updateStatus();
 		assertFalse(cCell.getStatus());
 		cCell.setNextStatus(1);
+		cCell.updateStatus();
 		assertFalse(cCell.getStatus());
 		cCell.setNextStatus(2);
+		cCell.updateStatus();
 		assertFalse(cCell.getStatus());
 		cCell.setNextStatus(3);
+		cCell.updateStatus();
 		assertTrue(cCell.getStatus());
 		cCell.setNextStatus(2);
+		cCell.updateStatus();
 		assertTrue(cCell.getStatus());
 		cCell.setNextStatus(4);
+		cCell.updateStatus();
 		assertFalse(cCell.getStatus());
 	}
 	
@@ -53,6 +59,7 @@ public class ColoredCellTest
 	@Test
 	public void testToggleStatus()
 	{
+		assertFalse(true);
 		//TODO: impl
 	}
 	
