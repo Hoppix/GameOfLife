@@ -27,6 +27,21 @@ public class RulerTest
 	}
 	
 	@Test
+	public void testColorMergeRulesStep()
+	{
+		setGridColored();
+		assertEquals(ruler.colorMerging(10, 10), new Color(255,0,0));
+		assertEquals(ruler.colorMerging(11, 10), new Color(127,0,127));
+		assertEquals(ruler.colorMerging(12, 10), new Color(127,0,127));
+		assertEquals(ruler.colorMerging(10, 11), new Color(255,0,0));
+		assertEquals(ruler.colorMerging(11, 11), new Color(255*3/5,0,255*2/5));
+		assertEquals(ruler.colorMerging(12, 11), new Color(127,0,127));
+		assertEquals(ruler.colorMerging(10, 12), new Color(255,0,0));
+		assertEquals(ruler.colorMerging(11, 12), new Color(255*2/3,0,255/3));
+		assertEquals(ruler.colorMerging(12, 12), new Color(127,0,127));
+	}
+	
+	@Test
 	public void testColorWarRulesStep()
 	{
 		setGridColored();
