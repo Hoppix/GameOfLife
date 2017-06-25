@@ -1,4 +1,6 @@
-package gogol;
+package gogol.listener;
+
+import gogol.backend.Controller;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;

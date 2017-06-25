@@ -1,4 +1,7 @@
-package gogol;
+package gogol.listener;
+
+import gogol.backend.Controller;
+import gogol.backend.Player;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

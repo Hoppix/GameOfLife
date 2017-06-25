@@ -1,4 +1,6 @@
-package gogol;
+package gogol.backend;
+
+import gogol.backend.Controller;
 
 import java.math.BigDecimal;
 

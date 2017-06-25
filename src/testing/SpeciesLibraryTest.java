@@ -2,8 +2,8 @@ package testing;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import gogol.Species;
-import gogol.SpeciesLibrary;
+import gogol.library.Species;
+import gogol.library.SpeciesLibrary;
 
 public class SpeciesLibraryTest 
 {

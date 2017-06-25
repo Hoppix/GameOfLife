@@ -2,10 +2,10 @@ package testing;
 
 import org.junit.Test;
 
-import gogol.Controller;
-import gogol.GameGrid;
-import gogol.LifeGUI;
-import gogol.Saver;
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
+import gogol.backend.Saver;
 
 public class SaverTest 
 {

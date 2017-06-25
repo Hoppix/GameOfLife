@@ -4,16 +4,14 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import gogol.ColoredCell;
-import gogol.Controller;
-import gogol.GameGrid;
-import gogol.LifeGUI;
-import gogol.Ruler;
+import gogol.cells.ColoredCell;
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
+import gogol.backend.Ruler;
 
 public class RulerTest 
 {

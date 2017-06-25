@@ -2,7 +2,7 @@ package testing;
 
 import static org.junit.Assert.*;
 
-import gogol.ConwayCell;
+import gogol.cells.ConwayCell;
 import org.junit.Before;
 import org.junit.Test;
 

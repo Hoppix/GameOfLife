@@ -1,9 +1,9 @@
 package testing;
 
-import gogol.Controller;
-import gogol.GameGrid;
-import gogol.LifeGUI;
-import gogol.Player;
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
+import gogol.backend.Player;
 import org.junit.Before;
 import org.junit.Test;
 

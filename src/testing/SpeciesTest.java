@@ -2,7 +2,7 @@ package testing;
 
 import static org.junit.Assert.*;
 import org.junit.*;
-import gogol.Species;
+import gogol.library.Species;
 
 public class SpeciesTest 
 {

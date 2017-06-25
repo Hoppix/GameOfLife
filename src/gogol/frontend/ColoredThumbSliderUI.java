@@ -1,4 +1,4 @@
-package gogol;
+package gogol.frontend;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicSliderUI;

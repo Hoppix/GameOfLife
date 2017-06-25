@@ -1,13 +1,10 @@
 package testing;
 
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.*;
 
-import javax.swing.JPanel;
-
-import gogol.Controller;
-import gogol.GameGrid;
-import gogol.LifeGUI;
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
 
 import org.junit.Before;
 import org.junit.Test;

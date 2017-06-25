@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import gogol.Controller;
-import gogol.GameGrid;
-import gogol.LifeGUI;
-import gogol.PreLoader;
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
+import gogol.library.PreLoader;
 
 public class PreLoaderTest 
 {

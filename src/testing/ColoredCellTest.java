@@ -6,7 +6,7 @@ import java.awt.Color;
 
 import org.junit.*;
 
-import gogol.ColoredCell;
+import gogol.cells.ColoredCell;
 
 public class ColoredCellTest 
 {

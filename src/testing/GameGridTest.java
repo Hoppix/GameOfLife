@@ -1,6 +1,6 @@
 package testing;
 
-import gogol.GameGrid;
+import gogol.frontend.GameGrid;
 
 import java.awt.*;
 

@@ -1,5 +1,10 @@
 
 package gogol;
+
+import gogol.backend.Controller;
+import gogol.frontend.GameGrid;
+import gogol.frontend.LifeGUI;
+
 /**
  * Created by hoppix on 18.05.17.
  */

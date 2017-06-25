@@ -1,4 +1,6 @@
-package gogol;
+package gogol.cells;
+
+import gogol.cells.Cell;
 
 import java.awt.*;
 
