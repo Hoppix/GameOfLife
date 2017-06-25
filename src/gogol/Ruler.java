@@ -1,9 +1,7 @@
 package gogol;
 
 import java.awt.Color;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Ruler
 {
@@ -87,19 +85,15 @@ public class Ruler
 	 */
 	public Color colorWarRules(int posX, int posY)
 	{
-
-		Map<Integer, Color> colorHash = new HashMap<>();
-		Color colorEn = null;
-		Color colorSelect = new Color(0, 0, 0);
-
-
-		int countOwn = 0;
-		int countEn = 0;
+		List<Color> colorList = new LinkedList<>();
+		Color colorSelect;
 
 		int matrixX = controller.survivalMatrix[0].length;
 		int matrixY = controller.survivalMatrix.length;
 
-
+		/**
+		 * Get all the surounding colors
+		 */
 		for (int y = posY - 1; y <= posY + 1; y++)
 		{
 			for (int x = posX - 1; x <= posX + 1; x++)
@@ -111,48 +105,50 @@ public class Ruler
 
 					if (colorSelect != null)
 					{
-						colorHash.put(colorSelect.hashCode(), colorSelect);
+						colorList.add(colorSelect);
 					}
 				}
 			}
 		}
 
-		int cr = 0;
-		int cg = 0;
-		int cb = 0;
+		/**
+		 * return color of the highest count
+		 */
+		return getMostOccoringElement(colorList);
+	}
 
-		// Iterating over values only
-		for (Color value : colorHash.values())
-		{
-			if(value.equals(Color.red))
-			{
-				cr++;
-			}
-			else if(value.equals(Color.green))
-			{
-				cg++;
-			}
-			else if(value.equals(Color.blue))
-			{
-				cb++;
-			}
-		}
+	/**
+	 * private helper method from coderanch.com
+	 * for lazy people
+	 * @param list
+	 * @param <T>
+	 * @return most frequent object
+	 */
+	private  <T> T getMostOccoringElement(List<T> list) {
+		int size = list.size();
+		if(size == 0)
+			return null;
 
-		if(cr == Math.max(cr, Math.max(cg,cb)))
-		{
-			return Color.red;
+		int count = 0;
+		int maxCount = 0;
+		T element = list.get(0);
+		T mostOccuringElement = element;
+
+		for(int index = 0; index<size; index++) {
+			if(list.get(index).equals(element)) {
+				count++;
+				/**
+				 *
+				 */
+				if(count >= maxCount) {
+					maxCount = count;
+					mostOccuringElement = element;
+				}
+			} else {
+				count = 1;
+			}
+			element = list.get(index);
 		}
-		else if(cg == Math.max(cr, Math.max(cg,cb)))
-		{
-			return Color.green;
-		}
-		else if(cb == Math.max(cr, Math.max(cg,cb)))
-		{
-			return Color.blue;
-		}
-		else
-		{
-			return ((ColoredCell) controller.survivalMatrix[posY][posX]).getColorStatus();
-		}
+		return mostOccuringElement;
 	}
 }

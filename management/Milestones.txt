@@ -16,7 +16,7 @@ Meilensteine:
 	save/load x
 	preload x
 	gridsize x
-	tests
+	tests x
 	
 -rainbow
 	custom rules
