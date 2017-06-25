@@ -95,13 +95,20 @@ public class Ruler
 		int matrixX = controller.survivalMatrix[0].length;
 		int matrixY = controller.survivalMatrix.length;
 
+		/**
+		 * cell alive?
+		 */
 		boolean alive = controller.survivalMatrix[posY][posX].getStatus();
 
+		/**
+		 * own color counts into calculation
+		 */
 		colorOwn = ((ColoredCell) controller.survivalMatrix[posY][posX]).getColorStatus();
 		colorList.add(colorOwn);
 
 		/**
 		 * Get all the surounding colors
+		 * and add them to the list
 		 */
 		for (int y = posY - 1; y <= posY + 1; y++)
 		{
