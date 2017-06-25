@@ -87,9 +87,15 @@ public class Ruler
 	{
 		List<Color> colorList = new LinkedList<>();
 		Color colorSelect;
+		Color colorOwn;
 
 		int matrixX = controller.survivalMatrix[0].length;
 		int matrixY = controller.survivalMatrix.length;
+
+		boolean alive = controller.survivalMatrix[posY][posX].getStatus();
+
+		colorOwn = ((ColoredCell) controller.survivalMatrix[posY][posX]).getColorStatus();
+		colorList.add(colorOwn);
 
 		/**
 		 * Get all the surounding colors
@@ -113,8 +119,13 @@ public class Ruler
 
 		/**
 		 * return color of the highest count
+		 * when cell is dead we dont set a new color
 		 */
-		return getMostOccoringElement(colorList);
+		if(alive)
+		{
+			return getMostOccoringElement(colorList);
+		}
+		return null;
 	}
 
 	/**
@@ -140,7 +151,7 @@ public class Ruler
 				/**
 				 *
 				 */
-				if(count >= maxCount) {
+				if(count > maxCount) {
 					maxCount = count;
 					mostOccuringElement = element;
 				}
