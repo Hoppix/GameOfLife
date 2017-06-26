@@ -26,4 +26,10 @@ public interface Cell
 	 * gives the cell data as a String
 	 */
 	public String toString();
+	
+	/**
+	 * gives the Status the cell will have next Cycle
+	 * @return
+	 */
+	public boolean getNextStatus();
 }

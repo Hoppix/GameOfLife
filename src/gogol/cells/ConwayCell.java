@@ -77,4 +77,9 @@ public class ConwayCell implements Cell {
 		return cellString;
 	}
 	
+	@Override
+	public boolean getNextStatus() 
+	{
+		return newStatus;
+	}
 }

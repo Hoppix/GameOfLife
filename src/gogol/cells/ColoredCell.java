@@ -138,4 +138,10 @@ public class ColoredCell implements Cell
 		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue()
 				+ ";";
 	}
+
+	@Override
+	public boolean getNextStatus() 
+	{
+		return newStatus;
+	}
 }

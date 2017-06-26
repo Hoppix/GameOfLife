@@ -102,10 +102,18 @@ public class Controller
 				if (gameMode.equals("ColorMerge"))
 				{
 					((ColoredCell)survivalMatrix[y][x]).setColorStatus(ruler.colorMerging(x, y));
+					if(!survivalMatrix[y][x].getNextStatus())
+					{
+						((ColoredCell)survivalMatrix[y][x]).setColorStatus(null);
+					}
 				}
 				else if(gameMode.equals("ColorWar"))
 				{
 					((ColoredCell)survivalMatrix[y][x]).setColorStatus(ruler.colorWarRules(x,y));
+					if(!survivalMatrix[y][x].getNextStatus())
+					{
+						((ColoredCell)survivalMatrix[y][x]).setColorStatus(null);
+					}
 				}
 			}
 		}
@@ -222,9 +230,7 @@ public class Controller
 				survivalMatrix = new ConwayCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
 			case "ColorWar":
-				System.out.println("ColorWar: nothing to do here");
 			case "ColorMerge":
-				System.out.println("ColorMerge: setting survivalMatrix");
 				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
 			default:

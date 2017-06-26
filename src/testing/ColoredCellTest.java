@@ -69,12 +69,15 @@ public class ColoredCellTest
 		System.out.println(Color.red);
 		cCell.setNextStatus(0);
 		cCell.setColorStatus(null);
+		cCell.updateStatus();
 		assertEquals("false,null;", cCell.toString());
 		cCell.setNextStatus(3);
 		cCell.setColorStatus(Color.red);
+		cCell.updateStatus();
 		assertEquals("true,255,0,0;", cCell.toString());
 		cCell.setNextStatus(2);
 		cCell.setColorStatus(Color.blue);
+		cCell.updateStatus();
 		assertEquals("true,0,0,255;", cCell.toString());
 	}
 }
