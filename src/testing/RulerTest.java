@@ -7,7 +7,6 @@ import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
 
-import gogol.cells.ColoredCell;
 import gogol.backend.Controller;
 import gogol.frontend.GameGrid;
 import gogol.frontend.LifeGUI;
@@ -59,15 +58,25 @@ public class RulerTest
 	
 	private void setGridWar()
 	{
-		cont.changeGameMode("ColorWar");	
+		cont.changeGameMode("ColorWar");
+
+		//red
 		cont.setCell(11, 10);
+
+		//blue
 		cont.setCell(12, 10);
 		cont.setCell(12, 10);
 		cont.setCell(12, 10);
+
+		//red
 		cont.setCell(11, 11);
+
+		//blue
 		cont.setCell(12, 11);
 		cont.setCell(12, 11);
 		cont.setCell(12, 11);
+
+		//red
 		cont.setCell(10, 12);
 	}
 	

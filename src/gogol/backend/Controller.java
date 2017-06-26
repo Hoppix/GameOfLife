@@ -9,6 +9,8 @@ import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
 import gogol.listener.*;
 
+import java.awt.*;
+
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
@@ -196,19 +198,7 @@ public class Controller
 	public int aliveNeighbours(int x, int y)
 	{
 		int count = 0;
-
-		switch (gameMode)
-		{
-			case "Conway":
-				count = ruler.conwayRulez(x, y);
-				break;
-			case "ColorMerge":
-				count = ruler.conwayRulez(x, y);
-				break;
-			default:
-				break;
-		}
-
+		count = ruler.conwayRulez(x, y);
 		return count;
 	}
 

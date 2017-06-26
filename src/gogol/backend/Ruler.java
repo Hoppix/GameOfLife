@@ -96,15 +96,15 @@ public class Ruler
 		int matrixY = controller.survivalMatrix.length;
 
 		/**
-		 * cell alive?
+		 * cell alive in next cycle?
 		 */
-		boolean alive = controller.survivalMatrix[posY][posX].getStatus();
+		boolean alive = controller.survivalMatrix[posY][posX].getNextStatus();
 
 		/**
 		 * own color counts into calculation
 		 */
 		colorOwn = ((ColoredCell) controller.survivalMatrix[posY][posX]).getColorStatus();
-		colorList.add(colorOwn);
+
 
 		/**
 		 * Get all the surounding colors
@@ -131,7 +131,7 @@ public class Ruler
 		 * return color of the highest count
 		 * when cell is dead we dont set a new color
 		 */
-		if(alive)
+		if (alive)
 		{
 			return getMostOccoringElement(colorList);
 		}
@@ -141,31 +141,40 @@ public class Ruler
 	/**
 	 * private helper method from coderanch.com
 	 * for lazy people
+	 *
 	 * @param list
 	 * @param <T>
 	 * @return most frequent object
 	 */
-	private  <T> T getMostOccoringElement(List<T> list) {
+	private <T> T getMostOccoringElement(List<T> list)
+	{
 		int size = list.size();
-		if(size == 0)
+		if (size == 0)
+		{
 			return null;
+		}
 
 		int count = 0;
 		int maxCount = 0;
 		T element = list.get(0);
 		T mostOccuringElement = element;
 
-		for(int index = 0; index<size; index++) {
-			if(list.get(index).equals(element)) {
+		for (int index = 0; index < size; index++)
+		{
+			if (list.get(index).equals(element))
+			{
 				count++;
 				/**
 				 *
 				 */
-				if(count > maxCount) {
+				if (count > maxCount)
+				{
 					maxCount = count;
 					mostOccuringElement = element;
 				}
-			} else {
+			}
+			else
+			{
 				count = 1;
 			}
 			element = list.get(index);
