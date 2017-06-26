@@ -133,52 +133,80 @@ public class Ruler
 		 */
 		if (alive)
 		{
-			return getMostOccoringElement(colorList);
+			return countFreqColor(colorList, colorOwn);
 		}
 		return null;
 	}
 
+
 	/**
-	 * private helper method from coderanch.com
-	 * for lazy people
+	 * helper method
 	 *
 	 * @param list
-	 * @param <T>
-	 * @return most frequent object
+	 * @param own
+	 * @return freq color
 	 */
-	private <T> T getMostOccoringElement(List<T> list)
+	private Color countFreqColor(List<Color> list, Color own)
 	{
-		int size = list.size();
-		if (size == 0)
+		if (list.size() == 0)
 		{
 			return null;
 		}
 
-		int count = 0;
-		int maxCount = 0;
-		T element = list.get(0);
-		T mostOccuringElement = element;
+		int countR = 0;
+		int countG = 0;
+		int countB = 0;
 
-		for (int index = 0; index < size; index++)
+		for (Color color : list)
 		{
-			if (list.get(index).equals(element))
+			if (color.equals(Color.red))
 			{
-				count++;
-				/**
-				 *
-				 */
-				if (count > maxCount)
-				{
-					maxCount = count;
-					mostOccuringElement = element;
-				}
+				countR++;
+			}
+			else if (color.equals(Color.green))
+			{
+				countG++;
+			}
+			else if (color.equals(Color.blue))
+			{
+				countB++;
 			}
 			else
 			{
-				count = 1;
+				return null;
 			}
-			element = list.get(index);
 		}
-		return mostOccuringElement;
+
+		int maxValue = Integer.max(countR, Integer.max(countB, countB));
+
+		if (countR == countB)
+		{
+			return own;
+		}
+		if (countB == countG)
+		{
+			return own;
+		}
+		if (countR == countG)
+		{
+			return own;
+		}
+
+		{
+			if (countR == maxValue)
+			{
+				return Color.red;
+			}
+			else if (countB == maxValue)
+			{
+				return Color.blue;
+			}
+			else if (countG == maxValue)
+			{
+				return Color.green;
+			}
+		}
+		return null;
 	}
+
 }
