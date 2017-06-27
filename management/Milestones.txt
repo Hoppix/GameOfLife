@@ -19,14 +19,14 @@ Meilensteine:
 	tests x
 	
 -rainbow
-	custom rules
-	colorMerge
-	colorWar
-	tests
+	custom rules x
+	colorMerge x
+	colorWar x
+	tests x
 
 	
 -pvp
 	colorWar
-		-populate
-		-exterminate
+	-populate
+	-exterminate
 	tests

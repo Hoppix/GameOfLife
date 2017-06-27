@@ -12,12 +12,12 @@ A Java implementation of the Game of Life a cellular automaton developed by the 
 - Random states
 - Save and load your game states
 - preload structures
-
-### Soon:
 - cells with color properties
 - merging color cells
 - fighting color cells
-- custom rule-set
+
+### Soon:
+- 2 player mode
 
 ![alt text](http://puu.sh/wj3HH/d4f2332981.png)
 
@@ -33,6 +33,40 @@ Windows: <br />
 
 Linux: <br />
 [jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
+
+###Milestones:
+
+#####basic
+- [x]	gamegrid 
+- [x]	frame 
+- [x]	cells
+- [x]	cellarray
+- [x]	stepfoward 
+- [x]	mousesclick-toggle 
+- [x]	(random-dummy)  
+	
+####automating
+- [x]	speed 
+- [x]	loop 
+- [x]	play/pause 
+- [x]	save/load 
+- [x]	preload 
+- [x]	gridsize 
+- [x]	tests 
+	
+####rainbow
+- [x]	~~custom rules~~
+- [x]	colorMerge 
+- [x]	colorWar 
+- [x]	tests 
+
+	
+####pvp
+- [ ]	colorWar
+- [ ]	populate
+- [ ]	exterminate
+- [ ]	tests
+
 
 ### Authors:
 https://github.com/Hoppix <br />
