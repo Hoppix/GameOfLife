@@ -59,8 +59,39 @@ public class ColoredCellTest
 	@Test
 	public void testToggleStatus()
 	{
-		assertFalse(true);
-		//TODO: impl
+		cCell.toggleStatus();
+		assertEquals(Color.red, cCell.getColorStatus());
+		assertEquals(true, cCell.getStatus());
+
+		cCell.toggleStatus();
+		assertEquals(Color.green, cCell.getColorStatus());
+		assertEquals(true, cCell.getStatus());
+
+		cCell.toggleStatus();
+		assertEquals(Color.blue, cCell.getColorStatus());
+		assertEquals(true, cCell.getStatus());
+
+		cCell.toggleStatus();
+		assertEquals(null, cCell.getColorStatus());
+		assertEquals(false, cCell.getStatus());
+
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		assertEquals(null, cCell.getColorStatus());
+		assertEquals(false, cCell.getStatus());
+
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		assertEquals(Color.blue, cCell.getColorStatus());
+		assertEquals(true, cCell.getStatus());
+
+		cCell.toggleStatus();
+		cCell.toggleStatus();
+		assertEquals(Color.red, cCell.getColorStatus());
+		assertEquals(true, cCell.getStatus());
 	}
 	
 	@Test

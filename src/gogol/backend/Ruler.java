@@ -173,8 +173,9 @@ public class Ruler
 			}
 			else
 			{
-				//hier kein return nötig
-				//return null;
+				/**
+				 * dead end
+				 */
 			}
 		}
 
