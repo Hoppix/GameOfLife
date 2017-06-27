@@ -124,7 +124,11 @@ public class Controller
 		{
 			for (int x = 0; x < survivalMatrix[0].length; x++)
 			{
-				survivalMatrix[y][x].updateStatus();
+				survivalMatrix[y][x].updateStatus();		
+				if(!gameMode.equals("Conway"))
+				{
+					suizideAlbinos((ColoredCell)survivalMatrix[y][x]);
+				}
 				gamegrid.setField(survivalMatrix[y][x], x, y);
 			}
 		}
@@ -311,5 +315,13 @@ public class Controller
 		}
 	}
 	
-
+	private void suizideAlbinos(ColoredCell cell) 
+	{
+		if(cell.getStatus() && cell.getColorStatus() == null)
+		{
+			cell.setNextStatus(0);
+			cell.setColorStatus(null);
+			cell.updateStatus();
+		}	
+	}
 }
