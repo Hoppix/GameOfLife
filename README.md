@@ -19,7 +19,7 @@ A Java implementation of the Game of Life a cellular automaton developed by the 
 ### Soon:
 - 2 player mode
 
-![alt text](http://puu.sh/wj3HH/d4f2332981.png)
+![alt text](http://puu.sh/wvIGl/268bbd9110.png)
 
 ### Prerequisites:
 
