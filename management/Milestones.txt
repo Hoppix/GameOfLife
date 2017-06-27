@@ -1,32 +1,32 @@
-Meilensteine:
+###Milestones:
 
--grundimplementation
-	gamegrid X
-	frame X
-	zellen X
-	zellarray X
-	stepfoward X
-	mausclick-toggle X
-	(random-dummy) X
-	
--automatisierung
-	speed X
-	loop X
-	play/pause X
-	save/load x
-	preload x
-	gridsize x
-	tests x
-	
--rainbow
-	custom rules x
-	colorMerge x
-	colorWar x
-	tests x
+#####basic
+- [x]	gamegrid
+- [x]	frame
+- [x]	cells
+- [x]	cellarray
+- [x]	stepfoward
+- [x]	mousesclick-toggle
+- [x]	(random-dummy)
 
-	
--pvp
-	colorWar
-	-populate
-	-exterminate
-	tests
+####automating
+- [x]	speed
+- [x]	loop
+- [x]	play/pause
+- [x]	save/load
+- [x]	preload
+- [x]	gridsize
+- [x]	tests
+
+####rainbow
+- [x]	~~custom rules~~
+- [x]	colorMerge
+- [x]	colorWar
+- [x]	tests
+
+
+####pvp
+- [ ]	colorWar
+- [ ]	populate
+- [ ]	exterminate
+- [ ]	tests

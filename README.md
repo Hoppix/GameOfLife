@@ -34,10 +34,9 @@ Windows: <br />
 Linux: <br />
 [jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
 
+### Milestones:
 
-###Milestones:
-
-#####basic
+##### basic
 - [x]	gamegrid 
 - [x]	frame 
 - [x]	cells
@@ -46,7 +45,7 @@ Linux: <br />
 - [x]	mousesclick-toggle 
 - [x]	(random-dummy)  
 	
-####automating
+#### automating
 - [x]	speed 
 - [x]	loop 
 - [x]	play/pause 
@@ -55,14 +54,14 @@ Linux: <br />
 - [x]	gridsize 
 - [x]	tests 
 	
-####rainbow
+#### rainbow
 - [x]	~~custom rules~~
 - [x]	colorMerge 
 - [x]	colorWar 
 - [x]	tests 
 
 	
-####pvp
+#### pvp
 - [ ]	colorWar
 - [ ]	populate
 - [ ]	exterminate
