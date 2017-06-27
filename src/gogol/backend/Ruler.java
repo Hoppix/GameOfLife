@@ -173,39 +173,42 @@ public class Ruler
 			}
 			else
 			{
-				return null;
+				//hier kein return nötig
+				//return null;
 			}
 		}
 
-		int maxValue = Integer.max(countR, Integer.max(countB, countB));
+		int maxValue = Integer.max(countR, Integer.max(countG, countB)); //fixed: inner max(b, b)
+		
+		//fixed: check if equal values are max
+		if (countR == countB && countR == maxValue)
+		{
+			return own;
+		}
+		if (countB == countG && countB == maxValue)
+		{
+			return own;
+		}
+		if (countR == countG && countR ==maxValue)
+		{
+			return own;
+		}
 
-		if (countR == countB)
+		if (countR == maxValue)
 		{
-			return own;
+			return Color.red;
 		}
-		if (countB == countG)
+		else if (countB == maxValue)
 		{
-			return own;
+			return Color.blue;
 		}
-		if (countR == countG)
+		else if (countG == maxValue)
 		{
-			return own;
+			return Color.green;
 		}
-
-		{
-			if (countR == maxValue)
-			{
-				return Color.red;
-			}
-			else if (countB == maxValue)
-			{
-				return Color.blue;
-			}
-			else if (countG == maxValue)
-			{
-				return Color.green;
-			}
-		}
+		
+		//should never be reached!
+		System.out.println("I failed");
 		return null;
 	}
 
