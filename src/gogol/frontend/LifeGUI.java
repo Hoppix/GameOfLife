@@ -178,6 +178,7 @@ public class LifeGUI
 		gametypeChooser.add("Conway");
 		gametypeChooser.add("ColorMerge");
 		gametypeChooser.add("ColorWar");
+		gametypeChooser.add("PvP");
 		gametypeChooser.setBackground(tertiaryColor);
 		gametypeChooser.setForeground(secondaryColor);
 		gametypeChooser.setBounds(83, 12, 116, 20);

@@ -213,4 +213,10 @@ public class Ruler
 		return null;
 	}
 
+	public Color checkColorArea(int posX, int posY)
+	{
+		//TODO IMPL
+		return null;
+	}
+
 }

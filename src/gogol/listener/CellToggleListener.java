@@ -44,6 +44,10 @@ public class CellToggleListener implements MouseListener
 		{
 			controller.setCell(cellX, cellY);
 		}
+		else if(false)
+		{
+			//TODO call ruler method
+		}
 		else
 		{
 			controller.preloader.loadPreset(cellX, cellY, controller.preloadMode);

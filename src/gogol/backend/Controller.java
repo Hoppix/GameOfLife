@@ -26,7 +26,7 @@ public class Controller
 	private Player player;
 	private Saver saver;
 	public PreLoader preloader;
-	private Ruler ruler;
+	public Ruler ruler;
 
 	private int generation;
 
