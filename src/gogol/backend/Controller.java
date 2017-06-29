@@ -29,7 +29,7 @@ public class Controller
 	public PreLoader preloader;
 	public Ruler ruler;
 
-	private int generation;
+	protected int generation;
 
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
@@ -137,6 +137,10 @@ public class Controller
 		//temporary
 		generation++;
 		lifegui.generationValue.setText(generation + "");
+		if(gameMode == "PvP" && referee.interrupt(generation))
+		{
+			doCommand(Command.PAUSE);
+		}
 
 	}
 

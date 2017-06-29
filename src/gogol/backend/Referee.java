@@ -22,7 +22,7 @@ public class Referee
 	protected Rectangle playerBlueArea;
 
 	private int playerRedCellCount;
-	private int playerBlueScoreCellCount;
+	private int playerBlueCellCount;
 
 	/**
 	 * NYI
@@ -52,5 +52,19 @@ public class Referee
 			return Color.blue;
 		}
 		return null;
+	}
+	
+	public boolean interrupt(int generation)
+	{
+		if(generation % CYCLE_LENGTH == 0)
+		{
+			playerRedCellCount = playerRedCellCount + CELLS_PER_CYCLE;
+			playerBlueCellCount = playerBlueCellCount + CELLS_PER_CYCLE;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
