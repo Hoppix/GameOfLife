@@ -184,7 +184,7 @@ public class Controller
 				int matY = y + startY;
 				try 
 				{
-					survivalMatrix[matY][matX] = new ConwayCell();
+					survivalMatrix[matY][matX] =createCell();
 					gamegrid.setField(survivalMatrix[matY][matX], matX,matY);				
 				} 
 				catch (Exception e) 
@@ -309,7 +309,8 @@ public class Controller
 		switch(gameMode)
 		{
 			case "Conway": return new ConwayCell();
-			case "ColorWar":
+			case "PvP":
+			case "ColorWar":				
 			case "ColorMerge":	return new ColoredCell();
 			default: return null;
 		}
