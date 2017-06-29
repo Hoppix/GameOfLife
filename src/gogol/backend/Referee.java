@@ -16,6 +16,7 @@ public class Referee
 	private static final int STARTING_CELLS = 0;
 	private static final int CELLS_PER_CYCLE = 0;
 	private static final int CYCLE_LENGTH = 0;
+	private static final int CYCLES_PER_GAME = Integer.MAX_VALUE;
 
 
 	private Rectangle playerRedArea;
@@ -55,5 +56,15 @@ public class Referee
 		{
 			return false;
 		}
+	}
+	
+	public boolean endGame(int generation)
+	{
+		if(generation == CYCLES_PER_GAME)
+		{
+			return true;
+		}
+		
+		return false;
 	}
 }

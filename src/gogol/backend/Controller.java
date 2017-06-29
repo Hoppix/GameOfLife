@@ -140,6 +140,11 @@ public class Controller
 		if(gameMode == "PvP" && referee.interrupt(generation))
 		{
 			doCommand(Command.PAUSE);
+			if(referee.endGame(generation))
+			{
+				//TODO: impl endGame behavior
+				//
+			}	
 		}
 
 	}
