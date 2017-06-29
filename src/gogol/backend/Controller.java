@@ -25,6 +25,7 @@ public class Controller
 
 	private Player player;
 	private Saver saver;
+	private Referee referee;
 	public PreLoader preloader;
 	public Ruler ruler;
 
@@ -45,6 +46,7 @@ public class Controller
 
 		player = new Player(this);
 		saver = new Saver(this);
+		referee = new Referee(this);
 		preloader = new PreLoader(this);
 		ruler = new Ruler(this);
 		
@@ -324,12 +326,6 @@ public class Controller
 			cell.setColorStatus(null);
 			cell.updateStatus();
 		}	
-	}
-
-	public Color checkColorArea(int posX, int posY)
-	{
-		//TODO IMPL
-		return null;
 	}
 
 }
