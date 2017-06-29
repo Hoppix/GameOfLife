@@ -2,6 +2,7 @@ package gogol.listener;
 
 import gogol.backend.Controller;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
