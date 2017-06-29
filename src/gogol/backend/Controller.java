@@ -143,7 +143,8 @@ public class Controller
 			if(referee.endGame(generation))
 			{
 				//TODO: impl endGame behavior
-				//
+				//throw Dialog PlayerWon - Kolja
+				//clear
 			}	
 		}
 
