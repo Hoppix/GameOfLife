@@ -18,8 +18,8 @@ public class Referee
 	private static final int CYCLE_LENGTH = 0;
 
 
-	private Rectangle playerRedArea;
-	private Rectangle playerBlueArea;
+	protected Rectangle playerRedArea;
+	protected Rectangle playerBlueArea;
 
 	private int playerRedCellCount;
 	private int playerBlueScoreCellCount;
@@ -33,13 +33,24 @@ public class Referee
 	public Referee(Controller parent)
 	{
 		controller = parent;
-		playerRedArea = new Rectangle(PLAYER_AREA_PADDING,0, (controller.survivalMatrix[0].length) - PLAYER_AREA_PADDING, controller.survivalMatrix.length);
-		playerBlueArea = new Rectangle(controller.survivalMatrix[0].length - PLAYER_AREA_PADDING, 0, (((controller.survivalMatrix[0].length)/2)+ PLAYER_AREA_PADDING), controller.survivalMatrix.length);
+		playerRedArea = new Rectangle
+				(PLAYER_AREA_PADDING,0, (controller.survivalMatrix[0].length)/2 - PLAYER_AREA_PADDING, controller
+						.survivalMatrix.length);
+		playerBlueArea = new Rectangle
+				(controller.survivalMatrix[0].length - PLAYER_AREA_PADDING, 0, (((controller.survivalMatrix[0]
+						.length)/2) - PLAYER_AREA_PADDING), controller.survivalMatrix.length);
 	}
 
 	public Color checkColorArea(int posX, int posY)
 	{
-		//TODO IMPL
+		if (playerRedArea.contains(posX,posY))
+		{
+			return Color.red;
+		}
+		else if(playerBlueArea.contains(posX,posY))
+		{
+			return Color.blue;
+		}
 		return null;
 	}
 }

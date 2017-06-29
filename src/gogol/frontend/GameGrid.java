@@ -78,6 +78,31 @@ public class GameGrid extends JPanel
 		sizeX = x;
 	}
 
+	public void paintPlayerAreas(Rectangle playerRedArea, Rectangle playerBlueArea)
+	{
+		Graphics g = PaintImage.drawnImage.getGraphics();
+
+		int x = playerRedArea.x * tileSize;
+		int y = playerRedArea.y * tileSize;
+
+		int width = playerRedArea.width * tileSize;
+		int height = playerRedArea.height * tileSize;
+
+		g.setColor(Color.red);
+		g.drawRect(x, y, width, height);
+
+		x = playerBlueArea.x * tileSize;
+		y = playerBlueArea.y * tileSize;
+
+		width = playerBlueArea.width * tileSize;
+		height = playerBlueArea.height * tileSize;
+
+		g.setColor(Color.blue);
+		g.drawRect(x, y, width, height);
+
+		repaint();
+	}
+
 
 	@Override
 	public Dimension getSize()
