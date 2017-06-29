@@ -40,6 +40,7 @@
 - [ ] 	impl gridsize button 
 - [ ] 	clear stop
 - [ ] 	thread stepfoward
+- [ ]	speedbar Funktion linear machen
 
 
 ###PvP definition
