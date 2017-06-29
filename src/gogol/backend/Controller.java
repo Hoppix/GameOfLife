@@ -234,6 +234,7 @@ public class Controller
 			case "Conway":
 				survivalMatrix = new ConwayCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
+			case "PvP":
 			case "ColorWar":
 			case "ColorMerge":
 				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
