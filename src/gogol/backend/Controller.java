@@ -325,4 +325,11 @@ public class Controller
 			cell.updateStatus();
 		}	
 	}
+
+	public Color checkColorArea(int posX, int posY)
+	{
+		//TODO IMPL
+		return null;
+	}
+
 }

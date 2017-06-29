@@ -44,7 +44,7 @@ public class CellToggleListener implements MouseListener
 		{
 			controller.setCell(cellX, cellY);
 		}
-		else if(false)
+		else if(controller.preloadMode.equals("PvP"))
 		{
 			//TODO call ruler method
 		}
