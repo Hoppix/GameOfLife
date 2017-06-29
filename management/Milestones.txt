@@ -40,14 +40,20 @@
 - [ ] 	impl gridsize button 
 - [ ] 	clear stop
 - [ ] 	thread stepfoward
+- [ ]	speedbar Funktion linear machen
 
 
 ###PvP definition
 Jeder Spieler darf Zellen nur innerhalb seinen Bereiches setzen.
-- die Bereiche der Spieler müssen n Zellen Abstand haben
+Kolja: automatisches setzen der jeweiligen Farbe
+- die Bereiche der Spieler müssen n Zellen Abstand haben 
+Kolja: malt Spielerbereiche; Jonas: definiert Bereich in SVM
 - die Bereiche der Spieler sind jeweils oben/unten zu sich selbst zyklisch
+Default;
 - Jeder Spieler darf bei Spielbeginn maximal a Zellen setzen. Ungenutzte Zellenkönnen später verwendet werden.
 - Alle c Zyklen, dürfen die Spieler b weitere Zellen setzen, zuzüglich vorher ungenutzter Zellen
+Jonas: AutoPlayer alle c zyklen unterbrechen
 - Hat Spieler A alle Zellen gesetzt, übergibt er an Spieler B, der nun seine Zellen setzt. Die Zellen von Spieler A werden währenddessen nicht angezeigt.
 - der Score wird in echtzeit berechnet
+Kolja: berechnung und anzeige
 - nach d Zyklen ist das Spiel vorbei
