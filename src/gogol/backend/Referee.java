@@ -34,12 +34,11 @@ public class Referee
 	public Referee(Controller parent)
 	{
 		controller = parent;
-		playerRedArea = new Rectangle
-				(PLAYER_AREA_PADDING,0, (controller.survivalMatrix[0].length)/2 - PLAYER_AREA_PADDING, controller
-						.survivalMatrix.length);
-		playerBlueArea = new Rectangle
-				(controller.survivalMatrix[0].length - PLAYER_AREA_PADDING, 0, (((controller.survivalMatrix[0]
-						.length)/2) - PLAYER_AREA_PADDING), controller.survivalMatrix.length);
+		int halfsizeX =  controller.survivalMatrix[0].length / 2;
+		int sizeY =  controller.survivalMatrix.length;
+
+		playerRedArea = new Rectangle(PLAYER_AREA_PADDING,PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING,sizeY - PLAYER_AREA_PADDING*2);
+		playerBlueArea = new Rectangle(halfsizeX + PLAYER_AREA_PADDING, PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING*2, sizeY - PLAYER_AREA_PADDING*2);
 	}
 
 	public Color checkColorArea(int posX, int posY)

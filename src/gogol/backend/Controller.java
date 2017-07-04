@@ -233,11 +233,17 @@ public class Controller
 		switch (mode)
 		{
 			case "Conway":
+				gamegrid.setPaintPVP(false, null,null);
 				survivalMatrix = new ConwayCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
+
 			case "PvP":
+				gamegrid.setPaintPVP(true, referee.playerRedArea, referee.playerBlueArea);
+				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
+				break;
 			case "ColorWar":
 			case "ColorMerge":
+				gamegrid.setPaintPVP(false, null,null);
 				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
 			default:

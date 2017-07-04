@@ -16,6 +16,10 @@ public class GameGrid extends JPanel
 	public int sizeX;
 	public int sizeY;
 	public int tileSize;
+
+	private boolean paintPVP;
+	private Rectangle playerRedArea;
+	private Rectangle playerBlueArea;
 	
 	private Color colorBG;
 	private Color colorCell;
@@ -72,15 +76,23 @@ public class GameGrid extends JPanel
 		}
 	}
 
+	@Override
 	public void setSize(int x, int y)
 	{
 		sizeY = y;
 		sizeX = x;
 	}
 
-	public void paintPlayerAreas(Rectangle playerRedArea, Rectangle playerBlueArea)
+	public void setPaintPVP(boolean setter, Rectangle red, Rectangle blue)
 	{
-		Graphics g = PaintImage.drawnImage.getGraphics();
+		paintPVP = setter;
+		playerRedArea = red;
+		playerBlueArea = blue;
+	}
+
+	private void paintPlayerAreas(Graphics g)
+	{
+		if(!paintPVP) return;
 
 		int x = playerRedArea.x * tileSize;
 		int y = playerRedArea.y * tileSize;
@@ -159,5 +171,6 @@ public class GameGrid extends JPanel
 		super.paintComponent(g);
 		g.drawImage(PaintImage.drawnImage,0,0, null);
 		setupGrid(g);
+		paintPlayerAreas(g);
 	}
 }
