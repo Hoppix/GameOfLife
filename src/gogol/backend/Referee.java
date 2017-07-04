@@ -37,7 +37,8 @@ public class Referee
 		int halfsizeX =  controller.survivalMatrix[0].length / 2;
 		int sizeY =  controller.survivalMatrix.length;
 
-		playerRedArea = new Rectangle(PLAYER_AREA_PADDING,PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING,sizeY - PLAYER_AREA_PADDING*2);
+		playerRedArea = new Rectangle(PLAYER_AREA_PADDING,PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING*2,
+				sizeY - PLAYER_AREA_PADDING*2);
 		playerBlueArea = new Rectangle(halfsizeX + PLAYER_AREA_PADDING, PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING*2, sizeY - PLAYER_AREA_PADDING*2);
 	}
 
