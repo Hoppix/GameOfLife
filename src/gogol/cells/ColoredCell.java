@@ -134,10 +134,9 @@ public class ColoredCell implements Cell
 	{
 		if (colorStatus == null)
 		{
-			return alive + ",null;";
+			return alive + ",null";
 		}
-		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue()
-				+ ";";
+		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue();
 	}
 
 	@Override

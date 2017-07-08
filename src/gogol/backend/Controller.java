@@ -66,7 +66,7 @@ public class Controller
 		{
 			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
 			survivalMatrix[y][x].updateStatus();
-			this.suizideAlbinos((PvPCell) survivalMatrix[y][x]);
+			this.suizideAlbinos(survivalMatrix[y][x]);
 		}
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
@@ -135,7 +135,7 @@ public class Controller
 				survivalMatrix[y][x].updateStatus();		
 				if(!gameMode.equals("Conway"))
 				{
-					suizideAlbinos((ColoredCell)survivalMatrix[y][x]);
+					suizideAlbinos(survivalMatrix[y][x]);
 				}
 				gamegrid.setField(survivalMatrix[y][x], x, y);
 			}
@@ -340,24 +340,30 @@ public class Controller
 			default: return null;
 		}
 	}
-	
-	private void suizideAlbinos(ColoredCell cell)
-	{
-		if(cell.getStatus() && cell.getColorStatus() == null)
-		{
-			cell.setNextStatus(0);
-			cell.setColorStatus(null);
-			cell.updateStatus();
-		}	
-	}
 
-	private void suizideAlbinos(PvPCell cell)
+	private void suizideAlbinos(Cell cell)
 	{
-		if(cell.getStatus() && cell.getColorStatus() == null)
+		ColoredCell cCell;
+		PvPCell pCell;
+		if(gameMode.equals("PvP"))
 		{
-			cell.setNextStatus(0);
-			cell.setColorStatus(null);
-			cell.updateStatus();
+			pCell = (PvPCell)cell;
+			if(pCell.getStatus() && pCell.getColorStatus()==null)
+			{
+				pCell.setNextStatus(0);
+				pCell.setColorStatus(null);
+				pCell.updateStatus();
+			}
+		}
+		else
+		{
+			cCell = (ColoredCell)cell;
+			if(cCell.getStatus() && cCell.getColorStatus()==null)
+			{
+				cCell.setNextStatus(0);
+				cCell.setColorStatus(null);
+				cCell.updateStatus();
+			}
 		}
 	}
 
