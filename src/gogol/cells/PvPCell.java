@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by khopf on 08/07/2017.
  */
-public class PvPCell implements Cell
+public class PvPCell extends ColoredCell implements Cell
 {
 
 	boolean alive;

@@ -125,6 +125,14 @@ public class Controller
 						((ColoredCell)survivalMatrix[y][x]).setColorStatus(null);
 					}
 				}
+				else if(gameMode.equals("PvP"))
+				{
+					((PvPCell)survivalMatrix[y][x]).setColorStatus(ruler.colorWarRules(x,y));
+					if(!survivalMatrix[y][x].getNextStatus())
+					{
+						((PvPCell)survivalMatrix[y][x]).setColorStatus(null);
+					}
+				}
 			}
 		}
 

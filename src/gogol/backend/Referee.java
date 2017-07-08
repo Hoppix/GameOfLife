@@ -16,7 +16,7 @@ public class Referee
 	private static final int PLAYER_AREA_PADDING = 4;
 	private static final int STARTING_CELLS = 1;
 	private static final int CELLS_PER_CYCLE = 1;
-	private static final int CYCLE_LENGTH = 1;
+	private static final int CYCLE_LENGTH = 20;
 	private static final int CYCLES_PER_GAME = Integer.MAX_VALUE;
 
 
