@@ -15,9 +15,14 @@ A Java implementation of the Game of Life a cellular automaton developed by the 
 - cells with color properties
 - merging color cells
 - fighting color cells
-
-### Soon:
 - 2 player mode
+
+### PvP Mode Rules:
+- in PvP Mode two opposing players fight with their cells for survival
+- both players get a certain amount of available cells to at the start of the game
+- those cells will be placed in the players area respectively
+- after a preset amount of generations passed, players get new available cells for placement
+- if the game is over, the player with the most cells alive wins
 
 ![alt text](http://puu.sh/wvIGl/268bbd9110.png)
 
@@ -62,9 +67,9 @@ Linux: <br />
 
 	
 #### pvp
-- [ ]	colorWar
-- [ ]	populate
-- [ ]	exterminate
+- [x]	colorWar
+- [x]	populate
+- [x]	~~exterminate~~
 - [ ]	tests
 
 

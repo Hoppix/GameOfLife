@@ -29,7 +29,7 @@
 - [x]	colorWar
 - [x]	populate
 - [ ]	~~exterminate~~
-- [x]	tests
+- [ ]	tests
 - [x]	define PvP Rules
 
 ####purge
