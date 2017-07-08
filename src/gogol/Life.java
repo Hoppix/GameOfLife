@@ -25,6 +25,5 @@ public class Life
         GameGrid grid = new GameGrid();
         LifeGUI gui = new LifeGUI(grid);
         new Controller(grid, gui);
-	    new EndgameDialog(Color.red, 42,111,222);
     }
 }

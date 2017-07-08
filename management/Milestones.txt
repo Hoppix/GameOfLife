@@ -26,11 +26,11 @@
 
 
 ####pvp
-- [ ]	colorWar
-- [ ]	populate
-- [ ]	exterminate
-- [ ]	tests
-- [ ]	define PvP Rules
+- [x]	colorWar
+- [x]	populate
+- [ ]	~~exterminate~~
+- [x]	tests
+- [x]	define PvP Rules
 
 ####purge
 - [ ]	webscraping
