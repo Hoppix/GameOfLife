@@ -34,10 +34,10 @@ Note: Only tested under Windows 10 and Linux(KDE)
 ### Download:
 
 Windows: <br />
-[jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
+[exe](https://drive.google.com/open?id=0B7TZSRGMgnU6RkNUc2tvQjZUNzQ)
 
 Linux: <br />
-[jar](http://puu.sh/wj4j3/6c9c8c0a98.jar)
+[jar](https://drive.google.com/open?id=0B7TZSRGMgnU6cHBYMkc5TlhJSXc)
 
 ### Milestones:
 
