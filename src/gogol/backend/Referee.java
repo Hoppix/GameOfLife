@@ -1,6 +1,6 @@
 package gogol.backend;
 
-
+import gogol.cells.PvPCell;
 
 import java.awt.*;
 import java.awt.Color;
@@ -11,7 +11,6 @@ import java.awt.Color;
 public class Referee
 {
 	private final Controller controller;
-
 
 	private static final int PLAYER_AREA_PADDING = 4;
 	private static final int STARTING_CELLS = 100;
@@ -29,8 +28,8 @@ public class Referee
 	/**
 	 * NYI
 	 */
-	private int playerRedKillCount;
-	private int playerBlueKillCount;
+	private int playerRedPopCount;
+	private int playerBluePopCount;
 
 	public Referee(Controller parent)
 	{
@@ -101,5 +100,35 @@ public class Referee
 	public void spendCellsBlue(int spent)
 	{
 		playerBlueCellCount = playerBlueCellCount - spent;
+	}
+
+	public int getRedPop()
+	{
+		return playerRedPopCount;
+	}
+
+	public int getBluePop()
+	{
+		return playerBluePopCount;
+	}
+
+	private void countPlayerCells()
+	{
+		for(int y = 0; y < controller.survivalMatrix.length; y++)
+		{
+			for(int x = 0; x < controller.survivalMatrix[0].length; x++)
+			{
+				Color color = ((PvPCell)controller.survivalMatrix[y][x]).getColorStatus();
+
+				if(color.equals(Color.red))
+				{
+					playerRedPopCount++;
+				}
+				else if(color.equals(Color.blue))
+				{
+					playerBluePopCount++;
+				}
+			}
+		}
 	}
 }
