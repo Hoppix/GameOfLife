@@ -10,6 +10,8 @@ import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
 import gogol.listener.*;
 
+import java.awt.*;
+
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
@@ -64,6 +66,19 @@ public class Controller
 
 		if(gameMode.equals("PvP"))
 		{
+			System.out.println(referee.getAvailableCellsRed());
+			if(referee.checkColorArea(x,y).equals(Color.red) && referee.getAvailableCellsRed() > 0)
+			{
+				referee.spendCellsRed(1);
+			}
+			else if(referee.checkColorArea(x,y).equals(Color.blue) && referee.getAvailableCellsBlue() > 0)
+			{
+				referee.spendCellsBlue(1);
+			}
+			else
+			{
+				return;
+			}
 			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
 			survivalMatrix[y][x].updateStatus();
 			this.suizideAlbinos(survivalMatrix[y][x]);

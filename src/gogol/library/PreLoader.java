@@ -4,6 +4,8 @@ import gogol.backend.Controller;
 import gogol.cells.Cell;
 import gogol.cells.ColoredCell;
 
+import java.awt.*;
+
 public class PreLoader
 {
 	Controller cont;
@@ -27,6 +29,7 @@ public class PreLoader
 	 */
 	public void loadPreset(int posX, int posY, String name)
 	{
+
 		Species preset = lib.getSpecies(name);
 		boolean[][] pattern = preset.getPattern();
 		
@@ -50,5 +53,24 @@ public class PreLoader
 				}
 			}
 		}
+	}
+
+	private int countCells(String name)
+	{
+		Species preset = lib.getSpecies(name);
+		boolean[][] pattern = preset.getPattern();
+
+		int cellsInPattern = 0;
+		for(int y = 0; y < preset.getSizeY(); y++)
+		{
+			for(int x = 0; x < preset.getSizeX(); x++)
+			{
+				if(pattern[y][x])
+				{
+					cellsInPattern++;
+				}
+			}
+		}
+		return cellsInPattern;
 	}
 }
