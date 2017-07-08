@@ -9,12 +9,12 @@ import java.awt.image.BufferedImage;
  */
 public class LifeGUI
 {
-	private JFrame frame;
+	public JFrame frame;
 	private GameGrid gameGrid;
 
-	private static final Color primaryColor = Color.gray;
-	private static final Color secondaryColor = Color.lightGray;
-	private static final Color tertiaryColor = Color.darkGray;
+	protected static final Color primaryColor = Color.gray;
+	protected static final Color secondaryColor = Color.lightGray;
+	protected static final Color tertiaryColor = Color.darkGray;
 
 	private ImageIcon logoPNG;
 	private ImageIcon nyiPNG;
@@ -201,6 +201,7 @@ public class LifeGUI
 		logo.setEnabled(false);
 		logo.setBounds(10, 487, 190, 190);
 		frame.getContentPane().add(logo);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 

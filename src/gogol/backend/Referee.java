@@ -1,7 +1,6 @@
 package gogol.backend;
 
 
-import javafx.scene.paint.*;
 
 import java.awt.*;
 import java.awt.Color;

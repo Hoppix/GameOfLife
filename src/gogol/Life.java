@@ -2,8 +2,11 @@
 package gogol;
 
 import gogol.backend.Controller;
+import gogol.frontend.EndgameDialog;
 import gogol.frontend.GameGrid;
 import gogol.frontend.LifeGUI;
+
+import java.awt.*;
 
 /**
  * Created by hoppix on 18.05.17.
@@ -22,6 +25,6 @@ public class Life
         GameGrid grid = new GameGrid();
         LifeGUI gui = new LifeGUI(grid);
         new Controller(grid, gui);
-
+	    new EndgameDialog(Color.red, 42,111,222);
     }
 }
