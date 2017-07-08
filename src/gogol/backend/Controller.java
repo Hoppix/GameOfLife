@@ -10,6 +10,8 @@ import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
 import gogol.listener.*;
 
+import java.awt.*;
+
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
@@ -64,9 +66,22 @@ public class Controller
 
 		if(gameMode.equals("PvP"))
 		{
+			System.out.println(referee.getAvailableCellsRed());
+			if(referee.checkColorArea(x,y).equals(Color.red) && referee.getAvailableCellsRed() > 0)
+			{
+				referee.spendCellsRed(1);
+			}
+			else if(referee.checkColorArea(x,y).equals(Color.blue) && referee.getAvailableCellsBlue() > 0)
+			{
+				referee.spendCellsBlue(1);
+			}
+			else
+			{
+				return;
+			}
 			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
 			survivalMatrix[y][x].updateStatus();
-			this.suizideAlbinos((PvPCell) survivalMatrix[y][x]);
+			this.suizideAlbinos(survivalMatrix[y][x]);
 		}
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
@@ -125,6 +140,14 @@ public class Controller
 						((ColoredCell)survivalMatrix[y][x]).setColorStatus(null);
 					}
 				}
+				else if(gameMode.equals("PvP"))
+				{
+					((PvPCell)survivalMatrix[y][x]).setColorStatus(ruler.colorWarRules(x,y));
+					if(!survivalMatrix[y][x].getNextStatus())
+					{
+						((PvPCell)survivalMatrix[y][x]).setColorStatus(null);
+					}
+				}
 			}
 		}
 
@@ -135,7 +158,7 @@ public class Controller
 				survivalMatrix[y][x].updateStatus();		
 				if(!gameMode.equals("Conway"))
 				{
-					suizideAlbinos((ColoredCell)survivalMatrix[y][x]);
+					suizideAlbinos(survivalMatrix[y][x]);
 				}
 				gamegrid.setField(survivalMatrix[y][x], x, y);
 			}
@@ -340,24 +363,30 @@ public class Controller
 			default: return null;
 		}
 	}
-	
-	private void suizideAlbinos(ColoredCell cell)
-	{
-		if(cell.getStatus() && cell.getColorStatus() == null)
-		{
-			cell.setNextStatus(0);
-			cell.setColorStatus(null);
-			cell.updateStatus();
-		}	
-	}
 
-	private void suizideAlbinos(PvPCell cell)
+	private void suizideAlbinos(Cell cell)
 	{
-		if(cell.getStatus() && cell.getColorStatus() == null)
+		ColoredCell cCell;
+		PvPCell pCell;
+		if(gameMode.equals("PvP"))
 		{
-			cell.setNextStatus(0);
-			cell.setColorStatus(null);
-			cell.updateStatus();
+			pCell = (PvPCell)cell;
+			if(pCell.getStatus() && pCell.getColorStatus()==null)
+			{
+				pCell.setNextStatus(0);
+				pCell.setColorStatus(null);
+				pCell.updateStatus();
+			}
+		}
+		else
+		{
+			cCell = (ColoredCell)cell;
+			if(cCell.getStatus() && cCell.getColorStatus()==null)
+			{
+				cCell.setNextStatus(0);
+				cCell.setColorStatus(null);
+				cCell.updateStatus();
+			}
 		}
 	}
 

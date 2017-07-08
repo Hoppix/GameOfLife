@@ -1,5 +1,8 @@
 package gogol.backend;
 
+import gogol.backend.Controller;
+import gogol.cells.ColoredCell;
+import gogol.cells.PvPCell;
 
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
@@ -81,6 +84,7 @@ public class Saver
 		BufferedReader reader = null;
 		String line = null;
 		String[] args = null;
+		String[] cellArgs = null;
 
 		String saveFile = null;
 
@@ -110,20 +114,65 @@ public class Saver
 			line = reader.readLine();
 			args = line.split(";");
 
-			controller.gameMode = args[0];
+			int rulezConway = 0;
+
+			controller.changeGameMode(args[0]);
 			controller.gamegrid.tileSize = Integer.parseInt(args[1]);
 			controller.setGridsize(Integer.parseInt(args[2]),Integer.parseInt(args[3]));
+
+			if(args[0].equals("Conway"))
+			{
+				rulezConway = 0;
+			}
+			else if(args[0].equals("PvP"))
+			{
+				rulezConway = 2;
+			}
+			else
+			{
+					rulezConway = 1;
+			}
 
 			while ((line = reader.readLine()) != null)
 			{
 				args = line.split(";");
 				for (int x = 0; x < args.length; x++)
 				{
-					if(args[x].equals("true"))
+					if(rulezConway == 0)
 					{
-						controller.survivalMatrix[y][x].toggleStatus();
-						controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
+						if(args[x].equals("true"))
+						{
+							controller.survivalMatrix[y][x].toggleStatus();
+							controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
+						}
 					}
+					else if(rulezConway == 1)
+					{
+						cellArgs = args[x].split(",");
+						if(cellArgs[0].equals("true"))
+						{
+							controller.survivalMatrix[y][x].setNextStatus(3);
+							((ColoredCell)controller.survivalMatrix[y][x]).setColorStatus(new Color(Integer.parseInt
+									(cellArgs[1]),
+									Integer.parseInt(cellArgs[2]),Integer.parseInt(cellArgs[3])));
+							controller.survivalMatrix[y][x].updateStatus();
+							controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
+						}
+					}
+					else if(rulezConway == 2)
+					{
+						cellArgs = args[x].split(",");
+						if(cellArgs[0].equals("true"))
+						{
+							controller.survivalMatrix[y][x].setNextStatus(3);
+							((PvPCell)controller.survivalMatrix[y][x]).setColorStatus(new Color(Integer.parseInt
+									(cellArgs[1]),
+									Integer.parseInt(cellArgs[2]),Integer.parseInt(cellArgs[3])));
+							controller.survivalMatrix[y][x].updateStatus();
+							controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
+						}
+					}
+
 				}
 				y++;
 			}
