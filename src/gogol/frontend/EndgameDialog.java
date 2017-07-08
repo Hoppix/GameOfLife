@@ -18,14 +18,14 @@ public class EndgameDialog extends JFrame
 	int blueCount;
 
 
-	public EndgameDialog(Color winner, int t, int r, int b)
+	public EndgameDialog( int t, int r, int b)
 	{
 		super();
 
-		winnerColor = winner;
 		turns = t;
 		redCount = r;
 		blueCount = b;
+		winnerColor = (r>b) ? Color.red : Color.blue;
 
 		initialize();
 		addComponents();
@@ -33,6 +33,7 @@ public class EndgameDialog extends JFrame
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
+
 
 	private void initialize()
 	{

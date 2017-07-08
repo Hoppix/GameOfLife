@@ -5,6 +5,7 @@ import gogol.cells.Cell;
 import gogol.cells.ColoredCell;
 import gogol.cells.ConwayCell;
 import gogol.cells.PvPCell;
+import gogol.frontend.EndgameDialog;
 import gogol.frontend.GameGrid;
 import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
@@ -66,7 +67,7 @@ public class Controller
 
 		if(gameMode.equals("PvP"))
 		{
-			System.out.println(referee.getAvailableCellsRed());
+			if(referee.checkColorArea(x,y) == null) return;
 			if(referee.checkColorArea(x,y).equals(Color.red) && referee.getAvailableCellsRed() > 0)
 			{
 				referee.spendCellsRed(1);
@@ -169,11 +170,11 @@ public class Controller
 		if(gameMode == "PvP" && referee.interrupt(generation))
 		{
 			doCommand(Command.PAUSE);
+			lifegui.step.setEnabled(false);
 			if(referee.endGame(generation))
 			{
-				//TODO: impl endGame behavior
-				//throw Dialog PlayerWon - Kolja
-				//clear
+				new EndgameDialog(generation,referee.getRedPop(),referee.getBluePop());
+				//optional: disable background
 			}	
 		}
 
@@ -242,8 +243,7 @@ public class Controller
 	 */
 	public int aliveNeighbours(int x, int y)
 	{
-		int count = 0;
-		count = ruler.conwayRulez(x, y);
+		int count = ruler.conwayRulez(x, y);
 		return count;
 	}
 
@@ -257,6 +257,10 @@ public class Controller
 	
 	public void changeGameMode(String mode)
 	{
+		lifegui.random.setEnabled(true);
+		lifegui.step.setEnabled(true);
+		lifegui.pause.setEnabled(true);
+
 		gameMode = mode;
 
 		switch (mode)
@@ -269,6 +273,9 @@ public class Controller
 			case "PvP":
 				gamegrid.setPaintPVP(true, referee.playerRedArea, referee.playerBlueArea);
 				survivalMatrix = new PvPCell[survivalMatrix.length][survivalMatrix[0].length];
+				lifegui.random.setEnabled(false);
+				lifegui.step.setEnabled(false);
+				lifegui.pause.setEnabled(false);
 				break;
 			case "ColorWar":
 			case "ColorMerge":
@@ -327,6 +334,7 @@ public class Controller
 			case CLEAR:
 				this.clear();
 				generation = 0;
+				referee = new Referee(this);
 				lifegui.generationValue.setText(generation + "");
 				break;
 			case RANDOMIZE:

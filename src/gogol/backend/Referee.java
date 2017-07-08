@@ -16,7 +16,7 @@ public class Referee
 	private static final int STARTING_CELLS = 100;
 	private static final int CELLS_PER_CYCLE = 50;
 	private static final int CYCLE_LENGTH = 100;
-	private static final int CYCLES_PER_GAME = Integer.MAX_VALUE;
+	private static final int CYCLES_PER_GAME = 1000;
 
 
 	protected Rectangle playerRedArea;
@@ -62,6 +62,7 @@ public class Referee
 	{
 		if(generation % CYCLE_LENGTH == 0)
 		{
+			countPlayerCells();
 			playerRedCellCount = playerRedCellCount + CELLS_PER_CYCLE;
 			playerBlueCellCount = playerBlueCellCount + CELLS_PER_CYCLE;
 			return true;
@@ -76,6 +77,7 @@ public class Referee
 	{
 		if(generation == CYCLES_PER_GAME)
 		{
+
 			return true;
 		}
 		
@@ -114,13 +116,19 @@ public class Referee
 
 	private void countPlayerCells()
 	{
+		playerBluePopCount = 0;
+		playerRedPopCount = 0;
+
 		for(int y = 0; y < controller.survivalMatrix.length; y++)
 		{
 			for(int x = 0; x < controller.survivalMatrix[0].length; x++)
 			{
 				Color color = ((PvPCell)controller.survivalMatrix[y][x]).getColorStatus();
-
-				if(color.equals(Color.red))
+				if(color == null)
+				{
+					//nothing to do here
+				}
+				else if(color.equals(Color.red))
 				{
 					playerRedPopCount++;
 				}
