@@ -10,8 +10,6 @@ import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
 import gogol.listener.*;
 
-import java.awt.*;
-
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
@@ -68,6 +66,7 @@ public class Controller
 		{
 			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
 			survivalMatrix[y][x].updateStatus();
+			this.suizideAlbinos((PvPCell) survivalMatrix[y][x]);
 		}
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
@@ -342,7 +341,7 @@ public class Controller
 		}
 	}
 	
-	private void suizideAlbinos(ColoredCell cell) 
+	private void suizideAlbinos(ColoredCell cell)
 	{
 		if(cell.getStatus() && cell.getColorStatus() == null)
 		{
@@ -350,6 +349,16 @@ public class Controller
 			cell.setColorStatus(null);
 			cell.updateStatus();
 		}	
+	}
+
+	private void suizideAlbinos(PvPCell cell)
+	{
+		if(cell.getStatus() && cell.getColorStatus() == null)
+		{
+			cell.setNextStatus(0);
+			cell.setColorStatus(null);
+			cell.updateStatus();
+		}
 	}
 
 }
