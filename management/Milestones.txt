@@ -28,7 +28,7 @@
 ####pvp
 - [x]	colorWar
 - [x]	populate
-- [ ]	~~exterminate~~
+- [x]	~~exterminate~~
 - [ ]	tests
 - [x]	define PvP Rules
 
