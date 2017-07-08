@@ -32,7 +32,9 @@ Requires at least Java version 1.8.0 <br />
 Note: Only tested under Windows 10 and Linux(KDE)
 
 ### Download:
+Clone branch dist-windows or dist-unix
 
+#### or from Google-Drive:
 Windows: <br />
 [exe](https://drive.google.com/open?id=0B7TZSRGMgnU6RkNUc2tvQjZUNzQ)
 
