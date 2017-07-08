@@ -28,8 +28,8 @@ public class Referee
 	/**
 	 * NYI
 	 */
-	private int playerRedKillCount;
-	private int playerBlueKillCount;
+	private int playerRedPopCount;
+	private int playerBluePopCount;
 
 	public Referee(Controller parent)
 	{
@@ -102,14 +102,14 @@ public class Referee
 		playerBlueCellCount = playerBlueCellCount - spent;
 	}
 
-	public int getRedKills()
+	public int getRedPop()
 	{
-		return playerRedCellCount;
+		return playerRedPopCount;
 	}
 
-	public int getBlueKills()
+	public int getBluePop()
 	{
-		return playerBlueCellCount;
+		return playerBluePopCount;
 	}
 
 	private void countPlayerCells()
@@ -122,11 +122,11 @@ public class Referee
 
 				if(color.equals(Color.red))
 				{
-					playerRedCellCount++;
+					playerRedPopCount++;
 				}
 				else if(color.equals(Color.blue))
 				{
-					playerBlueCellCount++;
+					playerBluePopCount++;
 				}
 			}
 		}
