@@ -1,8 +1,10 @@
 package gogol.backend;
 
-import gogol.cells.Cell;
+
+import javafx.scene.paint.*;
 
 import java.awt.*;
+import java.awt.Color;
 
 /**
  * Created by hoppix on 29.06.17.
@@ -13,9 +15,9 @@ public class Referee
 
 
 	private static final int PLAYER_AREA_PADDING = 4;
-	private static final int STARTING_CELLS = 0;
-	private static final int CELLS_PER_CYCLE = 0;
-	private static final int CYCLE_LENGTH = 0;
+	private static final int STARTING_CELLS = 1;
+	private static final int CELLS_PER_CYCLE = 1;
+	private static final int CYCLE_LENGTH = 1;
 	private static final int CYCLES_PER_GAME = Integer.MAX_VALUE;
 
 

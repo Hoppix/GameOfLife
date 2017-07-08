@@ -4,6 +4,7 @@ package gogol.backend;
 import gogol.cells.Cell;
 import gogol.cells.ColoredCell;
 import gogol.cells.ConwayCell;
+import gogol.cells.PvPCell;
 import gogol.frontend.GameGrid;
 import gogol.frontend.LifeGUI;
 import gogol.library.PreLoader;
@@ -62,6 +63,12 @@ public class Controller
 	public void setCell(int x, int y)
 	{
 		survivalMatrix[y][x].toggleStatus();
+
+		if(gameMode.equals("PvP"))
+		{
+			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
+			survivalMatrix[y][x].updateStatus();
+		}
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}
 
@@ -239,7 +246,7 @@ public class Controller
 
 			case "PvP":
 				gamegrid.setPaintPVP(true, referee.playerRedArea, referee.playerBlueArea);
-				survivalMatrix = new ColoredCell[survivalMatrix.length][survivalMatrix[0].length];
+				survivalMatrix = new PvPCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
 			case "ColorWar":
 			case "ColorMerge":
@@ -328,7 +335,7 @@ public class Controller
 		switch(gameMode)
 		{
 			case "Conway": return new ConwayCell();
-			case "PvP":
+			case "PvP": return new PvPCell();
 			case "ColorWar":				
 			case "ColorMerge":	return new ColoredCell();
 			default: return null;

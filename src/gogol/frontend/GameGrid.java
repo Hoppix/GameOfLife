@@ -3,6 +3,7 @@ package gogol.frontend;
 import gogol.cells.Cell;
 import gogol.cells.ColoredCell;
 import gogol.cells.ConwayCell;
+import gogol.cells.PvPCell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -147,6 +148,19 @@ public class GameGrid extends JPanel
 			if(cell.getStatus())
 			{
 				g.setColor(((ColoredCell) cell).getColorStatus());
+				g.fillRect(tileX, tileY, tileSize, tileSize);
+			}
+			else
+			{
+				g.setColor(colorBG);
+				g.fillRect(tileX, tileY, tileSize, tileSize);
+			}
+		}
+		if(cell instanceof PvPCell)
+		{
+			if(cell.getStatus())
+			{
+				g.setColor(((PvPCell) cell).getColorStatus());
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 			else

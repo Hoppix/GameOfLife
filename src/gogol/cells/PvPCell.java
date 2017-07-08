@@ -1,29 +1,27 @@
 package gogol.cells;
 
-
 import java.awt.*;
 
 /**
- * Created by khopf on 18/06/2017.
+ * Created by khopf on 08/07/2017.
  */
-
-public class ColoredCell implements Cell
+public class PvPCell implements Cell
 {
-	boolean alive;
-	Color colorStatus;
 
+	boolean alive;
 	boolean newStatus;
+
+	Color colorStatus;
 	Color newColor;
 
-	public ColoredCell()
+	public PvPCell()
 	{
 		alive = false;
-		colorStatus = null;
-
 		newStatus = false;
+
+		colorStatus = null;
 		newColor = null;
 	}
-
 	/**
 	 * sets the status the cell will have in the next cycle
 	 *
@@ -32,22 +30,27 @@ public class ColoredCell implements Cell
 	@Override
 	public void setNextStatus(int neighbors)
 	{
-		if (neighbors < 2)
+		if(neighbors < 2)
 		{
 			newStatus = false;
 		}
-		else if (neighbors > 3)
+		else if(neighbors > 3)
 		{
 			newStatus = false;
 		}
-		else if (neighbors == 3)
+		else if(neighbors == 3)
 		{
 			newStatus = true;
 		}
-		else if (neighbors == 2)
+		else if(neighbors == 2)
 		{
 			newStatus = alive;
 		}
+	}
+
+	public void setNewColor(Color color)
+	{
+		newColor = color;
 	}
 
 	/**
@@ -60,9 +63,18 @@ public class ColoredCell implements Cell
 	}
 
 	/**
-	 * returns the actual color
+	 * gives the Status the cell will have next Cycle
 	 *
-	 * @return color status
+	 * @return
+	 */
+	@Override
+	public boolean getNextStatus()
+	{
+		return newStatus;
+	}
+
+	/**
+	 * @return
 	 */
 	public Color getColorStatus()
 	{
@@ -70,12 +82,13 @@ public class ColoredCell implements Cell
 	}
 
 	/**
-	 * sets the color of the cell
+	 * @return
 	 */
-	public void setColorStatus(Color color)
+	public Color getNextColorStatus()
 	{
-		newColor = color;
+		return newColor;
 	}
+
 
 	/**
 	 * updates the current status with the status of the next cycle
@@ -93,42 +106,23 @@ public class ColoredCell implements Cell
 	@Override
 	public void toggleStatus()
 	{
-		if (alive)
-		{
-			if (colorStatus == null)
-			{
-				colorStatus = Color.red;
-			}
-			else if (colorStatus.equals(Color.red))
-			{
-				colorStatus = Color.green;
-			}
-			else if (colorStatus.equals(Color.green))
-			{
-				colorStatus = Color.blue;
-			}
-			else if (colorStatus.equals(Color.blue))
-			{
-				colorStatus = null;
-				alive = !alive;
-			}
-			else
-			{
-				colorStatus = Color.red;
-			}
-		}
-		else
-		{
-			alive = !alive;
-			colorStatus = Color.red;
-		}
+		if(alive) colorStatus = null;
+		newStatus = !alive;
 	}
+
+	/**
+	 * sets the color of the cell
+	 */
+	public void setColorStatus(Color color)
+	{
+		newColor = color;
+	}
+
 
 	/**
 	 * gives the cell data as a String
 	 * String Matches: alive + "," + r + "," + g + "," + b + ";"
 	 */
-
 	@Override
 	public String toString()
 	{
@@ -138,11 +132,5 @@ public class ColoredCell implements Cell
 		}
 		return alive + "," + colorStatus.getRed() + "," + colorStatus.getGreen() + "," + colorStatus.getBlue()
 				+ ";";
-	}
-
-	@Override
-	public boolean getNextStatus() 
-	{
-		return newStatus;
 	}
 }

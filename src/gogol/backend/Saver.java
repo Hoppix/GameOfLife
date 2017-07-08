@@ -1,6 +1,5 @@
 package gogol.backend;
 
-import gogol.backend.Controller;
 
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
