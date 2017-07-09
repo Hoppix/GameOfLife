@@ -99,6 +99,10 @@
 - Custom Ruleset
 	- geplant war die Regeln für das entstehen/absterben von Zellen anpassbar zu machen
 	- wurde verworfen, da Presets nicht mehr sinnvoll verwendbar wären
+- Effizientes Berechnen der Zellzustände
+	- wurde aus Zeitmangel und wegen ausreichend guter performance verworfen
+	- Ueberlegung war die SVM zeilenweise in threads zu berechnen
+	- repaint in stepForward erst am ende des Steps ausfuehren, statt nach jeder berechneten Zelle
 % wo gibt es macken?
 % wie war die workload?
 % aufteilung in der gruppe
