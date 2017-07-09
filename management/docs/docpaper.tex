@@ -240,16 +240,59 @@ Mit dem Knopf "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den 
 %manual_saveload.PNG
 Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
 %manual_preloadMode.PNG
-Auf den verschiedenen Preset-Knöpfen ist die Zellbelegung des Jeweiligen Presets angezeigt, sowie dessen Name. Durch klicken eines Preset-Knopfes wird dieses Preset ausgewählt. Wird nun eine Zelle auf dem Spielfeld geklickt, wird dort das entsprechende Preset automatisch geladen.
+Auf den verschiedenen Preset-Knöpfen ist die Zellbelegung des Jeweiligen Presets angezeigt, sowie dessen Name. Durch klicken eines Preset-Knopfes wird dieses Preset ausgewählt. Wird nun eine Zelle auf dem Spielfeld geklickt, wird dort das entsprechende Preset automatisch geladen. Presets sind besondere Strukturen, die jeweils ein bestimmtes Verhalten haben.
 %manual_presets.PNG
 Über die Kontrollknöpfe kann das Spiel gesteuert werden. "RANDOM" belegt alle Zellen des Spielfeldes mit zufälligen Werten (siehe Spielmodi).
-"CLEAR" leert das Spielfeld. "STEP" bringt das Spiel um eine Generation voran. "PLAY" lässt das Spiel automatisch eine bestimmte Anzahl Schritte pro Sekunde voranschreiten. "STOP" hält ein automatisch laufendes Spiel an.
+"CLEAR" leert das Spielfeld. "STEP" bringt das Spiel um eine Generation voran. "PLAY" lässt das Spiel automatisch eine bestimmte Anzahl Schritte pro Sekunde voranschreiten. "STOP" hält ein automatisch laufendes Spiel an. Im Spielmodus "PvP" ist das Verhalten der Knöpfe leicht verändert (siehe Spielmodi).
 %manual_controlButtons.PNG
 SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst werden.
 %manul_speed.PNG
+Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt
+%manual_generation.PNG
+
 \subsection{Spielmodi}
+\subsubsection{Conway}
+Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren eingriff in das Spiel nach jeder Generation.
+\newline
+Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
+\newline
+- Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+\newline
+- Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Isolation.
+\newline
+- Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+\newline
+- Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+\newline
+Ein klick auf eine Zelle änderte den Status der Zelle zwischen lebendig und tot. Tote Zellen sind dunkel grau, lebendige Zellen sind weiß.
 
+\subsubsection{ColorMerge}
+In diesem Spielmodus erhält jede Zelle zusätzlich eine Farbe. Ob eine Zelle lebendig oder tot ist wird nach den selben Regeln wie im Spielmodus "Conway" bestimmt. Die Farbe einer neu geborenen Zelle berechnet sich durch den Mittelwert der Farben ihrer Nachbarzellen.
+\newline
+Durch klick auf eine Zelle wird ihr Status wie Folgt geändert:
+\newline
+tot => lebendig, rot => lebendig, grün => lebendig, blau => tot => ...
+\newline
+Ein klick auf eine Zelle mit einer gemischten Farbe ändert diese zu lebendig, rot. Der Knopf "RANDOM" weist jeder Zelle zufällig einen Status lebendig oder tot zu, sowie jeder lebendigen Zelle eine Zufällige Farbe Rot, Grün oder Blau.
 
+\subsubsection{ColorWar}
+In diesem Spielmodus erhält wie in "ColorMerge" jede Zelle eine Farbe. Ob eine Zelle tot oder lebendig ist, wird weiterhin nach den selben Regeln wie im Spielmodus "Conway" bestimmt, jedoch mit einem Zusatz für die Geburt neuer Zellen. Wird eine Zelle neu geboren, muss es unter den Nachbarn eine Farbe mit eindeutiger Zellmehrheit geben, damit eine Zelle geboren werden kann. Die Farbe der neu geborenen Zelle ist immer identisch mit der mehrheitlichen Farbe der Nachbarzellen.
+\newline
+Durch klick auf eine Zelle wird ihr Status wie Folgt geändert:
+\newline
+tot => lebendig, rot => lebendig, grün => lebendig, blau => tot => ...
+\newline
+Der Knopf "RANDOM" weist jeder Zelle zufällig einen Status lebendig oder tot zu, sowie jeder lebendigen Zelle eine Zufällige Farbe Rot, Grün oder Blau. Werden in geladene Presets Zellen mit anderer Farbe gesetzt, verliert die Struktur möglicherweise ihre Funktionalität.
+
+\subsubsection{PvP}
+Dieser Spielmodus konvertiert Conways Game of Life in ein tatsächliches 2-Spieler-Spiel und ist Namensgeber für die Applikation GOGOL (Game of Game of Life). "PvP" beruht auf dem Spielmodus "ColorWar". Hier gibt es nun jedoch einen roten Spieler und einen blauen Spieler. Jeder Spieler hat einen in seiner Farbe markierten Bereich. Jeder Spieler kann Zellen nur innerhalb seines Bereiches und in seiner eigenen Farbe setzen.Das Laden von Presets ist möglich, jedoch werden diese abgeschnitten, wenn sie über den Bereich des Spielers hinaus gehen. Jeder Spieler verfügt bei Spielstart über eine bestimmte Anzahl Zellen. Nach einem Spielzyklus erhält jeder Spieler neue Zellen, die er vor beginn des nächsten Spielzyklus setzen darf. Der Spieler, der bei Spielende mehr lebendige Zellen in seiner Farbe auf dem Spielfeld hat gewinnt.
+\newline
+Zellen bei Spielstart: 100 Zellen
+Neue Zellen pro Spielzyklus: 50 Zellen
+Dauer eines Spielzyklus: 100 Generationen
+Dauer eines gesamten Spiels: 1000 Generationen
+\newline
+Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zellen einer Farbe können sich aus dem Bereich des Spielers heraus und in den des Gegenspielers hinein verbreiten. Lediglich das Setzen neuer Zellen ist auf den Spielerbereich beschränkt. Jedes setzen einer Zelle, egal ob von tot zu lebendig oder von lebendig zu tot, kostet den Spieler eine seine verfügbaren Zellen. Das setzen von Presets kostet den Spieler so viele Zellen, wie das Preset lebendige Zellen beinhaltet. Hat ein Spieler nicht genug verfügbare Zellen für ein Preset wird dieses nur zum Teil geladen.
 
 % MISC
 % Kommentierung der verwendeten Programmierumgebung(en)
