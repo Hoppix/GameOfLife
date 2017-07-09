@@ -76,7 +76,29 @@
 
 % STAND DES PROJEKTS
 % was ist fertig?
+- Game of Life nach Conway
+- Modi: ColorMerge, ColorWar, PvP
+- Speichern/Laden des Spiels, laden bestimmter Presets
 % was wurde verworfen(warum)?
+- Modus: Bio
+	- nicht mehr Deterministisch
+	- nutzung von Presets, finden von Strukturen nicht möglich
+	- kaum Korrellation zu Game of Life
+- Modus: PvP - Exterminate
+	- gewonnen hätte der Spieler der mehr Zellen des Gegners vernichtet, unabhängig von seiner eigenen Zellzahl
+	- verworfen, da kaum sinnvoll zu bestimmen ob eine Zelle "vernichtet" wurde oder nur abgestorben ist.
+- Button changeGridsize
+	- Funktionalität ist implementiert
+	- Wird in Zukunft vermutlich noch aufgenommen
+	- bei Aktuller GUI Struktur kein Platz
+- Webscraping
+	- geplant war aus http://conwaylife.appspot.com/library die bekannten Presets auszulesen
+	- scheitert momentan an der Interpretation von Strukturen, die Zeilen mit ausschließlich toten Zellen enthalten
+	- die große Menge an Presets ist für den User schwer übersichtlich darstellbar
+	- Wird in Zukunft ggf. noch aufgenommen
+- Custom Ruleset
+	- geplant war die Regeln für das entstehen/absterben von Zellen anpassbar zu machen
+	- wurde verworfen, da Presets nicht mehr sinnvoll verwendbar wären
 % wo gibt es macken?
 % wie war die workload?
 % aufteilung in der gruppe
