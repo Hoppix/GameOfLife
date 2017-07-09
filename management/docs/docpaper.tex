@@ -69,9 +69,11 @@ Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 197
 - der zustand einer zelle ist abhängig von den 8 nachbarn die, die zelle umgeben
 - bei einem generationsübergang wird nun der zustand einer zelle bestimmt:
 - Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
--Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit.
+-Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
 - Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
 - Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+
+Aus diesen einfach regeln enstehen verblüffende strukturen, welche einzigartige verhaltensmuster, bishin zur turing-completeness aufweisen.
 
 Die Grundidee war das entwickeln einer soliden desktop anwendung die weitere nützliche bedienfunktionen hat.
 Darüber hinaus soll das programm, neben dem standart spiel noch weitere modi zu implementieren, welche eine abwandlung des "vanilla" GoL bieten.
@@ -83,18 +85,99 @@ probability of life - random warscheinlichkeit bei der geburt von zellen
 
 zuletzt sollte noch ein lokaler player versus player modus implementiert werden, welcher der anwendung seinen eigentlichen namen verleiht, da so auf dem game of life ein tatsächliches spiel ensteht
 
+Sinn der applikation besteht darin, aus dem game of life einen unterhaltungswert zu gewinnen und somit eine beschäftigung für zwischendurch zu schaffen
+
 \section{Planung}
 
-% PLANUNG
-% Projektidee, Anforderungsdefinition, Userstories, ggf. CRC-Cards
+\subsection{meilensteine}
+idee war es die jeweiligen features in meilensteine zu unterteilen sobald eine primitive version des spiel besteht, die meilensteine wurden dann 1:1 auf sprints aufgeteilt die alle 1 oder 2 wochen länge hatten,
+je nach vermutung der workload, so enstanden zu nächst folgende meilensteine und sprints:
+-grundimplementation: 1. primitive laufende version
+-automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
+-rainbow: custom rules, colormerge, colorwar
+-bio: probability of life
+-pvp: exterminate, populate
+-dokumentation
+-website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
 
-% KONZEPT
-% Grobbeschreibung für das Gesamtprojekt
-% Aufteilung / Modularisierung / Programmstruktur / packages ...
-% Prioritätenliste (must items, ..., nice to have)
-% Zeitplan (--> Meilensteine)
-% Testplan (--> JUnit)
-% Darstellung der Beziehungen zwischen den Klassen (--> UML)
+wir haben gfrundfunktionalitäten priorisiert da höhere funktionalitäten suksessiv auf niedrigere features aufbauen,
+höhere funktionen wäre ohne vorherige implementation der vorherigen grundfunktionen nicht lauffähig
+
+\subsection{zeitplan}
+die sprints haben zueinander einen critical path, jedoch war theoretisch die abgabe schon nach dem abschließen der automatisierung möglich
+für die abgabe war der plan, eine woche vor deadline fertig zu sein um bei auftretenden problemen einen puffer zu haben
+
+LINK OLD GANT:PNG
+der erste entwurf des gant diagrams
+
+wie hat sich die planung im laufe des projekt verändert?
+aufgrund von fehlerhaften schätzungen wurden subfeatures und einige meilensteine komplett entfernt oder verschoben
+
+demnach veränderte sich der projektverlauf
+siehe auch: was wurde verworfen
+
+
+LINK NEW GANTT
+letzte aktuelle version der planung
+
+\subsection{testplan}
+
+tests wurden dem jeweiligen sprint zugeteilt und nach fertigstellung der features implementiert
+mit ausnahme von rainbow, dort wurde ein test first ansatz verwendet
+
+\subsection{technische beschreibung des systems}
+
+die systemarchitektur liegt dem MVC (Model, View, Controller)-Ansatz zugrunde:
+Der View-teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und dieses darstellt.
+Das GUI hält das gamegrid lediglich als container und führt keine sondierenden methoden auf dem gamegrid aus.
+Als Model-Teil wurden zunächst die Zellen implementiert, diese halten keine logik sondern geben nur ihren status nach außen oder kriegen ihre eigenschaften
+von außen gesetzt. Die Zellen werden dann in einem 2 dimensionalen array: der survivalmatrix, gesetzt. Desweiteren gibt es ein Regelwerk hier: Ruler,
+dieser hält alle methoden der spielregeln und gibt das cellverhalten vor, welche vom controller dann verwendet werden. Für den PvP modus ist ein Referee zuständig der die 2spielerreglen
+verwaltet. Für das preloaden der species wurde ein species model entwickelt, welches die eigenschaften für die SVM hält und in einer specieslibrary verwaltet wird. der Preloader wendet diese auf die SVM an.
+Hauptkomponente des Controller-teils stellt der Controller dar, dieser hält alle logikteile, die wiederum doe modelle halten. er hält außerdem als einziger die SVM.
+des weiteren kriegt er bei seiner erstelluing das gamegrid und das gui überreicht. daher ist er für die verwaltung zuständig, er stellt verbindung zwischen logik und gui her in dem
+er alle listener erstellt und an die buttons bindet.
+
+
+LINK CLASS DIAGRAM
+
+als kapselung wurden die klassen in mehrere packages unterteilt und somit ihrer funktionalität unterteile:
+frontend:
+SLiderUI
+EndgameDialog
+Gamegrid
+LifeGui
+PaintImage
+
+backend:
+command
+controller
+player
+referee
+ruler
+saver
+
+cells:
+cell
+coloredcell
+conwaycell
+pvpcell
+
+library:
+preloader
+species
+specieslibrary
+
+listener:
+buttonlistener
+celltogglelistener
+gamemodelistener
+preloadlistener
+speedchangerlistener
+
+
+LINK PACKAGE DIAGRAMM
+
 \section{stand des projekts}
 % STAND DES PROJEKTS
 \subsection{Was ist fertig?}
@@ -141,11 +224,13 @@ Implementierung der Packages Testing, Cells und Library, sowie die Implementieru
 \section{Funktionsbeschreibung}
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
+% systemvorraussetzungen, installation
 - readme
 % ggfs. Screenshots der Programmfenster
 
 % MISC
 % Kommentierung der verwendeten Programmierumgebung(en)
+% TODO git over svn
 - verwendete Programme
 	- Eclipse Neon
 	- IntelliJ IDEA Ultimate 2017.1.2
