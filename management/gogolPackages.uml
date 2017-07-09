@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>gogol</OriginalElement>
+  <nodes>
+    <node x="492.0" y="14.802083333333314">gogol.frontend</node>
+    <node x="406.8468253968254" y="266.8020833333333">gogol.Life</node>
+    <node x="313.0" y="14.802083333333314">gogol.listener</node>
+    <node x="183.0" y="14.802083333333314">gogol.cells</node>
+    <node x="40.0" y="14.802083333333314">gogol.library</node>
+    <node x="211.17142857142858" y="165.80208333333331">gogol.backend</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="gogol.library" target="gogol.library">
+      <point x="-10.25" y="15.5" />
+      <point x="91.25" y="85.80208333333331" />
+      <point x="0.0" y="85.80208333333331" />
+      <point x="0.0" y="19.96875" />
+      <point x="-61.5" y="-10.333333333333314" />
+    </edge>
+    <edge source="gogol.listener" target="gogol.backend">
+      <point x="32.25" y="15.5" />
+      <point x="409.75" y="115.80208333333331" />
+      <point x="309.3936507936508" y="115.80208333333331" />
+      <point x="30.22222222222223" y="-15.5" />
+    </edge>
+    <edge source="gogol.backend" target="gogol.cells">
+      <point x="-15.111111111111143" y="-15.5" />
+      <point x="264.06031746031744" y="115.80208333333331" />
+      <point x="210.5" y="115.80208333333331" />
+      <point x="-27.5" y="15.5" />
+    </edge>
+    <edge source="gogol.Life" target="gogol.backend">
+      <point x="-17.25" y="-15.5" />
+      <point x="424.0968253968254" y="246.80208333333331" />
+      <point x="324.50476190476195" y="246.80208333333331" />
+      <point x="45.33333333333337" y="15.5" />
+    </edge>
+    <edge source="gogol.backend" target="gogol.listener">
+      <point x="15.111111111111086" y="-15.5" />
+      <point x="294.28253968253966" y="105.80208333333331" />
+      <point x="345.25" y="105.80208333333331" />
+      <point x="-32.25" y="15.5" />
+    </edge>
+    <edge source="gogol.Life" target="gogol.frontend">
+      <point x="17.25" y="-15.5" />
+      <point x="458.5968253968254" y="246.80208333333331" />
+      <point x="574.6825396825398" y="246.80208333333331" />
+      <point x="574.6825396825398" y="145.80208333333331" />
+      <point x="616.2" y="145.80208333333331" />
+      <point x="55.200000000000045" y="15.5" />
+    </edge>
+    <edge source="gogol.frontend" target="gogol.frontend">
+      <point x="-27.599999999999994" y="15.5" />
+      <point x="533.4" y="75.80208333333331" />
+      <point x="462.0" y="75.80208333333331" />
+      <point x="462.0" y="22.552083333333314" />
+      <point x="-69.0" y="-7.75" />
+    </edge>
+    <edge source="gogol.backend" target="gogol.backend">
+      <point x="-45.33333333333334" y="15.5" />
+      <point x="233.83809523809524" y="216.80208333333331" />
+      <point x="191.17142857142858" y="216.80208333333331" />
+      <point x="191.17142857142858" y="189.05208333333331" />
+      <point x="-68.0" y="7.75" />
+    </edge>
+    <edge source="gogol.backend" target="gogol.library">
+      <point x="-45.33333333333337" y="-15.5" />
+      <point x="233.8380952380952" y="135.80208333333331" />
+      <point x="132.25" y="135.80208333333331" />
+      <point x="30.75" y="15.5" />
+    </edge>
+    <edge source="gogol.library" target="gogol.backend">
+      <point x="51.25" y="15.5" />
+      <point x="152.75" y="125.80208333333331" />
+      <point x="248.94920634920635" y="125.80208333333331" />
+      <point x="-30.22222222222223" y="-15.5" />
+    </edge>
+    <edge source="gogol.backend" target="gogol.frontend">
+      <point x="60.44444444444446" y="-15.5" />
+      <point x="339.61587301587304" y="135.80208333333331" />
+      <point x="588.6" y="135.80208333333331" />
+      <point x="27.600000000000023" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="149.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+
