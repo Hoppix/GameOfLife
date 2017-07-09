@@ -85,7 +85,7 @@
 	- nutzung von Presets, finden von Strukturen nicht möglich
 	- kaum Korrellation zu Game of Life
 - Modus: PvP - Exterminate
-	- gewonnen hätte der Spieler der mehr Zellen des Gegners vernichtet, unabhängig von seiner eigenen Zellzahl
+	- gewonnen hätte der Spieler der mehr Zellen des Gegners vernichtet, unabhaengig von seiner eigenen Zellzahl
 	- verworfen, da kaum sinnvoll zu bestimmen ob eine Zelle "vernichtet" wurde oder nur abgestorben ist.
 - Button changeGridsize
 	- Funktionalität ist implementiert
@@ -99,23 +99,54 @@
 - Custom Ruleset
 	- geplant war die Regeln für das entstehen/absterben von Zellen anpassbar zu machen
 	- wurde verworfen, da Presets nicht mehr sinnvoll verwendbar wären
-- Effizientes Berechnen der Zellzustände
+- Effizientes Berechnen der Zellzustaende
 	- wurde aus Zeitmangel und wegen ausreichend guter performance verworfen
 	- Ueberlegung war die SVM zeilenweise in threads zu berechnen
 	- repaint in stepForward erst am ende des Steps ausfuehren, statt nach jeder berechneten Zelle
 % wo gibt es macken?
+- SpeedSlider
+	- Geschwindigkeit ist logarhitmisch
+	- intuitiver wäre eine lineare Funktion
+	- aufgrund von geringer Wichtigkeit vorerst nicht angepasst
 % wie war die workload?
+- Workload von Meilenstein "Rainbow" stark unterschaetzt
+	- Unklarheiten in Methodendefinitionen des Backend
+	- Methoden des jeweils anderen wurden falsch verstanden und inkorrekt verwendet
+- Workload von Meilenstein "PvP" ueberschaetzt
+	- grossteil der noetigen Funktionalitaet wurde in "Rainbow" bereits implementiert
 % aufteilung in der gruppe
+- Kolja Hopfmann
+	- Frontend: all
+	- Listener: all
+	- Backend: Player, Commandhandling
+	- Planung: erstellung GANTT diagramm
+- Jonas Sander
+	- Test: all
+	- Backend: Cells, Library, Saver, Ruler, Referee
+- Beide
+	- Controller, Referee, Planung
 
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
+- readme
 % ggfs. Screenshots der Programmfenster
 
 % MISC
 % Kommentierung der verwendeten Programmierumgebung(en)
+- verwendete Programme
+	- Eclipse Neon
+	- IntelliJ IDEA Ultimate 2017.1.2
+	- gimp
+	- texmaker
+	- GanttProject 2.7.1
 % Hinweis auf Probleme, die zu lösen waren
+- Funktionsweise Java.AWT.Graphics war komisch
 % Kommentierung interessanter Java-Klassen, die benutzt wurden
+- Es wurde kein Framework verwendet
+	- alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
 % Was musste neu erarbeitet werden, wo konnten relevante Komponenten oder Beispiele genutzt werden?
+- wir haben uns die Definition von Game of Life angelesen
+	- Implementierung, Datentypen und Darstellung wurden selber erarbeitet
 
 % DOKUMENT MUSS ENTHALTEN
 % Überschrift oder Kopfzeile: PTP 2017
