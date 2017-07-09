@@ -61,7 +61,29 @@
 \maketitle
 \centerline{\rule{1.2\linewidth}{.2pt}}
 \begin{linenumbers}
-\section{TODO}
+\section{Konzept}
+-GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
+Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 1970 entwickelt wurde.
+- das grundkonzept des spiels besteht aus einem zweidimensionalen, rechteckigen gitter, wobei jedes feld in diesem gitter einer zelle entspricht
+- eine zelle kann pro generationsschritt einen von zwei zuständen haben: lebend, tot
+- der zustand einer zelle ist abhängig von den 8 nachbarn die, die zelle umgeben
+- bei einem generationsübergang wird nun der zustand einer zelle bestimmt:
+- Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+-Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit.
+- Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+- Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+
+Die Grundidee war das entwickeln einer soliden desktop anwendung die weitere nützliche bedienfunktionen hat.
+Darüber hinaus soll das programm, neben dem standart spiel noch weitere modi zu implementieren, welche eine abwandlung des "vanilla" GoL bieten.
+Zu anfangs geplant waren:
+standard conway
+colormerge - das verschmelzen von zellen mit farbeigenschaften
+colorwar - kampf von zellen mit "teamfarben"
+probability of life - random warscheinlichkeit bei der geburt von zellen
+
+zuletzt sollte noch ein lokaler player versus player modus implementiert werden, welcher der anwendung seinen eigentlichen namen verleiht, da so auf dem game of life ein tatsächliches spiel ensteht
+
+\section{Planung}
 
 % PLANUNG
 % Projektidee, Anforderungsdefinition, Userstories, ggf. CRC-Cards
@@ -73,7 +95,7 @@
 % Zeitplan (--> Meilensteine)
 % Testplan (--> JUnit)
 % Darstellung der Beziehungen zwischen den Klassen (--> UML)
-
+\section{stand des projekts}
 % STAND DES PROJEKTS
 % was ist fertig?
 - Game of Life nach Conway
