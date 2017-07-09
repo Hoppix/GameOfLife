@@ -63,8 +63,6 @@ public class Controller
 	 */
 	public void setCell(int x, int y)
 	{
-		survivalMatrix[y][x].toggleStatus();
-
 		if(gameMode.equals("PvP"))
 		{
 			if(referee.checkColorArea(x,y) == null) return;
@@ -80,9 +78,14 @@ public class Controller
 			{
 				return;
 			}
+			survivalMatrix[y][x].toggleStatus();
 			((PvPCell)survivalMatrix[y][x]).setColorStatus(referee.checkColorArea(x,y));
 			survivalMatrix[y][x].updateStatus();
 			this.suizideAlbinos(survivalMatrix[y][x]);
+		}
+		else
+		{
+			survivalMatrix[y][x].toggleStatus();
 		}
 		gamegrid.setField(survivalMatrix[y][x], x,y);
 	}

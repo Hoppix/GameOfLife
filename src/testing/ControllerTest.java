@@ -3,6 +3,7 @@ package testing;
 import static org.junit.Assert.*;
 
 import gogol.backend.Controller;
+import gogol.cells.*;
 import gogol.frontend.GameGrid;
 import gogol.frontend.LifeGUI;
 
@@ -28,6 +29,11 @@ public class ControllerTest
 		assertTrue(bigBrother.survivalMatrix[0][0].getStatus());
 		bigBrother.setCell(0, 0);
 		assertFalse(bigBrother.survivalMatrix[0][0].getStatus());
+		bigBrother.changeGameMode("PvP");
+		bigBrother.setCell(3, 3);
+		assertFalse(bigBrother.survivalMatrix[3][3].getStatus());
+		bigBrother.setCell(5, 5);
+		assertTrue(bigBrother.survivalMatrix[5][5].getStatus());
 	}
 	
 	@Test
@@ -145,6 +151,23 @@ public class ControllerTest
 				}
 			}
 		}
+	}
+	
+	@Test
+	public void testChangeGameMode()
+	{
+		bigBrother.changeGameMode("ColorMerge");
+		assertEquals("ColorMerge", bigBrother.gameMode);
+		assertTrue(bigBrother.survivalMatrix[0][0] instanceof ColoredCell);
+		bigBrother.changeGameMode("Conway");
+		assertEquals("Conway", bigBrother.gameMode);
+		assertTrue(bigBrother.survivalMatrix[0][0] instanceof ConwayCell);
+		bigBrother.changeGameMode("ColorWar");
+		assertEquals("ColorWar", bigBrother.gameMode);
+		assertTrue(bigBrother.survivalMatrix[0][0] instanceof ColoredCell);
+		bigBrother.changeGameMode("PvP");
+		assertEquals("PvP", bigBrother.gameMode);
+		assertTrue(bigBrother.survivalMatrix[0][0] instanceof PvPCell);
 	}
 	
 	private void setTestingGrid()
