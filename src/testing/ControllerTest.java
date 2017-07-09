@@ -2,6 +2,8 @@ package testing;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import gogol.backend.Controller;
 import gogol.cells.*;
 import gogol.frontend.GameGrid;
@@ -79,7 +81,7 @@ public class ControllerTest
 	}
 	
 	@Test
-	public void testStepForward()
+	public void testStepForwardConway()
 	{
 		setTestingGrid();
 		bigBrother.stepForward();
@@ -108,6 +110,77 @@ public class ControllerTest
 		assertTrue(bigBrother.survivalMatrix[4][2].getStatus());
 		assertTrue(bigBrother.survivalMatrix[4][3].getStatus());
 		assertTrue(bigBrother.survivalMatrix[4][4].getStatus());
+	}
+	
+	@Test
+	public void testStepForwardColorWar()
+	{
+		bigBrother.changeGameMode("ColorWar");
+		
+		//red cells
+		bigBrother.setCell(10, 10);
+		bigBrother.setCell(11, 10);
+		bigBrother.setCell(10, 11);
+		bigBrother.setCell(11, 11);
+		
+		//green cells
+		bigBrother.setCell(12, 12);
+		bigBrother.setCell(12, 12);
+		bigBrother.setCell(14, 14);
+		bigBrother.setCell(14, 14);
+		bigBrother.setCell(13, 14);
+		bigBrother.setCell(13, 14);
+		bigBrother.setCell(14, 13);
+		bigBrother.setCell(14, 13);
+		
+		//blue cells
+		bigBrother.setCell(13, 13);
+		bigBrother.setCell(13, 13);
+		bigBrother.setCell(13, 13);
+		bigBrother.setCell(12, 13);
+		bigBrother.setCell(12, 13);
+		bigBrother.setCell(12, 13);
+		bigBrother.setCell(13, 12);
+		bigBrother.setCell(13, 12);
+		bigBrother.setCell(13, 12);
+		
+		bigBrother.stepForward();
+		
+		assertTrue(bigBrother.survivalMatrix[10][10].getStatus());
+		assertEquals(Color.red, ((ColoredCell)bigBrother.survivalMatrix[10][10]).getColorStatus());
+		assertTrue(bigBrother.survivalMatrix[10][11].getStatus());
+		assertEquals(Color.red, ((ColoredCell)bigBrother.survivalMatrix[10][11]).getColorStatus());
+		assertFalse(bigBrother.survivalMatrix[10][12].getStatus());
+		assertFalse(bigBrother.survivalMatrix[10][13].getStatus());
+		assertFalse(bigBrother.survivalMatrix[10][14].getStatus());
+		
+		assertTrue(bigBrother.survivalMatrix[11][10].getStatus());
+		assertEquals(Color.red, ((ColoredCell)bigBrother.survivalMatrix[11][10]).getColorStatus());
+		assertFalse(bigBrother.survivalMatrix[11][11].getStatus());
+		assertFalse(bigBrother.survivalMatrix[11][12].getStatus());
+		assertFalse(bigBrother.survivalMatrix[11][13].getStatus());
+		assertFalse(bigBrother.survivalMatrix[11][14].getStatus());
+		
+		assertFalse(bigBrother.survivalMatrix[12][10].getStatus());
+		assertFalse(bigBrother.survivalMatrix[12][11].getStatus());
+		assertFalse(bigBrother.survivalMatrix[12][12].getStatus());
+		assertFalse(bigBrother.survivalMatrix[12][13].getStatus());
+		assertTrue(bigBrother.survivalMatrix[12][14].getStatus());
+		assertEquals(Color.blue, ((ColoredCell)bigBrother.survivalMatrix[12][14]).getColorStatus());
+		
+		assertFalse(bigBrother.survivalMatrix[13][10].getStatus());
+		assertFalse(bigBrother.survivalMatrix[13][11].getStatus());
+		assertFalse(bigBrother.survivalMatrix[13][12].getStatus());
+		assertFalse(bigBrother.survivalMatrix[13][13].getStatus());
+		assertFalse(bigBrother.survivalMatrix[13][14].getStatus());
+		
+		assertFalse(bigBrother.survivalMatrix[14][10].getStatus());
+		assertFalse(bigBrother.survivalMatrix[14][11].getStatus());
+		assertTrue(bigBrother.survivalMatrix[14][12].getStatus());
+		assertEquals(Color.blue, ((ColoredCell)bigBrother.survivalMatrix[14][12]).getColorStatus());
+		assertFalse(bigBrother.survivalMatrix[14][13].getStatus());
+		assertTrue(bigBrother.survivalMatrix[14][14].getStatus());
+		assertEquals(Color.green, ((ColoredCell)bigBrother.survivalMatrix[14][14]).getColorStatus());
 	}
 	
 	@Test
