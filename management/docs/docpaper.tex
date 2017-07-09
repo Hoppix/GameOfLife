@@ -225,8 +225,31 @@ Implementierung der Packages Testing, Cells und Library, sowie die Implementieru
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
 % systemvorraussetzungen, installation
-- readme
+\subsection{Installation und Systemvorraussetzungen}
+be stuff here
+\subsection{Bedienungsanleitung}
 % ggfs. Screenshots der Programmfenster
+
+Die Anwendung wird durch Ausführen der EXE (Windows) bzw. JAR (Linux) gestartet. Zu sehen ist das Anwendungsfenster.
+%manual_fullWindow.PNG
+Der größte teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Zelle. Zellen können durch anklicken mit dem linken Mausknopf verändert werden (siehe Spielmodi).
+%manual_gamegrid.PNG
+Über das Dropdown Menü "TYPE" links oben kann der Spielmodus gewechselt werden (siehe Spielmodi). Beim Wechsel des Spielmodus wird das Spielfeld gleichzeitig auch immer geleert.
+%manual_gamemode.PNG
+Mit dem Knopf "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den Knopf "LOAD" kann ein früherer Spielstand geladen werden. Hierbei wird automatisch auf den entsprechenden Spielmodus gewechselt und ggf. die Spielfeldgröße angepasst.
+%manual_saveload.PNG
+Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
+%manual_preloadMode.PNG
+Auf den verschiedenen Preset-Knöpfen ist die Zellbelegung des Jeweiligen Presets angezeigt, sowie dessen Name. Durch klicken eines Preset-Knopfes wird dieses Preset ausgewählt. Wird nun eine Zelle auf dem Spielfeld geklickt, wird dort das entsprechende Preset automatisch geladen.
+%manual_presets.PNG
+Über die Kontrollknöpfe kann das Spiel gesteuert werden. "RANDOM" belegt alle Zellen des Spielfeldes mit zufälligen Werten (siehe Spielmodi).
+"CLEAR" leert das Spielfeld. "STEP" bringt das Spiel um eine Generation voran. "PLAY" lässt das Spiel automatisch eine bestimmte Anzahl Schritte pro Sekunde voranschreiten. "STOP" hält ein automatisch laufendes Spiel an.
+%manual_controlButtons.PNG
+SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst werden.
+%manul_speed.PNG
+\subsection{Spielmodi}
+
+
 
 % MISC
 % Kommentierung der verwendeten Programmierumgebung(en)
