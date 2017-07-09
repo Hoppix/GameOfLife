@@ -1,5 +1,8 @@
 package gogol.library;
 
+/**
+ * Created by 3sander on 14.06.17.
+ */
 public class Species 
 {
 	private String name;
@@ -75,28 +78,13 @@ public class Species
 	{
 		return pattern;
 	}
-	
-	private int getLineLength(String line)
-	{
-		int counter = 0;
-		
-		int prefix = 0;
-		
-		for(int i = 0; i < line.length(); i++)
-		{
-			if (line.charAt(i) < 65)
-			{
-				prefix = prefix * 10 + (int)(line.charAt(i) - '0');
-			}
-			else
-			{
-				counter = counter + Math.max(prefix, 1);
-				prefix = 0;
-			}
-		}
-		return counter;
-	}
-	
+
+
+	/**
+	 * helper method for converting the GOL pattern into a boolean array
+	 * @param line
+	 * @return
+	 */
 	private boolean[] convertLine(String line)
 	{
 		boolean convertedLine[];

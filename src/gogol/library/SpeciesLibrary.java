@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.*;
 
+/**
+ * Created by 3sander on 14.06.17.
+ */
 public class SpeciesLibrary 
 {
 	protected HashMap<String, Species> library;
@@ -19,7 +22,7 @@ public class SpeciesLibrary
 	 */
 	public SpeciesLibrary()
 	{
-		library = new HashMap<String, Species>();
+		library = new HashMap<>();
 		localSetup();
 	}
 	
@@ -27,10 +30,12 @@ public class SpeciesLibrary
 	{
 		return library.get(name);
 	}
-	
+
+	/**
+	 * initializes Species on the local system and adds them to the library
+	 */
 	private void localSetup()
 	{
-		//dummies
 		library.put("Block", new Species("Block", "very edgy", "2o$2o", 2, 2));
 		library.put("Glider", new Species("Glider", "moving", "bob$2bo$3o", 3, 3));
 		library.put("Blinker", new Species("Blinker", "epilepsy inc", "o$o$o", 1, 3));
@@ -43,7 +48,11 @@ public class SpeciesLibrary
 		library.put("Shipmaker", new Species("Shipmaker", "Makes Ships while burning", "39b2o$38bobo$37bo3b$36bo4b$35bo5b$34bo6b$33bo7b$32bo8b$31bo9b$30bo10b$29bo11b$28bo12b$27bo13b$26bo14b$25bo15b$24bo16b$23bo17b$22bo18b$21bo19b$20bo20b$19bo21b$18bo22b$17bo23b$16bo24b$15bo25b$14bo26b$13bo27b$12bo28b$11bo29b$10bo30b$9bo31b$8bo32b$7bo33b$6bo34b$6o35b$5bo35b$5bo35b$5bo35b$5bo35b$5bo", 41, 40));
 		library.put("Glidergun", new Species("Glidergun", "GG", "24bo11b$22bobo11b$12b2o6b2o12b2o$11bo3bo4b2o12b2o$2o8bo5bo3b2o14b$2o8bo3bob2o4bobo11b$10bo5bo7bo11b$11bo3bo20b$12b2o", 36, 9));
 	}
-	
+
+	/**
+	 * UNUSED:
+	 * setup for the webscraping
+	 */
 	private void scrapeSetup()
 	{		
 		//webscraping
@@ -62,7 +71,7 @@ public class SpeciesLibrary
 		categories[10] = "456";
 		categories[11] = "789";
 		
-		List<String> patternNames = new ArrayList<>();
+		List<String> patternNames;
 
 		String previous = "initial";
 		
@@ -87,7 +96,12 @@ public class SpeciesLibrary
 			}
 		}	
 	}
-	
+
+	/**
+	 * helper method which loads a species pattern from given html code
+	 * @param patternName
+	 * @return
+	 */
 	private Species scrapePattern(String patternName)
 	{
 		Species species;
@@ -131,7 +145,12 @@ public class SpeciesLibrary
 		species = new Species(name, description, preset, Integer.parseInt(dimensions[0]), Integer.parseInt(dimensions[1]));
 		return species;		
 	}
-	
+
+	/**
+	 * scrapes the names of the respective species
+	 * @param category
+	 * @return
+	 */
 	private List<String> scrapeNames(String category)
 	{
 		String source = getSource(category);
@@ -146,7 +165,12 @@ public class SpeciesLibrary
 		
 		return nameList;
 	}
-	
+
+	/**
+	 * loads the different subpages for the respective species
+	 * @param inputUrl
+	 * @return
+	 */
 	private String getSource(String inputUrl)
 	{
 		URL url;
@@ -171,7 +195,6 @@ public class SpeciesLibrary
 		} 
 		catch (IOException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return source;

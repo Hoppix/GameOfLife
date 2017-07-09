@@ -1,14 +1,21 @@
 package gogol.cells;
 
+/**
+ * Generic cell type
+ *
+ * Created by 3sander on 18.05.17.
+ */
 public interface Cell 
 {
 	/**
 	 * sets the status the cell will have in the next cycle
+	 * @param neighbors
 	 */
 	public void setNextStatus(int neighbors);
 	
 	/**
 	 * returns the current cell status
+	 * @return current cell status
 	 */
 	public boolean getStatus();
 	
@@ -24,12 +31,13 @@ public interface Cell
 	
 	/**
 	 * gives the cell data as a String
+	 * @return string
 	 */
 	public String toString();
 	
 	/**
 	 * gives the Status the cell will have next Cycle
-	 * @return
+	 * @return boolean
 	 */
 	public boolean getNextStatus();
 }

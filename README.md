@@ -70,7 +70,7 @@ Linux: <br />
 - [x]	colorWar
 - [x]	populate
 - [x]	~~exterminate~~
-- [ ]	tests
+- [x]	tests
 
 
 ### Authors:

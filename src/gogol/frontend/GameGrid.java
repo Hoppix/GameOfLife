@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
+ * the gamegrid transforms the information of the SVM into visible information on a grid
+ *
  * Created by hoppix on 18.05.17.
  */
 public class GameGrid extends JPanel
@@ -47,6 +49,9 @@ public class GameGrid extends JPanel
 		setupPaintImage();
 	}
 
+	/**
+	 * configure the image where all the painting happens
+	 */
 	private void setupPaintImage()
 	{
 		PaintImage.drawnImage = new BufferedImage(sizeX, sizeY,
@@ -59,6 +64,10 @@ public class GameGrid extends JPanel
 		repaint();
 	}
 
+	/**
+	 * paint lines for the grid
+	 * @param g
+	 */
 	private void setupGrid(Graphics g)
 	{
 		g.setColor(colorGrid);
@@ -84,6 +93,12 @@ public class GameGrid extends JPanel
 		sizeX = x;
 	}
 
+	/**
+	 * takes in arguments from the controller for displaying pvp mode
+	 * @param setter
+	 * @param red
+	 * @param blue
+	 */
 	public void setPaintPVP(boolean setter, Rectangle red, Rectangle blue)
 	{
 		paintPVP = setter;
@@ -91,6 +106,11 @@ public class GameGrid extends JPanel
 		playerBlueArea = blue;
 	}
 
+	/**
+	 * when pvp mode is activated colored rectangles are painted to make the starting areas visible
+	 *
+	 * @param g
+	 */
 	private void paintPlayerAreas(Graphics g)
 	{
 		if(!paintPVP) return;
@@ -123,13 +143,22 @@ public class GameGrid extends JPanel
 		return new Dimension(sizeX, sizeY);
 	}
 
+	/**
+	 * paints a small rectangle on the grid which represents a cell
+	 * @param cell for receiving needed information
+	 * @param x location of the cell
+	 * @param y location of the cell
+	 */
 	public void setField(Cell cell, int x, int y)
 	{
+		// calculate the actual position on the panel
 		int tileX = x * tileSize;
 		int tileY = y * tileSize;
 
+		// get graphic context of the image
 		Graphics g = PaintImage.drawnImage.getGraphics();
 
+		// different painting behaviours for different cell types
 		if (cell instanceof ConwayCell)
 		{
 			if (cell.getStatus())
@@ -169,6 +198,7 @@ public class GameGrid extends JPanel
 				g.fillRect(tileX, tileY, tileSize, tileSize);
 			}
 		}
+		// paint the image on the panel
 		repaint();
 	}
 
@@ -179,6 +209,11 @@ public class GameGrid extends JPanel
 		return new Dimension(sizeX, sizeY);
 	}
 
+	/**
+	 * this method applies the paintimage to the actual panel
+	 * and paints additional components
+	 * @param g
+	 */
 	@Override
 	public void paintComponent(Graphics g)
 	{

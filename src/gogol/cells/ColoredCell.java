@@ -4,6 +4,9 @@ package gogol.cells;
 import java.awt.*;
 
 /**
+ * the colored cell is a variant of the conway cell
+ * it still follows the conway rules but in addition it holds a color
+ *
  * Created by khopf on 18/06/2017.
  */
 
@@ -128,7 +131,6 @@ public class ColoredCell implements Cell
 	 * gives the cell data as a String
 	 * String Matches: alive + "," + r + "," + g + "," + b + ";"
 	 */
-
 	@Override
 	public String toString()
 	{
