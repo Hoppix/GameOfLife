@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.Color;
 
 /**
+ * Extra game managing for the pvp gamemode
+ * Holds the specific rule values
+ *
  * Created by hoppix on 29.06.17.
  */
 public class Referee
@@ -19,18 +22,23 @@ public class Referee
 	private static final int CYCLES_PER_GAME = 1000;
 
 
+	// colors are set depending in which area the cell is
 	protected Rectangle playerRedArea;
 	protected Rectangle playerBlueArea;
 
+	// defines how many cells both players are allowed to place
 	private int playerRedCellCount;
 	private int playerBlueCellCount;
 
-	/**
-	 * NYI
-	 */
+	// count for all living cells of the respective player
 	private int playerRedPopCount;
 	private int playerBluePopCount;
 
+	/**
+	 * initializes player area
+	 * sets cellcount for the first round
+	 * @param parent
+	 */
 	public Referee(Controller parent)
 	{
 		controller = parent;
@@ -45,6 +53,12 @@ public class Referee
 		playerBlueArea = new Rectangle(halfsizeX + PLAYER_AREA_PADDING, PLAYER_AREA_PADDING, halfsizeX - PLAYER_AREA_PADDING*2, sizeY - PLAYER_AREA_PADDING*2);
 	}
 
+	/**
+	 * takes in the position of a cell and returns the corresponding color depending which area contains the cell
+	 * @param posX
+	 * @param posY
+	 * @return player color
+	 */
 	public Color checkColorArea(int posX, int posY)
 	{
 		if (playerRedArea.contains(posX,posY))
@@ -57,7 +71,14 @@ public class Referee
 		}
 		return null;
 	}
-	
+
+	/**
+	 *  returns true if one game cycle has ended
+	 *  updates the cels available for the players
+	 *
+	 * @param generation
+	 * @return
+	 */
 	public boolean interrupt(int generation)
 	{
 		if(generation % CYCLE_LENGTH == 0)
@@ -72,7 +93,12 @@ public class Referee
 			return false;
 		}
 	}
-	
+
+	/**
+	 * returns true if the max cycle count is reached
+	 * @param generation
+	 * @return
+	 */
 	public boolean endGame(int generation)
 	{
 		if(generation == CYCLES_PER_GAME)
@@ -114,6 +140,10 @@ public class Referee
 		return playerBluePopCount;
 	}
 
+
+	/**
+	 * counts living cells for blue and red
+	 */
 	private void countPlayerCells()
 	{
 		playerBluePopCount = 0;

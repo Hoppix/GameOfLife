@@ -1,11 +1,15 @@
 package gogol.backend;
 
-import gogol.backend.Controller;
-import gogol.cells.ColoredCell;
 
+import gogol.cells.ColoredCell;
 import java.awt.Color;
 import java.util.*;
 
+/**
+ * Ruler holds the rulesets for different cell behaviours
+ *
+ * Created by 3sander on 18.06.17.
+ */
 public class Ruler
 {
 	Controller controller;
@@ -17,6 +21,8 @@ public class Ruler
 
 	/**
 	 * count alive Neighbors of a cell with the Conway rules
+	 * @param posX x position of the cell
+	 * @param posY y position of the cell
 	 */
 	public int conwayRulez(int posX, int posY)
 	{
@@ -40,6 +46,15 @@ public class Ruler
 		return count;
 	}
 
+	/**
+	 * merge rule:
+	 * counts all alive neighbours
+	 * calculates the median of the color values and applies it to the current cell
+	 *
+	 * @param posX
+	 * @param posY
+	 * @return merged color
+	 */
 	public Color colorMerging(int posX, int posY)
 	{
 		int count = 0;
@@ -57,6 +72,10 @@ public class Ruler
 			{
 				if (controller.survivalMatrix[(y + matrixY) % matrixY][(x + matrixX) % matrixX].getStatus())
 				{
+					/**
+					 * Go here when cell is alive
+					 * receive the RGB values
+					 */
 					Color colorRGB = ((ColoredCell) controller.survivalMatrix[(y + matrixY) % matrixY][(x + matrixX) % matrixX]).getColorStatus();
 					colorR = colorR + colorRGB.getRed();
 					colorG = colorG + colorRGB.getGreen();
@@ -66,14 +85,18 @@ public class Ruler
 			}
 		}
 
+		// no neighbour is alive
 		if (count == 0)
 		{
 			return null;
 		}
+
+		// calculate the median
 		colorR = colorR / count;
 		colorG = colorG / count;
 		colorB = colorB / count;
 
+		// return merged color
 		return new Color(colorR, colorG, colorB);
 	}
 

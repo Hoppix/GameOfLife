@@ -5,6 +5,8 @@ import javax.swing.plaf.basic.BasicSliderUI;
 import java.awt.*;
 
 /**
+ * Custom SliderLnF from coderanch.com
+ *
  * Created by khopf on 07/06/2017.
  */
 class ColoredThumbSliderUI extends BasicSliderUI

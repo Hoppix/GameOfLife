@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
+ * This is the GUI which hold all the frontend-parts
+ *
  * Created by hoppix on 18.05.17.
  */
 public class LifeGUI
@@ -82,7 +84,7 @@ public class LifeGUI
 	private JLabel ynotLabel;
 
 	/**
-	 * This is the GUI which hold all the frontend-parts
+	 *
 	 * @param parentGrid The GameGrid which does the cell display
 	 */
 	public LifeGUI(GameGrid parentGrid)
@@ -98,6 +100,9 @@ public class LifeGUI
 		frame.setIconImage(icon);
 	}
 
+	/**
+	 * configures the frame and adds the main control components
+	 */
 	private void initializeFrame()
 	{
 		frame = new JFrame("GOGOL");
@@ -206,6 +211,9 @@ public class LifeGUI
 	}
 
 
+	/**
+	 * configures the preloadpanel which is an extra panel that holds the preloadbuttons
+	 */
 	private void initializePreloadPanel()
 	{
 		preload = new JLabel("PRELOAD:");
@@ -333,6 +341,9 @@ public class LifeGUI
 		preloadPanel.repaint();
 	}
 
+	/**
+	 * loads the images from the /design directory
+	 */
 	private void loadImages()
 	{
 		logoPNG = new ImageIcon(LifeGUI.class.getResource("/design/logo.png"));
@@ -350,9 +361,6 @@ public class LifeGUI
 		glidergunImage = new ImageIcon(LifeGUI.class.getResource("/design/glidergun.png"));
 		shipmakerImage = new ImageIcon(LifeGUI.class.getResource("/design/fuse.png"));
 		ynotImage = new ImageIcon(LifeGUI.class.getResource("/design/ynot.png"));
-
-
-
 
 	}
 

@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
+ * Engamedialog is a little custom frame which pops up when the pvp game has ended
+ *
  * Created by khopf on 08/07/2017.
  */
 public class EndgameDialog extends JFrame
@@ -18,6 +20,12 @@ public class EndgameDialog extends JFrame
 	int blueCount;
 
 
+	/**
+	 * receives the winning conditions as args
+	 * @param t how many turns have passed
+	 * @param r population count for red
+	 * @param b population count for blue
+	 */
 	public EndgameDialog( int t, int r, int b)
 	{
 		super();
@@ -26,6 +34,7 @@ public class EndgameDialog extends JFrame
 		redCount = r;
 		blueCount = b;
 		winnerColor = (r>b) ? Color.red : Color.blue;
+		// the color mit the most cells is the winner
 
 		initialize();
 		addComponents();
@@ -35,6 +44,9 @@ public class EndgameDialog extends JFrame
 	}
 
 
+	/**
+	 * initialize main components and settings
+	 */
 	private void initialize()
 	{
 		getContentPane().setBackground(LifeGUI.primaryColor);
@@ -50,6 +62,9 @@ public class EndgameDialog extends JFrame
 		pack();
 	}
 
+	/**
+	 * adds the received information to labels and adds them to the frame
+	 */
 	private void addComponents()
 	{
 		JLabel winnerLabel = new JLabel("WINNER:",0);
@@ -75,6 +90,7 @@ public class EndgameDialog extends JFrame
 
 
 		JLabel colorWinLabel;
+		// initialize the label depending on the winner
 		if(winnerColor.equals(Color.red))
 		{
 			colorWinLabel = new JLabel("red",0);

@@ -1,9 +1,7 @@
 package gogol.backend;
 
-import gogol.backend.Controller;
 import gogol.cells.ColoredCell;
 import gogol.cells.PvPCell;
-
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +22,8 @@ public class Saver
 	{
 		controller = parent;
 	}
-	public final static String FILETYPE = ".life";
+
+	public final static String FILETYPE = ".life"; // own file type
 
 	/**
 	 * Writes the current Gamestate to a text file
@@ -36,21 +35,26 @@ public class Saver
 		BufferedWriter writer = null;
 		String saveFile = null;
 
+		//create filechooser
 		final JFileChooser fc = new JFileChooser();
 
 		setFileChooserTheme(fc.getAccessibleContext());
 
 		int returnVal = fc.showSaveDialog(null);
 
+		//return when approve button was not pressed
 		if(returnVal != fc.APPROVE_OPTION)
 		{
 			return;
 		}
 
+		// get file path from the selected file
 		saveFile = fc.getSelectedFile().getAbsolutePath() + FILETYPE;
+
 
 		try
 		{
+			// write game information into the *.life file
 			writer = new BufferedWriter( new FileWriter(saveFile));
 			writer.write(controller.gameMode + ";");
 			writer.write(controller.gamegrid.tileSize + ";");
@@ -58,6 +62,7 @@ public class Saver
 			writer.write(controller.survivalMatrix.length + ";");
 			writer.newLine();
 
+			// write string from the cells overwritten toString method
 			for (int y = 0; y < controller.survivalMatrix.length; y++)
 			{
 				for (int x = 0; x < controller.survivalMatrix[y].length; x++)
@@ -79,8 +84,11 @@ public class Saver
 	 */
 	public void loadGamestate()
 	{
+
+		// clean SVM + grid
 		controller.clear();
 
+		// declare reader variables
 		BufferedReader reader = null;
 		String line = null;
 		String[] args = null;
@@ -88,12 +96,14 @@ public class Saver
 
 		String saveFile = null;
 
+		// create filechooser
 		final JFileChooser fc = new JFileChooser();
 
 		setFileChooserTheme(fc.getAccessibleContext());
 
 		int returnVal = fc.showOpenDialog(null);
 
+		//return when approve button was not pressed
 		if(returnVal != fc.APPROVE_OPTION)
 		{
 			return;
@@ -101,6 +111,7 @@ public class Saver
 
 		saveFile = fc.getSelectedFile().getAbsolutePath();
 
+		// return when selected file is not of the .life filetype
 		if(!saveFile.endsWith(FILETYPE))
 		{
 			return;
@@ -110,12 +121,16 @@ public class Saver
 		{
 			int y = 0;
 
+			// initialize reader for the selected file
 			reader = new BufferedReader(new FileReader(saveFile));
 			line = reader.readLine();
 			args = line.split(";");
+			// save values into an array
 
 			int rulezConway = 0;
 
+			// switch so the gamemode directed by the loaded file
+			controller.lifegui.gametypeChooser.select(args[0]);
 			controller.changeGameMode(args[0]);
 			controller.gamegrid.tileSize = Integer.parseInt(args[1]);
 			controller.setGridsize(Integer.parseInt(args[2]),Integer.parseInt(args[3]));
@@ -133,11 +148,14 @@ public class Saver
 					rulezConway = 1;
 			}
 
+			// read through all lines of the file beginning with the first line
 			while ((line = reader.readLine()) != null)
 			{
+				//split args per line
 				args = line.split(";");
 				for (int x = 0; x < args.length; x++)
 				{
+					// in conway mode we just set the SVM at the given position to the boolean string we read
 					if(rulezConway == 0)
 					{
 						if(args[x].equals("true"))
@@ -146,6 +164,8 @@ public class Saver
 							controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
 						}
 					}
+
+					// for the colored cell variants we extract the color which comes after the boolean string
 					else if(rulezConway == 1)
 					{
 						cellArgs = args[x].split(",");
@@ -159,6 +179,8 @@ public class Saver
 							controller.gamegrid.setField(controller.survivalMatrix[y][x], x, y);
 						}
 					}
+
+					// in pvp mode we just adjust to the two given player colors
 					else if(rulezConway == 2)
 					{
 						cellArgs = args[x].split(",");
@@ -184,6 +206,11 @@ public class Saver
 		}
 	}
 
+
+	/**
+	 * applies dark theme to the filechooser
+	 * @param ac
+	 */
 	private static void setFileChooserTheme(AccessibleContext ac)
 	{
 		Color prim = Color.GRAY;

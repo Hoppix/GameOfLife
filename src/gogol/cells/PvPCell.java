@@ -1,8 +1,10 @@
 package gogol.cells;
 
-import java.awt.*;
 
 /**
+ * the pvpcell is basically a coloredcell but with a different toggle function
+ * which is needed for setting color values
+ *
  * Created by khopf on 08/07/2017.
  */
 public class PvPCell extends ColoredCell implements Cell

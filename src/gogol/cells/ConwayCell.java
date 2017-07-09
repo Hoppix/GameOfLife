@@ -1,9 +1,10 @@
 package gogol.cells;
 
-import gogol.cells.Cell;
 
 /**
  * Represents a cell for Conways original Game of Life
+ *
+ * Created by 3sander on 18.05.17.
  */
 public class ConwayCell implements Cell {
 

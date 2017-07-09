@@ -16,6 +16,9 @@ import java.awt.*;
 /**
  * Holds the Cell array and gives Cells data about their Neighbors
  * Holds other logic as Classes
+ * Holds the SurvivalMatrix (SVM) which contains references from the Cell interface
+ *
+ * Created by 3sander on 18.05.17.
  */
 public class Controller
 {
@@ -33,6 +36,11 @@ public class Controller
 
 	protected int generation;
 
+	/**
+	 * the constructor initializes the modes and components
+	 * @param grid the gamegrid for translating the game logic to the frontend
+	 * @param gui the full gui for controlling certain components and transmitting the information
+	 */
 	public Controller(GameGrid grid, LifeGUI gui)
 	{
 		gamegrid = grid;
@@ -123,6 +131,7 @@ public class Controller
 	 */
 	public void stepForward()
 	{
+		// Set the SVM to the Values for the next Generation
 		for (int y = 0; y < survivalMatrix.length; y++)
 		{
 			for (int x = 0; x < survivalMatrix[0].length; x++)
@@ -155,6 +164,7 @@ public class Controller
 			}
 		}
 
+		// Update all Cells and paint them on the gamegrid
 		for (int y = 0; y < survivalMatrix.length; y++)
 		{
 			for (int x = 0; x < survivalMatrix[0].length; x++)
@@ -167,17 +177,21 @@ public class Controller
 				gamegrid.setField(survivalMatrix[y][x], x, y);
 			}
 		}
-		//temporary
+
+		// progress the generation counter and update the label
 		generation++;
 		lifegui.generationValue.setText(generation + "");
+
+		// when pvp mode is active: interrupt the game after certain amount of steps
 		if(gameMode == "PvP" && referee.interrupt(generation))
 		{
 			doCommand(Command.PAUSE);
 			lifegui.step.setEnabled(false);
 			if(referee.endGame(generation))
 			{
+				// show endgame frame when game is over
+				// optional: disable background
 				new EndgameDialog(generation,referee.getRedPop(),referee.getBluePop());
-				//optional: disable background
 			}	
 		}
 
@@ -250,20 +264,22 @@ public class Controller
 		return count;
 	}
 
+
 	/**
-	 * Retruns the Cell at the specified position
+	 * changes the gamemode:
+	 * reinitializes the SVM with the corresponding cell-type
+	 * and other various settings for the specific gametype
+	 *
+	 * @param mode
 	 */
-	protected Cell giveCellAtPosition(int x, int y)
-	{
-		return survivalMatrix[y][x];
-	}
-	
 	public void changeGameMode(String mode)
 	{
+		// reenable the buttons in case they were disabled previously due to pvp mode
 		lifegui.random.setEnabled(true);
 		lifegui.step.setEnabled(true);
 		lifegui.pause.setEnabled(true);
 
+		// sets the field variable gamemode for the environment
 		gameMode = mode;
 
 		switch (mode)
@@ -273,6 +289,7 @@ public class Controller
 				survivalMatrix = new ConwayCell[survivalMatrix.length][survivalMatrix[0].length];
 				break;
 
+			// paint the color areas, disable certain buttons for pvp mode
 			case "PvP":
 				gamegrid.setPaintPVP(true, referee.playerRedArea, referee.playerBlueArea);
 				survivalMatrix = new PvPCell[survivalMatrix.length][survivalMatrix[0].length];
@@ -296,6 +313,7 @@ public class Controller
 	 */
 	private void addListeners()
 	{
+		// listeners for the main commands for controlling the grid
 		lifegui.step.addActionListener(new ButtonListener(Command.STEPFOWARD, this));
 		lifegui.clear.addActionListener(new ButtonListener(Command.CLEAR, this));
 		lifegui.random.addActionListener(new ButtonListener(Command.RANDOMIZE, this));
@@ -304,6 +322,7 @@ public class Controller
 		lifegui.save.addActionListener(new ButtonListener(Command.SAVE, this));
 		lifegui.load.addActionListener(new ButtonListener(Command.LOAD, this));
 
+		// preloads for loading certain creatures on the grid
 		lifegui.toggleButton.addActionListener(new PreloadListener("Toggle", this));
 		lifegui.blockButton.addActionListener(new PreloadListener("Block", this));
 		lifegui.gliderButton.addActionListener(new PreloadListener("Glider", this));
@@ -318,6 +337,7 @@ public class Controller
 		lifegui.glidergunButton.addActionListener(new PreloadListener("Glidergun", this));
 
 
+		// misc.
 		lifegui.speedSlider.addChangeListener(new SpeedChangerListener(this, player));
 		lifegui.gametypeChooser.addItemListener(new GameModeListener(this));
 		gamegrid.addMouseListener(new CellToggleListener(this));
@@ -363,6 +383,10 @@ public class Controller
 		}
 	}
 
+	/**
+	 * helper method which returns a new cell-type given by the current gamemode
+	 * @return
+	 */
 	private Cell createCell()
 	{
 		switch(gameMode)
@@ -375,6 +399,10 @@ public class Controller
 		}
 	}
 
+	/**
+	 * helper method for handling colored cells which are alive but have no color
+	 * @param cell
+	 */
 	private void suizideAlbinos(Cell cell)
 	{
 		ColoredCell cCell;
