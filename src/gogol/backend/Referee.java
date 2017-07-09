@@ -77,7 +77,7 @@ public class Referee
 	{
 		if(generation == CYCLES_PER_GAME)
 		{
-
+			countPlayerCells();
 			return true;
 		}
 		

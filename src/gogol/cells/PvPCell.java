@@ -23,7 +23,7 @@ public class PvPCell extends ColoredCell implements Cell
 	@Override
 	public void toggleStatus()
 	{
-		if(alive) colorStatus = null;
+		if(alive) newColor = null;
 		newStatus = !alive;
 	}
 }
