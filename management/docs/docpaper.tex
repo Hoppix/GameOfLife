@@ -97,56 +97,47 @@ zuletzt sollte noch ein lokaler player versus player modus implementiert werden,
 % Darstellung der Beziehungen zwischen den Klassen (--> UML)
 \section{stand des projekts}
 % STAND DES PROJEKTS
+\subsection{Was ist fertig?}
 % was ist fertig?
-- Game of Life nach Conway
-- Modi: ColorMerge, ColorWar, PvP
-- Speichern/Laden des Spiels, laden bestimmter Presets
+Das klassische Game of Life nach Conway ist vollständig, sowie die alternativen Spielmodi ColorMerge, ColorWar und PvP.
+Für jeden dieser Modi sind die Funktionalitäten Speichern/Laden des aktuellen Spielstandes, laden bestimmter Presets, sowie (ausgenommen für den Modus PvP) eine zufällige Initialisierung des Spielfeldes.
+\subsection{Verworfen}
 % was wurde verworfen(warum)?
-- Modus: Bio
-	- nicht mehr Deterministisch
-	- nutzung von Presets, finden von Strukturen nicht möglich
-	- kaum Korrellation zu Game of Life
-- Modus: PvP - Exterminate
-	- gewonnen hätte der Spieler der mehr Zellen des Gegners vernichtet, unabhaengig von seiner eigenen Zellzahl
-	- verworfen, da kaum sinnvoll zu bestimmen ob eine Zelle "vernichtet" wurde oder nur abgestorben ist.
-- Button changeGridsize
-	- Funktionalität ist implementiert
-	- Wird in Zukunft vermutlich noch aufgenommen
-	- bei Aktuller GUI Struktur kein Platz
-- Webscraping
-	- geplant war aus http://conwaylife.appspot.com/library die bekannten Presets auszulesen
-	- scheitert momentan an der Interpretation von Strukturen, die Zeilen mit ausschließlich toten Zellen enthalten
-	- die große Menge an Presets ist für den User schwer übersichtlich darstellbar
-	- Wird in Zukunft ggf. noch aufgenommen
-- Custom Ruleset
-	- geplant war die Regeln für das entstehen/absterben von Zellen anpassbar zu machen
-	- wurde verworfen, da Presets nicht mehr sinnvoll verwendbar wären
-- Effizientes Berechnen der Zellzustaende
-	- wurde aus Zeitmangel und wegen ausreichend guter performance verworfen
-	- Ueberlegung war die SVM zeilenweise in threads zu berechnen
-	- repaint in stepForward erst am ende des Steps ausfuehren, statt nach jeder berechneten Zelle
+Der geplante Modus Propability of Life wurde verworfen. Dieser hätte beinhaltet, dass Zellen abhängig von ihrer Anzahl Nachbarn eine bestimmte Wahrscheinlichkeit haben in der nächsten Generation lebend oder tot zu sein. Das Zellverhalten wäre somit jedoch nicht mehr deterministisch. Eine Nutzung der Presets oder das eigene finden bzw. erstellen solcher wäre in diesem Modus somit unmöglich, womit der entscheidende Aspekt des Game of Life verloren gegangen wäre. Auch wenn die Idee interessant ist, hat sie keinen Bezug zu dem Game of Life und den restlichen Spielmodi.
+\newline
+Der geplante Modus PvP - Exterminate wurde verworfen. In diesem PvP Modus wäre is das Ziel gewesen möglichst viele Zellen des Gegners zu vernichten. Schon die Definition wann eine Zelle vernichtet oder einfach nur abgestorben ist gestaltet sich als schwierig und wäre für die Spieler schwer verständlich und während des Spiels nicht in realistischer Zeit nachvollziehbar.
+\newline
+Das geplante Feature Custom Ruleset wurde verworfen. Dieses hätte dem Spieler ermöglicht die Bedingungen, bei wievielen Nachbarn eine Zelle lebend oder tot sein wird anzupassen. Dadurch werden jedoch Presets nicht mehr nutzbar, da diese auf dem Verhalten nach den Conway regeln beruhen, womit ein wichtiges Feature in diesem Modus vom User nicht erwartete Ergebnisse erzeugt hätte.
+\newline
+Das Feature Change Gridsize ist momentan nicht nutzbar. Die Funktionalität ist bereits implementiert, jedoch ist kein Button auf der Öberfläche implementiert. Grund hierfür ist mangelnder Platz und nicht ausreichend Zeit um die GUI zu refactorn und welchen zu schaffen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
+\newline
+Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus http://conwaylife.appspot.com/library die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, redoch wird der code wir einzelne Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
+\newline
+Überlegungen zur Verbesserung der Effizienz bei der Zustandsberechnung der Zellen wurden noch nicht implementiert. Grund hierfür sind mangelnde Zeit und bereits ausreichend gute Performance der Anwendung. In zukünftigen Patches wird die Effizienz vermutlich verbessert.
+
+\subsection{Bekannte Bugs und Probleme}
 % wo gibt es macken?
-- SpeedSlider
-	- Geschwindigkeit ist logarhitmisch
-	- intuitiver wäre eine lineare Funktion
-	- aufgrund von geringer Wichtigkeit vorerst nicht angepasst
+Bisher sind keine Bugs bekannt. 
+\newline
+Ein bekanntes Problem ist, dass der SpeedSlider eine Exponentielle Funktion für die Geschwindigkeit verwendet. Diese liefert zwar die gewünschte Funktionalität, ist jedoch weniger intuitiv als eine Lineare Funktion. Aufgrund geringer Priorität wird diese Anpassung in zukünftigen Patches durchgeführt.
+\subsection{Workload}
 % wie war die workload?
-- Workload von Meilenstein "Rainbow" stark unterschaetzt
-	- Unklarheiten in Methodendefinitionen des Backend
-	- Methoden des jeweils anderen wurden falsch verstanden und inkorrekt verwendet
-- Workload von Meilenstein "PvP" ueberschaetzt
-	- grossteil der noetigen Funktionalitaet wurde in "Rainbow" bereits implementiert
+Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig.
+\newline
+Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
+\subsection{Arbeitsaufteilung}
 % aufteilung in der gruppe
-- Kolja Hopfmann
-	- Frontend: all
-	- Listener: all
-	- Backend: Player, Commandhandling
-	- Planung: erstellung GANTT diagramm
-- Jonas Sander
-	- Test: all
-	- Backend: Cells, Library, Saver, Ruler, Referee
-- Beide
-	- Controller, Referee, Planung
+Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt:
+\newline
+Projektplanung, Implementierung der Klassen Controller und Referee
+\newline
+Die folgenden Aufgaben wurden von Kolja Hopfmann übernommen:
+\newline
+Projektmanagement, Implementierung der Packages Frontend und Listener, Implementierung der Klasse Player und des Commandhandling im Backend
+\newline
+Die folgenden Aufgaben wurden von Jonas Sander übernommen:
+\newline
+Implementierung der Packages Testing, Cells und Library, sowie die Implementierung der Klassen Saver und Ruler im Backend.
 
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
