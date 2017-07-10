@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 15:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 15:29
 entering extended mode
 **./docpaper.tex
 (docpaper.tex
@@ -804,16 +804,80 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `docpaper.toc'.
 
- [2] [3] [4] [5]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 195.
-
+ [2]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 77.
 
 ("D:\Programme\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 195.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 203.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 77.
+ [3]
+<images/ganttdep.png, id=15, 1484.54625pt x 275.0275pt>
+File: images/ganttdep.png Graphic file (type png)
+
+<use images/ganttdep.png>
+Package pdftex.def Info: images/ganttdep.png used on input line 134.
+(pdftex.def)             Requested size: 445.36732pt x 82.50888pt.
+
+Overfull \hbox (55.36732pt too wide) in paragraph at lines 131--136
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--136
+
+ []
+
+[4] <images/gant.png, id=19, 1484.54625pt x 234.8775pt>
+File: images/gant.png Graphic file (type png)
+ <use images/gant.png>
+Package pdftex.def Info: images/gant.png used on input line 140.
+(pdftex.def)             Requested size: 445.36732pt x 70.46379pt.
+
+Overfull \hbox (72.99214pt too wide) in paragraph at lines 140--142
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+
+ []
+
+<images/gogolClasses.png, id=20, 2026.57124pt x 623.32875pt>
+File: images/gogolClasses.png Graphic file (type png)
+
+<use images/gogolClasses.png>
+Package pdftex.def Info: images/gogolClasses.png used on input line 160.
+(pdftex.def)             Requested size: 2026.56633pt x 623.32722pt.
+
+Overfull \hbox (1636.56633pt too wide) in paragraph at lines 149--169
+[] 
+ []
+
+[5 <./images/ganttdep.png (PNG copy)> <./images/gant.png (PNG copy)>] [6]
+Overfull \vbox (74.82722pt too high) has occurred while \output is active []
+
+
+[7 <./images/gogolClasses.png (PNG copy)>]
+<images/gogolPackages.png, id=31, 672.5125pt x 339.2675pt>
+File: images/gogolPackages.png Graphic file (type png)
+
+<use images/gogolPackages.png>
+Package pdftex.def Info: images/gogolPackages.png used on input line 196.
+(pdftex.def)             Requested size: 672.51085pt x 339.26666pt.
+
+Overfull \hbox (282.51085pt too wide) in paragraph at lines 189--198
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--198
+
+ []
+
+[8 <./images/gogolPackages.png (PNG copy)>] [9]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 217.
 
 
 ("D:\Programme\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
@@ -823,25 +887,102 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [6] [7] [8] [9] [10]
-[11] [12] [13] (docpaper.aux) ) 
+ [10] [11]
+<images/manual_fullWindow.PNG, id=45, 794.97pt x 432.4155pt>
+File: images/manual_fullWindow.PNG Graphic file (type png)
+
+<use images/manual_fullWindow.PNG>
+Package pdftex.def Info: images/manual_fullWindow.PNG used on input line 245.
+(pdftex.def)             Requested size: 397.48402pt x 216.20721pt.
+
+<images/manual_gamegrid.PNG, id=47, 663.6795pt x 363.15675pt>
+File: images/manual_gamegrid.PNG Graphic file (type png)
+
+<use images/manual_gamegrid.PNG>
+Package pdftex.def Info: images/manual_gamegrid.PNG used on input line 249.
+(pdftex.def)             Requested size: 398.21077pt x 217.89572pt.
+
+<images/manual_gamemode.PNG, id=48, 122.859pt x 22.28325pt>
+File: images/manual_gamemode.PNG Graphic file (type png)
+
+<use images/manual_gamemode.PNG>
+Package pdftex.def Info: images/manual_gamemode.PNG used on input line 253.
+(pdftex.def)             Requested size: 122.85867pt x 22.28317pt.
+
+<images/manual_saveload.PNG, id=49, 120.45pt x 21.681pt>
+File: images/manual_saveload.PNG Graphic file (type png)
+
+<use images/manual_saveload.PNG>
+Package pdftex.def Info: images/manual_saveload.PNG used on input line 257.
+(pdftex.def)             Requested size: 120.44969pt x 21.68094pt.
+
+<images/manual_preloadMode.PNG, id=50, 78.89474pt x 16.26076pt>
+File: images/manual_preloadMode.PNG Graphic file (type png)
+
+<use images/manual_preloadMode.PNG>
+Package pdftex.def Info: images/manual_preloadMode.PNG used on input line 261.
+(pdftex.def)             Requested size: 78.89453pt x 16.26071pt.
+
+<images/manual_presets.PNG, id=51, 112.62074pt x 210.18526pt>
+File: images/manual_presets.PNG Graphic file (type png)
+
+<use images/manual_presets.PNG>
+Package pdftex.def Info: images/manual_presets.PNG used on input line 265.
+(pdftex.def)             Requested size: 112.62045pt x 210.18474pt.
+
+<images/manual_controlButtons.PNG, id=52, 304.13625pt x 24.09pt>
+File: images/manual_controlButtons.PNG Graphic file (type png)
+
+<use images/manual_controlButtons.PNG>
+Package pdftex.def Info: images/manual_controlButtons.PNG used on input line 27
+0.
+(pdftex.def)             Requested size: 304.1355pt x 24.08992pt.
+
+<images/manual_speed.PNG, id=53, 163.20975pt x 34.32825pt>
+File: images/manual_speed.PNG Graphic file (type png)
+
+<use images/manual_speed.PNG>
+Package pdftex.def Info: images/manual_speed.PNG used on input line 275.
+(pdftex.def)             Requested size: 163.20934pt x 34.32814pt.
+
+<images/manual_generation.PNG, id=54, 65.64525pt x 29.51025pt>
+File: images/manual_generation.PNG Graphic file (type png)
+
+<use images/manual_generation.PNG>
+Package pdftex.def Info: images/manual_generation.PNG used on input line 279.
+(pdftex.def)             Requested size: 65.64507pt x 29.51016pt.
+
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 243--280
+[] 
+ []
+
+
+Overfull \hbox (8.21077pt too wide) in paragraph at lines 243--280
+[] 
+ []
+
+[12 <./images/manual_fullWindow.PNG> <./images/manual_gamegrid.PNG>] [13 <./ima
+ges/manual_gamemode.PNG> <./images/manual_saveload.PNG> <./images/manual_preloa
+dMode.PNG> <./images/manual_presets.PNG>] [14 <./images/manual_controlButtons.P
+NG> <./images/manual_speed.PNG> <./images/manual_generation.PNG>] [15] [16]
+[17] [18] (docpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 7764 strings out of 493335
- 109760 string characters out of 3140980
+ 7833 strings out of 493335
+ 111562 string characters out of 3140980
  238766 words of memory out of 3000000
- 11018 multiletter control sequences out of 15000+200000
- 54232 words of font info for 98 fonts, out of 3000000 for 9000
+ 11069 multiletter control sequences out of 15000+200000
+ 54323 words of font info for 99 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,40p,877b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
-c.enc}{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Programme/M
-iKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1
-/public/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><
-D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><D:/Programme/MiKTeX 2
-.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on docpaper.pdf (13 pages, 140458 bytes).
+ 38i,6n,40p,877b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
+}{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Programme/MiKTeX
+ 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><D:/Pr
+ogramme/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><D:/Programme/MiKTeX 2.9/fo
+nts/type1/public/lm/lmtt12.pfb>
+Output written on docpaper.pdf (18 pages, 337208 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 14849 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 14914 words of extra memory for PDF output out of 17280 (max. 10000000)
 
