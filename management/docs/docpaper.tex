@@ -105,7 +105,7 @@ Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert
 
 \section{Planung}
 
-\subsection{meilensteine}
+\subsection{Meilensteine}
 Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mit einer primitiven Grundversion des Game of Life. Die Meilensteine wurden dann 1:1 auf Sprints mit jeweils 1 oder 2 Wochen Länge aufgeteilt, je nach geschätzter workload.  Hier raus ergaben sich zunächst die folgenden Meilensteine und Sprints:
 \begin{itemize}
 \item
@@ -127,7 +127,7 @@ website: deployment einer einfachen webseite zum hosten der anwendung als web-ap
 Wir haben Grundfunktionalitäten priorisiert, da höhere Funktionalitäten sukzessiv auf niedrigere Features aufbauen,
 höhere Funktionen wäre ohne vorherige Implementation der nötigen Grundfunktionen nicht lauffähig.
 
-\subsection{zeitplan}
+\subsection{Zeitplan}
 Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem abschließen der Automatisierung möglich.
 Für die Abgabe war der plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
 \begin{figure}[ht]
@@ -141,11 +141,11 @@ Aufgrund von fehlerhaften Schätzungen wurden Subfeatures und einige Meilenstein
 \includegraphics[width=1\textwidth, height=100px]{images/gant.png}
 \end{figure}
 
-\subsection{testplan}
+\subsection{Testplan}
 Tests wurden dem jeweiligen Sprint zugeteilt und nach Fertigstellung der Features implementiert,
 mit Ausnahme von Rainbow, dort wurde ein Test-First Ansatz verwendet.
 
-\subsection{technische beschreibung des systems}
+\subsection{Technische Beschreibung des Systems}
 
 Der Systemarchitektur liegt der MVC (Model, View, Controller)-Ansatz zugrunde:
 Der View-Teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und von diesem dargestellt wird.
@@ -157,6 +157,7 @@ Des weiteren kriegt er bei seiner Erstelluing das Gamegrid und das GUI überreic
 \centering
 \includegraphics[width=1\textwidth, height=150px]{images/gogolClasses.png}
 \end{figure}
+\newpage
 Als Kapselung wurden die Klassen in mehrere Packages entsprechend ihrer Funktionalität unterteilt:
 \begin{itemize}
 \item
@@ -231,7 +232,7 @@ speedchangerlistener
 \includegraphics[width=1\textwidth, height=150px]{images/gogolPackages.png}
 \end{figure}
 
-\section{stand des projekts}
+\section{Stand des projekts}
 % STAND DES PROJEKTS
 \subsection{Was ist fertig?}
 % was ist fertig?
@@ -271,7 +272,7 @@ Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der 
 % systemvorraussetzungen, installation
 \subsection{Installation und Systemvorraussetzungen}
 \begin{itemize}
-\item Die Anwendung steht über die Readme auf Github per Google Drive zur verfügung: \url{https://github.com/Hoppix/GameOfLife}
+\item Die Anwendung steht über die Readme auf Github per Google Drive zur Verfügung: \url{https://github.com/Hoppix/GameOfLife}
 \item Zur Auswahl stehen jeweils eine executable für Windows und eine executable jar file für Unix basierte Systeme.
 \item Bei Kompabilitätsproblemen mit der .exe kann zur Not auch die .jar für Windows-Systeme verwendet werden.
 \end{itemize}
@@ -394,7 +395,7 @@ Entgegen der Empfehlung für Subversion haben wir uns für die Nutzung von Git i
 \begin{itemize}
 \item Anzahl Java-Klassen: 35
 \item Java-Codezeilen: 3861
-\item Commits in der Remote-Repository: 229
+\item Commits in der Remote-Repository: 239
 \item Anzahl Branches: 3
 \end{itemize}
 \section{Reflektion}
