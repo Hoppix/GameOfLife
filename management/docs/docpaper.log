@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 16:05
 entering extended mode
 **./docpaper.tex
 (docpaper.tex
@@ -887,100 +887,100 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [10] [11]
-<images/manual_fullWindow.PNG, id=45, 794.97pt x 432.4155pt>
+ [10]
+<images/manual_fullWindow.PNG, id=42, 794.97pt x 432.4155pt>
 File: images/manual_fullWindow.PNG Graphic file (type png)
 
 <use images/manual_fullWindow.PNG>
-Package pdftex.def Info: images/manual_fullWindow.PNG used on input line 245.
+Package pdftex.def Info: images/manual_fullWindow.PNG used on input line 254.
 (pdftex.def)             Requested size: 397.48402pt x 216.20721pt.
 
-<images/manual_gamegrid.PNG, id=47, 663.6795pt x 363.15675pt>
+<images/manual_gamegrid.PNG, id=44, 663.6795pt x 363.15675pt>
 File: images/manual_gamegrid.PNG Graphic file (type png)
 
 <use images/manual_gamegrid.PNG>
-Package pdftex.def Info: images/manual_gamegrid.PNG used on input line 249.
+Package pdftex.def Info: images/manual_gamegrid.PNG used on input line 258.
 (pdftex.def)             Requested size: 398.21077pt x 217.89572pt.
 
-<images/manual_gamemode.PNG, id=48, 122.859pt x 22.28325pt>
+<images/manual_gamemode.PNG, id=45, 122.859pt x 22.28325pt>
 File: images/manual_gamemode.PNG Graphic file (type png)
 
 <use images/manual_gamemode.PNG>
-Package pdftex.def Info: images/manual_gamemode.PNG used on input line 253.
+Package pdftex.def Info: images/manual_gamemode.PNG used on input line 262.
 (pdftex.def)             Requested size: 122.85867pt x 22.28317pt.
 
-<images/manual_saveload.PNG, id=49, 120.45pt x 21.681pt>
+<images/manual_saveload.PNG, id=46, 120.45pt x 21.681pt>
 File: images/manual_saveload.PNG Graphic file (type png)
 
 <use images/manual_saveload.PNG>
-Package pdftex.def Info: images/manual_saveload.PNG used on input line 257.
+Package pdftex.def Info: images/manual_saveload.PNG used on input line 266.
 (pdftex.def)             Requested size: 120.44969pt x 21.68094pt.
 
-<images/manual_preloadMode.PNG, id=50, 78.89474pt x 16.26076pt>
+<images/manual_preloadMode.PNG, id=47, 78.89474pt x 16.26076pt>
 File: images/manual_preloadMode.PNG Graphic file (type png)
 
 <use images/manual_preloadMode.PNG>
-Package pdftex.def Info: images/manual_preloadMode.PNG used on input line 261.
+Package pdftex.def Info: images/manual_preloadMode.PNG used on input line 270.
 (pdftex.def)             Requested size: 78.89453pt x 16.26071pt.
 
-<images/manual_presets.PNG, id=51, 112.62074pt x 210.18526pt>
+<images/manual_presets.PNG, id=48, 112.62074pt x 210.18526pt>
 File: images/manual_presets.PNG Graphic file (type png)
 
 <use images/manual_presets.PNG>
-Package pdftex.def Info: images/manual_presets.PNG used on input line 265.
+Package pdftex.def Info: images/manual_presets.PNG used on input line 274.
 (pdftex.def)             Requested size: 112.62045pt x 210.18474pt.
 
-<images/manual_controlButtons.PNG, id=52, 304.13625pt x 24.09pt>
+<images/manual_controlButtons.PNG, id=49, 304.13625pt x 24.09pt>
 File: images/manual_controlButtons.PNG Graphic file (type png)
 
 <use images/manual_controlButtons.PNG>
 Package pdftex.def Info: images/manual_controlButtons.PNG used on input line 27
-0.
+9.
 (pdftex.def)             Requested size: 304.1355pt x 24.08992pt.
 
-<images/manual_speed.PNG, id=53, 163.20975pt x 34.32825pt>
+<images/manual_speed.PNG, id=50, 163.20975pt x 34.32825pt>
 File: images/manual_speed.PNG Graphic file (type png)
 
 <use images/manual_speed.PNG>
-Package pdftex.def Info: images/manual_speed.PNG used on input line 275.
+Package pdftex.def Info: images/manual_speed.PNG used on input line 284.
 (pdftex.def)             Requested size: 163.20934pt x 34.32814pt.
 
-<images/manual_generation.PNG, id=54, 65.64525pt x 29.51025pt>
+<images/manual_generation.PNG, id=51, 65.64525pt x 29.51025pt>
 File: images/manual_generation.PNG Graphic file (type png)
 
 <use images/manual_generation.PNG>
-Package pdftex.def Info: images/manual_generation.PNG used on input line 279.
+Package pdftex.def Info: images/manual_generation.PNG used on input line 288.
 (pdftex.def)             Requested size: 65.64507pt x 29.51016pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 243--280
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 252--290
 [] 
  []
 
 
-Overfull \hbox (8.21077pt too wide) in paragraph at lines 243--280
+Overfull \hbox (8.21077pt too wide) in paragraph at lines 252--290
 [] 
  []
 
-[12 <./images/manual_fullWindow.PNG> <./images/manual_gamegrid.PNG>] [13 <./ima
-ges/manual_gamemode.PNG> <./images/manual_saveload.PNG> <./images/manual_preloa
-dMode.PNG> <./images/manual_presets.PNG>] [14 <./images/manual_controlButtons.P
-NG> <./images/manual_speed.PNG> <./images/manual_generation.PNG>] [15] [16]
-[17] [18] (docpaper.aux) ) 
+[11] [12 <./images/manual_fullWindow.PNG> <./images/manual_gamegrid.PNG>]
+[13 <./images/manual_gamemode.PNG> <./images/manual_saveload.PNG> <./images/man
+ual_preloadMode.PNG> <./images/manual_presets.PNG>] [14 <./images/manual_contro
+lButtons.PNG> <./images/manual_speed.PNG> <./images/manual_generation.PNG>]
+[15] [16] [17] [18] (docpaper.aux) ) 
 Here is how much of TeX's memory you used:
  7833 strings out of 493335
- 111562 string characters out of 3140980
- 238766 words of memory out of 3000000
+ 111554 string characters out of 3140980
+ 239766 words of memory out of 3000000
  11069 multiletter control sequences out of 15000+200000
  54323 words of font info for 99 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,40p,877b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
-}{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Programme/MiKTeX
- 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><D:/Pr
-ogramme/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><D:/Programme/MiKTeX 2.9/fo
-nts/type1/public/lm/lmtt12.pfb>
-Output written on docpaper.pdf (18 pages, 337208 bytes).
+ 38i,6n,40p,877b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm
+/lm-ec.enc}{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Progra
+mme/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programme/MiKTeX 2.9/fonts/
+type1/public/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmr17.
+pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><D:/Programme/MiK
+TeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
+Output written on docpaper.pdf (18 pages, 339235 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
