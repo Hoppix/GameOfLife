@@ -66,72 +66,87 @@
 \newpage
 \newpage
 \section{Konzept}
--GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
-Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 1970 entwickelt wurde.
-- das grundkonzept des spiels besteht aus einem zweidimensionalen, rechteckigen gitter, wobei jedes feld in diesem gitter einer zelle entspricht
-- eine zelle kann pro generationsschritt einen von zwei zuständen haben: lebend, tot
-- der zustand einer zelle ist abhängig von den 8 nachbarn die, die zelle umgeben
-- bei einem generationsübergang wird nun der zustand einer zelle bestimmt:
-- Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
--Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
-- Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
-- Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
+Game of Life, welches vom britischen Mathematiker John Horton Conway im Jahr 1970 entwickelt wurde.
+Das Grundkonzept des Spiels besteht aus einem zweidimensionalen, rechteckigen Gitter, wobei jedes Feld in diesem Gitter einer Zelle entspricht.
+Eine Zelle kann pro Generationsschritt einen von zwei zuständen haben: lebend, tot.
+Der Zustand einer Zelle ist abhängig von den 8 Nachbarn die, die Zelle umgeben.
+Bei einem Generationsübergang wird nun der Zustand einer Zelle bestimmt:
+\begin{itemize}
+\item
+Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+\item
+Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
+\item
+Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+\item
+Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+\end{itemize}
 
-Aus diesen einfach regeln enstehen verblüffende strukturen, welche einzigartige verhaltensmuster, bishin zur turing-completeness aufweisen.
+Aus diesen einfach Regeln entstehen verblüffende Strukturen, welche einzigartige Verhaltensmuster, bis hin zur Turing-Completeness aufweisen.
 
-Die Grundidee war das entwickeln einer soliden desktop anwendung die weitere nützliche bedienfunktionen hat.
-Darüber hinaus soll das programm, neben dem standart spiel noch weitere modi zu implementieren, welche eine abwandlung des "vanilla" GoL bieten.
-Zu anfangs geplant waren:
-standard conway
-colormerge - das verschmelzen von zellen mit farbeigenschaften
-colorwar - kampf von zellen mit "teamfarben"
-probability of life - random warscheinlichkeit bei der geburt von zellen
+Die Grundidee war das entwickeln einer soliden Desktop Anwendung die weitere nützliche Bedienfunktionen hat.
+Darüber hinaus soll das Programm neben dem Standard Spiel noch weitere Modi zu implementieren, welche eine Abwandlung des "Vanilla" GoL bieten.
+Zu Anfang geplant waren:
+\begin{itemize}
+\item
+Standard Conway
+\item
+ColorMerge - das verschmelzen von Zellen mit Farbeigenschaften
+\item
+ColorWar - Kampf von Zellen mit "Teamfarben"
+\item
+Probability of Life - Random Warscheinlichkeit bei der Geburt von Zellen
+\item
+PvP -  lokaler Player versus Player Modus, welcher der Anwendung ihren eigentlichen Namen verleiht, da so aus dem Game of Life ein tatsächliches spiel für 2 Spieler entsteht
+\end{itemize}
 
-zuletzt sollte noch ein lokaler player versus player modus implementiert werden, welcher der anwendung seinen eigentlichen namen verleiht, da so auf dem game of life ein tatsächliches spiel ensteht
-
-Sinn der applikation besteht darin, aus dem game of life einen unterhaltungswert zu gewinnen und somit eine beschäftigung für zwischendurch zu schaffen
+Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert zu gewinnen und somit eine Beschäftigung für zwischendurch zu schaffen
 
 \section{Planung}
 
 \subsection{meilensteine}
-idee war es die jeweiligen features in meilensteine zu unterteilen sobald eine primitive version des spiel besteht, die meilensteine wurden dann 1:1 auf sprints aufgeteilt die alle 1 oder 2 wochen länge hatten,
-je nach vermutung der workload, so enstanden zu nächst folgende meilensteine und sprints:
--grundimplementation: 1. primitive laufende version
--automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
--rainbow: custom rules, colormerge, colorwar
--bio: probability of life
--pvp: exterminate, populate
--dokumentation
--website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
+Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mit einer primitiven Grundversion des Game of Life. Die Meilensteine wurden dann 1:1 auf Sprints mit jeweils 1 oder 2 Wochen Länge aufgeteilt, je nach geschätzter workload.  Hier raus ergaben sich zunächst die folgenden Meilensteine und Sprints:
+\begin{itemize}
+\item
+grundimplementation: 1. primitive laufende version
+\item
+automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
+\item
+rainbow: custom rules, colormerge, colorwar
+\item
+bio: probability of life
+\item
+pvp: exterminate, populate
+\item
+dokumentation
+\item
+website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
+\end{itemize}
 
-wir haben gfrundfunktionalitäten priorisiert da höhere funktionalitäten suksessiv auf niedrigere features aufbauen,
-höhere funktionen wäre ohne vorherige implementation der vorherigen grundfunktionen nicht lauffähig
+Wir haben Grundfunktionalitäten priorisiert, da höhere Funktionalitäten sukzessiv auf niedrigere Features aufbauen,
+höhere Funktionen wäre ohne vorherige Implementation der nötigen Grundfunktionen nicht lauffähig.
 
 \subsection{zeitplan}
-die sprints haben zueinander einen critical path, jedoch war theoretisch die abgabe schon nach dem abschließen der automatisierung möglich
-für die abgabe war der plan, eine woche vor deadline fertig zu sein um bei auftretenden problemen einen puffer zu haben
+Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem abschließen der Automatisierung möglich.
+Für die Abgabe war der plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
+\newline
+\includegraphics[scale=0.3]{images/ganttdep.png}
+\newline
 
-LINK OLD GANT:PNG
-der erste entwurf des gant diagrams
+Aufgrund von fehlerhaften Schätzungen wurden Subfeatures und einige Meilensteine komplett entfernt oder verschoben, wodurch sich auch der Projektverlauf veränderte (siehe auch: was wurde verworfen). Somit ergab sich letztendlich die Aktuelle Version der Planung.
 
-wie hat sich die planung im laufe des projekt verändert?
-aufgrund von fehlerhaften schätzungen wurden subfeatures und einige meilensteine komplett entfernt oder verschoben
-
-demnach veränderte sich der projektverlauf
-siehe auch: was wurde verworfen
-
-
-LINK NEW GANTT
-letzte aktuelle version der planung
+\newline
+\includegraphics[scale=0.3]{images/gant.png}
+\newline
 
 \subsection{testplan}
-
-tests wurden dem jeweiligen sprint zugeteilt und nach fertigstellung der features implementiert
-mit ausnahme von rainbow, dort wurde ein test first ansatz verwendet
+Tests wurden dem jeweiligen Sprint zugeteilt und nach Fertigstellung der Features implementiert,
+mit Ausnahme von Rainbow, dort wurde ein Test-First Ansatz verwendet.
 
 \subsection{technische beschreibung des systems}
 
-die systemarchitektur liegt dem MVC (Model, View, Controller)-Ansatz zugrunde:
+Der Systemarchitektur liegt der MVC (Model, View, Controller)-Ansatz zugrunde:
 Der View-teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und dieses darstellt.
 Das GUI hält das gamegrid lediglich als container und führt keine sondierenden methoden auf dem gamegrid aus.
 Als Model-Teil wurden zunächst die Zellen implementiert, diese halten keine logik sondern geben nur ihren status nach außen oder kriegen ihre eigenschaften
@@ -141,10 +156,9 @@ verwaltet. Für das preloaden der species wurde ein species model entwickelt, we
 Hauptkomponente des Controller-teils stellt der Controller dar, dieser hält alle logikteile, die wiederum doe modelle halten. er hält außerdem als einziger die SVM.
 des weiteren kriegt er bei seiner erstelluing das gamegrid und das gui überreicht. daher ist er für die verwaltung zuständig, er stellt verbindung zwischen logik und gui her in dem
 er alle listener erstellt und an die buttons bindet.
-
-
-LINK CLASS DIAGRAM
-
+\newline
+\includegraphics{images/gogolClasses.png}
+\newline
 als kapselung wurden die klassen in mehrere packages unterteilt und somit ihrer funktionalität unterteile:
 frontend:
 SLiderUI
@@ -178,9 +192,9 @@ celltogglelistener
 gamemodelistener
 preloadlistener
 speedchangerlistener
-
-
-LINK PACKAGE DIAGRAMM
+\newline
+\includegraphics{images/gogolPackages.png}
+\newline
 
 \section{stand des projekts}
 % STAND DES PROJEKTS
@@ -222,28 +236,47 @@ Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der 
 % systemvorraussetzungen, installation
 \subsection{Installation und Systemvorraussetzungen}
 be stuff here
+\newpage
 \subsection{Bedienungsanleitung}
 % ggfs. Screenshots der Programmfenster
 
 Die Anwendung wird durch Ausführen der EXE (Windows) bzw. JAR (Linux) gestartet. Zu sehen ist das Anwendungsfenster.
-%manual_fullWindow.PNG
+\newline
+\includegraphics[scale=0.5]{images/manual_fullWindow.PNG}
+\newline
 Der größte teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Zelle. Zellen können durch anklicken mit dem linken Mausknopf verändert werden (siehe Spielmodi).
-%manual_gamegrid.PNG
+\newline
+\includegraphics[scale=0.6]{images/manual_gamegrid.PNG}
+\newline
 Über das Dropdown Menü "TYPE" links oben kann der Spielmodus gewechselt werden (siehe Spielmodi). Beim Wechsel des Spielmodus wird das Spielfeld gleichzeitig auch immer geleert.
-%manual_gamemode.PNG
+\newline
+\includegraphics{images/manual_gamemode.PNG}
+\newline
 Mit dem Knopf "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den Knopf "LOAD" kann ein früherer Spielstand geladen werden. Hierbei wird automatisch auf den entsprechenden Spielmodus gewechselt und ggf. die Spielfeldgröße angepasst.
-%manual_saveload.PNG
+\newline
+\includegraphics{images/manual_saveload.PNG}
+\newline
 Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
-%manual_preloadMode.PNG
+\newline
+\includegraphics{images/manual_preloadMode.PNG}
+\newline
 Auf den verschiedenen Preset-Knöpfen ist die Zellbelegung des Jeweiligen Presets angezeigt, sowie dessen Name. Durch klicken eines Preset-Knopfes wird dieses Preset ausgewählt. Wird nun eine Zelle auf dem Spielfeld geklickt, wird dort das entsprechende Preset automatisch geladen. Presets sind besondere Strukturen, die jeweils ein bestimmtes Verhalten haben.
-%manual_presets.PNG
+\newline
+\includegraphics{images/manual_presets.PNG}
+\newline
 Über die Kontrollknöpfe kann das Spiel gesteuert werden. "RANDOM" belegt alle Zellen des Spielfeldes mit zufälligen Werten (siehe Spielmodi).
 "CLEAR" leert das Spielfeld. "STEP" bringt das Spiel um eine Generation voran. "PLAY" lässt das Spiel automatisch eine bestimmte Anzahl Schritte pro Sekunde voranschreiten. "STOP" hält ein automatisch laufendes Spiel an. Im Spielmodus "PvP" ist das Verhalten der Knöpfe leicht verändert (siehe Spielmodi).
-%manual_controlButtons.PNG
-SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst werden.
-%manul_speed.PNG
-Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt
-%manual_generation.PNG
+\newline
+\includegraphics{images/manual_controlButtons.PNG}
+\newline
+SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst 
+werden.
+\newline
+\includegraphics{images/manual_speed.PNG}
+\newline
+Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt.
+\newline
+\includegraphics{images/manual_generation.PNG}
 
 \subsection{Spielmodi}
 \subsubsection{Conway}
