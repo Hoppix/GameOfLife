@@ -1,0 +1,23 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Konzept}{3}
+\contentsline {section}{\numberline {2}Planung}{4}
+\contentsline {subsection}{\numberline {2.1}meilensteine}{4}
+\contentsline {subsection}{\numberline {2.2}zeitplan}{4}
+\contentsline {subsection}{\numberline {2.3}testplan}{4}
+\contentsline {subsection}{\numberline {2.4}technische beschreibung des systems}{5}
+\contentsline {section}{\numberline {3}stand des projekts}{5}
+\contentsline {subsection}{\numberline {3.1}Was ist fertig?}{5}
+\contentsline {subsection}{\numberline {3.2}Verworfen}{6}
+\contentsline {subsection}{\numberline {3.3}Bekannte Bugs und Probleme}{7}
+\contentsline {subsection}{\numberline {3.4}Workload}{7}
+\contentsline {subsection}{\numberline {3.5}Arbeitsaufteilung}{7}
+\contentsline {section}{\numberline {4}Funktionsbeschreibung}{8}
+\contentsline {subsection}{\numberline {4.1}Installation und Systemvorraussetzungen}{8}
+\contentsline {subsection}{\numberline {4.2}Bedienungsanleitung}{8}
+\contentsline {subsection}{\numberline {4.3}Spielmodi}{9}
+\contentsline {subsubsection}{\numberline {4.3.1}Conway}{9}
+\contentsline {subsubsection}{\numberline {4.3.2}ColorMerge}{9}
+\contentsline {subsubsection}{\numberline {4.3.3}ColorWar}{10}
+\contentsline {subsubsection}{\numberline {4.3.4}PvP}{10}
+\contentsline {section}{\numberline {5}Sonstiges}{11}
+\contentsline {section}{\numberline {6}Reflektion}{11}

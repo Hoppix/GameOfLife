@@ -60,7 +60,10 @@
 \pagenumbering{arabic}
 \maketitle
 \centerline{\rule{1.2\linewidth}{.2pt}}
-\begin{linenumbers}
+\newpage
+\tableofcontents
+\newpage
+\newpage
 \section{Konzept}
 -GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
 Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 1970 entwickelt wurde.
@@ -294,6 +297,8 @@ Dauer eines gesamten Spiels: 1000 Generationen
 \newline
 Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zellen einer Farbe können sich aus dem Bereich des Spielers heraus und in den des Gegenspielers hinein verbreiten. Lediglich das Setzen neuer Zellen ist auf den Spielerbereich beschränkt. Jedes setzen einer Zelle, egal ob von tot zu lebendig oder von lebendig zu tot, kostet den Spieler eine seine verfügbaren Zellen. Das setzen von Presets kostet den Spieler so viele Zellen, wie das Preset lebendige Zellen beinhaltet. Hat ein Spieler nicht genug verfügbare Zellen für ein Preset wird dieses nur zum Teil geladen.
 
+\section{Sonstiges}
+\subsection{Verwendete Programme}
 % MISC
 % Kommentierung der verwendeten Programmierumgebung(en)
 % TODO git over svn
@@ -303,6 +308,12 @@ Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zelle
 	- gimp
 	- texmaker
 	- GanttProject 2.7.1
+
+\subsection{VCS}
+	
+\subsection{Statistiken}
+
+\section{Reflektion}
 % Hinweis auf Probleme, die zu lösen waren
 - Funktionsweise Java.AWT.Graphics war komisch
 % Kommentierung interessanter Java-Klassen, die benutzt wurden
@@ -312,11 +323,4 @@ Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zelle
 - wir haben uns die Definition von Game of Life angelesen
 	- Implementierung, Datentypen und Darstellung wurden selber erarbeitet
 
-% DOKUMENT MUSS ENTHALTEN
-% Überschrift oder Kopfzeile: PTP 2017
-% Titel: (z.B. Projekt "Monopoly")
-% Autor(en)
-% atum der Erstellung / Änderung(en)
-
-\end{linenumbers}
 \end{document}
