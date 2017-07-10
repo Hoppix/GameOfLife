@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.25)  10 JUL 2017 15:22
 entering extended mode
 **./docpaper.tex
 (docpaper.tex
@@ -804,23 +804,44 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `docpaper.toc'.
 
- [2] [3] [4] [5] [6] [7]
-[8] [9] [10] [11] (docpaper.aux) ) 
+ [2] [3] [4] [5]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 195.
+
+
+("D:\Programme\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 195.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 203.
+
+
+("D:\Programme\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [6] [7] [8] [9] [10]
+[11] [12] [13] (docpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 7706 strings out of 493335
- 108817 string characters out of 3140980
+ 7764 strings out of 493335
+ 109760 string characters out of 3140980
  238766 words of memory out of 3000000
- 10964 multiletter control sequences out of 15000+200000
- 54096 words of font info for 99 fonts, out of 3000000 for 9000
+ 11018 multiletter control sequences out of 15000+200000
+ 54232 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,6n,40p,877b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/l
-m-ec.enc}<D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programm
-e/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/typ
-e1/public/lm/lmr17.pfb>
-Output written on docpaper.pdf (11 pages, 111106 bytes).
+{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
+c.enc}{D:/Programme/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Programme/M
+iKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1
+/public/lm/lmr12.pfb><D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><
+D:/Programme/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><D:/Programme/MiKTeX 2
+.9/fonts/type1/public/lm/lmtt12.pfb>
+Output written on docpaper.pdf (13 pages, 140458 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 14337 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 14849 words of extra memory for PDF output out of 17280 (max. 10000000)
 

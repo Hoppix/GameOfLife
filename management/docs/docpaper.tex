@@ -64,6 +64,7 @@
 \tableofcontents
 \newpage
 \newpage
+\newpage
 \section{Konzept}
 -GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
 Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 1970 entwickelt wurde.
@@ -199,7 +200,7 @@ Das geplante Feature Custom Ruleset wurde verworfen. Dieses hätte dem Spieler e
 \item
 Das Feature Change Gridsize ist momentan nicht nutzbar. Die Funktionalität ist bereits implementiert, jedoch ist kein Button auf der Öberfläche implementiert. Grund hierfür ist mangelnder Platz und nicht ausreichend Zeit um die GUI zu refactorn und welchen zu schaffen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
 \item
-Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus http://conwaylife.appspot.com/library die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, redoch wird der code wir einzelne Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
+Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus \url{http://conwaylife.appspot.com/library} die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, redoch wird der code wir einzelne Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
 \item
 Überlegungen zur Verbesserung der Effizienz bei der Zustandsberechnung der Zellen wurden noch nicht implementiert. Grund hierfür sind mangelnde Zeit und bereits ausreichend gute Performance der Anwendung. In zukünftigen Patches wird die Effizienz vermutlich verbessert.
 \end{itemize}
@@ -287,28 +288,52 @@ Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zelle
 
 \section{Sonstiges}
 \subsection{Verwendete Programme}
-% MISC
-% Kommentierung der verwendeten Programmierumgebung(en)
+\begin{itemize}
+\item IDEs:
+\begin{itemize}
+\item Eclipse Neon
+\item IntelliJ IDEA Ultimate 2017.1.2
+\end{itemize}
+\item Gimp 2.0
+\begin{itemize}
+\item Design der GUI-Komponenten
+\end{itemize}
+\item Texmaker
+\begin{itemize}
+\item Erstellung der Dokumentation
+\end{itemize}
+\item GanttProject 2.7.1
+\begin{itemize}
+\item PM: Erstellung des Gantt-Diagramms
+\end{itemize}
+\end{itemize}
+
 % TODO git over svn
-- verwendete Programme
-	- Eclipse Neon
-	- IntelliJ IDEA Ultimate 2017.1.2
-	- gimp
-	- texmaker
-	- GanttProject 2.7.1
+
 
 \subsection{VCS}
-	
+Entgegen der Empfehlung für Subversion haben wir uns für die Nutzung von Git in Verbindung mit Github als Open-Source Prinzip entschieden. Gründe hierfür war die Priorität eines dezentralen Cloud-Systems, welches jederzeit über jedes Endgerät erreichbar ist. Mit Git war es uns Möglich mehrere Lokale Versionen und eine Remote-Version zu haben. Da wir mit mehreren Geräten gearbeitet haben war dies ein enormer Vorteil, da wir im Falle eines Merge-Errors oder einer korrupten Remote-Repository eine der verfügbaren Local-Repositories pushen und auf einen früheren Commit backstagen konnten. Desweiteren entschieden wir uns für Git da alle Projektmitglieder fundierte Erfahrung mit Git hatten.	
 \subsection{Statistiken}
-
+\begin{itemize}
+\item Anzahl Java-Klassen: 35
+\item Java-Codezeilen: 3861
+\item Commits in der Remote-Repository: 229
+\item Anzahl Branches: 3
+\end{itemize}
 \section{Reflektion}
-% Hinweis auf Probleme, die zu lösen waren
-- Funktionsweise Java.AWT.Graphics war komisch
-% Kommentierung interessanter Java-Klassen, die benutzt wurden
-- Es wurde kein Framework verwendet
-	- alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
-% Was musste neu erarbeitet werden, wo konnten relevante Komponenten oder Beispiele genutzt werden?
-- wir haben uns die Definition von Game of Life angelesen
-	- Implementierung, Datentypen und Darstellung wurden selber erarbeitet
+\subsection{Was lief gut?}
+Zwar hat die anfängliche Planung Zeit gekostet, jedoch hat diese im weiteren Projektverlauf erhebliche Vorteile eingebracht, da einem stets bewusst war in welchem Abschnitt des Projekts man sich befand und wie gut man im Zeitplan lag. Genaue Definition der Systemarchitektur machte es einfach neue Komponenten hinzuzufügen und diese in den Programmkontext sauber einzubinden. Tägliche "Scrum-meetings" haben zusätzlich geholfen einen genauen Überblick über die Arbeitsverteilung zu haben.
+Desweiteren wurden keine sekundären Frameworks verwendet. Alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
+\subsection{Was lief suboptimal?}
+Zu Anfangs gab es einige Probleme mit der Verwendung des java.awt.Graphics-Framework, da genaue Funktionsweisen nicht ersichtlich waren. Gelöst wurde das Problem indem wir das Konzept der paintComponents-Methode aus dem DrawProject auf unser Projekt übertrugen.
+\subsection{Was musste erarbeitet werden?}
+Das Arbeiten mit ImageIcons in bezug mit lokalen Classpaths führte anfangs zu unerwarteten Ergebnissen, da die jeweilige IDE korrekt kompilierte, dies jedoch als eigenständiger Prozess zu fehlern führte, da sich die Classpaths zur eigenständigen Laufzeit änderten.
+\subsection{Was haben wir gelernt?}
+Projektmanagement in der Theorie macht wenig sinn, da die Notwendigkeit nicht greifbar ist.
+Die Gestaltung dieses Projekts gab uns die Möglichkeit nachvollziehbares Verständnis über Projektplanung zu sammeln und die Vorteile dieser zu erkennen. 
+Für die Projektmitglieder war es zudem, das erste fertiggestellte programmiertechnische Projekt, was dazu führte das sehr viel Programmiererfahrung gesammelt wurde.
+\subsection{Fazit}
+Schlussendlich ist zu sagen, dass es sehr viel Spaß gemacht hat, ein eigenes vollständiges Produkt zu entwickeln. Dadurch stieg bei uns die Motivation weitere eigene Projekte zu starten, da wir nun die Erfahrung und Zuversicht für einen erfolgreichen Projektabschluss besitzen.
+
 
 \end{document}
