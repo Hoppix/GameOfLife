@@ -106,8 +106,9 @@ höhere funktionen wäre ohne vorherige implementation der vorherigen grundfunkt
 \subsection{zeitplan}
 die sprints haben zueinander einen critical path, jedoch war theoretisch die abgabe schon nach dem abschließen der automatisierung möglich
 für die abgabe war der plan, eine woche vor deadline fertig zu sein um bei auftretenden problemen einen puffer zu haben
-
-LINK OLD GANT:PNG
+\newline
+\includegraphics{images/ganttdep.png}
+\newline
 der erste entwurf des gant diagrams
 
 wie hat sich die planung im laufe des projekt verändert?
@@ -115,9 +116,9 @@ aufgrund von fehlerhaften schätzungen wurden subfeatures und einige meilenstein
 
 demnach veränderte sich der projektverlauf
 siehe auch: was wurde verworfen
-
-
-LINK NEW GANTT
+\newline
+\includegraphics{images/gant.png}
+\newline
 letzte aktuelle version der planung
 
 \subsection{testplan}
@@ -137,10 +138,9 @@ verwaltet. Für das preloaden der species wurde ein species model entwickelt, we
 Hauptkomponente des Controller-teils stellt der Controller dar, dieser hält alle logikteile, die wiederum doe modelle halten. er hält außerdem als einziger die SVM.
 des weiteren kriegt er bei seiner erstelluing das gamegrid und das gui überreicht. daher ist er für die verwaltung zuständig, er stellt verbindung zwischen logik und gui her in dem
 er alle listener erstellt und an die buttons bindet.
-
-
-LINK CLASS DIAGRAM
-
+\newline
+\includegraphics{images/gogolClasses.png}
+\newline
 als kapselung wurden die klassen in mehrere packages unterteilt und somit ihrer funktionalität unterteile:
 frontend:
 SLiderUI
@@ -174,9 +174,9 @@ celltogglelistener
 gamemodelistener
 preloadlistener
 speedchangerlistener
-
-
-LINK PACKAGE DIAGRAMM
+\newline
+\includegraphics{images/gogolPackages.png}
+\newline
 
 \section{stand des projekts}
 % STAND DES PROJEKTS
@@ -218,28 +218,47 @@ Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der 
 % systemvorraussetzungen, installation
 \subsection{Installation und Systemvorraussetzungen}
 be stuff here
+\newpage
 \subsection{Bedienungsanleitung}
 % ggfs. Screenshots der Programmfenster
 
 Die Anwendung wird durch Ausführen der EXE (Windows) bzw. JAR (Linux) gestartet. Zu sehen ist das Anwendungsfenster.
-%manual_fullWindow.PNG
+\newline
+\includegraphics[scale=0.5]{images/manual_fullWindow.PNG}
+\newline
 Der größte teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Zelle. Zellen können durch anklicken mit dem linken Mausknopf verändert werden (siehe Spielmodi).
-%manual_gamegrid.PNG
+\newline
+\includegraphics[scale=0.6]{images/manual_gamegrid.PNG}
+\newline
 Über das Dropdown Menü "TYPE" links oben kann der Spielmodus gewechselt werden (siehe Spielmodi). Beim Wechsel des Spielmodus wird das Spielfeld gleichzeitig auch immer geleert.
-%manual_gamemode.PNG
+\newline
+\includegraphics{images/manual_gamemode.PNG}
+\newline
 Mit dem Knopf "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den Knopf "LOAD" kann ein früherer Spielstand geladen werden. Hierbei wird automatisch auf den entsprechenden Spielmodus gewechselt und ggf. die Spielfeldgröße angepasst.
-%manual_saveload.PNG
+\newline
+\includegraphics{images/manual_saveload.PNG}
+\newline
 Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
-%manual_preloadMode.PNG
+\newline
+\includegraphics{images/manual_preloadMode.PNG}
+\newline
 Auf den verschiedenen Preset-Knöpfen ist die Zellbelegung des Jeweiligen Presets angezeigt, sowie dessen Name. Durch klicken eines Preset-Knopfes wird dieses Preset ausgewählt. Wird nun eine Zelle auf dem Spielfeld geklickt, wird dort das entsprechende Preset automatisch geladen. Presets sind besondere Strukturen, die jeweils ein bestimmtes Verhalten haben.
-%manual_presets.PNG
+\newline
+\includegraphics{images/manual_presets.PNG}
+\newline
 Über die Kontrollknöpfe kann das Spiel gesteuert werden. "RANDOM" belegt alle Zellen des Spielfeldes mit zufälligen Werten (siehe Spielmodi).
 "CLEAR" leert das Spielfeld. "STEP" bringt das Spiel um eine Generation voran. "PLAY" lässt das Spiel automatisch eine bestimmte Anzahl Schritte pro Sekunde voranschreiten. "STOP" hält ein automatisch laufendes Spiel an. Im Spielmodus "PvP" ist das Verhalten der Knöpfe leicht verändert (siehe Spielmodi).
-%manual_controlButtons.PNG
-SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst werden.
-%manul_speed.PNG
-Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt
-%manual_generation.PNG
+\newline
+\includegraphics{images/manual_controlButtons.PNG}
+\newline
+SPS gibt die Anzahl Schritte an, die pro Sekunde bei einem Automatisch laufendem Spiel durchgeführt werden. Über den Slider kann die SPS angepasst 
+werden.
+\newline
+\includegraphics{images/manual_speed.PNG}
+\newline
+Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt.
+\newline
+\includegraphics{images/manual_generation.PNG}
 
 \subsection{Spielmodi}
 \subsubsection{Conway}
