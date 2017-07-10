@@ -52,9 +52,9 @@
   morekeywords={*,...}            % if you want to add more keywords to the set
 } 
 
-\title{default title}
-\author{default author \\facculty}
-\date{00/00/0000}
+\title{GOGOL: \\ Game of Game of Life}
+\author{Kolja Hopfmann \\ Jonas Sander \\ \\UHH \\ PTP 2017}
+\date{\today}
 
 \begin{document}
 \pagenumbering{arabic}
@@ -270,11 +270,20 @@ Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der 
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
 % systemvorraussetzungen, installation
 \subsection{Installation und Systemvorraussetzungen}
-be stuff here
-\newpage
+\begin{itemize}
+\item Die Anwendung steht über die Readme auf Github per Google Drive zur verfügung: \url{https://github.com/Hoppix/GameOfLife}
+\item Zur Auswahl stehen jeweils eine executable für Windows und eine executable jar file für Unix basierte Systeme.
+\item Bei Kompabilitätsproblemen mit der .exe kann zur Not auch die .jar für Windows-Systeme verwendet werden.
+\end{itemize}
+Mindestanforderungen:
+\begin{itemize}
+\item Maus oder ähnliches Zeigegerät mit Tastenfunktion
+\item Bildschirmauflösung von mindestens 1360x768
+\item Ausreichend Speicherplatz zum abspeichern von Gridzuständen
+\end{itemize}
 \subsection{Bedienungsanleitung}
 % ggfs. Screenshots der Programmfenster
-
+\shorthandoff{"}
 Die Anwendung wird durch Ausführen der EXE (Windows) bzw. JAR (Linux) gestartet. Zu sehen ist das Anwendungsfenster.
 \newline
 \includegraphics[scale=0.5]{images/manual_fullWindow.PNG}
@@ -287,7 +296,7 @@ Der größte teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Ze
 \newline
 \includegraphics{images/manual_gamemode.PNG}
 \newline
-Mit dem Knopf "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den Knopf "LOAD" kann ein früherer Spielstand geladen werden. Hierbei wird automatisch auf den entsprechenden Spielmodus gewechselt und ggf. die Spielfeldgröße angepasst.
+Mit dem Knopf  "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den Knopf "LOAD" kann ein früherer Spielstand geladen werden. Hierbei wird automatisch auf den entsprechenden Spielmodus gewechselt und ggf. die Spielfeldgröße angepasst.
 \newline
 \includegraphics{images/manual_saveload.PNG}
 \newline
@@ -312,7 +321,7 @@ werden.
 Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des Spielfeldes, einer Zufallsbelegung und beim Wechseln des Spielmodus wird die Generation auf 0 zurückgesetzt.
 \newline
 \includegraphics{images/manual_generation.PNG}
-
+\shorthandon{"}
 \subsection{Spielmodi}
 \subsubsection{Conway}
 Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren eingriff in das Spiel nach jeder Generation. Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
