@@ -62,73 +62,87 @@
 \centerline{\rule{1.2\linewidth}{.2pt}}
 \begin{linenumbers}
 \section{Konzept}
--GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
-Game of Life, welches vom britischen mathematiker John Horton Conway im jahr 1970 entwickelt wurde.
-- das grundkonzept des spiels besteht aus einem zweidimensionalen, rechteckigen gitter, wobei jedes feld in diesem gitter einer zelle entspricht
-- eine zelle kann pro generationsschritt einen von zwei zuständen haben: lebend, tot
-- der zustand einer zelle ist abhängig von den 8 nachbarn die, die zelle umgeben
-- bei einem generationsübergang wird nun der zustand einer zelle bestimmt:
-- Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
--Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
-- Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
-- Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
+Game of Life, welches vom britischen Mathematiker John Horton Conway im Jahr 1970 entwickelt wurde.
+Das Grundkonzept des Spiels besteht aus einem zweidimensionalen, rechteckigen Gitter, wobei jedes Feld in diesem Gitter einer Zelle entspricht.
+Eine Zelle kann pro Generationsschritt einen von zwei zuständen haben: lebend, tot.
+Der Zustand einer Zelle ist abhängig von den 8 Nachbarn die, die Zelle umgeben.
+Bei einem Generationsübergang wird nun der Zustand einer Zelle bestimmt:
+\begin{itemize}
+\item
+Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+\item
+Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
+\item
+Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+\item
+Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+\end{itemize}
 
-Aus diesen einfach regeln enstehen verblüffende strukturen, welche einzigartige verhaltensmuster, bishin zur turing-completeness aufweisen.
+Aus diesen einfach Regeln entstehen verblüffende Strukturen, welche einzigartige Verhaltensmuster, bis hin zur Turing-Completeness aufweisen.
 
-Die Grundidee war das entwickeln einer soliden desktop anwendung die weitere nützliche bedienfunktionen hat.
-Darüber hinaus soll das programm, neben dem standart spiel noch weitere modi zu implementieren, welche eine abwandlung des "vanilla" GoL bieten.
-Zu anfangs geplant waren:
-standard conway
-colormerge - das verschmelzen von zellen mit farbeigenschaften
-colorwar - kampf von zellen mit "teamfarben"
-probability of life - random warscheinlichkeit bei der geburt von zellen
+Die Grundidee war das entwickeln einer soliden Desktop Anwendung die weitere nützliche Bedienfunktionen hat.
+Darüber hinaus soll das Programm neben dem Standard Spiel noch weitere Modi zu implementieren, welche eine Abwandlung des "Vanilla" GoL bieten.
+Zu Anfang geplant waren:
+\begin{itemize}
+\item
+Standard Conway
+\item
+ColorMerge - das verschmelzen von Zellen mit Farbeigenschaften
+\item
+ColorWar - Kampf von Zellen mit "Teamfarben"
+\item
+Probability of Life - Random Warscheinlichkeit bei der Geburt von Zellen
+\item
+PvP -  lokaler Player versus Player Modus, welcher der Anwendung ihren eigentlichen Namen verleiht, da so aus dem Game of Life ein tatsächliches spiel für 2 Spieler entsteht
+\end{itemize}
 
-zuletzt sollte noch ein lokaler player versus player modus implementiert werden, welcher der anwendung seinen eigentlichen namen verleiht, da so auf dem game of life ein tatsächliches spiel ensteht
-
-Sinn der applikation besteht darin, aus dem game of life einen unterhaltungswert zu gewinnen und somit eine beschäftigung für zwischendurch zu schaffen
+Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert zu gewinnen und somit eine Beschäftigung für zwischendurch zu schaffen
 
 \section{Planung}
 
 \subsection{meilensteine}
-idee war es die jeweiligen features in meilensteine zu unterteilen sobald eine primitive version des spiel besteht, die meilensteine wurden dann 1:1 auf sprints aufgeteilt die alle 1 oder 2 wochen länge hatten,
-je nach vermutung der workload, so enstanden zu nächst folgende meilensteine und sprints:
--grundimplementation: 1. primitive laufende version
--automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
--rainbow: custom rules, colormerge, colorwar
--bio: probability of life
--pvp: exterminate, populate
--dokumentation
--website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
+Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mit einer primitiven Grundversion des Game of Life. Die Meilensteine wurden dann 1:1 auf Sprints mit jeweils 1 oder 2 Wochen Länge aufgeteilt, je nach geschätzter workload.  Hier raus ergaben sich zunächst die folgenden Meilensteine und Sprints:
+\begin{itemize}
+\item
+grundimplementation: 1. primitive laufende version
+\item
+automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
+\item
+rainbow: custom rules, colormerge, colorwar
+\item
+bio: probability of life
+\item
+pvp: exterminate, populate
+\item
+dokumentation
+\item
+website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
+\end{itemize}
 
-wir haben gfrundfunktionalitäten priorisiert da höhere funktionalitäten suksessiv auf niedrigere features aufbauen,
-höhere funktionen wäre ohne vorherige implementation der vorherigen grundfunktionen nicht lauffähig
+Wir haben Grundfunktionalitäten priorisiert, da höhere Funktionalitäten sukzessiv auf niedrigere Features aufbauen,
+höhere Funktionen wäre ohne vorherige Implementation der nötigen Grundfunktionen nicht lauffähig.
 
 \subsection{zeitplan}
-die sprints haben zueinander einen critical path, jedoch war theoretisch die abgabe schon nach dem abschließen der automatisierung möglich
-für die abgabe war der plan, eine woche vor deadline fertig zu sein um bei auftretenden problemen einen puffer zu haben
+Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem abschließen der Automatisierung möglich.
+Für die Abgabe war der plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
 \newline
-\includegraphics{images/ganttdep.png}
+\includegraphics[scale=0.3]{images/ganttdep.png}
 \newline
-der erste entwurf des gant diagrams
 
-wie hat sich die planung im laufe des projekt verändert?
-aufgrund von fehlerhaften schätzungen wurden subfeatures und einige meilensteine komplett entfernt oder verschoben
+Aufgrund von fehlerhaften Schätzungen wurden Subfeatures und einige Meilensteine komplett entfernt oder verschoben, wodurch sich auch der Projektverlauf veränderte (siehe auch: was wurde verworfen). Somit ergab sich letztendlich die Aktuelle Version der Planung.
 
-demnach veränderte sich der projektverlauf
-siehe auch: was wurde verworfen
 \newline
-\includegraphics{images/gant.png}
+\includegraphics[scale=0.3]{images/gant.png}
 \newline
-letzte aktuelle version der planung
 
 \subsection{testplan}
-
-tests wurden dem jeweiligen sprint zugeteilt und nach fertigstellung der features implementiert
-mit ausnahme von rainbow, dort wurde ein test first ansatz verwendet
+Tests wurden dem jeweiligen Sprint zugeteilt und nach Fertigstellung der Features implementiert,
+mit Ausnahme von Rainbow, dort wurde ein Test-First Ansatz verwendet.
 
 \subsection{technische beschreibung des systems}
 
-die systemarchitektur liegt dem MVC (Model, View, Controller)-Ansatz zugrunde:
+Der Systemarchitektur liegt der MVC (Model, View, Controller)-Ansatz zugrunde:
 Der View-teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und dieses darstellt.
 Das GUI hält das gamegrid lediglich als container und führt keine sondierenden methoden auf dem gamegrid aus.
 Als Model-Teil wurden zunächst die Zellen implementiert, diese halten keine logik sondern geben nur ihren status nach außen oder kriegen ihre eigenschaften
