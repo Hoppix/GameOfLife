@@ -186,41 +186,32 @@ Das klassische Game of Life nach Conway ist vollständig, sowie die alternativen
 Für jeden dieser Modi sind die Funktionalitäten Speichern/Laden des aktuellen Spielstandes, laden bestimmter Presets, sowie (ausgenommen für den Modus PvP) eine zufällige Initialisierung des Spielfeldes.
 \subsection{Verworfen}
 % was wurde verworfen(warum)?
+\begin{itemize}
+\item
 Der geplante Modus Propability of Life wurde verworfen. Dieser hätte beinhaltet, dass Zellen abhängig von ihrer Anzahl Nachbarn eine bestimmte Wahrscheinlichkeit haben in der nächsten Generation lebend oder tot zu sein. Das Zellverhalten wäre somit jedoch nicht mehr deterministisch. Eine Nutzung der Presets oder das eigene finden bzw. erstellen solcher wäre in diesem Modus somit unmöglich, womit der entscheidende Aspekt des Game of Life verloren gegangen wäre. Auch wenn die Idee interessant ist, hat sie keinen Bezug zu dem Game of Life und den restlichen Spielmodi.
-\newline
+\item
 Der geplante Modus PvP - Exterminate wurde verworfen. In diesem PvP Modus wäre is das Ziel gewesen möglichst viele Zellen des Gegners zu vernichten. Schon die Definition wann eine Zelle vernichtet oder einfach nur abgestorben ist gestaltet sich als schwierig und wäre für die Spieler schwer verständlich und während des Spiels nicht in realistischer Zeit nachvollziehbar.
-\newline
+\item
 Das geplante Feature Custom Ruleset wurde verworfen. Dieses hätte dem Spieler ermöglicht die Bedingungen, bei wievielen Nachbarn eine Zelle lebend oder tot sein wird anzupassen. Dadurch werden jedoch Presets nicht mehr nutzbar, da diese auf dem Verhalten nach den Conway regeln beruhen, womit ein wichtiges Feature in diesem Modus vom User nicht erwartete Ergebnisse erzeugt hätte.
-\newline
+\item
 Das Feature Change Gridsize ist momentan nicht nutzbar. Die Funktionalität ist bereits implementiert, jedoch ist kein Button auf der Öberfläche implementiert. Grund hierfür ist mangelnder Platz und nicht ausreichend Zeit um die GUI zu refactorn und welchen zu schaffen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
-\newline
+\item
 Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus http://conwaylife.appspot.com/library die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, redoch wird der code wir einzelne Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
-\newline
+\item
 Überlegungen zur Verbesserung der Effizienz bei der Zustandsberechnung der Zellen wurden noch nicht implementiert. Grund hierfür sind mangelnde Zeit und bereits ausreichend gute Performance der Anwendung. In zukünftigen Patches wird die Effizienz vermutlich verbessert.
+\end{itemize}
 
 \subsection{Bekannte Bugs und Probleme}
 % wo gibt es macken?
-Bisher sind keine Bugs bekannt. 
-\newline
-Ein bekanntes Problem ist, dass der SpeedSlider eine Exponentielle Funktion für die Geschwindigkeit verwendet. Diese liefert zwar die gewünschte Funktionalität, ist jedoch weniger intuitiv als eine Lineare Funktion. Aufgrund geringer Priorität wird diese Anpassung in zukünftigen Patches durchgeführt.
+Bisher sind keine Bugs bekannt. Ein bekanntes Problem ist, dass der SpeedSlider eine Exponentielle Funktion für die Geschwindigkeit verwendet. Diese liefert zwar die gewünschte Funktionalität, ist jedoch weniger intuitiv als eine Lineare Funktion. Aufgrund geringer Priorität wird diese Anpassung in zukünftigen Patches durchgeführt.
 \subsection{Workload}
 % wie war die workload?
-Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig.
-\newline
-Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
+Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig. Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
 \subsection{Arbeitsaufteilung}
 % aufteilung in der gruppe
-Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt:
-\newline
-Projektplanung, Implementierung der Klassen Controller und Referee
-\newline
-Die folgenden Aufgaben wurden von Kolja Hopfmann übernommen:
-\newline
-Projektmanagement, Implementierung der Packages Frontend und Listener, Implementierung der Klasse Player und des Commandhandling im Backend
-\newline
-Die folgenden Aufgaben wurden von Jonas Sander übernommen:
-\newline
-Implementierung der Packages Testing, Cells und Library, sowie die Implementierung der Klassen Saver und Ruler im Backend.
+Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt: Projektplanung, Implementierung der Klassen Controller und Referee.
+Die folgenden Aufgaben wurden von Kolja Hopfmann übernommen: Projektmanagement, Implementierung der Packages Frontend und Listener, Implementierung der Klasse Player und des Commandhandling im Backend.
+Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der Packages Testing, Cells und Library, sowie die Implementierung der Klassen Saver und Ruler im Backend.
 \section{Funktionsbeschreibung}
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
@@ -252,24 +243,17 @@ Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des 
 
 \subsection{Spielmodi}
 \subsubsection{Conway}
-Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren eingriff in das Spiel nach jeder Generation.
-\newline
-Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
-\newline
-- Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
-\newline
-- Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Isolation.
-\newline
-- Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
-\newline
-- Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
-\newline
+Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren eingriff in das Spiel nach jeder Generation. Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
+\begin{itemize}
+\item Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+\item Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Isolation.
+\item Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+\item Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+\end{itemize}
 Ein klick auf eine Zelle änderte den Status der Zelle zwischen lebendig und tot. Tote Zellen sind dunkel grau, lebendige Zellen sind weiß.
 
 \subsubsection{ColorMerge}
-In diesem Spielmodus erhält jede Zelle zusätzlich eine Farbe. Ob eine Zelle lebendig oder tot ist wird nach den selben Regeln wie im Spielmodus "Conway" bestimmt. Die Farbe einer neu geborenen Zelle berechnet sich durch den Mittelwert der Farben ihrer Nachbarzellen.
-\newline
-Durch klick auf eine Zelle wird ihr Status wie Folgt geändert:
+In diesem Spielmodus erhält jede Zelle zusätzlich eine Farbe. Ob eine Zelle lebendig oder tot ist wird nach den selben Regeln wie im Spielmodus "Conway" bestimmt. Die Farbe einer neu geborenen Zelle berechnet sich durch den Mittelwert der Farben ihrer Nachbarzellen. Durch klick auf eine Zelle wird ihr Status wie Folgt geändert:
 \newline
 tot => lebendig, rot => lebendig, grün => lebendig, blau => tot => ...
 \newline
@@ -286,12 +270,16 @@ Der Knopf "RANDOM" weist jeder Zelle zufällig einen Status lebendig oder tot zu
 
 \subsubsection{PvP}
 Dieser Spielmodus konvertiert Conways Game of Life in ein tatsächliches 2-Spieler-Spiel und ist Namensgeber für die Applikation GOGOL (Game of Game of Life). "PvP" beruht auf dem Spielmodus "ColorWar". Hier gibt es nun jedoch einen roten Spieler und einen blauen Spieler. Jeder Spieler hat einen in seiner Farbe markierten Bereich. Jeder Spieler kann Zellen nur innerhalb seines Bereiches und in seiner eigenen Farbe setzen.Das Laden von Presets ist möglich, jedoch werden diese abgeschnitten, wenn sie über den Bereich des Spielers hinaus gehen. Jeder Spieler verfügt bei Spielstart über eine bestimmte Anzahl Zellen. Nach einem Spielzyklus erhält jeder Spieler neue Zellen, die er vor beginn des nächsten Spielzyklus setzen darf. Der Spieler, der bei Spielende mehr lebendige Zellen in seiner Farbe auf dem Spielfeld hat gewinnt.
-\newline
+\begin{itemize}
+\item
 Zellen bei Spielstart: 100 Zellen
+\item
 Neue Zellen pro Spielzyklus: 50 Zellen
+\item
 Dauer eines Spielzyklus: 100 Generationen
+\item
 Dauer eines gesamten Spiels: 1000 Generationen
-\newline
+\end{itemize}
 Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zellen einer Farbe können sich aus dem Bereich des Spielers heraus und in den des Gegenspielers hinein verbreiten. Lediglich das Setzen neuer Zellen ist auf den Spielerbereich beschränkt. Jedes setzen einer Zelle, egal ob von tot zu lebendig oder von lebendig zu tot, kostet den Spieler eine seine verfügbaren Zellen. Das setzen von Presets kostet den Spieler so viele Zellen, wie das Preset lebendige Zellen beinhaltet. Hat ein Spieler nicht genug verfügbare Zellen für ein Preset wird dieses nur zum Teil geladen.
 
 % MISC
