@@ -69,7 +69,7 @@
 GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
 Game of Life, welches vom britischen Mathematiker John Horton Conway im Jahr 1970 entwickelt wurde.
 Das Grundkonzept des Spiels besteht aus einem zweidimensionalen, rechteckigen Gitter, wobei jedes Feld in diesem Gitter einer Zelle entspricht.
-Eine Zelle kann pro Generationsschritt einen von zwei zuständen haben: lebend, tot.
+Eine Zelle kann pro Generationsschritt einen von zwei Zuständen haben: lebend oder tot.
 Der Zustand einer Zelle ist abhängig von den 8 Nachbarn die, die Zelle umgeben.
 Bei einem Generationsübergang wird nun der Zustand einer Zelle bestimmt:
 \begin{itemize}
@@ -84,8 +84,7 @@ Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneratio
 \end{itemize}
 
 Aus diesen einfach Regeln entstehen verblüffende Strukturen, welche einzigartige Verhaltensmuster, bis hin zur Turing-Completeness aufweisen.
-
-Die Grundidee war das entwickeln einer soliden Desktop Anwendung die weitere nützliche Bedienfunktionen hat.
+Die Grundidee war das Entwickeln einer soliden Desktop Anwendung die weitere nützliche Bedienfunktionen hat.
 Darüber hinaus soll das Programm neben dem Standard Spiel noch weitere Modi zu implementieren, welche eine Abwandlung des "Vanilla" GoL bieten.
 Zu Anfang geplant waren:
 \begin{itemize}
@@ -101,35 +100,35 @@ Probability of Life - Random Warscheinlichkeit bei der Geburt von Zellen
 PvP -  lokaler Player versus Player Modus, welcher der Anwendung ihren eigentlichen Namen verleiht, da so aus dem Game of Life ein tatsächliches spiel für 2 Spieler entsteht
 \end{itemize}
 
-Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert zu gewinnen und somit eine Beschäftigung für zwischendurch zu schaffen
+Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert zu gewinnen und somit eine Beschäftigung für zwischendurch zu schaffen.
 
 \section{Planung}
 
-\subsection{meilensteine}
-Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mit einer primitiven Grundversion des Game of Life. Die Meilensteine wurden dann 1:1 auf Sprints mit jeweils 1 oder 2 Wochen Länge aufgeteilt, je nach geschätzter workload.  Hier raus ergaben sich zunächst die folgenden Meilensteine und Sprints:
+\subsection{Meilensteine}
+Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mit einer primitiven Grundversion des Game of Life. Die Meilensteine wurden dann 1:1 auf Sprints mit jeweils 1 oder 2 Wochen Länge aufgeteilt, je nach geschätzter Workload.  Hier raus ergaben sich zunächst die folgenden Meilensteine und Sprints:
 \begin{itemize}
 \item
-grundimplementation: 1. primitive laufende version
+Grundimplementation: 1. primitive laufende Version
 \item
-automatisierung: qol- features wie: play/stop, speedregler, load/save, preloaden von strukturen sog. species
+Automatisierung: GoL- Features wie: play/stop, speedregler, load/save, preloaden von Strukturen sog. Species
 \item
-rainbow: custom rules, colormerge, colorwar
+Rainbow: Custom Rules, ColorMerge, ColorWar
 \item
-bio: probability of life
+Bio: Probability of Life
 \item
-pvp: exterminate, populate
+PvP: Exterminate, Populate
 \item
-dokumentation
+Dokumentation
 \item
-website: deployment einer einfachen webseite zum hosten der anwendung als web-applet oder bereitstellen zum download
+Website: Deployment einer einfachen Webseite zum hosten der Anwendung als Web-Applet oder bereitstellen zum Download
 \end{itemize}
 
 Wir haben Grundfunktionalitäten priorisiert, da höhere Funktionalitäten sukzessiv auf niedrigere Features aufbauen,
 höhere Funktionen wäre ohne vorherige Implementation der nötigen Grundfunktionen nicht lauffähig.
 
-\subsection{zeitplan}
-Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem abschließen der Automatisierung möglich.
-Für die Abgabe war der plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
+\subsection{Zeitplan}
+Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem Abschließen der Automatisierung möglich.
+Für die Abgabe war der Plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth, height=100px]{images/ganttdep.png}
@@ -141,22 +140,23 @@ Aufgrund von fehlerhaften Schätzungen wurden Subfeatures und einige Meilenstein
 \includegraphics[width=1\textwidth, height=100px]{images/gant.png}
 \end{figure}
 
-\subsection{testplan}
+\subsection{Testplan}
 Tests wurden dem jeweiligen Sprint zugeteilt und nach Fertigstellung der Features implementiert,
 mit Ausnahme von Rainbow, dort wurde ein Test-First Ansatz verwendet.
 
-\subsection{technische beschreibung des systems}
+\subsection{Technische Beschreibung des Systems}
 
 Der Systemarchitektur liegt der MVC (Model, View, Controller)-Ansatz zugrunde:
 Der View-Teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und von diesem dargestellt wird.
 Das GUI hält das Gamegrid lediglich als Container und führt keine sondierenden Methoden auf dem Gamegrid aus.
 Als Model-Teil wurden zunächst die Zellen implementiert, diese halten nur die nötige Logik um sich selber zu verwalten und ein korrektes Modell darzustellen. Die Zellen werden dann in einem 2 dimensionalen Array, der Survivalmatrix, gesetzt. Des Weiteren gibt es ein Regelwerk hier: Der Ruler hält alle Methoden der Spielregeln und gibt das Zellverhalten vor, welche vom Controller dann verwendet werden. Für den PvP Modus ist ein Referee zuständig der die 2-Spieler Reglen verwaltet. Für das Preloaden der Species wurde ein Species Model entwickelt, welches die Eigenschaften für die SVM hält und in einer Specieslibrary verwaltet wird. Der Preloader wendet diese auf die SVM an.
 Hauptkomponente des Controller-Teils stellt der Controller dar, dieser hält alle Logikteile, die wiederum die Modelle halten. Er hält außerdem als einziger die SVM.
-Des weiteren kriegt er bei seiner Erstelluing das Gamegrid und das GUI überreich, daher ist er für die Verwaltung zuständig und stellt die Verbindung zwischen Logik und GUI her, indem er alle Listener erstellt und an die Buttons bindet.
+Des Weiteren kriegt er bei seiner Erstelluing das Gamegrid und das GUI überreicht, daher ist er für die Verwaltung zuständig und stellt die Verbindung zwischen Logik und GUI her, indem er alle Listener erstellt und an die Buttons bindet.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth, height=150px]{images/gogolClasses.png}
 \end{figure}
+\newpage
 Als Kapselung wurden die Klassen in mehrere Packages entsprechend ihrer Funktionalität unterteilt:
 \begin{itemize}
 \item
@@ -177,53 +177,53 @@ PaintImage
 backend
 \begin{itemize}
 \item
-command
+Command
 \item
-controller
+Controller
 \item
-player
+Player
 \item
-referee
+Referee
 \item
-ruler
+Ruler
 \item
-saver
+Saver
 \end{itemize}
 \item
-cells
+Cells
 \begin{itemize}
 \item
-cell
+Cell
 \item
-coloredcell
+Coloredcell
 \item
-conwaycell
+Conwaycell
 \item
-pvpcell
+PvPCell
 \end{itemize}
 \item
-library
+Library
 \begin{itemize}
 \item
-preloader
+Preloader
 \item
-species
+Species
 \item
-specieslibrary
+Specieslibrary
 \end{itemize}
 \item
-listener
+Listener
 \begin{itemize}
 \item
-buttonlistener
+Buttonlistener
 \item
-celltogglelistener
+Celltogglelistener
 \item
-gamemodelistener
+Gamemodelistener
 \item
-preloadlistener
+Preloadlistener
 \item
-speedchangerlistener
+Speedchangerlistener
 \end{itemize}
 \end{itemize}
 \begin{figure}[ht]
@@ -231,35 +231,35 @@ speedchangerlistener
 \includegraphics[width=1\textwidth, height=150px]{images/gogolPackages.png}
 \end{figure}
 
-\section{stand des projekts}
+\section{Stand des projekts}
 % STAND DES PROJEKTS
 \subsection{Was ist fertig?}
 % was ist fertig?
 Das klassische Game of Life nach Conway ist vollständig, sowie die alternativen Spielmodi ColorMerge, ColorWar und PvP.
-Für jeden dieser Modi sind die Funktionalitäten Speichern/Laden des aktuellen Spielstandes, laden bestimmter Presets, sowie (ausgenommen für den Modus PvP) eine zufällige Initialisierung des Spielfeldes.
+Für jeden dieser Modi sind die Funktionalitäten Speichern/Laden des aktuellen Spielstandes, laden bestimmter Presets, sowie (ausgenommen für den Modus PvP) eine zufällige Initialisierung des Spielfeldes verfügbar.
 \subsection{Verworfen}
 % was wurde verworfen(warum)?
 \begin{itemize}
 \item
 Der geplante Modus Propability of Life wurde verworfen. Dieser hätte beinhaltet, dass Zellen abhängig von ihrer Anzahl Nachbarn eine bestimmte Wahrscheinlichkeit haben in der nächsten Generation lebend oder tot zu sein. Das Zellverhalten wäre somit jedoch nicht mehr deterministisch. Eine Nutzung der Presets oder das eigene finden bzw. erstellen solcher wäre in diesem Modus somit unmöglich, womit der entscheidende Aspekt des Game of Life verloren gegangen wäre. Auch wenn die Idee interessant ist, hat sie keinen Bezug zu dem Game of Life und den restlichen Spielmodi.
 \item
-Der geplante Modus PvP - Exterminate wurde verworfen. In diesem PvP Modus wäre is das Ziel gewesen möglichst viele Zellen des Gegners zu vernichten. Schon die Definition wann eine Zelle vernichtet oder einfach nur abgestorben ist gestaltet sich als schwierig und wäre für die Spieler schwer verständlich und während des Spiels nicht in realistischer Zeit nachvollziehbar.
+Der geplante Modus PvP - Exterminate wurde verworfen. In diesem PvP Modus wäre das Ziel gewesen möglichst viele Zellen des Gegners zu vernichten. Schon die Definition wann eine Zelle vernichtet oder einfach nur abgestorben ist gestaltet sich als schwierig und wäre für die Spieler schwer verständlich und während des Spiels nicht in realistischer Zeit nachvollziehbar.
 \item
-Das geplante Feature Custom Ruleset wurde verworfen. Dieses hätte dem Spieler ermöglicht die Bedingungen, bei wievielen Nachbarn eine Zelle lebend oder tot sein wird anzupassen. Dadurch werden jedoch Presets nicht mehr nutzbar, da diese auf dem Verhalten nach den Conway regeln beruhen, womit ein wichtiges Feature in diesem Modus vom User nicht erwartete Ergebnisse erzeugt hätte.
+Das geplante Feature Custom Ruleset wurde verworfen. Dieses hätte dem Spieler ermöglicht die Bedingungen, bei wie vielen Nachbarn eine Zelle lebend oder tot sein wird anzupassen. Dadurch werden jedoch Presets nicht mehr nutzbar, da diese auf dem Verhalten nach den Conway regeln beruhen, womit ein wichtiges Feature in diesem Modus vom User nicht erwartete Ergebnisse erzeugt hätte.
 \item
-Das Feature Change Gridsize ist momentan nicht nutzbar. Die Funktionalität ist bereits implementiert, jedoch ist kein Button auf der Öberfläche implementiert. Grund hierfür ist mangelnder Platz und nicht ausreichend Zeit um die GUI zu refactorn und welchen zu schaffen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
+Das Feature Change Gridsize ist momentan nicht nutzbar. Die Funktionalität ist bereits implementiert, jedoch ist kein Button auf der Oberfläche implementiert. Grund hierfür ist mangelnder Platz und nicht ausreichend Zeit um die GUI zu refactorn und welchen zu schaffen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
 \item
-Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus \url{http://conwaylife.appspot.com/library} die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, redoch wird der code wir einzelne Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
+Das geplante großflächige Bereitstellen von Presets ist momentan noch nicht nutzbar. Geplant war aus \url{http://conwaylife.appspot.com/library} die bekannten Presets per Webscraping auszulesen. Dies ist erfolgreich implementiert, jedoch wird der Code von einzelnen Presets nicht korrekt interpretiert, wodurch diese falsch dargestellt werden.  Des Weiteren gestaltet es sich schwer die große Menge an Presets für den User übersichtlich darzustellen. In zukünftigen Patches wird dieses Feature vermutlich aufgenommen.
 \item
 Überlegungen zur Verbesserung der Effizienz bei der Zustandsberechnung der Zellen wurden noch nicht implementiert. Grund hierfür sind mangelnde Zeit und bereits ausreichend gute Performance der Anwendung. In zukünftigen Patches wird die Effizienz vermutlich verbessert.
 \end{itemize}
 
 \subsection{Bekannte Bugs und Probleme}
 % wo gibt es macken?
-Bisher sind keine Bugs bekannt. Ein bekanntes Problem ist, dass der SpeedSlider eine Exponentielle Funktion für die Geschwindigkeit verwendet. Diese liefert zwar die gewünschte Funktionalität, ist jedoch weniger intuitiv als eine Lineare Funktion. Aufgrund geringer Priorität wird diese Anpassung in zukünftigen Patches durchgeführt.
+Bisher sind keine Bugs bekannt. Ein bekanntes Problem ist, dass der SpeedSlider eine Exponentielle Funktion für die Geschwindigkeit verwendet. Diese liefert zwar die gewünschte Funktionalität, ist jedoch weniger intuitiv als eine Lineare Funktion. Aufgrund geringer Priorität wird diese Anpassung in zukünftigen Patches durchgeführt. Des Weiteren werden im Modus PvP wichtige Daten noch nicht dargestellt, was ebenfalls in zukünftigen Patches eingebunden wird.
 \subsection{Workload}
 % wie war die workload?
-Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig. Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
+Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen Projektmitglied geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig. Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
 \subsection{Arbeitsaufteilung}
 % aufteilung in der gruppe
 Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt: Projektplanung, Implementierung der Klassen Controller und Referee.
@@ -271,8 +271,8 @@ Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der 
 % systemvorraussetzungen, installation
 \subsection{Installation und Systemvorraussetzungen}
 \begin{itemize}
-\item Die Anwendung steht über die Readme auf Github per Google Drive zur verfügung: \url{https://github.com/Hoppix/GameOfLife}
-\item Zur Auswahl stehen jeweils eine executable für Windows und eine executable jar file für Unix basierte Systeme.
+\item Die Anwendung steht über die Readme auf Github per Google Drive zur Verfügung: \url{https://github.com/Hoppix/GameOfLife}
+\item Zur Auswahl stehen jeweils eine Executable für Windows und eine executable jar file für Unix basierte Systeme.
 \item Bei Kompabilitätsproblemen mit der .exe kann zur Not auch die .jar für Windows-Systeme verwendet werden.
 \end{itemize}
 Mindestanforderungen:
@@ -288,7 +288,7 @@ Die Anwendung wird durch Ausführen der EXE (Windows) bzw. JAR (Linux) gestartet
 \newline
 \includegraphics[scale=0.5]{images/manual_fullWindow.PNG}
 \newline
-Der größte teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Zelle. Zellen können durch anklicken mit dem linken Mausknopf verändert werden (siehe Spielmodi).
+Der größte Teil ist das Spielfeld. Jedes Quadrat auf dem Spielfeld ist eine Zelle. Zellen können durch anklicken mit dem linken Mausknopf verändert werden (siehe Spielmodi).
 \newline
 \includegraphics[scale=0.6]{images/manual_gamegrid.PNG}
 \newline
@@ -389,24 +389,24 @@ Ungenutzte Zellen können in den nächsten Spielzyklus mitgenommen werden. Zelle
 
 
 \subsection{VCS}
-Entgegen der Empfehlung für Subversion haben wir uns für die Nutzung von Git in Verbindung mit Github als Open-Source Prinzip entschieden. Gründe hierfür war die Priorität eines dezentralen Cloud-Systems, welches jederzeit über jedes Endgerät erreichbar ist. Mit Git war es uns Möglich mehrere Lokale Versionen und eine Remote-Version zu haben. Da wir mit mehreren Geräten gearbeitet haben war dies ein enormer Vorteil, da wir im Falle eines Merge-Errors oder einer korrupten Remote-Repository eine der verfügbaren Local-Repositories pushen und auf einen früheren Commit backstagen konnten. Desweiteren entschieden wir uns für Git da alle Projektmitglieder fundierte Erfahrung mit Git hatten.	
+Entgegen der Empfehlung für Subversion haben wir uns für die Nutzung von Git in Verbindung mit Github als Open-Source Prinzip entschieden. Gründe hierfür war die Priorität eines dezentralen Cloud-Systems, welches jederzeit über jedes Endgerät erreichbar ist. Mit Git war es uns Möglich mehrere Lokale Versionen und eine Remote-Version zu haben. Da wir mit mehreren Geräten gearbeitet haben war dies ein enormer Vorteil, da wir im Falle eines Merge-Errors oder einer korrupten Remote-Repository eine der verfügbaren Local-Repositories pushen und auf einen früheren Commit backstagen konnten. Des Weiteren entschieden wir uns für Git da alle Projektmitglieder fundierte Erfahrung mit Git hatten.	
 \subsection{Statistiken}
 \begin{itemize}
 \item Anzahl Java-Klassen: 35
 \item Java-Codezeilen: 3861
-\item Commits in der Remote-Repository: 229
+\item Commits in der Remote-Repository: 239
 \item Anzahl Branches: 3
 \end{itemize}
 \section{Reflektion}
 \subsection{Was lief gut?}
 Zwar hat die anfängliche Planung Zeit gekostet, jedoch hat diese im weiteren Projektverlauf erhebliche Vorteile eingebracht, da einem stets bewusst war in welchem Abschnitt des Projekts man sich befand und wie gut man im Zeitplan lag. Genaue Definition der Systemarchitektur machte es einfach neue Komponenten hinzuzufügen und diese in den Programmkontext sauber einzubinden. Tägliche "Scrum-meetings" haben zusätzlich geholfen einen genauen Überblick über die Arbeitsverteilung zu haben.
-Desweiteren wurden keine sekundären Frameworks verwendet. Alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
+Des Weiteren wurden keine sekundären Frameworks verwendet. Alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
 \subsection{Was lief suboptimal?}
-Zu Anfangs gab es einige Probleme mit der Verwendung des java.awt.Graphics-Framework, da genaue Funktionsweisen nicht ersichtlich waren. Gelöst wurde das Problem indem wir das Konzept der paintComponents-Methode aus dem DrawProject auf unser Projekt übertrugen.
+Zu Anfang gab es einige Probleme mit der Verwendung des java.awt.Graphics-Framework, da genaue Funktionsweisen nicht ersichtlich waren. Gelöst wurde das Problem indem wir das Konzept der paintComponents-Methode aus dem DrawProject auf unser Projekt übertrugen.
 \subsection{Was musste erarbeitet werden?}
-Das Arbeiten mit ImageIcons in bezug mit lokalen Classpaths führte anfangs zu unerwarteten Ergebnissen, da die jeweilige IDE korrekt kompilierte, dies jedoch als eigenständiger Prozess zu fehlern führte, da sich die Classpaths zur eigenständigen Laufzeit änderten.
+Das Arbeiten mit ImageIcons in Bezug mit lokalen Classpaths führte anfangs zu unerwarteten Ergebnissen, da die jeweilige IDE korrekt kompilierte, dies jedoch als eigenständiger Prozess zu Fehlern führte, da sich die Classpaths zur eigenständigen Laufzeit änderten.
 \subsection{Was haben wir gelernt?}
-Projektmanagement in der Theorie macht wenig sinn, da die Notwendigkeit nicht greifbar ist.
+Projektmanagement in der Theorie macht wenig Sinn, da die Notwendigkeit nicht greifbar ist.
 Die Gestaltung dieses Projekts gab uns die Möglichkeit nachvollziehbares Verständnis über Projektplanung zu sammeln und die Vorteile dieser zu erkennen. 
 Für die Projektmitglieder war es zudem, das erste fertiggestellte programmiertechnische Projekt, was dazu führte das sehr viel Programmiererfahrung gesammelt wurde.
 \subsection{Fazit}
