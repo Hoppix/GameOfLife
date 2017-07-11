@@ -65,6 +65,7 @@
 \newpage
 \newpage
 \newpage
+\shorthandoff{"}
 \section{Konzept}
 GOGOL (kurz für Game of Game of Life) ist eine Desktop Applikation für das berühmte nullspieler-spiel
 Game of Life, welches vom britischen Mathematiker John Horton Conway im Jahr 1970 entwickelt wurde.
@@ -76,16 +77,15 @@ Bei einem Generationsübergang wird nun der Zustand einer Zelle bestimmt:
 \item
 Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
 \item
-Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an isolation.
+Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Isolation.
 \item
 Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
 \item
 Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
 \end{itemize}
-
 Aus diesen einfach Regeln entstehen verblüffende Strukturen, welche einzigartige Verhaltensmuster, bis hin zur Turing-Completeness aufweisen.
 Die Grundidee war das Entwickeln einer soliden Desktop Anwendung die weitere nützliche Bedienfunktionen hat.
-Darüber hinaus soll das Programm neben dem Standard Spiel noch weitere Modi zu implementieren, welche eine Abwandlung des "Vanilla" GoL bieten.
+Darüber hinaus soll das Programm neben dem Standard Spiel noch weitere Modi implementieren, welche eine Abwandlung des "Vanilla" GoL bieten.
 Zu Anfang geplant waren:
 \begin{itemize}
 \item
@@ -99,7 +99,6 @@ Probability of Life - Random Warscheinlichkeit bei der Geburt von Zellen
 \item
 PvP -  lokaler Player versus Player Modus, welcher der Anwendung ihren eigentlichen Namen verleiht, da so aus dem Game of Life ein tatsächliches spiel für 2 Spieler entsteht
 \end{itemize}
-
 Sinn der Applikation besteht darin, aus dem Game of Life einen Unterhaltungswert zu gewinnen und somit eine Beschäftigung für zwischendurch zu schaffen.
 
 \section{Planung}
@@ -110,7 +109,7 @@ Idee war es die jeweiligen Features in Meilensteine zu unterteilen, beginnend mi
 \item
 Grundimplementation: 1. primitive laufende Version
 \item
-Automatisierung: GoL- Features wie: play/stop, speedregler, load/save, preloaden von Strukturen sog. Species
+Automatisierung: GoL-Features wie: play/stop, speedregler, load/save, preloaden von Strukturen sog. Species
 \item
 Rainbow: Custom Rules, ColorMerge, ColorWar
 \item
@@ -122,18 +121,16 @@ Dokumentation
 \item
 Website: Deployment einer einfachen Webseite zum hosten der Anwendung als Web-Applet oder bereitstellen zum Download
 \end{itemize}
-
 Wir haben Grundfunktionalitäten priorisiert, da höhere Funktionalitäten sukzessiv auf niedrigere Features aufbauen,
 höhere Funktionen wäre ohne vorherige Implementation der nötigen Grundfunktionen nicht lauffähig.
 
 \subsection{Zeitplan}
 Die Sprints haben zu einander einen Critical Path, jedoch war theoretisch die Abgabe schon nach dem Abschließen der Automatisierung möglich.
-Für die Abgabe war der Plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des gantt Diagramms.
-\begin{figure}[ht]
+Für die Abgabe war der Plan, eine Woche vor Deadline fertig zu sein um bei auftretenden Problemen einen Puffer zu haben, zu sehen im ursprünglichem Entwurf des Gantt-Diagramms.
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=1\textwidth, height=100px]{images/ganttdep.png}
 \end{figure}
-
 Aufgrund von fehlerhaften Schätzungen wurden Subfeatures und einige Meilensteine komplett entfernt oder verschoben, wodurch sich auch der Projektverlauf veränderte (siehe auch: was wurde verworfen). Somit ergab sich letztendlich die Aktuelle Version der Planung.
 \begin{figure}[ht]
 \centering
@@ -149,9 +146,9 @@ mit Ausnahme von Rainbow, dort wurde ein Test-First Ansatz verwendet.
 Der Systemarchitektur liegt der MVC (Model, View, Controller)-Ansatz zugrunde:
 Der View-Teil besteht aus einem GUI, sowie einem Gamegrid, welches an das GUI übergeben wird und von diesem dargestellt wird.
 Das GUI hält das Gamegrid lediglich als Container und führt keine sondierenden Methoden auf dem Gamegrid aus.
-Als Model-Teil wurden zunächst die Zellen implementiert, diese halten nur die nötige Logik um sich selber zu verwalten und ein korrektes Modell darzustellen. Die Zellen werden dann in einem 2 dimensionalen Array, der Survivalmatrix, gesetzt. Des Weiteren gibt es ein Regelwerk hier: Der Ruler hält alle Methoden der Spielregeln und gibt das Zellverhalten vor, welche vom Controller dann verwendet werden. Für den PvP Modus ist ein Referee zuständig der die 2-Spieler Reglen verwaltet. Für das Preloaden der Species wurde ein Species Model entwickelt, welches die Eigenschaften für die SVM hält und in einer Specieslibrary verwaltet wird. Der Preloader wendet diese auf die SVM an.
+Als Model-Teil wurden zunächst die Zellen implementiert, diese halten nur die nötige Logik um sich selber zu verwalten und ein korrektes Modell darzustellen. Die Zellen werden dann in einem zweidimensionalen Array, der Survivalmatrix(fort. SVM), gesetzt. Des Weiteren gibt es ein Regelwerk: Der Ruler hält alle Methoden der Spielregeln und gibt das Zellverhalten vor, welche vom Controller dann verwendet werden. Für den PvP Modus ist ein Referee zuständig der die 2-Spieler Regeln verwaltet. Für das Preloaden der Species wurde ein Species Model entwickelt, welches die Eigenschaften für die SVM hält und in einer Specieslibrary verwaltet wird. Der Preloader wendet diese auf die SVM an.
 Hauptkomponente des Controller-Teils stellt der Controller dar, dieser hält alle Logikteile, die wiederum die Modelle halten. Er hält außerdem als einziger die SVM.
-Des Weiteren kriegt er bei seiner Erstelluing das Gamegrid und das GUI überreicht, daher ist er für die Verwaltung zuständig und stellt die Verbindung zwischen Logik und GUI her, indem er alle Listener erstellt und an die Buttons bindet.
+Des Weiteren kriegt er bei seiner Erstellung das Gamegrid und das GUI überreicht, daher ist er für die Verwaltung zuständig und stellt die Verbindung zwischen Logik und GUI her, indem er alle Listener erstellt und an die Buttons bindet.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\textwidth, height=150px]{images/gogolClasses.png}
@@ -190,7 +187,7 @@ Ruler
 Saver
 \end{itemize}
 \item
-Cells
+cells
 \begin{itemize}
 \item
 Cell
@@ -262,9 +259,18 @@ Bisher sind keine Bugs bekannt. Ein bekanntes Problem ist, dass der SpeedSlider 
 Die Workload des Meilensteins "Rainbow" wurde deutlich unterschätzt. Grund hierfür waren unterschiedliche Interpretationen der Methodendefinition. Hier raus resultierten Fehler im Verständnis der vom jeweils anderen Projektmitglied geschriebenen Methoden und falsche Anwendung dieser. Anstatt einer Woche waren hier zwei Wochen nötig. Die Workload des Meilensteins "PvP" wurde überschätzt. In diesem Meilenstein konnte sein sehr großer Teil der Funktionalität auf dem Modus ColorWar aus dem vorherigem Meilenstein "Rainbow" aufgebaut werden. Anstelle der geplanten zwei Wochen wurde weniger als eine Woche benötigt.
 \subsection{Arbeitsaufteilung}
 % aufteilung in der gruppe
-Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt: Projektplanung, Implementierung der Klassen Controller und Referee.
-Die folgenden Aufgaben wurden von Kolja Hopfmann übernommen: Projektmanagement, Implementierung der Packages Frontend und Listener, Implementierung der Klasse Player und des Commandhandling im Backend.
-Die folgenden Aufgaben wurden von Jonas Sander übernommen: Implementierung der Packages Testing, Cells und Library, sowie die Implementierung der Klassen Saver und Ruler im Backend.
+Die folgenden Aufgaben wurden von Kolja Hopfmann und Jonas Sander gemeinsam durchgeführt:
+\begin{itemize}
+\item Projektplanung, Implementierung der Klassen Controller und Referee.
+\end{itemize}
+Die folgenden Aufgaben wurden von Kolja Hopfmann übernommen:
+\begin{itemize}
+\item Projektmanagement, Implementierung der Packages Frontend und Listener, Implementierung der Klasse Player und des Commandhandling im Backend.
+\end{itemize}
+Die folgenden Aufgaben wurden von Jonas Sander übernommen:
+\begin{itemize}
+\item Implementierung der Packages Testing, Cells und Library, sowie die Implementierung der Klassen Saver und Ruler im Backend.
+\end{itemize}
 \section{Funktionsbeschreibung}
 % FUNKTIONSBESCHREIBUNG
 % kurze Bedienungsanleitung (Start, Ende, wichtige Menüs, Parameter, Vorgehensweise, ...)
@@ -300,7 +306,7 @@ Mit dem Knopf  "SAVE" kann der aktuelle Spielstand gespeichert werden. Über den
 \newline
 \includegraphics{images/manual_saveload.PNG}
 \newline
-Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
+Das feld "PRELOAD: " gibt an auf welche Art Zellen momentan gesetzt werden. Toggle steht hierbei für das Setzen einer einzelnen Zelle. Ist ein Preset ausgewählt, wird dessen Name angezeigt.
 \newline
 \includegraphics{images/manual_preloadMode.PNG}
 \newline
@@ -324,7 +330,7 @@ Generation gibt die Aktuelle Zellgeneration des Spiels an. Bei jedem leeren des 
 \shorthandon{"}
 \subsection{Spielmodi}
 \subsubsection{Conway}
-Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren eingriff in das Spiel nach jeder Generation. Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
+Dieser Spielmodus bietet das originale Game of Life nach Conway mit einigen Features zur vereinfachten Benutzung. Conways Game of Life ist ein Null-Spieler-Spiel. Der Spieler kann hier das Spielfeld nur bei Beginn einmalig modifizieren und danach das Zellverhalten beobachten. In unserer Version von Game of Life ermöglichen wir auch den späteren Eingriff in das Spiel nach jeder Generation. Jede Zelle ist entweder tot oder lebendig. In jeder Generation wird für jede Zelle neu berechnet ob sie tot oder lebendig ist.
 \begin{itemize}
 \item Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
 \item Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Isolation.
@@ -402,7 +408,7 @@ Entgegen der Empfehlung für Subversion haben wir uns für die Nutzung von Git i
 Zwar hat die anfängliche Planung Zeit gekostet, jedoch hat diese im weiteren Projektverlauf erhebliche Vorteile eingebracht, da einem stets bewusst war in welchem Abschnitt des Projekts man sich befand und wie gut man im Zeitplan lag. Genaue Definition der Systemarchitektur machte es einfach neue Komponenten hinzuzufügen und diese in den Programmkontext sauber einzubinden. Tägliche "Scrum-meetings" haben zusätzlich geholfen einen genauen Überblick über die Arbeitsverteilung zu haben.
 Des Weiteren wurden keine sekundären Frameworks verwendet. Alle relevanten Klassen und Methoden wurden selber entwickelt und implementiert
 \subsection{Was lief suboptimal?}
-Zu Anfang gab es einige Probleme mit der Verwendung des java.awt.Graphics-Framework, da genaue Funktionsweisen nicht ersichtlich waren. Gelöst wurde das Problem indem wir das Konzept der paintComponents-Methode aus dem DrawProject auf unser Projekt übertrugen.
+Zu Anfang gab es einige Probleme mit der Verwendung der java.awt.Graphics-class, da genaue Funktionsweisen nicht ersichtlich waren. Gelöst wurde das Problem indem wir das Konzept der paintComponents-Methode aus dem DrawProject auf unser Projekt übertrugen.
 \subsection{Was musste erarbeitet werden?}
 Das Arbeiten mit ImageIcons in Bezug mit lokalen Classpaths führte anfangs zu unerwarteten Ergebnissen, da die jeweilige IDE korrekt kompilierte, dies jedoch als eigenständiger Prozess zu Fehlern führte, da sich die Classpaths zur eigenständigen Laufzeit änderten.
 \subsection{Was haben wir gelernt?}

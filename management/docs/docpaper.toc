@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1}Konzept}{3}
 \contentsline {section}{\numberline {2}Planung}{4}
 \contentsline {subsection}{\numberline {2.1}Meilensteine}{4}
-\contentsline {subsection}{\numberline {2.2}Zeitplan}{4}
+\contentsline {subsection}{\numberline {2.2}Zeitplan}{5}
 \contentsline {subsection}{\numberline {2.3}Testplan}{5}
 \contentsline {subsection}{\numberline {2.4}Technische Beschreibung des Systems}{5}
 \contentsline {section}{\numberline {3}Stand des projekts}{8}
@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {3.3}Bekannte Bugs und Probleme}{10}
 \contentsline {subsection}{\numberline {3.4}Workload}{10}
 \contentsline {subsection}{\numberline {3.5}Arbeitsaufteilung}{10}
-\contentsline {section}{\numberline {4}Funktionsbeschreibung}{10}
-\contentsline {subsection}{\numberline {4.1}Installation und Systemvorraussetzungen}{10}
+\contentsline {section}{\numberline {4}Funktionsbeschreibung}{11}
+\contentsline {subsection}{\numberline {4.1}Installation und Systemvorraussetzungen}{11}
 \contentsline {subsection}{\numberline {4.2}Bedienungsanleitung}{11}
 \contentsline {subsection}{\numberline {4.3}Spielmodi}{14}
 \contentsline {subsubsection}{\numberline {4.3.1}Conway}{14}
